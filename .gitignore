@@ -133,3 +133,6 @@ dist
 /dashboard/
 /extension/
 /graphics/
+
+# vscode stuff
+.vscode/*

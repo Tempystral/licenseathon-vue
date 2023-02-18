@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-import type { ExampleReplicant } from '@nodecg-vue-ts-template/types/schemas';
+import type { ExampleReplicant } from '@licenseathon-vue/types/schemas';
 import { get as nodecg } from './nodecg';
 
 /**
