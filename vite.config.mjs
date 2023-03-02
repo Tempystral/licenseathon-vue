@@ -23,7 +23,7 @@ export default defineConfig({
         './src/dashboard/*.ts',
         './src/graphics/*.ts',
         '!**.d.ts',
-      ]),
+      ])
     },
   },
 });
