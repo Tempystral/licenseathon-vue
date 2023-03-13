@@ -1,6 +1,7 @@
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import { globbySync } from 'globby';
+import path from 'path';
 import { defineConfig } from 'vite';
 import checker from 'vite-plugin-checker';
 import NodeCGPlugin from 'vite-plugin-nodecg';
@@ -17,6 +18,12 @@ export default defineConfig({
     checker({ vueTsc: { tsconfigPath: 'tsconfig.browser.json' } }),
     NodeCGPlugin(),
   ],
+  resolve: {
+    
+    alias: {
+      "@": path.resolve(path.dirname("./"), "src")
+    }
+  },
   build: {
     rollupOptions: {
       input: globbySync([
