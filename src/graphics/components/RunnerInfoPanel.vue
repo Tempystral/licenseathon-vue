@@ -1,26 +1,22 @@
 <script setup lang="ts">
-import { useReplicant } from 'nodecg-vue-composable';
-import { RunDataActiveRun, RunDataPlayer } from 'speedcontrol-util/types';
-import { defaultRunDataPlayer } from '../util/defaults';
+import { RunDataPlayer } from 'speedcontrol-util/types';
 
-const props = defineProps<{
+defineProps<{
   player: RunDataPlayer
 }>();
-
-const runDataActiveRun = useReplicant<RunDataActiveRun>(
-  'runDataActiveRun',
-  'nodecg-speedcontrol',
-);
-
-function getRunner() {
-  if (!runDataActiveRun?.data?.teams[0]?.players[0]) return defaultRunDataPlayer;
-  return runDataActiveRun.data.teams[0].players[0];
-}
 
 </script>
 
 <template>
-
-<div> {{ getRunner() }}</div>
-
+<div class="player-container" :data-player="`${player.id}`">
+  <div class="player-name">{{ player.name }}</div>
+  <div class="player-social"> {{ player.social.twitch }}</div>
+  <div class="player-pronouns"> {{ player.pronouns }}</div>
+  <hr>
+</div>
 </template>
+
+<style lang="scss">
+@use "@/sass/style.scss";
+
+</style>

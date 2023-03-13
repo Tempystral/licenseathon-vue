@@ -1,0 +1,12 @@
+@use "../node_modules/bulma/bulma.sass" as *;
+
+.player-container {
+  background: yellow;
+}
+
+.game-container {
+  background: teal;
+  .game-extras-container {
+    border: 1px solid black;
+  }
+}

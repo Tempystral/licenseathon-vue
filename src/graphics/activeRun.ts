@@ -1,8 +1,8 @@
 import { createHead } from '@vueuse/head';
 import { createApp } from 'vue';
-import RunnerInfoPanel from './components/RunnerInfoPanel.vue';
+import ActiveRunPage from './pages/ActiveRunPage.vue';
 
-const app = createApp(RunnerInfoPanel);
+const app = createApp(ActiveRunPage);
 const head = createHead();
 app.use(head);
 app.mount('#app');
