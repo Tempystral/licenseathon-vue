@@ -1,8 +1,8 @@
 import { createHead } from '@vueuse/head';
 import { createApp } from 'vue';
-import TimerComponent from './components/TimerComponent.vue';
+import SetupPage from './pages/SetupPage.vue';
 
-const app = createApp(TimerComponent);
+const app = createApp(SetupPage);
 const head = createHead();
 app.use(head);
 app.mount('#app');
