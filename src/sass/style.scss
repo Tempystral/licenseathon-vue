@@ -1,12 +1,8 @@
 
-@use "./variables.scss" as *;
+@use "variables" as *;
 @use "../node_modules/bulma/bulma.sass" as *;
 
 html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-
-.player-container {
-  background: yellow;
 }

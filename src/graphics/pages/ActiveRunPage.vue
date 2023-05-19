@@ -40,19 +40,12 @@ const runners = computed(() => {
 
 <template>
 <div>
-  <!-- <object :data="layoutPath" ref="layoutRef" type="image/svg+xml" id="layout"></object> -->
   <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
 
-  <div class="layout-container section is-desktop columns">
-    <div id="column-left" class="column is-3">
-      <!-- Webcam panel -->
-      <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' />
-    </div>
-    <div id="column-right" class="column is-9">
-      <video class="video-player"></video>
+  <div class="layout-container">
+      <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' :ratio='ratio' :position='runners.indexOf(runner) + 1'/>
       <GameInfoPanel :run='runDataActiveRun?.data' />
       <TimerComponent />
-    </div>
   </div>
 </div>
 
@@ -62,10 +55,6 @@ const runners = computed(() => {
 body {
   background: #e2e2e4;
   overflow: hidden;
-}
-
-#race-info-panel #text {
-  font-size: 85px;
 }
 
 #layout {
@@ -79,7 +68,7 @@ body {
   top: 0;
   left: 0;
 
-  display: flex;
+  //display: flex;
   //flex-direction: row;
   // #column-left {
   //   flex-grow: 1;
@@ -88,12 +77,6 @@ body {
   // #column-right {
   //   flex-grow: 6;
   // }
-}
-
-video {
-  aspect-ratio: 16/9;
-  width: 100%;
-  background: black;
 }
 
 </style>
