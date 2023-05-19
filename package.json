@@ -27,6 +27,11 @@
     "watch:extension": "tsc -b tsconfig.extension.json -w"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
@@ -70,6 +75,11 @@
     "graphics": [
       {
         "file": "setup.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "solo_16_9.html",
         "width": 1280,
         "height": 720
       },

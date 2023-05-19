@@ -123,6 +123,7 @@
     "src/types/**/*.d.ts",
     "node_modules/nodecg-types/types/browser.d.ts",
     "node_modules/speedcontrol-util/types/index.d.ts",
-    "node_modules/vue-inline-svg/**/*/index.d.ts"
+    "node_modules/vue-inline-svg/**/*/index.d.ts",
+    "node_modules/@fortawesome/**/*/index.d.ts"
   ],
 }
