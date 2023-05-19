@@ -43,9 +43,9 @@ const runners = computed(() => {
   <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
 
   <div class="layout-container">
-      <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' :ratio='ratio' :position='runners.indexOf(runner) + 1'/>
-      <GameInfoPanel :run='runDataActiveRun?.data' />
-      <TimerComponent />
+      <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' :ratio='props.ratio' :position='runners.indexOf(runner) + 1'/>
+      <GameInfoPanel :run='runDataActiveRun?.data' :players="props.players" />
+      <TimerComponent :ratio='props.ratio' :players="props.players"/>
   </div>
 </div>
 
