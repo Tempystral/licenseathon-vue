@@ -1,19 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" fill-rule="evenodd" stroke-linecap="square" stroke-miterlimit="3" clip-rule="evenodd" viewBox="0 0 10667 6000">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linecap="square" stroke-miterlimit="3" clip-rule="evenodd" viewBox="0 0 10667 6000">
   <g id="Setup-Page">
     <g id="Setup-background">
-      <g id="Scrambled-Text-2">
-        <use xlink:href="#_Image1" width="4960.57" height="4909" x="5706.59" transform="scale(.99991 1)"/>
-        <use xlink:href="#_Image2" width="5518.33" height="5518" x="5148.95" transform="scale(.99988 1)"/>
-        <use xlink:href="#_Image3" width="6514.75" height="6000" x="4152.08" transform="scale(.99996 1)"/>
-        <use xlink:href="#_Image4" width="6514.81" height="6000" x="4151.99" transform="scale(.99997 1)"/>
-      </g>
-      <g id="Scrambled-Text">
-        <use xlink:href="#_Image5" width="4986.87" height="5541.62" x="5679.95" transform="scale(.99997 .99993)"/>
-        <use xlink:href="#_Image6" width="4394.87" height="5792.44" x="6271.98" transform="scale(.99997 .9999)"/>
-        <use xlink:href="#_Image7" width="3962.99" height="5739.01" x="6703.7" transform="scale(1 .99983)"/>
-        <use xlink:href="#_Image8" width="3208.43" height="6000" x="7459.56" transform="scale(.99982 1)"/>
-        <use xlink:href="#_Image9" width="4425.03" height="6000" x="6243" transform="scale(.99978 1)"/>
-      </g>
       <g id="curves" fill="none">
         <path stroke="#546893" stroke-width="150" d="M-0,5409.31l10666.7,-0.974"/>
         <path stroke="#1a2336" stroke-linejoin="round" stroke-width="300" d="M10666.7,889.447c-0,-0 -1298.5,1298.5 -1933.64,1933.64c-218.8,218.8 -341.717,515.56 -341.709,824.991c0.008,258.585 0.017,589.195 0.026,910.218c0.009,309.425 -122.903,606.18 -341.697,824.98c-218.793,218.799 -515.544,341.72 -824.969,341.72c-2305.68,0 -7224.67,0 -7224.67,0"/>
@@ -23,7 +10,7 @@
         <path stroke="#ea7d30" stroke-linejoin="round" stroke-width="416.67" d="M10666.7,1443.12c-0,-0 -1984.9,1984.9 -3329.1,3329.1c-667.382,667.381 -667.382,1749.42 -0,2416.8c451.721,451.721 857.286,857.286 857.286,857.286"/>
       </g>
     </g>
-    <g id="New-License-v2">
+    <g id="license">
       <path id="background" fill="#1a2336" d="M4166.67,1525c-0,-82.787 -67.213,-150 -150,-150l-3600,0l-0,2350c-0,82.787 67.212,150 150,150l3450,0c82.787,0 150,-67.213 150,-150l-0,-2200Z"/>
       <path fill="#e2e2e4" d="M4166.67,1525c-0,-82.787 -67.213,-150 -150,-150l-3600,0l-0,2350c-0,82.787 67.212,150 150,150l3450,0c82.787,0 150,-67.213 150,-150l-0,-2200Zm-16.667,0l0,2200c0,73.589 -59.745,133.333 -133.333,133.333l-3450,0c-73.589,0 -133.334,-59.744 -133.334,-133.333l0,-2333.33c0,-0 3583.33,-0 3583.33,-0c73.588,-0 133.333,59.744 133.333,133.333Z"/>
       <path fill="#1a2336" d="M4183.33,1525c0,-91.986 -74.68,-166.667 -166.666,-166.667l-3616.67,0l-0,2366.67c-0,91.986 74.681,166.667 166.667,166.667c-0,-0 3450,-0 3450,-0c91.986,-0 166.666,-74.681 166.666,-166.667c0,0 0,-2200 0,-2200Zm-16.666,0c-0,-82.787 -67.213,-150 -150,-150l-3600,0l-0,2350c-0,82.787 67.212,150 150,150l3450,0c82.787,0 150,-67.213 150,-150l-0,-2200Z"/>
@@ -49,14 +36,12 @@
           <path fill="none" stroke="#1a2336" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" stroke-width="23.08" d="M3910.87,3596.3l11.949,-28.846"/>
           <path id="Ring" fill="#1a2336" d="M3892.95,3518.41c66.866,0 121.154,54.287 121.154,121.154c-0,66.867 -54.288,121.154 -121.154,121.154c-66.867,-0 -121.154,-54.287 -121.154,-121.154c-0,-66.867 54.287,-121.154 121.154,-121.154Zm-0,23.077c54.13,0 98.077,43.947 98.077,98.077c-0,54.13 -43.947,98.077 -98.077,98.077c-54.13,0 -98.077,-43.947 -98.077,-98.077c-0,-54.13 43.947,-98.077 98.077,-98.077Z"/>
         </g>
-        <text id="estimate-text" x="2864.42" y="3680.52" fill="#1a2336" font-family="Fusion" font-size="200">0:00:35</text>
       </g>
       <g id="category-group">
         <path fill="#e2e2e4" d="M4083.33,2866.67c0,-55.192 -44.808,-100 -100,-100l-1841.67,-0c-55.192,-0 -100,44.808 -100,100l-0,300c-0,55.191 44.808,100 100,100l1841.67,-0c55.192,-0 100,-44.809 100,-100l0,-300Z"/>
         <path fill="#ea7d30" d="M3908.33,2808.33l75,75l-75,75l75,0l75,-75l-75,-75l-75,0Z"/>
         <path fill="#ea7d30" d="M3758.33,2808.33l75,75l-75,75l75,0l75,-75l-75,-75l-75,0Z"/>
         <text x="2081.08" y="2907.04" fill="#1a2336" font-family="'OCRAExtended', 'OCR A Extended', monospace" font-size="103.846">category</text>
-        <text id="category-text" x="2337.83" y="3155.52" fill="#1a2336" font-family="Fusion" font-size="200">All Courses</text>
       </g>
       <g id="player-name-group">
         <g>
@@ -64,14 +49,13 @@
             <path d="M3691.03,2366.99l50,50l50,-0l-50,-50l50,-50l-50,-0l-50,50Z"/>
             <path d="M3841.03,2366.99l50,-50l-50,-0l-50,50l50,50l50,-0l-50,-50Z"/>
           </g>
-          <path fill="none" stroke="#e2e2e4" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.09" d="M2594.87,2513.14l-0,24.047c-0,16.574 6.584,32.469 18.303,44.188c11.72,11.72 27.615,18.304 44.189,18.304c236.142,-0 1074.25,-0 1342.64,-0c46.024,-0 83.333,-37.31 83.333,-83.333c0,-20.862 0,-43.242 0,-64.103c0,-46.024 -37.309,-83.333 -83.333,-83.333c-39.512,-0 -78.205,-0 -78.205,-0"/>
+          <path fill="none" stroke="#e2e2e4" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.09" d="M2594.87,2513.14c-0,0 -0,10.43 -0,24.047c-0,16.574 6.584,32.469 18.303,44.188c11.72,11.72 27.615,18.304 44.189,18.304c236.142,-0 1074.25,-0 1342.64,-0c46.024,-0 83.333,-37.31 83.333,-83.333c0,-20.862 0,-43.242 0,-64.103c0,-46.024 -37.309,-83.333 -83.333,-83.333c-39.512,-0 -78.205,-0 -78.205,-0"/>
           <path fill="#e2e2e4" d="M2620.83,2633.33c18.398,0 33.334,14.936 33.334,33.334c-0,18.397 -14.936,33.333 -33.334,33.333c-18.397,0 -33.333,-14.936 -33.333,-33.333c0,-18.398 14.936,-33.334 33.333,-33.334Zm0,8.334c13.798,-0 25,11.202 25,25c0,13.798 -11.202,25 -25,25c-13.798,-0 -25,-11.202 -25,-25c0,-13.798 11.202,-25 25,-25Z"/>
           <circle cx="2704.17" cy="2666.67" r="33.333" fill="#e2e2e4"/>
           <circle cx="2787.5" cy="2666.67" r="33.333" fill="#546893"/>
           <path fill="#e2e2e4" d="M2787.5,2633.33c18.397,0 33.333,14.936 33.333,33.334c0,18.397 -14.936,33.333 -33.333,33.333c-18.397,0 -33.333,-14.936 -33.333,-33.333c-0,-18.398 14.936,-33.334 33.333,-33.334Zm-0,8.334c13.798,-0 25,11.202 25,25c0,13.798 -11.202,25 -25,25c-13.798,-0 -25,-11.202 -25,-25c0,-13.798 11.202,-25 25,-25Z"/>
           <text x="3725.75" y="2577.08" fill="#737b89" font-family="'OCRAExtended', 'OCR A Extended', monospace" font-size="75">runner</text>
         </g>
-        <text x="1926.34" y="2491.67" fill="#ea7d30" font-family="Fusion" font-size="175">T<tspan x="2073.11 2195.95 2318.8 2465.56 2588.41 2711.25 2858.01 2980.86 3103.7 3137.67 3260.51 3429.5 3552.34" y="2491.67 2491.67 2491.67 2491.67 2491.67 2491.67 2491.67 2491.67 2491.67 2491.67 2491.67 2491.67 2491.67">heRayReviewer</tspan></text>
       </g>
       <g id="game-name-group">
         <g>
@@ -88,7 +72,6 @@
           <circle cx="2683.33" cy="1741.73" r="33.333" fill="#e2e2e4"/>
           <path fill="none" stroke="#737b89" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.09" d="M1683.33,2210.65l0,0.007c0,26.331 21.345,47.675 47.675,47.675c172.191,0 764.715,0 1010.66,0c59.831,0 108.333,-48.502 108.333,-108.333c0,-96.45 0,-236.815 0,-333.266c-0,-59.83 -48.502,-108.333 -108.333,-108.333c-0,0 -0,0 -0,0"/>
         </g>
-        <text id="game-name-text" x="995.478" y="2134.83" fill="#ea7d30" font-family="Fusion" font-size="300">R<tspan x="1247.08 1457.67 1709.27 1919.85 2130.44" y="2134.83 2134.83 2134.83 2134.83 2134.83">eBoot</tspan></text>
       </g>
       <g id="header-license">
         <g id="header-license-right">
@@ -128,10 +111,10 @@
       <g id="JP-Text">
         <text x="1577.08" y="161.25" fill="#e2e2e4" font-family="'DelaGothicOne-Regular', 'Dela Gothic One'" font-size="125">スピードラン</text>
         <path fill="none" d="M1566.67 175H2337.503V283.333H1566.67z"/>
-        <clipPath id="_clip10">
+        <clipPath id="_clip1">
           <path d="M1566.67 175H2337.503V283.333H1566.67z"/>
         </clipPath>
-        <g clip-path="url(#_clip10)">
+        <g clip-path="url(#_clip1)">
           <g id="Hatching" fill="#e2e2e4">
             <path d="M1599.02,129.659l-7.216,-4.166l-116.667,202.072l7.217,4.167l116.666,-202.073Z"/>
             <path d="M1615.68,129.659l-7.217,-4.166l-116.666,202.072l7.216,4.167l116.667,-202.073Z"/>
@@ -223,17 +206,5 @@
         <path d="M9641.71 50H9666.71V179.167H9641.71z"/>
       </g>
     </g>
-  </g>
-  <g fill="#1a2336" font-family="Fusion" font-size="20">
-    <text x="1040.08" y="405.788" transform="translate(-26.667 680) scale(4.16667)">MAKE THIS LICENSE A LITTLE</text>
-    <text x="1040.08" y="427.546" transform="translate(-26.667 680) scale(4.16667)">TALLER, ADD IN THE SPECIAL</text>
-    <text x="1040.08" y="449.304" transform="translate(-26.667 680) scale(4.16667)">BORDERED ELEMENT FROM THE</text>
-    <text x="1040.08" y="471.062" transform="translate(-26.667 680) scale(4.16667)">REFERENCE IMAGE FOR THE</text>
-    <text x="1040.08" y="492.819" transform="translate(-26.667 680) scale(4.16667)">GAME ITSELF? ENSURE THERE</text>
-    <text x="1040.08" y="514.577" transform="translate(-26.667 680) scale(4.16667)">IS ENOUGH SPACE FOR THE</text>
-    <text x="1040.08" y="536.335" transform="translate(-26.667 680) scale(4.16667)">GAME.</text>
-    <text x="1040.08" y="603.851" transform="translate(-26.667 680) scale(4.16667)">MAYBE MOVE THE RUNNER</text>
-    <text x="1040.08" y="625.608" transform="translate(-26.667 680) scale(4.16667)">NAME DOWN NEAR THE</text>
-    <text x="1040.08" y="647.366" transform="translate(-26.667 680) scale(4.16667)">PORTRAIT?</text>
   </g>
 </svg>
