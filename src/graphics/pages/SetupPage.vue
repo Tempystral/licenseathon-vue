@@ -4,8 +4,6 @@ import background from '../assets/setup.svg';
 
 const layoutRef = ref<SVGElement | null>(null);
 
-layoutRef.value?.blur();
-
 /**
  * Replicants required:
  * runDataActiveRun
@@ -16,19 +14,16 @@ layoutRef.value?.blur();
 </script>
 
 <template>
-
-<object :data="background" ref="layoutRef" type="image/svg+xml" id="layout" ></object>
-<!-- Current run details panel -->
-
-<!-- Upcoming runs -->
-
-<!-- Marathon info? -->
-
-
+  <object :data="background" ref="layoutRef" type="image/svg+xml" id="layout"></object>
 </template>
 
 <style lang="scss">
-html {
+body {
+  margin: unset;
   background: #e2e2e4
+}
+
+#layout {
+  z-index: -1;
 }
 </style>

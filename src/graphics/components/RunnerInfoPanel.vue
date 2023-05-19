@@ -17,6 +17,6 @@ defineProps<{
 </template>
 
 <style lang="scss">
-@use "@/sass/style.scss";
+@use "@licenseathon-vue/sass/style.scss";
 
 </style>

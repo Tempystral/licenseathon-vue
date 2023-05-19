@@ -1,12 +1,12 @@
+
+@use "./variables.scss" as *;
 @use "../node_modules/bulma/bulma.sass" as *;
+
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
 .player-container {
   background: yellow;
-}
-
-.game-container {
-  background: teal;
-  .game-extras-container {
-    border: 1px solid black;
-  }
 }

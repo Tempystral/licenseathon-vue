@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useReplicant } from 'nodecg-vue-composable';
-import { Timer } from 'speedcontrol-util/types';
+import { type Timer } from 'speedcontrol-util/types';
 import { defaultTimer } from '../util/defaults';
 
 // Helper composable to make accessing/modifying replicants easier.
