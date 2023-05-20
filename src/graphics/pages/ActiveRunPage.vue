@@ -28,6 +28,8 @@ const runDataActiveRun = useReplicant<RunDataActiveRun>(
   { defaultValue: defaultRunData as RunDataActiveRun },
 );
 
+// watch(() => runDataActiveRun?.changed, () => { fitText() });
+
 const runners = computed(() => {
   // The following line is ok because the map() only gets called if each null-coalescing operator is passed
   const players = runDataActiveRun?.data?.teams.map((team) => team.players[0]);
@@ -42,9 +44,9 @@ const runners = computed(() => {
 <div>
   <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
 
-  <div class="layout-container">
+  <div :class="['layout-container', {'solo': players == 1, 'race': players == 2,}, `ratio-${ratio}`]">
       <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' :ratio='props.ratio' :position='runners.indexOf(runner) + 1'/>
-      <GameInfoPanel :run='runDataActiveRun?.data' :players="props.players" />
+      <GameInfoPanel :active-run='runDataActiveRun?.data' :players="props.players" />
       <TimerComponent :ratio='props.ratio' :players="props.players"/>
   </div>
 </div>
@@ -61,6 +63,11 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.fit {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .layout-container {

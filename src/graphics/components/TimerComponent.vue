@@ -23,7 +23,7 @@ function timerState() : string {
 </script>
 
 <template>
-  <div :class="`layout-${ratio} layout-${players}p`" >
+  <div :class="`timer-container layout-${ratio} layout-${players}p`" >
     <span :class="`timer-${timerState()}`">{{ timer?.data?.time }}</span>
   </div>
 </template>
@@ -32,21 +32,43 @@ function timerState() : string {
 @use '@licenseathon-vue/sass/style.scss';
 @import '@licenseathon-vue/sass/color';
 
-.layout-1p.layout-16-9 {
-  color: $lcns-dark-blue;
-  font-family: "Fusion";
-  font-size: 46px;
+.timer-container{
 
-  position: absolute;
-  top: 580px;
-  left: 532px;
-  width: 248px;
-  height: 70px;
+  &.layout-1p.layout-16-9 {
+    color: $lcns-dark-blue;
+    font-family: "Fusion";
+    font-size: 46px;
 
-  text-align: right;
-  display: flex;
-  span {
-    align-self: end;
+    position: absolute;
+    top: 580px;
+    left: 532px;
+    width: 248px;
+    height: 70px;
+
+    text-align: right;
+    display: flex;
+    span {
+      align-self: end;
+    }
+  }
+
+  &.layout-1p.layout-4-3,
+  &.layout-1p.layout-3-2 {
+    color: $lcns-white;
+    font-family: "Fusion";
+    font-size: 40px;
+
+    position: absolute;
+    top: 308px;
+    left: 128px;
+    width: 210px;
+    height: 56px;
+
+    text-align: right;
+    display: flex;
+    span {
+      align-self: end;
+    }
   }
 }
 
