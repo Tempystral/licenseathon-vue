@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import fitty from 'fitty';
 import { useReplicant } from 'nodecg-vue-composable';
 import { RunDataActiveRun } from 'speedcontrol-util/types';
 import { onMounted, watch } from 'vue';
+import fitText from '../util/composables';
 import { defaultRunData } from '../util/defaults';
 
 const props = defineProps<{
@@ -16,16 +16,11 @@ const runDataActiveRun = useReplicant<RunDataActiveRun>(
   { defaultValue: defaultRunData as RunDataActiveRun },
 );
 
-const options = { multiLine: true, minSize: 14, maxSize: 28 };
-function fitText() {
-  fitty('.fit', options).forEach((el) => {
-    el.fit();
-  });
-}
-
-onMounted(fitText);
-
-watch(() => runDataActiveRun?.data, fitText);
+// Fit text
+const options = { multiLine: true, minSize: 14, maxSize: 24 };
+const fit = () => fitText(['#game-name', '#game-category', '#game-estimate'], options);
+onMounted(fit);
+watch(() => runDataActiveRun?.data, fit);
 
 </script>
 

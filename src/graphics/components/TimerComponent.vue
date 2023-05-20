@@ -67,7 +67,7 @@ function timerState() : string {
     text-align: right;
     display: flex;
     span {
-      align-self: end;
+      align-self: baseline;
     }
   }
 }

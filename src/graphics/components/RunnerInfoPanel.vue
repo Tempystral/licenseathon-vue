@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import { RunDataPlayer } from 'speedcontrol-util/types';
+import { onMounted, watch } from 'vue';
+import fitText from '../util/composables';
 
-defineProps<{
+const props = defineProps<{
   player: RunDataPlayer,
   ratio: string,
   position: number
 }>();
+
+// Fit text
+const options = { multiLine: true, minSize: 14, maxSize: 24 };
+const fit = () => fitText(['#player-name', '#player-social', '#player-pronouns'], options);
+onMounted(fit);
+watch(() => props.player, fit);
 
 </script>
 
@@ -13,13 +21,15 @@ defineProps<{
   <div :class="['player-container', `layout-${ratio}`, `player-${position}`]" :data-player="`${player.id}`">
     <div class="player-name-container">
       <font-awesome-icon icon="fa-solid fa-gamepad" class="icon"/>
-      <span class="wrapper"><span id="player-name" class="fit">{{ player.name }}</span></span>
+      <span class="wrapper"><span id="player-name">{{ player.name }}</span></span>
     </div>
-    <!-- <div class="player-social-container">
+    <div class="player-social-container">
       <font-awesome-icon icon="fa-brands fa-twitch" class="icon"/>
-      <span id="player-social" class="fit">{{ player.social.twitch }}</span>
-    </div> -->
-    <div class="player-pronouns"><span class="fit">{{ player.pronouns }}</span></div>
+      <span class="wrapper"><span id="player-social">{{ player.social.twitch }}</span></span>
+    </div>
+    <div class="player-pronouns-container">
+      <span class="wrapper" id="player-pronouns">{{ player.pronouns }}</span>
+    </div>
   </div>
 </template>
 
@@ -61,13 +71,13 @@ defineProps<{
       height: 30px;
     }
 
-    &.layout-16-9 .player-pronouns{
+    &.layout-16-9 .player-pronouns-container{
       position: absolute;
     }
-    &.layout-4-3 .player-pronouns{
+    &.layout-4-3 .player-pronouns-container{
       position: absolute;
     }
-    &.layout-3-2 .player-pronouns{
+    &.layout-3-2 .player-pronouns-container{
       position: absolute;
       left: 224px;
       top: 18px;
