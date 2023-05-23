@@ -14,12 +14,15 @@ const seconds = computed(() => date.value.getSeconds());
 
 function updateTime() {
   date.value = new Date();
-  console.log(date.value.getSeconds());
+  // console.log(date.value.getSeconds());
 }
 
 // Fit text
-const options = { multiLine: true, minSize: 14, maxSize: 24 };
-const fit = () => fitText(['#player-name', '#player-social', '#player-pronouns'], options);
+const options = computed(() => ({ multiLine: true, minSize: 14, maxSize: 24 }));
+const fit = () => {
+  fitText(['#player-name', '#player-social'], options.value);
+  fitText(['#player-pronouns'], { multiLine: true, minSize: 10, maxSize: 14 });
+};
 
 onMounted(() => {
   fit();
@@ -89,16 +92,125 @@ watch(() => props.player, fit);
 
     &.layout-16-9 .player-pronouns-container{
       position: absolute;
+      left: 138px;
+      top: 30px;
+      width: 84px;
+      height: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     &.layout-4-3 .player-pronouns-container{
       position: absolute;
+      left: 224px;
+      top: 12px;
+      width: 72px;
+      height: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     &.layout-3-2 .player-pronouns-container{
       position: absolute;
       left: 224px;
-      top: 18px;
+      top: 12px;
       width: 72px;
-      height: 30px;
+      height: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+.layout-container.race {
+  .player-container {
+    position: fixed;
+
+    color: $lcns-white;
+    font-family: "Fusion";
+    font-size: large;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+
+    // General settings for the name and social fields
+    .player-name-container,
+    .player-social-container {
+      position: absolute;
+      width: 100%;
+      .wrapper {
+        display: inline-block;
+        max-width: 80%;
+      }
+    }
+    &.layout-16-9 {
+      // Per-player positions
+      .player-pronouns-container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+      }
+      &.player-1 {
+        top: 464px;
+        left: 30px;
+        width: 236px;
+        height: 40px;
+        .player-pronouns-container {
+          left: 254px;
+          top: 14px;
+          width: 90px;
+          height: 16px;
+        }
+      }
+      &.player-2 {
+        top: 464px;
+        left: 1010px;
+        width: 236px;
+        height: 40px;
+        .player-pronouns-container {
+          left: -102px;
+          top: 8px;
+          width: 90px;
+          height: 16px;
+        }
+      }
+    }
+
+    &.layout-4-3 {
+      // Per-player positions
+      .player-pronouns-container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+      }
+      &.player-1 {
+        top: 505px;
+        left: 30px;
+        width: 236px;
+        height: 40px;
+        .player-pronouns-container {
+          left: 254px;
+          top: 14px;
+          width: 90px;
+          height: 16px;
+        }
+      }
+      &.player-2 {
+        top: 505px;
+        left: 1010px;
+        width: 236px;
+        height: 40px;
+        .player-pronouns-container {
+          left: -102px;
+          top: 8px;
+          width: 90px;
+          height: 16px;
+        }
+      }
     }
   }
 }

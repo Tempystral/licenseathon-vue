@@ -4,6 +4,7 @@ import { RunDataActiveRun, RunDataPlayer } from 'speedcontrol-util/types';
 import { computed, ref } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 import GameInfoPanel from '../components/GameInfoPanel.vue';
+import RaceTimerComponent from '../components/RaceTimerComponent.vue';
 import RunnerInfoPanel from '../components/RunnerInfoPanel.vue';
 import TimerComponent from '../components/TimerComponent.vue';
 import { defaultRunData, defaultRunDataPlayer } from '../util/defaults';
@@ -44,10 +45,13 @@ const runners = computed(() => {
 <div>
   <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
 
-  <div :class="['layout-container', {'solo': players == 1, 'race': players == 2,}, `ratio-${ratio}`]">
+  <div :class="['layout-container', {'solo': players == 1, 'race': players > 1,}, `ratio-${ratio}`]">
       <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' :ratio='props.ratio' :position='runners.indexOf(runner) + 1'/>
       <GameInfoPanel :active-run='runDataActiveRun?.data' :players="props.players" />
       <TimerComponent :ratio='props.ratio' :players="props.players"/>
+      <div v-if="props.players > 1" :class="`finish-timer-container layout-${ratio}`">
+        <RaceTimerComponent v-for="runner in runners" :key=runners.indexOf(runner) :id='runner.teamID' :ratio='props.ratio' :position='runners.indexOf(runner) + 1' />
+      </div>
   </div>
 </div>
 

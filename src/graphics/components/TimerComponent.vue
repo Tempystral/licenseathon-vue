@@ -32,9 +32,9 @@ function timerState() : string {
 @use '@licenseathon-vue/sass/style.scss';
 @import '@licenseathon-vue/sass/color';
 
-.timer-container{
+.timer-container.layout-1p{
 
-  &.layout-1p.layout-16-9 {
+  &.layout-16-9 {
     color: $lcns-dark-blue;
     font-family: "Fusion";
     font-size: 46px;
@@ -52,8 +52,8 @@ function timerState() : string {
     }
   }
 
-  &.layout-1p.layout-4-3,
-  &.layout-1p.layout-3-2 {
+  &.layout-4-3,
+  &.layout-3-2 {
     color: $lcns-white;
     font-family: "Fusion";
     font-size: 40px;
@@ -70,6 +70,18 @@ function timerState() : string {
       align-self: baseline;
     }
   }
+}
+
+.timer-container.layout-2p {
+  color: $lcns-dark-blue;
+  font-family: "Fusion";
+  font-size: 34px;
+
+  position: absolute;
+  top: 608px;
+  left: 280px;
+  width: 180px;
+  height: 50px;
 }
 
 </style>

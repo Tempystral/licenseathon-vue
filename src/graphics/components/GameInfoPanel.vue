@@ -17,8 +17,13 @@ const runDataActiveRun = useReplicant<RunDataActiveRun>(
 );
 
 // Fit text
-const options = { multiLine: true, minSize: 14, maxSize: 24 };
-const fit = () => fitText(['#game-name', '#game-category', '#game-estimate'], options);
+// const options = { multiLine: true, minSize: 14, maxSize: 24 };
+const fit = () => {
+  let options = {};
+  if (props.players === 1) { options = { multiLine: true, minSize: 14, maxSize: 24 }; }
+  if (props.players === 2) { options = { multiLine: true, minSize: 11, maxSize: 18 }; }
+  fitText(['#game-name', '#game-category', '#game-estimate'], options);
+};
 onMounted(fit);
 watch(() => runDataActiveRun?.data, fit);
 
@@ -47,19 +52,19 @@ watch(() => runDataActiveRun?.data, fit);
   display: flex;
   align-items: center;
   justify-content: center;
-  p {
+  &.layout-1p p {
     padding-inline: .5em;
   }
 }
 
 .game-container {
   position: fixed;
-
-  color: $lcns-white;
   font-family: "Fusion";
-  text-align: center;
+
 
   &.layout-1p{
+    color: $lcns-white;
+    text-align: center;
     top: 56px;
     left: 10px;
 
@@ -80,6 +85,38 @@ watch(() => runDataActiveRun?.data, fit);
       left: 26px;
       width: 150px;
       height: 36px;
+    }
+  }
+
+  &.layout-2p{
+    color: $lcns-dark-blue;
+    text-align: right;
+    top: 530px;
+    left: 570px;
+
+    .game-name-container {
+      top: 34px;
+      left: 8px;
+      width: 190px;
+      height: 46px;
+      p::first-line{
+        text-indent: 1em;
+      }
+      text-indent: 0;
+    }
+    .game-category-container {
+      top: 78px;
+      left: 20px;
+      width: 168px;
+      height: 42px;
+      justify-content: end;
+    }
+    .game-estimate-container {
+      top: 120px;
+      left: 50px;
+      width: 136px;
+      height: 36px;
+      justify-content: end;
     }
   }
 
