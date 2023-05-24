@@ -212,6 +212,51 @@ watch(() => props.player, fit);
         }
       }
     }
+    &.layout-3-way {
+      // Per-player positions
+      .player-pronouns-container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+      }
+      &.player-1 {
+        top: 410px;
+        left: 30px;
+        width: 236px;
+        height: 40px;
+        .player-pronouns-container {
+          left: 16px;
+          top: 42px;
+          width: 90px;
+          height: 16px;
+        }
+      }
+      &.player-2 {
+        top: 76px;
+        left: 436px;
+        width: 236px;
+        height: 40px;
+        .player-pronouns-container {
+          left: 236px;
+          top: 0px;
+          width: 90px;
+          height: 16px;
+        }
+      }
+      &.player-3 {
+        top: 410px;
+        left: 1010px;
+        width: 236px;
+        height: 40px;
+        .player-pronouns-container {
+          left: 112px;
+          top: 42px;
+          width: 90px;
+          height: 16px;
+        }
+      }
+    }
   }
 }
 

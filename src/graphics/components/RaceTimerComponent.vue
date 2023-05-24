@@ -57,7 +57,7 @@ const finishTime = computed(() => timer?.data?.teamFinishTimes[props.id]);
       }
     }
   }
-  .finish-timer-container.layout-4-3{
+  .finish-timer-container.layout-4-3 {
     color: $lcns-white;
     font-family: "Fusion";
     font-size: 20px;
@@ -75,6 +75,36 @@ const finishTime = computed(() => timer?.data?.teamFinishTimes[props.id]);
         position: absolute;
         top: 512px;
         left: 784px;
+        width: 112px;
+        height: 32px;
+      }
+    }
+  }
+  .finish-timer-container.layout-3-way {
+    color: $lcns-white;
+    font-family: "Fusion";
+    font-size: 20px;
+    .timer {
+      display: flex;
+      justify-content: center;
+      &.player-1 {
+        position: absolute;
+        top: 452px;
+        left: 144px;
+        width: 112px;
+        height: 32px;
+      }
+      &.player-2 {
+        position: absolute;
+        top: 94px;
+        left: 732px;
+        width: 112px;
+        height: 32px;
+      }
+      &.player-3 {
+        position: absolute;
+        top: 452px;
+        left: 1004px;
         width: 112px;
         height: 32px;
       }

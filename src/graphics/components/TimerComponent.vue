@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useReplicant } from 'nodecg-vue-composable';
 import { type Timer } from 'speedcontrol-util/types';
+import { computed } from 'vue';
 import { defaultTimer } from '../util/defaults';
 
 const props = defineProps<{
@@ -16,15 +17,13 @@ const timer = useReplicant<Timer>(
   { defaultValue: defaultTimer as Timer },
 );
 
-function timerState() : string {
-  return timer?.data?.state || 'stopped';
-}
+const timerState = computed(() => timer?.data?.state || 'stopped');
 
 </script>
 
 <template>
   <div :class="`timer-container layout-${ratio} layout-${players}p`" >
-    <span :class="`timer-${timerState()}`">{{ timer?.data?.time }}</span>
+    <span :class="`timer-${timerState}`">{{ timer?.data?.time }}</span>
   </div>
 </template>
 
@@ -72,7 +71,7 @@ function timerState() : string {
   }
 }
 
-.timer-container.layout-2p {
+.timer-container.layout-2p, .timer-container.layout-3p {
   color: $lcns-dark-blue;
   font-family: "Fusion";
   font-size: 34px;

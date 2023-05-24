@@ -21,7 +21,7 @@ const runDataActiveRun = useReplicant<RunDataActiveRun>(
 const fit = () => {
   let options = {};
   if (props.players === 1) { options = { multiLine: true, minSize: 14, maxSize: 24 }; }
-  if (props.players === 2) { options = { multiLine: true, minSize: 11, maxSize: 18 }; }
+  if (props.players > 1) { options = { multiLine: true, minSize: 11, maxSize: 18 }; }
   fitText(['#game-name', '#game-category', '#game-estimate'], options);
 };
 onMounted(fit);
@@ -88,7 +88,7 @@ watch(() => runDataActiveRun?.data, fit);
     }
   }
 
-  &.layout-2p{
+  &.layout-2p, &.layout-3p{
     color: $lcns-dark-blue;
     text-align: right;
     top: 530px;
