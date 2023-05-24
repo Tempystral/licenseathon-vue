@@ -70,14 +70,14 @@ watch(() => runDataActiveRun?.data, fit);
 
     .game-name-container {
       top: 2px;
-      left: 12px;
-      width: 192px;
+      left: 16px;
+      width: 188px;
       height: 68px;
     }
     .game-category-container {
       top: 86px;
-      left: 26px;
-      width: 192px;
+      left: 30px;
+      width: 170px;
       height: 40px;
     }
     .game-estimate-container {
