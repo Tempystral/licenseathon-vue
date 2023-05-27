@@ -73,6 +73,14 @@
     "bundleDependencies": {
       "nodecg-speedcontrol": "^2.5.0"
     },
+    "dashboardPanels": [
+      {
+        "name": "commentator-panel",
+        "title": "Commentators",
+        "file": "commentatorPanel.html",
+        "width": 3
+      }
+    ],
     "graphics": [
       {
         "file": "setup.html",

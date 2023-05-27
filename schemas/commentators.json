@@ -3,12 +3,12 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "exampleProperty": {
-      "type": "string",
-      "default": "exampleString"
+    "names": {
+      "tsType": "string[]",
+      "default": []
     }
   },
   "required": [
-    "exampleProperty"
+    "names"
   ]
 }

@@ -23,7 +23,8 @@ export default defineConfig({
     }),
     checker({ vueTsc: { tsconfigPath: 'tsconfig.browser.json' } }),
     NodeCGPlugin( {
-      inputs: { './src/graphics/*.{js,ts}': './src/graphics/template.html', }
+      inputs: { './src/graphics/*.{js,ts}': './src/graphics/template.html',
+                './src/dashboard/*.{js,ts}': './src/dashboard/template.html', }
     } ),
   ],
   resolve: {
@@ -36,6 +37,7 @@ export default defineConfig({
     rollupOptions: {
       input: globbySync([
         './src/graphics/*.ts',
+        './src/dashboard/*.ts',
         '!**.d.ts',
       ])
     },
