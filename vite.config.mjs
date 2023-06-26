@@ -1,4 +1,4 @@
-import vue from '@vitejs/plugin-vue';
+import { default as vue } from '@vitejs/plugin-vue';
 import { globbySync } from 'globby';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -14,9 +14,7 @@ export default defineConfig({
     port: 5173,
   },
   plugins: [
-    vue({
-      template: { transformAssetUrls },
-    }),
+    vue(),
     checker({ vueTsc: { tsconfigPath: 'tsconfig.browser.json' } }),
     NodeCGPlugin( {
       inputs: { './src/graphics/*.{js,ts}': './src/graphics/template.html',
