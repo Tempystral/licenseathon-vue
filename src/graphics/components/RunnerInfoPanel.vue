@@ -9,6 +9,8 @@ const props = defineProps<{
   position: number
 }>();
 
+const pronouns = computed(() => props.player.pronouns?.split(','));
+
 const date = ref(new Date());
 const seconds = computed(() => date.value.getSeconds());
 
@@ -46,7 +48,9 @@ watch(() => props.player, fit);
     </div>
     </Transition>
     <div class="player-pronouns-container">
-      <span class="wrapper" id="player-pronouns">{{ player.pronouns }}</span>
+      <Transition name="wipe">
+        <span class="wrapper" id="player-pronouns">{{ player.pronouns }}</span>
+      </Transition>
     </div>
   </div>
 </template>

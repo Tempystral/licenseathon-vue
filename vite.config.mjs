@@ -1,4 +1,3 @@
-import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import { globbySync } from 'globby';
 import { dirname } from 'path';
@@ -17,9 +16,6 @@ export default defineConfig({
   plugins: [
     vue({
       template: { transformAssetUrls },
-    }),
-    quasar({
-      autoImportComponentCase: 'pascal',
     }),
     checker({ vueTsc: { tsconfigPath: 'tsconfig.browser.json' } }),
     NodeCGPlugin( {

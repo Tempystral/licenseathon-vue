@@ -3,6 +3,7 @@ import { useReplicant } from 'nodecg-vue-composable';
 import { RunDataActiveRun, RunDataPlayer } from 'speedcontrol-util/types';
 import { computed, ref } from 'vue';
 import InlineSvg from 'vue-inline-svg';
+import CommentatorDisplayComponent from '../components/CommentatorDisplayComponent.vue';
 import GameInfoPanel from '../components/GameInfoPanel.vue';
 import RaceTimerComponent from '../components/RaceTimerComponent.vue';
 import RunnerInfoPanel from '../components/RunnerInfoPanel.vue';
@@ -47,6 +48,7 @@ const runners = computed(() => {
 
   <div :class="['layout-container', {'solo': players == 1, 'race': players > 1,}, `ratio-${ratio}`]">
       <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' :ratio='props.ratio' :position='runners.indexOf(runner) + 1'/>
+      <CommentatorDisplayComponent :ratio="props.ratio" :players="props.players" />
       <GameInfoPanel :active-run='runDataActiveRun?.data' :players="props.players" />
       <TimerComponent :ratio='props.ratio' :players="props.players"/>
       <div v-if="props.players > 1" :class="`finish-timer-container layout-${ratio}`">

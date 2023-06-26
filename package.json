@@ -17,7 +17,7 @@
     "autofix:browser": "eslint --fix --ext .ts,.vue src/dashboard && eslint --fix --ext .ts,.vue src/graphics",
     "autofix:extension": "eslint --fix --ext .ts src/extension && eslint --fix --ext .d.ts src/types",
     "build": "run-s clean build:*",
-    "build:browser": "vite build; rm -rf dashboard",
+    "build:browser": "vite build",
     "build:extension": "tsc -b tsconfig.extension.json",
     "clean": "rm -rf node_modules/.cache dashboard graphics extension",
     "schema-types": "nodecg schema-types",
@@ -36,8 +36,6 @@
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
-    "@quasar/extras": "^1.15.6",
-    "@quasar/vite-plugin": "^1.2.3",
     "@types/node": "^18.11.10",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
@@ -55,7 +53,6 @@
     "nodecg-types": "^1.9.0",
     "nodecg-vue-composable": "^1.1.0",
     "npm-run-all": "^4.1.5",
-    "quasar": "^2.10.2",
     "sass": "^1.58.3",
     "speedcontrol-util": "^0.6.1",
     "trash-cli": "^5.0.0",

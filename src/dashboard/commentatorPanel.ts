@@ -1,15 +1,14 @@
-import '@quasar/extras/material-icons/material-icons.css';
-import '@quasar/extras/mdi-v6/mdi-v6.css';
-import '@quasar/extras/roboto-font/roboto-font.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { createHead } from '@vueuse/head';
-import { Dark, Quasar } from 'quasar';
-import 'quasar/dist/quasar.css';
-import { createApp } from 'vue';
-import App from './example/main.vue';
 
-const app = createApp(App);
-const head = createHead();
-app.use(Quasar, {});
-app.use(head);
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { createApp } from 'vue';
+import Commentators from './example/CommentatorComponent.vue';
+
+library.add(faUser);
+
+const app = createApp(Commentators);
+app.use(createHead());
+app.component('font-awesome-icon', FontAwesomeIcon);
 app.mount('#app');
-Dark.set(true);
