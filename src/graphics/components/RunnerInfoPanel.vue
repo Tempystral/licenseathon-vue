@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { RunDataPlayer } from 'speedcontrol-util/types';
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import fitText from '../util/composables';
+import getSeconds from '../util/updatetime';
 
 const props = defineProps<{
   player: RunDataPlayer,
@@ -10,14 +11,7 @@ const props = defineProps<{
 }>();
 
 const pronouns = computed(() => props.player.pronouns?.split(','));
-
-const date = ref(new Date());
-const seconds = computed(() => date.value.getSeconds());
-
-function updateTime() {
-  date.value = new Date();
-  // console.log(date.value.getSeconds());
-}
+const seconds = getSeconds();
 
 // Fit text
 const options = computed(() => ({ multiLine: true, minSize: 14, maxSize: 24 }));
@@ -28,8 +22,6 @@ const fit = () => {
 
 onMounted(() => {
   fit();
-  updateTime();
-  setInterval(updateTime, 1000);
 });
 watch(() => props.player, fit);
 
