@@ -1,6 +1,7 @@
 import fitty, { FittyOptions } from 'fitty';
+import { RunData } from 'speedcontrol-util/types';
 
-const fitText = (selector: string | string[], options: FittyOptions) => {
+export const fitText = (selector: string | string[], options: FittyOptions) => {
   if (Array.isArray(selector)) {
     selector.forEach((sel) => { fitText(sel, options); });
   } else {
@@ -10,4 +11,6 @@ const fitText = (selector: string | string[], options: FittyOptions) => {
   }
 };
 
-export default fitText;
+export function getPlayers(run:RunData | undefined) {
+  return run?.teams?.map((t) => t.players[0]) || [];
+}
