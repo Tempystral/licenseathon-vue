@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RunDataPlayer } from 'speedcontrol-util/types';
 import { computed, onMounted, watch } from 'vue';
-import fitText from '../util/composables';
+import { fitText } from '../util/composables';
 import getSeconds from '../util/updatetime';
 
 const props = defineProps<{

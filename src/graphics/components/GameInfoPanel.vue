@@ -2,7 +2,7 @@
 import { useReplicant } from 'nodecg-vue-composable';
 import { RunDataActiveRun } from 'speedcontrol-util/types';
 import { onMounted, watch } from 'vue';
-import fitText from '../util/composables';
+import { fitText } from '../util/composables';
 import { defaultRunData } from '../util/defaults';
 
 const props = defineProps<{
