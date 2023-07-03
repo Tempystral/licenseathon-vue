@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { RunDataActiveRun } from 'speedcontrol-util/types';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 import { fitText, getPlayers } from '../util/composables';
 import getSeconds from '../util/updatetime';
@@ -21,10 +21,11 @@ const activePlayer = computed(() => players.value[showByTime(seconds.value)]);
 const activePlayerImage = computed(() => new URL(`../assets/runners/${activePlayer.value.name}.png`, import.meta.url).href);
 
 const fit = () => {
-  fitText(['#game-name', '#game-category', '#game-estimate', '#player-name'], { multiLine: true, minSize: 14, maxSize: 24 });
+  fitText(['#game-name', '#game-category'], { multiLine: true, minSize: 12, maxSize: 24 });
+  fitText(['#game-estimate', '#player-name'], { multiLine: true, minSize: 14, maxSize: 24 });
 };
 onMounted(fit);
-// watch(() => props.run, fit);
+watch(() => props.run, () => console.log(`Run: ${props.run?.game} | ${props.run?.id}`));
 
 </script>
 
@@ -33,14 +34,14 @@ onMounted(fit);
 
     <InlineSvg :src="layoutPath"  ref="layoutRef" id="licensesvg" width="450" height="300" preserveAspectRatio="none"/>
 
-    <Transition name="wipe" appear :onAfterLeave="fit">
+    <Transition name="wipe" appear>
       <div class="player-name-container info-container" v-if="activePlayer" :key="activePlayer.id">
         <p id="player-name" class="fit">{{ activePlayer.name }}</p>
       </div>
     </Transition>
 
     <div class="game-container">
-      <Transition name="wipe" appear>
+      <Transition name="wipe" appear :onAfterLeave="fit">
         <div class="game-name-container info-container" :key="run?.id">
           <p id="game-name" class="fit">{{ run?.game }}</p>
         </div>
@@ -107,10 +108,10 @@ onMounted(fit);
 
       .game-category-container {
         color: $lcns-dark-blue;
-        top: 186px;
+        top: 192px;
         left: 200px;
-        width: 194px;
-        height: 36px;
+        width: 232px;
+        height: 30px;
       }
       .game-estimate-container {
         color: $lcns-dark-blue;
