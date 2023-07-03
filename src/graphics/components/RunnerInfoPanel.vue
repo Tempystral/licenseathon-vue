@@ -29,19 +29,19 @@ watch(() => props.player, fit);
 
 <template>
   <div :class="['player-container', `layout-${ratio}`, `player-${position}`]" :data-player="`${player.id}`">
-    <Transition name="wipe">
+    <Transition name="wipe" :onEnter="fit">
     <div class="player-name-container" v-if="seconds < 30">
       <font-awesome-icon icon="fa-solid fa-gamepad" class="icon"/>
-      <span class="wrapper"><span id="player-name">{{ player.name }}</span></span>
+      <span class="wrapper"><span id="player-name" class="fit">{{ player.name }}</span></span>
     </div>
     <div class="player-social-container" v-else-if="seconds >= 30">
       <font-awesome-icon icon="fa-brands fa-twitch" class="icon"/>
-      <span class="wrapper"><span id="player-social">{{ player.social.twitch }}</span></span>
+      <span class="wrapper"><span id="player-social" class="fit">{{ player.social.twitch }}</span></span>
     </div>
     </Transition>
     <div class="player-pronouns-container">
       <Transition name="wipe">
-        <span class="wrapper" id="player-pronouns">{{ player.pronouns }}</span>
+        <span class="wrapper fit" id="player-pronouns">{{ player.pronouns }}</span>
       </Transition>
     </div>
   </div>

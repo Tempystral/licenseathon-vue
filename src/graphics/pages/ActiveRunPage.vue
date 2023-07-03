@@ -74,6 +74,7 @@ body {
 .fit {
   display: inline-block;
   white-space: nowrap;
+  transition: font-size .25s;
 }
 
 .layout-container {
