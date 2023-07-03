@@ -2,17 +2,26 @@
 import { Commentators } from '@licenseathon-vue/types/schemas';
 import { useHead } from '@vueuse/head';
 import { useReplicant } from 'nodecg-vue-composable';
+import { RunDataActiveRun } from 'speedcontrol-util/types';
+import { watch } from 'vue';
+import { defaultRunData } from '../../graphics/util/defaults';
 
 // Set the title of this page.
 useHead({ title: 'Commentators' });
 
-// Helper composable to make accessing/modifying replicants easier.
-// For more information see https://github.com/Dan-Shields/nodecg-vue-composable
 const commentators = useReplicant<Commentators>(
   'commentators',
   'licenseathon-vue',
   { defaultValue: { names: ['', ''] } },
 );
+
+const activeRun = useReplicant<RunDataActiveRun>(
+  'runDataActiveRun',
+  'nodecg-speedcontrol',
+  { defaultValue: defaultRunData },
+);
+
+watch(() => activeRun?.data, () => { commentators?.loadDefault(); commentators?.save(); });
 
 </script>
 
