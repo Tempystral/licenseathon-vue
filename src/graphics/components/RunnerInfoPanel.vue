@@ -84,6 +84,9 @@ watch(() => props.player, fit);
       left: 23px;
       width: 215px;
       height: 30px;
+      &.layout-ds {
+        top: 424px;
+      }
     }
 
     &.layout-16-9 .player-pronouns-container{
@@ -96,7 +99,8 @@ watch(() => props.player, fit);
       flex-direction: column;
       justify-content: center;
     }
-    &.layout-4-3 .player-pronouns-container{
+    &.layout-4-3 .player-pronouns-container,
+    &.layout-ds .player-pronouns-container{
       position: absolute;
       left: 224px;
       top: 12px;

@@ -52,7 +52,8 @@ const timerState = computed(() => timer?.data?.state || 'stopped');
   }
 
   &.layout-4-3,
-  &.layout-3-2 {
+  &.layout-3-2,
+  &.layout-ds {
     color: $lcns-white;
     font-family: "Fusion";
     font-size: 40px;
