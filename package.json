@@ -1,17 +1,13 @@
 {
   "name": "licenseathon-vue",
-  "version": "2.0.0",
-  "description": "Template for NodeCG bundles that use Vue.js and TypeScript.",
-  "homepage": "https://github.com/zoton2/nodecg-vue-ts-template#readme",
-  "bugs": {
-    "url": "https://github.com/zoton2/nodecg-vue-ts-template/issues"
-  },
+  "version": "1.0.0",
+  "description": "Layouts for Licenseathon 2023",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zoton2/nodecg-vue-ts-template.git"
+    "url": "git+https://github.com/Tempystral/licenseathon-2023"
   },
   "license": "MIT",
-  "author": "zoton2",
+  "author": "tempystral",
   "scripts": {
     "autofix": "run-s autofix:*",
     "autofix:browser": "eslint --fix --ext .ts,.vue src/dashboard && eslint --fix --ext .ts,.vue src/graphics",
@@ -66,7 +62,7 @@
     "vue-tsc": "^1.0.11"
   },
   "nodecg": {
-    "compatibleRange": "^1.9.0",
+    "compatibleRange": "^1.9.0 || >=2.0.0",
     "bundleDependencies": {
       "nodecg-speedcontrol": "^2.5.0"
     },
