@@ -6,5 +6,5 @@
  */
 
 export interface Commentators {
-	names: unknown[];
+	names: string[];
 }
