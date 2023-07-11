@@ -5,7 +5,9 @@
   "properties": {
     "names": {
       "type": "array",
-      "default": []
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": [
