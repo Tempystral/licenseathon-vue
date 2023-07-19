@@ -127,11 +127,11 @@ watch(() => props.run, () => console.log(`Run: ${props.run?.game} | ${props.run?
       left: 19px;
       width: 140px;
       height: 140px;
-      border-radius: 1em;
-      img {
+      .profile-image img {
         position: absolute;
         width: 100%;
         height: 100%;
+        border-radius: 1em;
       }
     }
   }
