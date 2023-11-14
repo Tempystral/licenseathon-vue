@@ -1,5 +1,4 @@
 import { default as vue } from '@vitejs/plugin-vue';
-import { globbySync } from 'globby';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
@@ -17,8 +16,9 @@ export default defineConfig({
     vue(),
     checker({ vueTsc: { tsconfigPath: 'tsconfig.browser.json' } }),
     NodeCGPlugin( {
-      inputs: { './src/graphics/*.{js,ts}': './src/graphics/template.html',
-                './src/dashboard/*.{js,ts}': './src/dashboard/template.html', }
+      srcDir: "./src",
+      inputs: { 'graphics/*.{js,ts}': './src/graphics/template.html',
+                'dashboard/*.{js,ts}': './src/dashboard/template.html', }
     } ),
   ],
   resolve: {
@@ -27,13 +27,5 @@ export default defineConfig({
       "@licenseathon-vue": `${__dirname}/src/`,
     }
   },
-  build: {
-    rollupOptions: {
-      input: globbySync([
-        './src/graphics/*.ts',
-        './src/dashboard/*.ts',
-        '!**.d.ts',
-      ])
-    },
-  },
+  
 });

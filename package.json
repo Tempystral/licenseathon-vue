@@ -55,7 +55,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.3.9",
     "vite-plugin-checker": "^0.6.1",
-    "vite-plugin-nodecg": "^2.0.0-rc2",
+    "vite-plugin-nodecg": "^2.0.0-rc3",
     "vue": "^3.2.45",
     "vue-eslint-parser": "^9.1.0",
     "vue-inline-svg": "^3.1.2",
