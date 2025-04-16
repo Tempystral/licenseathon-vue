@@ -13,7 +13,7 @@ const commentators = useReplicant<Commentators>(
   { defaultValue: { names: ['', ''] } },
 );
 
-const getNonEmptyNames = () => commentators!.data!.names.filter((n) => n.length > 0);
+const getNonEmptyNames = () => commentators.data!.names.filter((n) => n.length > 0);
 
 </script>
 

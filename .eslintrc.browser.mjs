@@ -1,5 +1,6 @@
 import globals from "globals"
 import vuePlugin from "eslint-plugin-vue";
+import vueParser from "vue-eslint-parser"
 import importPlugin from "eslint-plugin-import-x";
 import tseslint from "typescript-eslint"
 import rootConfig from "./eslint.config.mjs";
@@ -20,9 +21,12 @@ export default tseslint.config(
         nodecg: 'readonly',
         NodeCG: 'readonly',
       },
+      parser: vueParser,
       parserOptions: {
         project: "./tsconfig.json",
-        sourceType: "module"
+        sourceType: "module",
+        extraFileExtensions: [".vue"],
+        parser: tseslint.parser
       }
     },
     plugins: {
