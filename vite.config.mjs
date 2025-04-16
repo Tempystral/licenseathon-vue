@@ -21,8 +21,11 @@ export default defineConfig({
                 'dashboard/*.{js,ts}': './src/dashboard/template.html', }
     } ),
   ],
+  optimizeDeps: {
+    include: ["~/git/nodecg-vue-composable"]
+  },
   resolve: {
-    
+    //preserveSymlinks: true,
     alias: {
       "@licenseathon-vue": `${__dirname}/src/`,
     }

@@ -1,8 +1,6 @@
-/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-require-imports */
 
 // This must go first so we can use module aliases!
-/* eslint-disable import/first */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('module-alias').addAlias('@licenseathon-vue', require('path').join(__dirname, '.'));
 
 import type { NodeCG } from 'nodecg-types/types/server';

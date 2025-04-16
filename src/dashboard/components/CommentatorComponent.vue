@@ -12,13 +12,13 @@ useHead({ title: 'Commentators' });
 const commentators = useReplicant<Commentators>(
   'commentators',
   'licenseathon-vue',
-  { defaultValue: { names: ['', ''] } },
+  { defaultValue: { names: ['', ''] } }
 );
 
 const activeRun = useReplicant<RunDataActiveRun>(
   'runDataActiveRun',
   'nodecg-speedcontrol',
-  { defaultValue: defaultRunData },
+  { defaultValue: defaultRunData }
 );
 
 watch(() => activeRun?.data, () => { commentators?.loadDefault(); commentators?.save(); });
