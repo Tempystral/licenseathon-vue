@@ -73,7 +73,7 @@ watch(() => props.run, () => console.log(`Run: ${props.run?.game} | ${props.run?
 <style lang="scss">
 @use "@licenseathon-vue/sass/transition";
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
+@use '@licenseathon-vue/sass/color' as theme;
 
 .fit {
   transition: font-size .25s;
@@ -86,7 +86,7 @@ watch(() => props.run, () => console.log(`Run: ${props.run?.game} | ${props.run?
     display: flex;
     z-index: 12;
       .player-name-container {
-      color: $lcns-white;
+      color: theme.$lcns-white;
       justify-content: right;
       top: 110px;
       left: 168px;
@@ -96,7 +96,7 @@ watch(() => props.run, () => console.log(`Run: ${props.run?.game} | ${props.run?
 
     .game-container {
       position: absolute;
-      color: $lcns-white;
+      color: theme.$lcns-white;
       text-align: center;
 
       .game-name-container {
@@ -107,14 +107,14 @@ watch(() => props.run, () => console.log(`Run: ${props.run?.game} | ${props.run?
       }
 
       .game-category-container {
-        color: $lcns-dark-blue;
+        color: theme.$lcns-dark-blue;
         top: 192px;
         left: 200px;
         width: 232px;
         height: 30px;
       }
       .game-estimate-container {
-        color: $lcns-dark-blue;
+        color: theme.$lcns-dark-blue;
         top: 256px;
         left: 268px;
         width: 130px;

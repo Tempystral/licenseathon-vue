@@ -1,6 +1,5 @@
-
-@use "variables" as *;
-@use "../node_modules/bulma/bulma.sass" as *;
+@use "./variables";
+@use "../node_modules/bulma/bulma.scss" as *;
 
 html {
   -ms-overflow-style: none;  /* IE and Edge */

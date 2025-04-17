@@ -49,8 +49,8 @@ watch(() => props.player, fit);
 
 <style lang="scss">
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
-@import '@licenseathon-vue/sass/transition';
+@use '@licenseathon-vue/sass/color' as theme;
+@use '@licenseathon-vue/sass/transition';
 
 .layout-container.solo {
   .player-container:not(.player-1) {
@@ -60,7 +60,7 @@ watch(() => props.player, fit);
   .player-container {
     position: fixed;
 
-    color: $lcns-white;
+    color: theme.$lcns-white;
     font-family: "Fusion";
     font-size: large;
     text-align: center;
@@ -127,7 +127,7 @@ watch(() => props.player, fit);
   .player-container {
     position: fixed;
 
-    color: $lcns-white;
+    color: theme.$lcns-white;
     font-family: "Fusion";
     font-size: large;
     text-align: center;

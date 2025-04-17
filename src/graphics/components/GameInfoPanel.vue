@@ -45,7 +45,7 @@ watch(() => runDataActiveRun?.data, fit);
 
 <style lang="scss">
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
+@use '@licenseathon-vue/sass/color' as theme;
 
 .info-container {
   position: absolute;
@@ -63,7 +63,7 @@ watch(() => runDataActiveRun?.data, fit);
 
 
   &.layout-1p{
-    color: $lcns-white;
+    color: theme.$lcns-white;
     text-align: center;
     top: 56px;
     left: 10px;
@@ -89,7 +89,7 @@ watch(() => runDataActiveRun?.data, fit);
   }
 
   &.layout-2p, &.layout-3p{
-    color: $lcns-dark-blue;
+    color: theme.$lcns-dark-blue;
     text-align: right;
     top: 530px;
     left: 570px;
