@@ -30,7 +30,7 @@ const getNonEmptyNames = () => commentators.data!.names.filter((n) => n.length >
 
 <style lang="scss">
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
+@use '@licenseathon-vue/sass/color' as theme;
 
 .userIcon {
     height: 1rem;
@@ -41,7 +41,7 @@ const getNonEmptyNames = () => commentators.data!.names.filter((n) => n.length >
   flex-direction: column;
   justify-content: space-around;
 
-  color: $lcns-white;
+  color: theme.$lcns-white;
   font-family: "Fusion";
   font-size: 14px;
 
@@ -70,7 +70,7 @@ const getNonEmptyNames = () => commentators.data!.names.filter((n) => n.length >
   flex-direction: column;
   justify-content: space-around;
 
-  color: $lcns-white;
+  color: theme.$lcns-white;
   font-family: "Fusion";
   font-size: 14px;
 

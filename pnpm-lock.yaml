@@ -4125,12 +4125,13 @@ packages:
     hasBin: true
     peerDependencies:
       '@types/node': ^18.0.0 || >=20.0.0
+      '@types/node': ^18.0.0 || >=20.0.0
       less: '*'
       lightningcss: ^1.21.0
       sass: '*'
-      sass-embedded: '*'
       stylus: '*'
       sugarss: '*'
+      terser: ^5.4.0
       terser: ^5.4.0
     peerDependenciesMeta:
       '@types/node':
@@ -4140,8 +4141,6 @@ packages:
       lightningcss:
         optional: true
       sass:
-        optional: true
-      sass-embedded:
         optional: true
       stylus:
         optional: true

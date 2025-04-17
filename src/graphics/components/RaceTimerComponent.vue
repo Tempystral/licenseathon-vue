@@ -30,12 +30,12 @@ const finishTime = computed(() => timer?.data?.teamFinishTimes[props.id]);
 </template>
 <style lang="scss">
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
-@import '@licenseathon-vue/sass/transition';
+@use '@licenseathon-vue/sass/color' as theme;
+@use '@licenseathon-vue/sass/transition';
 
 .layout-container.race {
   .finish-timer-container.layout-16-9{
-    color: $lcns-white;
+    color: theme.$lcns-white;
     font-family: "Fusion";
     font-size: 20px;
     .timer {
@@ -58,7 +58,7 @@ const finishTime = computed(() => timer?.data?.teamFinishTimes[props.id]);
     }
   }
   .finish-timer-container.layout-4-3 {
-    color: $lcns-white;
+    color: theme.$lcns-white;
     font-family: "Fusion";
     font-size: 20px;
     .timer {
@@ -81,7 +81,7 @@ const finishTime = computed(() => timer?.data?.teamFinishTimes[props.id]);
     }
   }
   .finish-timer-container.layout-3-way {
-    color: $lcns-white;
+    color: theme.$lcns-white;
     font-family: "Fusion";
     font-size: 20px;
     .timer {

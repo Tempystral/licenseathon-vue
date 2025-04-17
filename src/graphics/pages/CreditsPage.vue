@@ -89,10 +89,10 @@ function startAnimation() {
 <style lang="scss">
 @use '@licenseathon-vue/sass/transition.scss';
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
+@use '@licenseathon-vue/sass/color' as theme;
 
 html {
-  background: $lcns-white;
+  background: theme.$lcns-white;
 }
 
 body {
@@ -131,7 +131,7 @@ h3, h4, h5 {
   top: 730px;
   width: 70%;
   z-index: 1;
-  color: $lcns-black;
+  color: theme.$lcns-black;
 
   flex-basis: 100rem;
   margin: 2rem 0;

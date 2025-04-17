@@ -29,12 +29,12 @@ const timerState = computed(() => timer.data?.state || 'stopped');
 
 <style lang="scss">
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
+@use '@licenseathon-vue/sass/color' as theme;
 
 .timer-container.layout-1p{
 
   &.layout-16-9 {
-    color: $lcns-dark-blue;
+    color: theme.$lcns-dark-blue;
     font-family: "Fusion";
     font-size: 46px;
 
@@ -54,7 +54,7 @@ const timerState = computed(() => timer.data?.state || 'stopped');
   &.layout-4-3,
   &.layout-3-2,
   &.layout-ds {
-    color: $lcns-white;
+    color: theme.$lcns-white;
     font-family: "Fusion";
     font-size: 40px;
 
@@ -73,7 +73,7 @@ const timerState = computed(() => timer.data?.state || 'stopped');
 }
 
 .timer-container.layout-2p, .timer-container.layout-3p {
-  color: $lcns-dark-blue;
+  color: theme.$lcns-dark-blue;
   font-family: "Fusion";
   font-size: 34px;
 

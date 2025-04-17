@@ -74,10 +74,10 @@ function remainingRuns() {
 <style lang="scss">
 @use "@licenseathon-vue/sass/transition";
 @use '@licenseathon-vue/sass/style.scss';
-@import '@licenseathon-vue/sass/color';
+@use '@licenseathon-vue/sass/color' as theme;
 
 html {
-  background: $lcns-white;
+  background: theme.$lcns-white;
 }
 
 body {
@@ -122,7 +122,7 @@ body {
   clip-path: polygon(0% 0%, 0% 95%, 62% 95%, 100% 0%);
 
   .up-next-game {
-    background: $lcns-dark-blue;
+    background: theme.$lcns-dark-blue;
     padding: .5em;
     border-radius: 0 .7em .7em .7em;
     width: max-content;
@@ -131,17 +131,17 @@ body {
     gap: .5em .5em;
 
     .info-container {
-      background-color: $lcns-white;
+      background-color: theme.$lcns-white;
       padding: .3em;
       border-radius: .5em;
       position: unset;
-      color: $lcns-dark-blue;
+      color: theme.$lcns-dark-blue;
       font-size: .8em;
     }
     .player-name-container {
       grid-column: 1 / span 4;
-      color: $lcns-orange;
-      background: $lcns-dark-blue;
+      color: theme.$lcns-orange;
+      background: theme.$lcns-dark-blue;
     }
 
     .game-name-container {
