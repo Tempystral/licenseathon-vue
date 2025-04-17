@@ -41,7 +41,7 @@ watch(() => props.player, fit);
     </Transition>
     <div class="player-pronouns-container">
       <Transition name="wipe">
-        <span class="wrapper fit" id="player-pronouns">{{ player.pronouns }}</span>
+        <span class="wrapper fit" id="player-pronouns" v-if="player.pronouns && player.pronouns?.length > 0">{{ player.pronouns }}</span>
       </Transition>
     </div>
   </div>

@@ -55,6 +55,8 @@ export default tseslint.config(
       "@stylistic/no-multiple-empty-lines": "off",
       // Allows "main.vue" files to be named as such.
       'vue/multi-word-component-names': ['error', { 'ignores': ['main'] }],
+      "@typescript-eslint/no-unused-vars": "off",
+      
   
       "no-fallthrough": "off",
       "prefer-const": "error",

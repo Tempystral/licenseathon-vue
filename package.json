@@ -29,7 +29,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "fitty": "^2.4.2",
-    "module-alias": "^2.2.3"
+    "module-alias": "^2.2.3",
+    "nodecg": "^2.5.3"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^4.2.0",
@@ -38,8 +39,6 @@
     "@vueuse/head": "^2.0.0",
     "bulma": "^1.0.3",
     "eslint": "^9.24.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-import-resolver-typescript": "^4.3.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-import-x": "^4.10.5",

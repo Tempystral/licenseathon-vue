@@ -17,13 +17,13 @@ const timer = useReplicant<Timer>(
   { defaultValue: defaultTimer as Timer },
 );
 
-const timerState = computed(() => timer?.data?.state || 'stopped');
+const timerState = computed(() => timer.data?.state || 'stopped');
 
 </script>
 
 <template>
   <div :class="`timer-container layout-${ratio} layout-${players}p`" >
-    <span :class="`timer-${timerState}`">{{ timer?.data?.time }}</span>
+    <span :class="`timer-${timerState}`">{{ timer.data?.time }}</span>
   </div>
 </template>
 
