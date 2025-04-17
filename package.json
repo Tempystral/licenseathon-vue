@@ -17,7 +17,7 @@
     "build:extension": "tsc -b tsconfig.extension.json",
     "clean": "rm -rf node_modules/.cache dashboard graphics extension",
     "schema-types": "nodecg schema-types",
-    "start": "node ~/nodecg",
+    "start": "nodecg start",
     "watch": "run-p watch:*",
     "watch:browser": "vite",
     "watch:extension": "tsc -b tsconfig.extension.json -w"
@@ -54,7 +54,7 @@
     "trash-cli": "^6.0.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.2.6",
+    "vite": "^5.1.5",
     "vite-plugin-checker": "^0.9.1",
     "vite-plugin-nodecg": "^2.1.0",
     "vue": "^3.5.13",
@@ -63,7 +63,7 @@
     "vue-tsc": "^2.2.8"
   },
   "nodecg": {
-    "compatibleRange": "^2.1.11",
+    "compatibleRange": "^2.5.3",
     "bundleDependencies": {
       "nodecg-speedcontrol": "^2.5.0"
     },
@@ -126,6 +126,16 @@
         "width": 1280,
         "height": 720
       }
+    ]
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "@vaadin/vaadin-usage-statistics",
+      "better-sqlite3",
+      "iframe-resizer"
+    ],
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
     ]
   }
 }
