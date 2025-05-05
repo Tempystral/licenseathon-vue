@@ -1,91 +1,78 @@
 <script setup lang="ts">
-import { Commentators } from '@licenseathon-vue/types/schemas';
-import { useHead } from '@vueuse/head';
-import { useReplicant } from 'nodecg-vue-composable';
-import { RunDataActiveRun } from 'speedcontrol-util/types';
-import { watch } from 'vue';
-import { defaultRunData } from '../../graphics/util/defaults';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import SvgIcon from "@jamescoyle/vue-icon";
+import { Commentators } from "@licenseathon-vue/types/schemas";
+import { mdiAccount } from "@mdi/js";
+import { useHead } from "@vueuse/head";
+import { useReplicant } from "nodecg-vue-composable";
+import Button from "primevue/button";
+import InputText from "primevue/inputtext";
+import { RunDataActiveRun } from "speedcontrol-util/types";
+import { watch } from "vue";
+import { defaultRunData } from "../../graphics/util/defaults";
 
 // Set the title of this page.
-useHead({ title: 'Commentators' });
+useHead({ title: "Commentators" });
 
 const commentators = useReplicant<Commentators>(
-  'commentators',
-  'licenseathon-vue',
-  { defaultValue: { names: ['', ''] } }
+  "commentators",
+  "licenseathon-vue",
+  { defaultValue: { names: ["", ""] } }
 );
 
 const activeRun = useReplicant<RunDataActiveRun>(
-  'runDataActiveRun',
-  'nodecg-speedcontrol',
+  "runDataActiveRun",
+  "nodecg-speedcontrol",
   { defaultValue: defaultRunData }
 );
 
-watch(() => activeRun.data, () => { commentators.loadDefault(); commentators.save(); });
-
+watch(
+  () => activeRun.data,
+  () => {
+    commentators.loadDefault();
+    commentators.save();
+  }
+);
 </script>
 
 <template>
-  <div class="commentatorPanel container">
-    <div class="field">
-      <label class="label">
-        <font-awesome-icon icon="fa-solid fa-user" class="icon"/>
-        <span>Commentator 1: </span>
-        <span class="commNameLabel">{{ commentators.data!.names[0] }}</span>
-      </label>
-      <div class="control">
-        <input class="input" type="text" v-model="commentators.data!.names[0]" placeholder="Commentator Name">
-      </div>
+  <div v-if="commentators.data" class="flex flex-col gap-2">
+    <div class="flex items-center gap-2">
+      <SvgIcon type="mdi" :path="mdiAccount" class="inline align-bottom" />
+      <InputText
+        size="small"
+        placeholder="Commentator 1 Name"
+        v-model="commentators.data.names[0]"
+      />
     </div>
 
-    <div class="field">
-      <label class="label">
-        <font-awesome-icon icon="fa-solid fa-user" class="icon"/>
-        <span>Commentator 2: </span>
-        <span class="commNameLabel">{{ commentators.data!.names[1] }}</span>
-      </label>
-      <div class="control">
-        <input class="input" type="text" v-model="commentators.data!.names[1]" placeholder="Commentator Name">
-      </div>
+    <div class="flex items-center gap-2">
+      <SvgIcon type="mdi" :path="mdiAccount" class="inline align-bottom" />
+      <InputText
+        size="small"
+        placeholder="Commentator 2 Name"
+        v-model="commentators.data.names[1]"
+      />
     </div>
 
-    <div id="buttonArray">
-      <input type="button" class="button is-success" value="Submit" :disabled="!commentators.changed" @click="commentators.save()" />
-      <input type="button" class="button is-danger" value="Reset" @click="commentators.loadDefault(); commentators.save()" />
+    <div class="flex gap-2 ms-8">
+      <Button
+        :disabled="!commentators.changed"
+        severity="primary"
+        class="h-9"
+        @click="commentators.save()"
+      >
+        Submit
+      </Button>
+      <Button
+        severity="danger"
+        class="h-9"
+        @click="
+          commentators.loadDefault();
+          commentators.save();
+        "
+      >
+        Reset
+      </Button>
     </div>
   </div>
 </template>
-
-<style lang="scss">
-@use "../../sass/style";
-
-html {
-  background: unset;
-}
-
-.commentatorPanel {
-  display: flex;
-  flex-direction: column;
-  #buttonArray {
-    display: flex;
-    flex-direction: row;
-    input {
-      margin-inline-end: .5em;
-    }
-  }
-
-}
-
-.commNameLabel {
-  color: orange;
-}
-
-.field .label {
-  color: white;
-  .icon {
-    height: 1rem;
-  }
-}
-
-</style>

@@ -1,11 +1,13 @@
-import type { NodeCG } from 'nodecg-types/types/server';
+import NodeCG from "@nodecg/types";
 
-let nodecg: NodeCG;
+type ServerNodeCG = NodeCG.ServerAPI;
 
-export function set(ctx: NodeCG): void {
+let nodecg: ServerNodeCG;
+
+export function set(ctx: ServerNodeCG): void {
   nodecg = ctx;
 }
 
-export function get(): NodeCG {
+export function get(): ServerNodeCG {
   return nodecg;
 }

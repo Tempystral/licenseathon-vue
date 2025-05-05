@@ -1,14 +1,5 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { createHead } from '@vueuse/head';
 
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { createApp } from 'vue';
+import { create } from '@licenseathon-vue/browser-shared/template';
 import Commentators from './components/CommentatorComponent.vue';
 
-library.add(faUser);
-
-const app = createApp(Commentators);
-app.use(createHead());
-app.component('font-awesome-icon', FontAwesomeIcon);
-app.mount('#app');
+const app = create(Commentators);
