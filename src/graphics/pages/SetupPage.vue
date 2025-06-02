@@ -140,7 +140,7 @@ body {
     }
     .player-name-container {
       grid-column: 1 / span 4;
-      color: theme.$lcns-orange;
+      color: theme.$lcns-amber;
       background: theme.$lcns-dark-blue;
     }
 
