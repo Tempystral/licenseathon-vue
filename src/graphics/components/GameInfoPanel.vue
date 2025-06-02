@@ -1,94 +1,147 @@
 <script setup lang="ts">
-import { useReplicant } from 'nodecg-vue-composable';
-import { RunDataActiveRun } from 'speedcontrol-util/types';
-import { onMounted, watch } from 'vue';
-import { fitText } from '../util/composables';
-import { defaultRunData } from '../util/defaults';
+import { useReplicant } from "nodecg-vue-composable";
+import { RunDataActiveRun } from "speedcontrol-util/types";
+import { onMounted, watch } from "vue";
+import { fitText } from "../util/composables";
+import { defaultRunData } from "../util/defaults";
+import SvgIcon from "@jamescoyle/vue-icon";
+import { mdiCalendar, mdiCalendarMonth, mdiGamepadVariant } from "@mdi/js";
 
 const props = defineProps<{
-  activeRun: RunDataActiveRun,
-  players: number
+  activeRun: RunDataActiveRun;
+  players: number;
 }>();
 
 const runDataActiveRun = useReplicant<RunDataActiveRun>(
-  'runDataActiveRun',
-  'nodecg-speedcontrol',
-  { defaultValue: defaultRunData as RunDataActiveRun },
+  "runDataActiveRun",
+  "nodecg-speedcontrol",
+  { defaultValue: defaultRunData as RunDataActiveRun }
 );
 
 // Fit text
 // const options = { multiLine: true, minSize: 14, maxSize: 24 };
 const fit = () => {
   let options = {};
-  if (props.players === 1) { options = { multiLine: true, minSize: 14, maxSize: 24 }; }
-  if (props.players > 1) { options = { multiLine: true, minSize: 11, maxSize: 18 }; }
-  fitText(['#game-name', '#game-category', '#game-estimate'], options);
+  if (props.players === 1) {
+    options = { multiLine: true, minSize: 14, maxSize: 24 };
+  }
+  if (props.players > 1) {
+    options = { multiLine: true, minSize: 11, maxSize: 18 };
+  }
+  fitText(["#game-name", "#game-category"], options);
 };
 onMounted(fit);
 watch(() => runDataActiveRun?.data, fit);
-
 </script>
 
 <template>
-  <div v-if="activeRun" :class="['game-container', `layout-${players}p`]" :id="activeRun.id">
+  <div
+    v-if="activeRun"
+    :class="['game-container', `layout-${players}p`]"
+    class="fixed font-[Fusion]"
+    :id="activeRun.id"
+  >
     <div class="game-name-container info-container">
-      <p id="game-name" class="fit">{{ activeRun?.game }}</p>
+      <p id="game-name" class="fit mt-1">{{ activeRun?.game }}</p>
     </div>
     <div class="game-category-container info-container">
-      <p id="game-category" class="fit">{{ activeRun?.category }}</p>
+      <p id="game-category" class="fit mt-1">{{ activeRun?.category }}</p>
     </div>
+
     <div class="game-estimate-container info-container">
-      <p id="game-estimate" class="fit">{{ activeRun.estimate }}</p>
+      <p id="game-estimate" class="font-[Karnivore_Lite] text-2xl mb-1">
+        {{ activeRun.estimate }}
+      </p>
+    </div>
+
+    <div class="font-[Karnivore] text-lg">
+      <div
+        v-if="activeRun.system"
+        class="game-platform-container info-container"
+      >
+        <SvgIcon
+          type="mdi"
+          :path="mdiGamepadVariant"
+          class="inline align-middle"
+          :size="32"
+        />
+        <p id="game-platform">{{ activeRun.system }}</p>
+      </div>
+      <div v-if="activeRun.release" class="game-year-container info-container">
+        <SvgIcon
+          type="mdi"
+          :path="mdiCalendarMonth"
+          class="inline align-middle"
+          :size="32"
+        />
+        <p id="game-year">{{ activeRun.release }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-@use '@licenseathon-vue/sass/style.scss';
-@use '@licenseathon-vue/sass/color' as theme;
+@use "@licenseathon-vue/sass/style.scss";
+@use "@licenseathon-vue/sass/color" as theme;
 
 .info-container {
   position: absolute;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   &.layout-1p p {
-    padding-inline: .5em;
+    padding-inline: 0.5em;
+  }
+
+  &.game-year-container,
+  &.game-platform-container {
+    color: theme.$lcns-teal;
+    justify-content: end;
   }
 }
 
 .game-container {
-  position: fixed;
-  font-family: "Fusion";
-
-
-  &.layout-1p{
-    color: theme.$lcns-white;
+  &.layout-1p {
+    color: theme.$lcns-black;
     text-align: center;
-    top: 56px;
-    left: 10px;
+    left: 5px;
+    top: 755px;
 
     .game-name-container {
-      top: 2px;
-      left: 16px;
-      width: 188px;
-      height: 68px;
+      top: 130px;
+      left: 119px;
+      width: 481px;
+      height: 50px;
     }
     .game-category-container {
-      top: 86px;
-      left: 30px;
-      width: 170px;
-      height: 40px;
+      top: 200px;
+      left: 119px;
+      width: 481px;
+      height: 50px;
     }
     .game-estimate-container {
-      top: 180px;
-      left: 26px;
-      width: 150px;
-      height: 36px;
+      top: 50px;
+      left: 85px;
+      width: 112px;
+      height: 32px;
+    }
+    .game-platform-container {
+      top: 10px;
+      left: 455px;
+      width: 100px;
+      height: 70px;
+    }
+    .game-year-container {
+      top: 10px;
+      left: 555px;
+      width: 60px;
+      height: 70px;
     }
   }
 
-  &.layout-2p, &.layout-3p{
+  &.layout-2p,
+  &.layout-3p {
     color: theme.$lcns-dark-blue;
     text-align: right;
     top: 530px;
@@ -99,7 +152,7 @@ watch(() => runDataActiveRun?.data, fit);
       left: 8px;
       width: 190px;
       height: 46px;
-      p::first-line{
+      p::first-line {
         text-indent: 1em;
       }
       text-indent: 0;
@@ -119,7 +172,5 @@ watch(() => runDataActiveRun?.data, fit);
       justify-content: end;
     }
   }
-
 }
-
 </style>
