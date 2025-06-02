@@ -1,56 +1,95 @@
 <script setup lang="ts">
-import { RunDataPlayer } from 'speedcontrol-util/types';
-import { computed, onMounted, watch } from 'vue';
-import { fitText } from '../util/composables';
-import getSeconds from '../util/updatetime';
+import { RunDataPlayer } from "speedcontrol-util/types";
+import { computed, onMounted, watch } from "vue";
+import { fitText } from "../util/composables";
+import getSeconds from "../util/updatetime";
+import { mdiGamepad, mdiTwitch } from "@mdi/js";
+import SvgIcon from "@jamescoyle/vue-icon";
 
 const props = defineProps<{
-  player: RunDataPlayer,
-  ratio: string,
-  position: number
+  player: RunDataPlayer;
+  ratio: string;
+  position: number;
 }>();
 
-const pronouns = computed(() => props.player.pronouns?.split(','));
+const pronouns = computed(() => props.player.pronouns?.split(","));
 const seconds = getSeconds();
 
 // Fit text
-const options = computed(() => ({ multiLine: true, minSize: 14, maxSize: 24 }));
+const options = computed(() => ({ multiLine: true, minSize: 14, maxSize: 30 }));
 const fit = () => {
-  fitText(['#player-name', '#player-social'], options.value);
-  fitText(['#player-pronouns'], { multiLine: true, minSize: 10, maxSize: 14 });
+  fitText(["#player-name", "#player-social"], options.value);
+  fitText(["#player-pronouns"], { multiLine: true, minSize: 18, maxSize: 24 });
 };
 
 onMounted(() => {
   fit();
 });
 watch(() => props.player, fit);
-
 </script>
 
 <template>
-  <div :class="['player-container', `layout-${ratio}`, `player-${position}`]" :data-player="`${player.id}`">
+  <div
+    class="absolute font-[Fusion] flex flex-col justify-center text-center"
+    :class="['player-container', `layout-${ratio}`, `player-${position}`]"
+    :data-player="`${player.id}`"
+  >
     <Transition name="wipe" :onEnter="fit">
-    <div class="player-name-container" v-if="seconds < 30">
-      <font-awesome-icon icon="fa-solid fa-gamepad" class="icon"/>
-      <span class="wrapper"><span id="player-name" class="fit">{{ player.name }}</span></span>
-    </div>
-    <div class="player-social-container" v-else-if="seconds >= 30">
-      <font-awesome-icon icon="fa-brands fa-twitch" class="icon"/>
-      <span class="wrapper"><span id="player-social" class="fit">{{ player.social.twitch }}</span></span>
-    </div>
+      <div class="player-name-container absolute w-full" v-if="seconds < 30">
+        <p id="player-name" class="inline-block whitespace-nowrap max-w-10/12">
+          <SvgIcon
+            type="mdi"
+            :path="mdiGamepad"
+            class="inline align-middle"
+            :size="28"
+          />
+          {{ player.name }}
+        </p>
+      </div>
+      <div
+        class="player-social-container absolute w-full"
+        v-else-if="seconds >= 30"
+      >
+        <p
+          id="player-social"
+          class="inline-block whitespace-nowrap max-w-10/12"
+        >
+          <SvgIcon
+            type="mdi"
+            :path="mdiTwitch"
+            class="inline align-middle"
+            :size="28"
+          />
+          {{ player.social.twitch }}
+        </p>
+      </div>
     </Transition>
-    <div class="player-pronouns-container">
-      <Transition name="wipe">
-        <span class="wrapper fit" id="player-pronouns" v-if="player.pronouns && player.pronouns?.length > 0">{{ player.pronouns }}</span>
-      </Transition>
-    </div>
+  </div>
+  <div
+    :data-player="`${player.id}`"
+    :class="[
+      'player-pronouns-container',
+      `layout-${ratio}`,
+      `player-${position}`,
+    ]"
+    class="absolute font-[Fusion] flex flex-col justify-center text-center"
+  >
+    <Transition name="wipe">
+      <span
+        class="wrapper inline-block whitespace-nowrap"
+        id="player-pronouns"
+        v-if="player.pronouns && player.pronouns?.length > 0"
+      >
+        {{ player.pronouns }}
+      </span>
+    </Transition>
   </div>
 </template>
 
 <style lang="scss">
-@use '@licenseathon-vue/sass/style.scss';
-@use '@licenseathon-vue/sass/color' as theme;
-@use '@licenseathon-vue/sass/transition';
+@use "@licenseathon-vue/sass/style.scss";
+@use "@licenseathon-vue/sass/color" as theme;
+@use "@licenseathon-vue/sass/transition";
 
 .layout-container.solo {
   .player-container:not(.player-1) {
@@ -58,67 +97,41 @@ watch(() => props.player, fit);
   }
 
   .player-container {
-    position: fixed;
-
     color: theme.$lcns-white;
-    font-family: "Fusion";
-    font-size: large;
-    text-align: center;
 
-    display: flex;
-    align-items: end;
-
-    // General settings for the name and social fields
-    .player-name-container,
-    .player-social-container {
-      position: absolute;
-      width: 100%;
-      .wrapper {
-        display: inline-block;
-        max-width: 80%;
-      }
-    }
     // Per-player positions
     &.player-1 {
-      top: 480px;
-      left: 23px;
-      width: 215px;
-      height: 30px;
+      top: 358px;
+      left: 276px;
+      width: 348px;
+      height: 60px;
       &.layout-ds {
         top: 424px;
       }
     }
+  }
 
-    &.layout-16-9 .player-pronouns-container{
-      position: absolute;
+  .player-pronouns-container {
+    color: theme.$lcns-black;
+
+    &.layout-16-9 {
       left: 138px;
       top: 30px;
       width: 84px;
       height: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
-    &.layout-4-3 .player-pronouns-container,
-    &.layout-ds .player-pronouns-container{
-      position: absolute;
+    &.layout-4-3,
+    &.layout-ds {
+      left: 460px;
+      top: 308px;
+      width: 165px;
+      height: 40px;
+    }
+    &.layout-3-2 {
       left: 224px;
       top: 12px;
       width: 72px;
       height: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    &.layout-3-2 .player-pronouns-container{
-      position: absolute;
-      left: 224px;
-      top: 12px;
-      width: 72px;
-      height: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
   }
 }
@@ -261,6 +274,7 @@ watch(() => props.player, fit);
 }
 
 .svg-inline--fa {
-  padding-inline-end: .5em;
+  padding-inline-end: 0.5em;
   vertical-align: middle;
-}</style>
+}
+</style>

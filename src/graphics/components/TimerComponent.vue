@@ -1,38 +1,44 @@
 <script setup lang="ts">
-import { useReplicant } from 'nodecg-vue-composable';
-import { type Timer } from 'speedcontrol-util/types';
-import { computed } from 'vue';
-import { defaultTimer } from '../util/defaults';
+import { useReplicant } from "nodecg-vue-composable";
+import { type Timer } from "speedcontrol-util/types";
+import { computed } from "vue";
+import { defaultTimer } from "../util/defaults";
 
 const props = defineProps<{
-  ratio: string,
-  players: number
+  ratio: string;
+  players: number;
 }>();
 
 // Helper composable to make accessing/modifying replicants easier.
 // For more information see https://github.com/Dan-Shields/nodecg-vue-composable
-const timer = useReplicant<Timer>(
-  'timer',
-  'nodecg-speedcontrol',
-  { defaultValue: defaultTimer as Timer },
-);
+const timer = useReplicant<Timer>("timer", "nodecg-speedcontrol", {
+  defaultValue: defaultTimer as Timer,
+});
 
-const timerState = computed(() => timer.data?.state || 'stopped');
+const timerState = computed(() => timer.data?.state || "stopped");
 
+function formatTime(time: string | undefined) {
+  return time ? time.slice(1) : undefined;
+}
 </script>
 
 <template>
-  <div :class="`timer-container layout-${ratio} layout-${players}p`" >
-    <span :class="`timer-${timerState}`">{{ timer.data?.time }}</span>
+  <div :class="`timer-container layout-${ratio} layout-${players}p`">
+    <span id="timer" :class="`ms-2 -mt-1 timer-${timerState}`">
+      {{ formatTime(timer.data?.time) }}
+    </span>
   </div>
 </template>
 
 <style lang="scss">
-@use '@licenseathon-vue/sass/style.scss';
-@use '@licenseathon-vue/sass/color' as theme;
+@use "@licenseathon-vue/sass/style.scss";
+@use "@licenseathon-vue/sass/color" as theme;
 
-.timer-container.layout-1p{
+#timer {
+  color: theme.$lcns-teal;
+}
 
+.timer-container.layout-1p {
   &.layout-16-9 {
     color: theme.$lcns-dark-blue;
     font-family: "Fusion";
@@ -46,33 +52,30 @@ const timerState = computed(() => timer.data?.state || 'stopped');
 
     text-align: right;
     display: flex;
-    span {
-      align-self: end;
-    }
   }
 
-  &.layout-4-3,
-  &.layout-3-2,
-  &.layout-ds {
+  &.layout-4-3 {
     color: theme.$lcns-white;
-    font-family: "Fusion";
-    font-size: 40px;
+    font-family: Karnivore, mono;
+    font-size: 3em;
 
     position: absolute;
-    top: 308px;
-    left: 128px;
-    width: 210px;
-    height: 56px;
+    top: 765px;
+    left: 220px;
+    width: 220px;
+    height: 70px;
 
     text-align: right;
     display: flex;
     span {
+      vertical-align: middle;
       align-self: baseline;
     }
   }
 }
 
-.timer-container.layout-2p, .timer-container.layout-3p {
+.timer-container.layout-2p,
+.timer-container.layout-3p {
   color: theme.$lcns-dark-blue;
   font-family: "Fusion";
   font-size: 34px;
@@ -83,5 +86,4 @@ const timerState = computed(() => timer.data?.state || 'stopped');
   width: 180px;
   height: 50px;
 }
-
 </style>
