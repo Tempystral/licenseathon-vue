@@ -30,7 +30,7 @@ watch(() => props.player, fit);
 
 <template>
   <div
-    class="absolute font-[Fusion] flex flex-col justify-center text-center"
+    class="absolute font-[Fusion] flex flex-col justify-center text-center mt-0.5"
     :class="['player-container', `layout-${ratio}`, `player-${position}`]"
     :data-player="`${player.id}`"
   >
@@ -72,7 +72,7 @@ watch(() => props.player, fit);
       `layout-${ratio}`,
       `player-${position}`,
     ]"
-    class="absolute font-[Fusion] flex flex-col justify-center text-center"
+    class="absolute font-[Fusion] flex flex-col justify-center text-center mt-0.5"
   >
     <Transition name="wipe">
       <span
@@ -101,31 +101,35 @@ watch(() => props.player, fit);
 
     // Per-player positions
     &.player-1 {
-      top: 358px;
-      left: 276px;
       width: 348px;
       height: 60px;
-      &.layout-ds {
-        top: 424px;
+
+      &.layout-4-3,
+      &.layout-3-2 {
+        top: 358px;
+        left: 276px;
+      }
+      &.layout-16-9 {
+        top: 408px;
+        left: 125px;
       }
     }
   }
 
   .player-pronouns-container {
     color: theme.$lcns-black;
+    height: 40px;
 
     &.layout-16-9 {
-      left: 138px;
-      top: 30px;
-      width: 84px;
-      height: 18px;
+      left: 266px;
+      top: 358px;
+      width: 211px;
     }
     &.layout-4-3,
     &.layout-3-2 {
       left: 460px;
       top: 308px;
       width: 165px;
-      height: 40px;
     }
   }
 }

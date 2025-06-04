@@ -29,8 +29,28 @@ const fit = () => {
   });
 };
 
-watch(() => nonEmptyNames, fit);
+function hideAndShowPanels(names: string[]) {
+  const com1 = document.getElementById("Commentator-1");
+  const com2 = document.getElementById("Commentator-2");
+  if (names.length == 2) {
+    if (com1) com1.style.display = "";
+    if (com2) com2.style.display = "";
+  } else if (names.length == 1) {
+    if (com2) com2.style.display = "none";
+    if (com1) com1.style.display = "";
+  } else if (names.length === 0) {
+    if (com2) com2.style.display = "none";
+    if (com1) com1.style.display = "none";
+  }
+}
+
+watch(nonEmptyNames, (names) => {
+  hideAndShowPanels(names);
+  fit();
+});
+
 onMounted(() => {
+  hideAndShowPanels(nonEmptyNames.value);
   setTimeout(fit, 1000);
 });
 </script>
@@ -39,29 +59,36 @@ onMounted(() => {
   <div
     :class="`comms-container layout-${ratio} layout-${players}p font-[Fusion]`"
   >
-    <SvgIcon
-      type="mdi"
-      :path="mdiMicrophone"
-      class="ms-1"
-      id="mic-icon"
-      :size="18"
-    />
-
-    <div class="commentator">
-      <p
-        v-if="nonEmptyNames.length > 0"
-        id="commentator-1"
-        class="inline-block whitespace-nowrap"
-      >
+    <div
+      class="commentator"
+      id="commentator-1-container"
+      v-if="nonEmptyNames.length > 0"
+    >
+      <SvgIcon
+        type="mdi"
+        :path="mdiMicrophone"
+        class="ms-1 mic-icon"
+        id="mic-icon-1"
+        :size="18"
+      />
+      <p id="commentator-1" class="inline-block whitespace-nowrap">
         {{ nonEmptyNames[0] }}
       </p>
     </div>
-    <div class="commentator">
-      <p
-        v-if="nonEmptyNames.length > 1"
-        id="commentator-2"
-        class="inline-block whitespace-nowrap"
-      >
+
+    <div
+      class="commentator"
+      id="commentator-2-container"
+      v-if="nonEmptyNames.length > 1"
+    >
+      <SvgIcon
+        type="mdi"
+        :path="mdiMicrophone"
+        class="ms-1 mic-icon"
+        id="mic-icon-2"
+        :size="18"
+      />
+      <p id="commentator-2" class="inline-block whitespace-nowrap">
         {{ nonEmptyNames[1] }}
       </p>
     </div>
@@ -85,15 +112,7 @@ onMounted(() => {
     height: 50px;
     gap: 60px;
 
-    .commentator {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 245px;
-    }
-
-    #mic-icon {
+    #mic-icon-1 {
       color: theme.$lcns-white;
       position: fixed;
       top: 442px;
@@ -101,6 +120,47 @@ onMounted(() => {
       width: 32px;
       height: 32px;
     }
+    #mic-icon-2 {
+      display: none;
+    }
+  }
+
+  &.layout-16-9 {
+    position: absolute;
+    top: 485px;
+    left: 159px;
+    height: 110px;
+    margin-inline-start: 0.5rem;
+
+    flex-direction: column;
+    gap: 10px;
+
+    .mic-icon {
+      color: theme.$lcns-white;
+      position: fixed;
+      left: 117px;
+      width: 32px;
+      height: 32px;
+
+      &#mic-icon-1 {
+        top: 493px;
+      }
+      &#mic-icon-2 {
+        top: 553px;
+      }
+    }
+    .commentator {
+      width: 290px;
+    }
+  }
+
+  .commentator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 245px;
+    height: 50px;
   }
 }
 

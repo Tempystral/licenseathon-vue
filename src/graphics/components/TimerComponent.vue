@@ -25,9 +25,11 @@ function formatTime(time: string | undefined) {
 <template>
   <div :class="`timer-container layout-${ratio} layout-${players}p`">
     <div id="crt" class="absolute z-10 rounded"></div>
-    <span id="timer" :class="`ms-2 timer-${timerState} z-0`">
-      {{ formatTime(timer.data?.time) }}
-    </span>
+    <div class="flex flex-col justify-center items-start">
+      <span id="timer" :class="`ms-2 timer-${timerState} z-0`">
+        {{ formatTime(timer.data?.time) }}
+      </span>
+    </div>
   </div>
 </template>
 
@@ -44,17 +46,11 @@ function formatTime(time: string | undefined) {
   font-family: Karnivore, mono;
 
   text-align: right;
-  display: flex;
-  span {
-    vertical-align: middle;
-    align-self: baseline;
-  }
 
   &.layout-16-9 {
     font-size: 4em;
-    margin-top: -0.5rem;
     position: absolute;
-    top: 753px;
+    top: 743px;
     left: 25px;
     width: 260px;
     height: 90px;
@@ -68,7 +64,6 @@ function formatTime(time: string | undefined) {
   &.layout-4-3,
   &.layout-3-2 {
     font-size: 3em;
-    margin-top: -0.25rem;
     position: absolute;
     top: 765px;
     left: 220px;
