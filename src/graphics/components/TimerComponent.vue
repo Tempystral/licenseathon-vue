@@ -24,7 +24,8 @@ function formatTime(time: string | undefined) {
 
 <template>
   <div :class="`timer-container layout-${ratio} layout-${players}p`">
-    <span id="timer" :class="`ms-2 -mt-1 timer-${timerState}`">
+    <div id="crt" class="absolute z-10 rounded"></div>
+    <span id="timer" :class="`ms-2 timer-${timerState} z-0`">
       {{ formatTime(timer.data?.time) }}
     </span>
   </div>
@@ -39,37 +40,44 @@ function formatTime(time: string | undefined) {
 }
 
 .timer-container.layout-1p {
-  &.layout-16-9 {
-    color: theme.$lcns-dark-blue;
-    font-family: "Fusion";
-    font-size: 46px;
+  color: theme.$lcns-white;
+  font-family: Karnivore, mono;
 
-    position: absolute;
-    top: 580px;
-    left: 532px;
-    width: 248px;
-    height: 70px;
-
-    text-align: right;
-    display: flex;
+  text-align: right;
+  display: flex;
+  span {
+    vertical-align: middle;
+    align-self: baseline;
   }
 
-  &.layout-4-3 {
-    color: theme.$lcns-white;
-    font-family: Karnivore, mono;
-    font-size: 3em;
+  &.layout-16-9 {
+    font-size: 4em;
+    margin-top: -0.5rem;
+    position: absolute;
+    top: 753px;
+    left: 25px;
+    width: 260px;
+    height: 90px;
 
+    #crt {
+      width: 454px;
+      height: 90px;
+    }
+  }
+
+  &.layout-4-3,
+  &.layout-3-2 {
+    font-size: 3em;
+    margin-top: -0.25rem;
     position: absolute;
     top: 765px;
     left: 220px;
     width: 220px;
     height: 70px;
 
-    text-align: right;
-    display: flex;
-    span {
-      vertical-align: middle;
-      align-self: baseline;
+    #crt {
+      width: 400px;
+      height: 70px;
     }
   }
 }
@@ -85,5 +93,25 @@ function formatTime(time: string | undefined) {
   left: 280px;
   width: 180px;
   height: 50px;
+}
+
+#crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
 }
 </style>

@@ -9,6 +9,7 @@ import { mdiCalendar, mdiCalendarMonth, mdiGamepadVariant } from "@mdi/js";
 
 const props = defineProps<{
   activeRun: RunDataActiveRun;
+  ratio: string;
   players: number;
 }>();
 
@@ -29,6 +30,7 @@ const fit = () => {
     options = { multiLine: true, minSize: 11, maxSize: 18 };
   }
   fitText(["#game-name", "#game-category"], options);
+  fitText("#game-platform", { multiLine: true, minSize: 14, maxSize: 18 });
 };
 onMounted(fit);
 watch(() => runDataActiveRun?.data, fit);
@@ -37,7 +39,7 @@ watch(() => runDataActiveRun?.data, fit);
 <template>
   <div
     v-if="activeRun"
-    :class="['game-container', `layout-${players}p`]"
+    :class="['game-container', `layout-${players}p`, `layout-${ratio}`]"
     class="fixed font-[Fusion]"
     :id="activeRun.id"
   >
@@ -49,7 +51,11 @@ watch(() => runDataActiveRun?.data, fit);
     </div>
 
     <div class="game-estimate-container info-container">
-      <p id="game-estimate" class="font-[Karnivore_Lite] text-2xl mb-1">
+      <p
+        id="game-estimate"
+        class="font-[Karnivore_Lite] mb-1"
+        :class="ratio === '16-9' ? 'text-3xl' : 'text-2xl'"
+      >
         {{ activeRun.estimate }}
       </p>
     </div>
@@ -63,7 +69,7 @@ watch(() => runDataActiveRun?.data, fit);
           type="mdi"
           :path="mdiGamepadVariant"
           class="inline align-middle"
-          :size="32"
+          :size="ratio === '16-9' ? 40 : 32"
         />
         <p id="game-platform">{{ activeRun.system }}</p>
       </div>
@@ -72,7 +78,7 @@ watch(() => runDataActiveRun?.data, fit);
           type="mdi"
           :path="mdiCalendarMonth"
           class="inline align-middle"
-          :size="32"
+          :size="ratio === '16-9' ? 40 : 32"
         />
         <p id="game-year">{{ activeRun.release }}</p>
       </div>
@@ -108,35 +114,71 @@ watch(() => runDataActiveRun?.data, fit);
     left: 5px;
     top: 755px;
 
-    .game-name-container {
-      top: 130px;
-      left: 119px;
-      width: 481px;
-      height: 50px;
-    }
+    .game-name-container,
     .game-category-container {
-      top: 200px;
-      left: 119px;
       width: 481px;
       height: 50px;
     }
-    .game-estimate-container {
-      top: 50px;
-      left: 85px;
-      width: 112px;
-      height: 32px;
+
+    &.layout-4-3,
+    &.layout-3-2 {
+      .game-name-container {
+        left: 119px;
+        top: 130px;
+      }
+      .game-category-container {
+        left: 119px;
+        top: 200px;
+      }
+
+      .game-estimate-container {
+        top: 50px;
+        left: 85px;
+        width: 112px;
+        height: 32px;
+      }
+      .game-platform-container {
+        top: 10px;
+        left: 435px;
+        width: 120px;
+        height: 70px;
+      }
+      .game-year-container {
+        top: 10px;
+        left: 555px;
+        width: 60px;
+        height: 70px;
+      }
     }
-    .game-platform-container {
-      top: 10px;
-      left: 455px;
-      width: 100px;
-      height: 70px;
-    }
-    .game-year-container {
-      top: 10px;
-      left: 555px;
-      width: 60px;
-      height: 70px;
+
+    &.layout-16-9 {
+      .game-name-container {
+        left: 129px;
+        top: 130px;
+      }
+      .game-category-container {
+        left: 129px;
+        top: 200px;
+      }
+
+      .game-estimate-container {
+        top: -80px;
+        left: 286px;
+        width: 167px;
+        height: 45px;
+      }
+      .game-platform-container {
+        top: -10px;
+        left: 274px;
+        width: 130px;
+        height: 90px;
+      }
+      .game-year-container {
+        top: -10px;
+        left: 404px;
+        width: 70px;
+        height: 90px;
+      }
     }
   }
 

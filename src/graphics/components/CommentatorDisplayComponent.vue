@@ -77,27 +77,30 @@ onMounted(() => {
 
   color: theme.$lcns-black;
 
-  position: absolute;
-  top: 433px;
-  left: 70px;
-  height: 50px;
-  gap: 65px;
+  &.layout-4-3,
+  &.layout-3-2 {
+    position: absolute;
+    top: 433px;
+    left: 75px;
+    height: 50px;
+    gap: 60px;
 
-  .commentator {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 245px;
-  }
+    .commentator {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 245px;
+    }
 
-  #mic-icon {
-    color: theme.$lcns-white;
-    position: fixed;
-    top: 442px;
-    left: 24px;
-    width: 32px;
-    height: 32px;
+    #mic-icon {
+      color: theme.$lcns-white;
+      position: fixed;
+      top: 442px;
+      left: 24px;
+      width: 32px;
+      height: 32px;
+    }
   }
 }
 

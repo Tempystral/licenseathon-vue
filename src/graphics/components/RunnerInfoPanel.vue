@@ -121,17 +121,11 @@ watch(() => props.player, fit);
       height: 18px;
     }
     &.layout-4-3,
-    &.layout-ds {
+    &.layout-3-2 {
       left: 460px;
       top: 308px;
       width: 165px;
       height: 40px;
-    }
-    &.layout-3-2 {
-      left: 224px;
-      top: 12px;
-      width: 72px;
-      height: 36px;
     }
   }
 }
