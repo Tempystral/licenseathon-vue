@@ -49,7 +49,65 @@ const runners = computed(() => {
     <svg height="0" width="0">
       <defs>
         <filter
-          id="shadow"
+          id="offset-inset-shadow"
+          color-interpolation-filters="sRGB"
+          filterUnits="objectBoundingBox"
+          primitiveUnits="userSpaceOnUse"
+        >
+          <feOffset dx="20" dy="0" in="SourceGraphic" result="offset" />
+          <feGaussianBlur
+            stdDeviation="20 20"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            in="offset"
+            edgeMode="none"
+            result="blur"
+          />
+          <feComposite
+            in="SourceGraphic"
+            in2="blur"
+            operator="out"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite"
+          />
+          <feFlood
+            flood-color="#000000"
+            flood-opacity="0.95"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="flood"
+          />
+          <feComposite
+            in="flood"
+            in2="composite"
+            operator="in"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite1"
+          />
+          <feComposite
+            in="composite1"
+            in2="SourceGraphic"
+            operator="over"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite2"
+          />
+        </filter>
+
+        <filter
+          id="inset-shadow"
           color-interpolation-filters="sRGB"
           filterUnits="objectBoundingBox"
           primitiveUnits="userSpaceOnUse"
@@ -60,7 +118,7 @@ const runners = computed(() => {
             y="0%"
             width="100%"
             height="100%"
-            in="SourceGraphic"
+            in="offset"
             edgeMode="none"
             result="blur"
           />
@@ -128,9 +186,10 @@ const runners = computed(() => {
       />
       <GameInfoPanel
         :active-run="runDataActiveRun?.data"
+        :ratio="props.ratio"
         :players="props.players"
       />
-      <div class="crt text-white text-2xl"></div>
+
       <TimerComponent :ratio="props.ratio" :players="props.players" />
       <div
         v-if="props.players > 1"
@@ -188,43 +247,17 @@ body {
 svg {
   #LCD,
   #Camera-Frame,
-  #Estimate-Container {
-    filter: url(#shadow);
+  #Estimate-Container,
+  #Info-Inset-Panel {
+    filter: url(#inset-shadow);
+  }
+
+  #Camera-Inset-Panel {
+    filter: url(#offset-inset-shadow);
   }
 
   #Game-Title-Group path:first-of-type {
     filter: drop-shadow(0 0 8px black);
-  }
-}
-
-.crt {
-  width: 400px;
-  height: 70px;
-  position: absolute;
-  top: 765px;
-  left: 220px;
-
-  &::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(
-        rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.25) 50%
-      ),
-      linear-gradient(
-        90deg,
-        rgba(255, 0, 0, 0.06),
-        rgba(0, 255, 0, 0.02),
-        rgba(0, 0, 255, 0.06)
-      );
-    z-index: 2;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
   }
 }
 </style>
