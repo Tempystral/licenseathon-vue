@@ -9,6 +9,7 @@ import RaceTimerComponent from "../components/RaceTimerComponent.vue";
 import RunnerInfoPanel from "../components/RunnerInfoPanel.vue";
 import TimerComponent from "../components/TimerComponent.vue";
 import { defaultRunData, defaultRunDataPlayer } from "../util/defaults";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 
 /**
  * Layout is passed in as prop
@@ -203,6 +204,7 @@ const runners = computed(() => {
           :position="runners.indexOf(runner) + 1"
         />
       </div>
+      <IncentiveComponent :ratio="props.ratio" />
     </div>
   </div>
 </template>

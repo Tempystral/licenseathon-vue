@@ -6,6 +6,7 @@ const props = defineProps<{
   total: number;
   name?: string;
   colour?: string;
+  position?: "in" | "over";
 }>();
 
 const barColor = computed(() => props.colour ?? "bg-amber-500");
@@ -15,12 +16,17 @@ const percentRaised = computed(() =>
 );
 </script>
 <template>
-  <p class="mb-1" v-if="name != undefined">
+  <p class="mb-1" v-if="name != undefined && position === 'over'">
     <b>{{ name }}</b>
   </p>
-  <div :class="`mb-2 flex h-10`">
+  <div :class="`flex h-10`">
     <div class="absolute ms-2 flex items-center h-[inherit]">
-      <p class="text-xl">${{ amount_raised }}</p>
+      <p class="text-xl">
+        <span class="mb-1" v-if="name != undefined && position === 'in'">
+          {{ name }}:
+        </span>
+        <b>${{ amount_raised }}</b>
+      </p>
     </div>
     <div
       class="text-black transition-all rounded-l"
