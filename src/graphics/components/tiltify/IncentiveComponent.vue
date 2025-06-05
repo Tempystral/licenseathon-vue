@@ -61,6 +61,7 @@ const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
     >
       <Transition name="slide">
         <PollComponent
+          :textSize="ratio === '4-3' ? 'xl' : '2xl'"
           :poll="activePolls[currentPollIndex]"
           :key="activePolls[currentPollIndex].id"
         />
@@ -87,8 +88,17 @@ const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
     height: 115px;
   }
   &.layout-3-2 {
+    top: 855px;
+    left: 662px;
+    width: 1000px;
+    height: 220px;
   }
   &.layout-16-9 {
+    top: 845px;
+    left: 647px;
+    width: 735px;
+    height: 230px;
+    padding-block: 2em;
   }
 }
 

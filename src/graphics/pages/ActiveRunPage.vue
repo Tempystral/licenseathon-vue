@@ -46,7 +46,7 @@ const runners = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="w-full h-full absolute">
     <svg height="0" width="0">
       <defs>
         <filter
@@ -214,7 +214,7 @@ const runners = computed(() => {
 @use "@licenseathon-vue/sass/color" as theme;
 
 body {
-  background: #e2e2e4;
+  background-image: url(../assets/background.png);
   overflow: hidden;
 }
 

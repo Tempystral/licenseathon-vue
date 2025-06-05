@@ -3,12 +3,13 @@ import { computed } from "vue";
 import { Poll } from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
 import ProgressBar from "./ProgressBar.vue";
 
-const props = defineProps<{
+const { poll, textSize = "xl" } = defineProps<{
+  textSize: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   poll: Poll;
 }>();
 
 const totalRaised = computed(() =>
-  props.poll.options
+  poll.options
     .map((o) => Number(o.amount_raised.value))
     .reduce((acc, amt) => acc + amt, 0)
 );
@@ -17,17 +18,14 @@ const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
 </script>
 
 <template>
-  <div
-    id="poll-bg"
-    class="w-full h-full p-2 rounded-xl grid grid-cols-1 grid-rows-subgrid"
-  >
-    <div class="row-start-1 row-end-1">
-      <div class="text-xl mb-1">
+  <div id="poll-bg" class="w-full h-full p-2 rounded-xl flex flex-col gap-2">
+    <div class="">
+      <div :class="`text-${textSize} mb-1`">
         Poll: <b>{{ poll.name }}</b>
       </div>
       <hr class="mb-1" />
     </div>
-    <div class="row-start-3 row-end-4 flex gap-2">
+    <div class="relative grow flex gap-2">
       <div
         v-for="(option, i) of poll.options"
         :key="option.id"

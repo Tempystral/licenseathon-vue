@@ -19,7 +19,7 @@ const percentRaised = computed(() =>
   <p class="mb-1" v-if="name != undefined && position === 'over'">
     <b>{{ name }}</b>
   </p>
-  <div :class="`flex h-10`">
+  <div class="flex h-full">
     <div class="absolute ms-2 flex items-center h-[inherit]">
       <p class="text-xl">
         <span class="mb-1" v-if="name != undefined && position === 'in'">
