@@ -174,6 +174,10 @@ const runners = computed(() => {
         `ratio-${ratio}`,
       ]"
     >
+      <div id="logo-container" class="absolute h-fit w-fit flex items-center">
+        <img src="../assets/logo_2025.png" />
+      </div>
+
       <RunnerInfoPanel
         v-for="runner in runners"
         :key="runners.indexOf(runner)"
@@ -234,21 +238,25 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
 
-  //display: flex;
-  //flex-direction: row;
-  // #column-left {
-  //   flex-grow: 1;
-  // }
+.ratio-16-9 #logo-container {
+  left: 1390px;
+  top: 845px;
+  width: 525px;
+  height: 230px;
+}
 
-  // #column-right {
-  //   flex-grow: 6;
-  // }
+.ratio-4-3 #logo-container,
+.ratio-3-2 #logo-container {
+  left: 5px;
+  top: 435px;
+  width: 625px;
+  height: 310px;
 }
 
 svg {
   #LCD,
-  #Camera-Frame,
   #Estimate-Container,
   #Info-Inset-Panel {
     filter: url(#inset-shadow);
