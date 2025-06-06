@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { useReplicant } from "nodecg-vue-composable";
+import { computed, onMounted, ref, Transition, watch } from "vue";
 import {
-  computed,
-  onMounted,
-  ref,
-  Transition,
-  TransitionGroup,
-  watch,
-} from "vue";
-import { Polls } from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
-import ProgressBar from "./ProgressBar.vue";
+  Poll,
+  Polls,
+  Target,
+  Targets,
+} from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
 import PollComponent from "./PollComponent.vue";
+import TargetComponent from "./TargetComponent.vue";
 
 const props = defineProps<{
   ratio: string;
@@ -18,59 +16,111 @@ const props = defineProps<{
 }>();
 
 const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
-const activePolls = ref<Polls>([]);
-const currentPollIndex = ref(0);
-const currentPollTotal = computed(() =>
-  activePolls.value[currentPollIndex.value].options
-    .map((o) => Number(o.amount_raised.value))
-    .reduce((acc, amt) => acc + amt, 0)
-);
+const activePolls = ref<Incentive[]>(getActivePolls());
+const targets = useReplicant<Targets>("targets", "nodecg-tiltify");
+const activeTargets = ref<Incentive[]>(getActiveTargets());
 
-onMounted(() => {
-  activePolls.value = polls.data?.filter((p) => p.active) ?? [];
-  setInterval(changePollIndex, 8000);
-});
+type Incentive =
+  | {
+      type: "poll";
+      item: Poll;
+    }
+  | {
+      type: "target";
+      item: Target;
+    };
+const incentives = computed<Incentive[]>(() => [
+  ...activePolls.value,
+  ...activeTargets.value,
+]);
+
+function getActivePolls(): Incentive[] {
+  return (
+    polls.data
+      ?.filter((p) => p.active)
+      .map((p) => ({
+        type: "poll",
+        item: p,
+      })) ?? []
+  );
+}
+
+function getActiveTargets(): Incentive[] {
+  return (
+    targets.data
+      ?.filter((t) => t.active)
+      .map((t) => ({
+        type: "target",
+        item: t,
+      })) ?? []
+  );
+}
 
 watch(
   () => polls.data,
   (newVal) => {
     if (newVal) {
-      activePolls.value = newVal.filter((p) => p.active);
+      activePolls.value = getActivePolls();
     }
   }
 );
 
-function changePollIndex() {
-  if (activePolls.value.length > 1) {
-    if (currentPollIndex.value + 1 >= activePolls.value.length) {
-      currentPollIndex.value = 0;
+watch(
+  () => targets.data,
+  (newVal) => {
+    if (newVal) {
+      activeTargets.value = getActiveTargets();
+    }
+  }
+);
+
+const currentItem = computed(() => incentives.value[currentIndex.value]);
+const currentIndex = ref(0);
+
+onMounted(() => {
+  setInterval(nextItem, 8000);
+});
+
+function nextItem() {
+  if (incentives.value.length > 0) {
+    if (currentIndex.value + 1 >= incentives.value.length) {
+      currentIndex.value = 0;
     } else {
-      currentPollIndex.value++;
+      currentIndex.value++;
     }
   }
 }
-
-const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
 </script>
 
 <template>
-  <div id="incentive-container" :class="`layout-${ratio} absolute rounded-xl`">
+  <div
+    id="incentive-container"
+    :class="`layout-${ratio} absolute rounded-xl inline-block`"
+  >
     <div
-      v-if="activePolls.length > 1"
-      class="h-full w-full max-w-full max-h-full flex flex-col relative overflow-x-hidden overflow-y-clip"
+      v-if="incentives.length > 0"
+      class="h-full w-full max-w-full max-h-full flex flex-col relative overflow-x-hidden overflow-y-clip z-10"
     >
       <Transition name="slide">
-        <PollComponent
-          :textSize="ratio === '4-3' ? 'xl' : '2xl'"
-          :poll="activePolls[currentPollIndex]"
-          :key="activePolls[currentPollIndex].id"
-        />
+        <div
+          v-if="currentItem"
+          class="h-full w-full"
+          :key="currentItem.item.id"
+        >
+          <PollComponent
+            class="font-[Fusion]"
+            v-if="currentItem.type === 'poll'"
+            :textSize="ratio === '4-3' ? 'xl' : '2xl'"
+            :poll="currentItem.item"
+          />
+          <TargetComponent
+            class="font-[Fusion]"
+            v-else-if="currentItem.type === 'target'"
+            :target="currentItem.item"
+          />
+        </div>
       </Transition>
     </div>
-
-    <!-- <div class="p-1 h-full w-full relative overflow-x-hidden overflow-y-clip">
-      <PollComponent :poll="activePolls[0]" :key="activePolls[0].id" />
-    </div> -->
   </div>
 </template>
 
@@ -79,7 +129,9 @@ const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
 @use "@licenseathon-vue/sass/color" as theme;
 
 #incentive-container {
-  background: theme.$lcns-blue;
+  background: theme.$lcns-dark-blue;
+  border: 0.5em solid theme.$lcns-blue;
+  box-shadow: inset 0 0 4px 0 black;
 
   &.layout-4-3 {
     top: 960px;

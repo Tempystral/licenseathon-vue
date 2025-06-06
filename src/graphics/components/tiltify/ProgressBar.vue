@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { fitText } from "@licenseathon-vue/graphics/util/composables";
+import { computed, onMounted, ref, watch } from "vue";
 
-const props = defineProps<{
+const { textSize = "xl", ...props } = defineProps<{
   amount_raised: number;
   total: number;
   name?: string;
   colour?: string;
   position?: "in" | "over";
+  textSize?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
 }>();
 
 const barColor = computed(() => props.colour ?? "bg-amber-500");
@@ -21,11 +23,15 @@ const percentRaised = computed(() =>
   </p>
   <div class="flex h-full">
     <div class="absolute ms-2 flex items-center h-[inherit]">
-      <p class="text-xl">
-        <span class="mb-1" v-if="name != undefined && position === 'in'">
+      <p :class="`text-${textSize}`">
+        <span
+          id="target-name"
+          class="mb-1"
+          v-if="name != undefined && position === 'in'"
+        >
           {{ name }}:
         </span>
-        <b>${{ amount_raised }}</b>
+        <b id="target-value"> ${{ amount_raised }} </b>
       </p>
     </div>
     <div

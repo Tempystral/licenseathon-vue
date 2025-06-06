@@ -7,52 +7,26 @@ import {
 } from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
 import ProgressBar from "./ProgressBar.vue";
 
-const targets = useReplicant<Targets>("targets", "nodecg-tiltify");
-const activeTargets = ref<Targets>([]);
-const currentTarget = ref(0);
-
-onMounted(() => {
-  activeTargets.value = targets.data?.filter((p) => p.active) ?? [];
-  setInterval(nextTarget, 8000);
-});
-
-watch(
-  () => targets.data,
-  (newVal) => {
-    if (newVal) {
-      activeTargets.value = newVal.filter((p) => p.active);
-    }
-  }
-);
-
-function nextTarget() {
-  if (activeTargets.value.length > 1) {
-    if (currentTarget.value + 1 >= activeTargets.value.length) {
-      currentTarget.value = 0;
-    } else {
-      currentTarget.value++;
-    }
-    //drawPoll();
-  }
-}
+const { target, textSize = "xl" } = defineProps<{
+  textSize?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  target: Target;
+}>();
 </script>
 
 <template>
-  <div id="options" class="w-80 h-full p-2 m-2 bg-teal-500 rounded-xl">
-    <div
-      class="w-full max-w-full"
-      v-for="target of activeTargets"
-      :key="target.id"
-    >
-      <div>
-        <span class="text-xl">
-          Goal: <b>{{ target.name }}</b>
-        </span>
+  <div id="options" class="w-full h-full p-2 flex flex-col rounded-xl">
+    <div class="w-full max-w-full" :key="target.id">
+      <div :class="`text-${textSize} mb-1`">
+        Incentive: <b>{{ target.name }}</b>
       </div>
-      <hr class="mb-2" />
+      <hr class="mb-1" />
+    </div>
+    <div class="relative grow">
       <ProgressBar
         :amount_raised="parseInt(target.amount_raised.value as string)"
         :total="parseInt(target.amount.value as string)"
+        position="in"
+        text-size="3xl"
       />
     </div>
   </div>

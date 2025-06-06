@@ -4,7 +4,7 @@ import { Poll } from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/
 import ProgressBar from "./ProgressBar.vue";
 
 const { poll, textSize = "xl" } = defineProps<{
-  textSize: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  textSize?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   poll: Poll;
 }>();
 
@@ -21,7 +21,7 @@ const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
   <div id="poll-bg" class="w-full h-full p-2 rounded-xl flex flex-col gap-2">
     <div class="">
       <div :class="`text-${textSize} mb-1`">
-        Poll: <b>{{ poll.name }}</b>
+        Bid War: <b>{{ poll.name }}</b>
       </div>
       <hr class="mb-1" />
     </div>
@@ -37,6 +37,7 @@ const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
           :name="option.name"
           :colour="colours[i]"
           position="in"
+          text-size="xl"
         />
       </div>
     </div>
