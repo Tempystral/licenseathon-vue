@@ -256,6 +256,8 @@ body {
 }
 
 svg {
+  #grille,
+  #grille1,
   #LCD,
   #Estimate-Container,
   #Info-Inset-Panel {

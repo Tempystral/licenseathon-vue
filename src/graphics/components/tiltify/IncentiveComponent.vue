@@ -9,6 +9,9 @@ import {
 } from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
 import PollComponent from "./PollComponent.vue";
 import TargetComponent from "./TargetComponent.vue";
+import { NodeCGAPIClient } from "node_modules/nodecg/out/client/api/api.client";
+import { Configschema } from "@licenseathon-vue/types/schemas";
+import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
 
 const props = defineProps<{
   ratio: string;
@@ -28,8 +31,34 @@ type Incentive =
   | {
       type: "target";
       item: Target;
+    }
+  | {
+      type: "message";
+      item: { text?: string; img?: string; orientation: "h" | "v"; id: string };
     };
+
+const messages: Incentive[] = [
+  {
+    type: "message",
+    item: {
+      id: "tlclogo",
+      orientation: "h",
+      text: "In support of: ",
+      img: tlcLogo,
+    },
+  },
+  {
+    type: "message",
+    item: {
+      text: "Donate at: www.licenseathon.live/donate",
+      orientation: "v",
+      id: "donomsg",
+    },
+  },
+];
+
 const incentives = computed<Incentive[]>(() => [
+  ...messages,
   ...activePolls.value,
   ...activeTargets.value,
 ]);
@@ -118,6 +147,20 @@ function nextItem() {
             v-else-if="currentItem.type === 'target'"
             :target="currentItem.item"
           />
+          <div
+            v-else-if="currentItem.type === 'message'"
+            class="font-sans flex basis-1 h-full items-center justify-center text-4xl gap-2 p-4"
+            :class="
+              currentItem.item.orientation === 'v' ? 'flex-col' : 'flex-row'
+            "
+          >
+            <p class="">{{ currentItem.item.text }}</p>
+            <img
+              v-if="currentItem.item.img"
+              :src="currentItem.item.img"
+              class="bg-white/80 rounded-xl min-w-0 max-w-8/12 min-h-0 max-h-full"
+            />
+          </div>
         </div>
       </Transition>
     </div>
