@@ -195,6 +195,14 @@ function nextItem() {
     height: 230px;
     padding-block: 2em;
   }
+
+  &.layout-setup {
+    top: 70px;
+    left: 10px;
+    width: 1090px;
+    height: 180px;
+    padding-block: 1em;
+  }
 }
 
 .slide-enter-from {

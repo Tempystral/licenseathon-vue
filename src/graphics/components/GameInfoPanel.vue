@@ -96,9 +96,6 @@ watch(() => runDataActiveRun?.data, fit);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  &.layout-1p p {
-    padding-inline: 0.5em;
-  }
 
   &.game-year-container,
   &.game-platform-container {
@@ -116,18 +113,18 @@ watch(() => runDataActiveRun?.data, fit);
 
     .game-name-container,
     .game-category-container {
-      width: 481px;
+      width: 460px;
       height: 50px;
     }
 
     &.layout-4-3,
     &.layout-3-2 {
       .game-name-container {
-        left: 119px;
+        left: 130px;
         top: 130px;
       }
       .game-category-container {
-        left: 119px;
+        left: 130px;
         top: 200px;
       }
 
@@ -152,6 +149,39 @@ watch(() => runDataActiveRun?.data, fit);
     }
 
     &.layout-16-9 {
+      .game-name-container {
+        left: 129px;
+        top: 130px;
+      }
+      .game-category-container {
+        left: 129px;
+        top: 200px;
+      }
+
+      .game-estimate-container {
+        top: -80px;
+        left: 286px;
+        width: 167px;
+        height: 45px;
+      }
+      .game-platform-container {
+        top: -10px;
+        left: 274px;
+        width: 130px;
+        height: 90px;
+      }
+      .game-year-container {
+        top: -10px;
+        left: 404px;
+        width: 70px;
+        height: 90px;
+      }
+    }
+
+    &.layout-setup {
+      left: 0px;
+      top: 378px;
+
       .game-name-container {
         left: 129px;
         top: 130px;
