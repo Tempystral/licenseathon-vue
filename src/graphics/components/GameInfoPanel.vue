@@ -150,11 +150,11 @@ watch(() => runDataActiveRun?.data, fit);
 
     &.layout-16-9 {
       .game-name-container {
-        left: 129px;
+        left: 139px;
         top: 130px;
       }
       .game-category-container {
-        left: 129px;
+        left: 139px;
         top: 200px;
       }
 
