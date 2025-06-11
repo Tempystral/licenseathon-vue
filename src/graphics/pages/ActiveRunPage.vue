@@ -1,14 +1,15 @@
 <script lang="ts" setup>
-import { useReplicant } from 'nodecg-vue-composable';
-import { RunDataActiveRun, RunDataPlayer } from 'speedcontrol-util/types';
-import { computed, ref } from 'vue';
-import InlineSvg from 'vue-inline-svg';
-import CommentatorDisplayComponent from '../components/CommentatorDisplayComponent.vue';
-import GameInfoPanel from '../components/GameInfoPanel.vue';
-import RaceTimerComponent from '../components/RaceTimerComponent.vue';
-import RunnerInfoPanel from '../components/RunnerInfoPanel.vue';
-import TimerComponent from '../components/TimerComponent.vue';
-import { defaultRunData, defaultRunDataPlayer } from '../util/defaults';
+import { useReplicant } from "nodecg-vue-composable";
+import { RunDataActiveRun, RunDataPlayer } from "speedcontrol-util/types";
+import { computed, ref } from "vue";
+import InlineSvg from "vue-inline-svg";
+import CommentatorDisplayComponent from "../components/CommentatorDisplayComponent.vue";
+import GameInfoPanel from "../components/GameInfoPanel.vue";
+import RaceTimerComponent from "../components/RaceTimerComponent.vue";
+import RunnerInfoPanel from "../components/RunnerInfoPanel.vue";
+import TimerComponent from "../components/TimerComponent.vue";
+import { defaultRunData, defaultRunDataPlayer } from "../util/defaults";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 
 /**
  * Layout is passed in as prop
@@ -17,17 +18,20 @@ import { defaultRunData, defaultRunDataPlayer } from '../util/defaults';
  */
 
 const props = defineProps<{
-  players: number,
-  ratio: string
+  players: number;
+  ratio: string;
 }>();
 
-const layoutPath = new URL(`../assets/layout-${props.players}p-${props.ratio}.svg`, import.meta.url).href;
+const layoutPath = new URL(
+  `../assets/layout-${props.players}p-${props.ratio}.svg`,
+  import.meta.url
+).href;
 const layoutRef = ref<SVGElement | null>(null);
 
 const runDataActiveRun = useReplicant<RunDataActiveRun>(
-  'runDataActiveRun',
-  'nodecg-speedcontrol',
-  { defaultValue: defaultRunData as RunDataActiveRun },
+  "runDataActiveRun",
+  "nodecg-speedcontrol",
+  { defaultValue: defaultRunData as RunDataActiveRun }
 );
 
 // watch(() => runDataActiveRun?.changed, () => { fitText() });
@@ -39,29 +43,182 @@ const runners = computed(() => {
   if (!players) return [defaultRunDataPlayer as RunDataPlayer];
   return players;
 });
-
 </script>
 
 <template>
-<div>
-  <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
+  <div class="w-full h-full absolute">
+    <svg height="0" width="0">
+      <defs>
+        <filter
+          id="offset-inset-shadow"
+          color-interpolation-filters="sRGB"
+          filterUnits="objectBoundingBox"
+          primitiveUnits="userSpaceOnUse"
+        >
+          <feOffset dx="20" dy="0" in="SourceGraphic" result="offset" />
+          <feGaussianBlur
+            stdDeviation="20 20"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            in="offset"
+            edgeMode="none"
+            result="blur"
+          />
+          <feComposite
+            in="SourceGraphic"
+            in2="blur"
+            operator="out"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite"
+          />
+          <feFlood
+            flood-color="#000000"
+            flood-opacity="0.95"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="flood"
+          />
+          <feComposite
+            in="flood"
+            in2="composite"
+            operator="in"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite1"
+          />
+          <feComposite
+            in="composite1"
+            in2="SourceGraphic"
+            operator="over"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite2"
+          />
+        </filter>
 
-  <div :class="['layout-container', {'solo': players == 1, 'race': players > 1,}, `ratio-${ratio}`]">
-      <RunnerInfoPanel v-for="runner in runners" :key=runners.indexOf(runner) :player='runner' :ratio='props.ratio' :position='runners.indexOf(runner) + 1'/>
-      <CommentatorDisplayComponent :ratio="props.ratio" :players="props.players" />
-      <GameInfoPanel :active-run='runDataActiveRun?.data' :players="props.players" />
-      <TimerComponent :ratio='props.ratio' :players="props.players"/>
-      <div v-if="props.players > 1" :class="`finish-timer-container layout-${ratio}`">
-        <RaceTimerComponent v-for="runner in runners" :key=runners.indexOf(runner) :id='runner.teamID' :ratio='props.ratio' :position='runners.indexOf(runner) + 1' />
+        <filter
+          id="inset-shadow"
+          color-interpolation-filters="sRGB"
+          filterUnits="objectBoundingBox"
+          primitiveUnits="userSpaceOnUse"
+        >
+          <feGaussianBlur
+            stdDeviation="20 20"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            in="offset"
+            edgeMode="none"
+            result="blur"
+          />
+          <feComposite
+            in="SourceGraphic"
+            in2="blur"
+            operator="out"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite"
+          />
+          <feFlood
+            flood-color="#000000"
+            flood-opacity="0.95"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="flood"
+          />
+          <feComposite
+            in="flood"
+            in2="composite"
+            operator="in"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite1"
+          />
+          <feComposite
+            in="composite1"
+            in2="SourceGraphic"
+            operator="over"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
+            result="composite2"
+          />
+        </filter>
+      </defs>
+    </svg>
+    <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
+
+    <div
+      :class="[
+        'layout-container',
+        { solo: players == 1, race: players > 1 },
+        `ratio-${ratio}`,
+      ]"
+    >
+      <div id="logo-container" class="absolute h-fit w-fit flex items-center">
+        <img src="../assets/logo_2025.png" />
       </div>
-  </div>
-</div>
 
+      <RunnerInfoPanel
+        v-for="runner in runners"
+        :key="runners.indexOf(runner)"
+        :player="runner"
+        :ratio="props.ratio"
+        :position="runners.indexOf(runner) + 1"
+      />
+      <CommentatorDisplayComponent
+        :ratio="props.ratio"
+        :players="props.players"
+      />
+      <GameInfoPanel
+        :active-run="runDataActiveRun?.data"
+        :ratio="props.ratio"
+        :players="props.players"
+      />
+
+      <TimerComponent :ratio="props.ratio" :players="props.players" />
+      <div
+        v-if="props.players > 1"
+        :class="`finish-timer-container layout-${ratio}`"
+      >
+        <RaceTimerComponent
+          v-for="runner in runners"
+          :key="runners.indexOf(runner)"
+          :id="runner.teamID"
+          :ratio="props.ratio"
+          :position="runners.indexOf(runner) + 1"
+        />
+      </div>
+      <IncentiveComponent :ratio="props.ratio" />
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
+@use "@licenseathon-vue/sass/style.scss";
+@use "@licenseathon-vue/sass/color" as theme;
+
 body {
-  background: #e2e2e4;
+  background-image: url(../assets/background.png);
   overflow: hidden;
 }
 
@@ -74,23 +231,45 @@ body {
 .fit {
   display: inline-block;
   white-space: nowrap;
-  transition: font-size .25s;
+  transition: font-size 0.25s;
 }
 
 .layout-container {
   position: absolute;
   top: 0;
   left: 0;
-
-  //display: flex;
-  //flex-direction: row;
-  // #column-left {
-  //   flex-grow: 1;
-  // }
-
-  // #column-right {
-  //   flex-grow: 6;
-  // }
 }
 
+.ratio-16-9 #logo-container {
+  left: 1390px;
+  top: 845px;
+  width: 525px;
+  height: 230px;
+}
+
+.ratio-4-3 #logo-container,
+.ratio-3-2 #logo-container {
+  left: 5px;
+  top: 435px;
+  width: 625px;
+  height: 310px;
+}
+
+svg {
+  #grille,
+  #grille1,
+  #LCD,
+  #Estimate-Container,
+  #Info-Inset-Panel {
+    filter: url(#inset-shadow);
+  }
+
+  #Camera-Inset-Panel {
+    filter: url(#offset-inset-shadow);
+  }
+
+  #Game-Title-Group path:first-of-type {
+    filter: drop-shadow(0 0 8px black);
+  }
+}
 </style>
