@@ -1,9 +1,0 @@
-"use strict";
-// nodecg().log.info('Extension code working!');
-Object.defineProperty(exports, "__esModule", { value: true });
-// // Access/set a replicant (also see ./util/replicants).
-// exampleReplicant.value = { exampleProperty: `exampleString_Changed_${Date.now()}` };
-// // Access the bundle configuration with types.
-// const config = nodecg().bundleConfig as Configschema;
-// // Accessing normal types.
-// const exampleType: ExampleType = { exampleProperty: 'exampleString' };
