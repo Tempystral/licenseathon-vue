@@ -110,26 +110,6 @@
         "file": "solo_GBA.html",
         "width": 1280,
         "height": 720
-      },
-      {
-        "file": "solo_ds.html",
-        "width": 1280,
-        "height": 720
-      },
-      {
-        "file": "race_16_9.html",
-        "width": 1280,
-        "height": 720
-      },
-      {
-        "file": "race_4_3.html",
-        "width": 1280,
-        "height": 720
-      },
-      {
-        "file": "race_3_way.html",
-        "width": 1280,
-        "height": 720
       }
     ]
   },
