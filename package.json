@@ -83,23 +83,23 @@
     "graphics": [
       {
         "file": "splash.html",
-        "width": 1280,
-        "height": 720
+        "width": 1920,
+        "height": 1080
       },
       {
         "file": "setup.html",
-        "width": 1280,
-        "height": 720
+        "width": 1920,
+        "height": 1080
       },
       {
         "file": "credits.html",
-        "width": 1280,
-        "height": 720
+        "width": 1920,
+        "height": 1080
       },
       {
         "file": "solo_16_9.html",
-        "width": 1280,
-        "height": 720
+        "width": 1920,
+        "height": 1080
       },
       {
         "file": "solo_4_3.html",
@@ -108,8 +108,8 @@
       },
       {
         "file": "solo_GBA.html",
-        "width": 1280,
-        "height": 720
+        "width": 1920,
+        "height": 1080
       }
     ]
   },
