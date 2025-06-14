@@ -1,57 +1,54 @@
 {
   "staff": [
     "Tempystral",
-    "Flannelkat",
-    "Jak8",
+    "GamingGuy63",
     "Magieus",
-    "GamingGuy",
-    "Nicnacnic",
-    "Neetsel"
+    "TempestMask1000",
+    "Earllgray",
+    "HazelPietro",
+    "BTF_Flotsam",
+    "Ad129",
+    "DerrickGnC"
   ],
   "runners": [
-    "bloupeuh",
-    "bregermann",
-    "capridog",
-    "crazytonedog",
-    "crow3893",
-    "deano95hd",
-    "finndrude",
-    "flannelkat",
-    "garlips",
-    "janglestorm",
-    "linkameister",
-    "madmegax381",
-    "mageius1",
-    "mixmastapj",
-    "neetsel",
-    "pmctrilogy",
-    "puffjak8",
-    "ris_grestar",
-    "ritzblues783",
-    "spagettd",
+    "izzyhope58",
+    "sekeri_rat",
+    "ad129",
+    "sam37_rtl",
+    "craigelbagel",
+    "jawsomesauce",
+    "kjorteo",
+    "wintery_mix",
+    "lrock617",
+    "midnightplusone",
+    "buildnye",
     "supersqank",
-    "swaagya",
-    "tempestmask1000",
-    "the_kovic",
-    "thermalsquare",
-    "toxicroak_gaming",
-    "viperuk",
-    "xcalifornium_",
-    "xlebomatb"
+    "hazelpietro",
+    "scoobysbooty",
+    "zachariasz455",
+    "mageius",
+    "moogle",
+    "gamex_64",
+    "vjsmyth",
+    "kenzg",
+    "spyran",
+    "linkameister",
+    "jeakerek",
+    "spagettd",
+    "alexggroove",
+    "jamieboi1989",
+    "nickrpgreen",
+    "infinitygene"
   ],
   "resources": {
     "fonts": [
-      "Opine Heavy",
-      "Lumine Sign",
-      "Nationalyze",
-      "Makinas 4 by moji-waku",
-      "Dela Gothic One by artakana",
-      "Otomanopee One Regular",
-      "Fusion"
+      "Fusion",
+      "Karnivore by Apostrophic Labs"
     ],
     "assets": [
-      "Metalheart Icons Assets Pack by Cody Vondell"
+      "Metalheart Icons Assets Pack by Cody Vondell",
+      "CSS CRT Effect by Alec Lownes",
+      "Las pinceladas en gradiente by Stephanie2212"
     ]
-
   }
 }
