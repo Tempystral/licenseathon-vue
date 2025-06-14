@@ -1,18 +1,17 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
-import InlineSvg from 'vue-inline-svg';
+import { ref } from "vue";
+import InlineSvg from "vue-inline-svg";
 
-const layoutPath = new URL('../assets/setup.svg', import.meta.url).href;
+const layoutPath = new URL("../assets/splash.svg", import.meta.url).href;
 const layoutRef = ref<SVGElement | null>(null);
 
-const logoPath = new URL('../assets/logo.png', import.meta.url).href;
+const logoPath = new URL("../assets/logo_2025.png", import.meta.url).href;
 const logoRef = ref<SVGElement | null>(null);
-
 </script>
 
 <template>
   <div>
-    <InlineSvg :src="layoutPath"  ref="layoutRef" id="layout" />
+    <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
     <div id="logo-container">
       <img :src="logoPath" ref="logoRef" id="logo" />
     </div>
@@ -20,20 +19,18 @@ const logoRef = ref<SVGElement | null>(null);
 </template>
 
 <style lang="scss">
-@use '@licenseathon-vue/sass/transition.scss';
-@use '@licenseathon-vue/sass/style.scss';
-@use '@licenseathon-vue/sass/color' as theme;
-
-html {
-  background: theme.$lcns-white;
-}
+@use "@licenseathon-vue/sass/transition.scss";
+@use "@licenseathon-vue/sass/style.scss";
+@use "@licenseathon-vue/sass/color" as theme;
 
 body {
+  background-image: url(../assets/background.png);
   margin: unset;
   overflow: hidden;
 }
 
-#layout, #logo-container {
+#layout,
+#logo-container {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -55,5 +52,4 @@ body {
     animation: float 8s ease-in-out infinite;
   }
 }
-
 </style>
