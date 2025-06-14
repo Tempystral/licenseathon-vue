@@ -3,8 +3,8 @@
     "file": "assets/ActiveRunPage-Br7_bNmq.css",
     "src": "_ActiveRunPage-Br7_bNmq.css"
   },
-  "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js": {
-    "file": "assets/ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+  "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js": {
+    "file": "assets/ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
     "name": "ActiveRunPage.vue_vue_type_style_index_0_lang",
     "imports": [
       "_IncentiveComponent-DCV_dpgm.js",
@@ -76,18 +76,18 @@
       "_index-C3g_gNjf.js"
     ]
   },
-  "_template-BXM8sHOu.css": {
-    "file": "assets/template-BXM8sHOu.css",
-    "src": "_template-BXM8sHOu.css"
+  "_template-CQ0tJNuY.css": {
+    "file": "assets/template-CQ0tJNuY.css",
+    "src": "_template-CQ0tJNuY.css"
   },
-  "_template-CWA71Ejb.js": {
-    "file": "assets/template-CWA71Ejb.js",
+  "_template-DAY7fJLC.js": {
+    "file": "assets/template-DAY7fJLC.js",
     "name": "template",
     "imports": [
       "_index-C3g_gNjf.js"
     ],
     "css": [
-      "assets/template-BXM8sHOu.css"
+      "assets/template-CQ0tJNuY.css"
     ]
   },
   "_vue-inline-svg.esm-BqCziEzx.js": {
@@ -98,12 +98,12 @@
     ]
   },
   "src/dashboard/commentatorPanel.ts": {
-    "file": "assets/commentatorPanel-56hsNF9W.js",
+    "file": "assets/commentatorPanel-XOkgD3ez.js",
     "name": "commentatorPanel",
     "src": "src/dashboard/commentatorPanel.ts",
     "isEntry": true,
     "imports": [
-      "_template-CWA71Ejb.js",
+      "_template-DAY7fJLC.js",
       "_defaults-Bw6pt-Rt.js",
       "_index-C3g_gNjf.js"
     ]
@@ -152,67 +152,181 @@
     "file": "assets/logo_2025-DK4M8EH1.png",
     "src": "src/graphics/assets/logo_2025.png"
   },
+  "src/graphics/assets/runners/ad129.png": {
+    "file": "assets/ad129-CbS6VMTR.png",
+    "src": "src/graphics/assets/runners/ad129.png"
+  },
+  "src/graphics/assets/runners/alexggroovewolf.png": {
+    "file": "assets/alexggroovewolf-DM9LKZ7V.png",
+    "src": "src/graphics/assets/runners/alexggroovewolf.png"
+  },
+  "src/graphics/assets/runners/buildnye.png": {
+    "file": "assets/buildnye-Q2x9QVPl.png",
+    "src": "src/graphics/assets/runners/buildnye.png"
+  },
+  "src/graphics/assets/runners/craigelbagel.png": {
+    "file": "assets/craigelbagel-atCJCdDe.png",
+    "src": "src/graphics/assets/runners/craigelbagel.png"
+  },
+  "src/graphics/assets/runners/gamex_64.png": {
+    "file": "assets/gamex_64-DlgyqKUX.png",
+    "src": "src/graphics/assets/runners/gamex_64.png"
+  },
+  "src/graphics/assets/runners/hazelpietro.png": {
+    "file": "assets/hazelpietro-DoBZVBOF.png",
+    "src": "src/graphics/assets/runners/hazelpietro.png"
+  },
+  "src/graphics/assets/runners/infinitygene.png": {
+    "file": "assets/infinitygene-D6nT3AA2.png",
+    "src": "src/graphics/assets/runners/infinitygene.png"
+  },
+  "src/graphics/assets/runners/izzyhope58.png": {
+    "file": "assets/izzyhope58-CWgL9WY-.png",
+    "src": "src/graphics/assets/runners/izzyhope58.png"
+  },
+  "src/graphics/assets/runners/jamieboi1989.png": {
+    "file": "assets/jamieboi1989-CCit7rEp.png",
+    "src": "src/graphics/assets/runners/jamieboi1989.png"
+  },
+  "src/graphics/assets/runners/jawsomesauce.png": {
+    "file": "assets/jawsomesauce-D6flplyM.png",
+    "src": "src/graphics/assets/runners/jawsomesauce.png"
+  },
+  "src/graphics/assets/runners/jeakerek.png": {
+    "file": "assets/jeakerek--75a9BK5.png",
+    "src": "src/graphics/assets/runners/jeakerek.png"
+  },
+  "src/graphics/assets/runners/kenzg.png": {
+    "file": "assets/kenzg-uTSYZ4CL.png",
+    "src": "src/graphics/assets/runners/kenzg.png"
+  },
+  "src/graphics/assets/runners/kjorteo.png": {
+    "file": "assets/kjorteo-FrDUEV4m.png",
+    "src": "src/graphics/assets/runners/kjorteo.png"
+  },
+  "src/graphics/assets/runners/linkameister.png": {
+    "file": "assets/linkameister-B6n7wnw6.png",
+    "src": "src/graphics/assets/runners/linkameister.png"
+  },
+  "src/graphics/assets/runners/lrock617.png": {
+    "file": "assets/lrock617-BgTGcsSA.png",
+    "src": "src/graphics/assets/runners/lrock617.png"
+  },
+  "src/graphics/assets/runners/mageius.png": {
+    "file": "assets/mageius-Dfuagd9u.png",
+    "src": "src/graphics/assets/runners/mageius.png"
+  },
+  "src/graphics/assets/runners/midnightplusone.png": {
+    "file": "assets/midnightplusone-B88jh7wv.png",
+    "src": "src/graphics/assets/runners/midnightplusone.png"
+  },
+  "src/graphics/assets/runners/moogle.png": {
+    "file": "assets/moogle-GcuETMzC.png",
+    "src": "src/graphics/assets/runners/moogle.png"
+  },
+  "src/graphics/assets/runners/nickrpgreen.png": {
+    "file": "assets/nickrpgreen-PaN7SPcC.png",
+    "src": "src/graphics/assets/runners/nickrpgreen.png"
+  },
+  "src/graphics/assets/runners/sam37_rtl.png": {
+    "file": "assets/sam37_rtl-WeNS1gq7.png",
+    "src": "src/graphics/assets/runners/sam37_rtl.png"
+  },
+  "src/graphics/assets/runners/scoobysbooty.png": {
+    "file": "assets/scoobysbooty-CnqoPsAo.png",
+    "src": "src/graphics/assets/runners/scoobysbooty.png"
+  },
+  "src/graphics/assets/runners/sekeri_rat.png": {
+    "file": "assets/sekeri_rat-Cbr9L7S9.png",
+    "src": "src/graphics/assets/runners/sekeri_rat.png"
+  },
+  "src/graphics/assets/runners/spagettd.png": {
+    "file": "assets/spagettd-ob3qlwaT.png",
+    "src": "src/graphics/assets/runners/spagettd.png"
+  },
+  "src/graphics/assets/runners/spyran.png": {
+    "file": "assets/spyran-Cj0UjHg9.png",
+    "src": "src/graphics/assets/runners/spyran.png"
+  },
+  "src/graphics/assets/runners/supersqank.png": {
+    "file": "assets/supersqank-CqT-y8I1.png",
+    "src": "src/graphics/assets/runners/supersqank.png"
+  },
+  "src/graphics/assets/runners/vjsmyth.png": {
+    "file": "assets/vjsmyth-DOX5-RLP.png",
+    "src": "src/graphics/assets/runners/vjsmyth.png"
+  },
+  "src/graphics/assets/runners/wintery_mix.png": {
+    "file": "assets/wintery_mix-C74-ITUA.png",
+    "src": "src/graphics/assets/runners/wintery_mix.png"
+  },
+  "src/graphics/assets/runners/zachariasz455.png": {
+    "file": "assets/zachariasz455-JJlmFw13.png",
+    "src": "src/graphics/assets/runners/zachariasz455.png"
+  },
   "src/graphics/assets/setup.svg": {
     "file": "assets/setup-y_LV7vsq.svg",
     "src": "src/graphics/assets/setup.svg"
   },
   "src/graphics/credits.ts": {
-    "file": "assets/credits-CJtdmooY.js",
+    "file": "assets/credits-IFoKwFAL.js",
     "name": "credits",
     "src": "src/graphics/credits.ts",
     "isEntry": true,
     "imports": [
-      "_index-C3g_gNjf.js",
-      "_vue-inline-svg.esm-BqCziEzx.js"
+      "_template-DAY7fJLC.js",
+      "_vue-inline-svg.esm-BqCziEzx.js",
+      "_index-C3g_gNjf.js"
     ],
     "css": [
-      "assets/credits-DXOXEame.css"
+      "assets/credits-Biap3ZNN.css"
     ],
     "assets": [
-      "assets/setup-y_LV7vsq.svg",
+      "assets/logo_2025-DK4M8EH1.png",
       "assets/Karnivore-DS1QiLWx.woff2",
       "assets/Karnivore-Bold-DII76D3g.woff2",
       "assets/KarnivoreBlack-EIUXNt2G.woff2",
       "assets/KarnivoreDigit-QTnh7KO-.woff2",
-      "assets/KarnivoreLite-PnTG27nK.woff2"
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-CMVGoLc1.png"
     ]
   },
   "src/graphics/race_16_9.ts": {
-    "file": "assets/race_16_9-CC1bBtcT.js",
+    "file": "assets/race_16_9-KjNV5nOd.js",
     "name": "race_16_9",
     "src": "src/graphics/race_16_9.ts",
     "isEntry": true,
     "imports": [
       "_index.es-CfscKHVB.js",
       "_index-C3g_gNjf.js",
-      "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+      "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
       "_vue-inline-svg.esm-BqCziEzx.js"
     ]
   },
   "src/graphics/race_3_way.ts": {
-    "file": "assets/race_3_way-oDQ1YDcD.js",
+    "file": "assets/race_3_way-65HhNeXB.js",
     "name": "race_3_way",
     "src": "src/graphics/race_3_way.ts",
     "isEntry": true,
     "imports": [
       "_index.es-CfscKHVB.js",
       "_index-C3g_gNjf.js",
-      "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+      "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
       "_vue-inline-svg.esm-BqCziEzx.js"
     ]
   },
   "src/graphics/race_4_3.ts": {
-    "file": "assets/race_4_3-DmYzKWfg.js",
+    "file": "assets/race_4_3-Csm33fN-.js",
     "name": "race_4_3",
     "src": "src/graphics/race_4_3.ts",
     "isEntry": true,
     "imports": [
-      "_template-CWA71Ejb.js",
-      "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+      "_template-DAY7fJLC.js",
+      "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
       "_index-C3g_gNjf.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
@@ -220,12 +334,12 @@
     ]
   },
   "src/graphics/setup.ts": {
-    "file": "assets/setup-Dml4pWPg.js",
+    "file": "assets/setup-Cg1JMjdl.js",
     "name": "setup",
     "src": "src/graphics/setup.ts",
     "isEntry": true,
     "imports": [
-      "_template-CWA71Ejb.js",
+      "_template-DAY7fJLC.js",
       "_index-C3g_gNjf.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
@@ -235,6 +349,34 @@
       "assets/setup-BZN2ckSs.css"
     ],
     "assets": [
+      "assets/ad129-CbS6VMTR.png",
+      "assets/alexggroovewolf-DM9LKZ7V.png",
+      "assets/buildnye-Q2x9QVPl.png",
+      "assets/craigelbagel-atCJCdDe.png",
+      "assets/gamex_64-DlgyqKUX.png",
+      "assets/hazelpietro-DoBZVBOF.png",
+      "assets/infinitygene-D6nT3AA2.png",
+      "assets/izzyhope58-CWgL9WY-.png",
+      "assets/jamieboi1989-CCit7rEp.png",
+      "assets/jawsomesauce-D6flplyM.png",
+      "assets/jeakerek--75a9BK5.png",
+      "assets/kenzg-uTSYZ4CL.png",
+      "assets/kjorteo-FrDUEV4m.png",
+      "assets/linkameister-B6n7wnw6.png",
+      "assets/lrock617-BgTGcsSA.png",
+      "assets/mageius-Dfuagd9u.png",
+      "assets/midnightplusone-B88jh7wv.png",
+      "assets/moogle-GcuETMzC.png",
+      "assets/nickrpgreen-PaN7SPcC.png",
+      "assets/sam37_rtl-WeNS1gq7.png",
+      "assets/scoobysbooty-CnqoPsAo.png",
+      "assets/sekeri_rat-Cbr9L7S9.png",
+      "assets/spagettd-ob3qlwaT.png",
+      "assets/spyran-Cj0UjHg9.png",
+      "assets/supersqank-CqT-y8I1.png",
+      "assets/vjsmyth-DOX5-RLP.png",
+      "assets/wintery_mix-C74-ITUA.png",
+      "assets/zachariasz455-JJlmFw13.png",
       "assets/setup-y_LV7vsq.svg",
       "assets/Karnivore-DS1QiLWx.woff2",
       "assets/Karnivore-Bold-DII76D3g.woff2",
@@ -245,13 +387,13 @@
     ]
   },
   "src/graphics/solo_16_9.ts": {
-    "file": "assets/solo_16_9-HMCIehhH.js",
+    "file": "assets/solo_16_9-OzIPqHhR.js",
     "name": "solo_16_9",
     "src": "src/graphics/solo_16_9.ts",
     "isEntry": true,
     "imports": [
-      "_template-CWA71Ejb.js",
-      "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+      "_template-DAY7fJLC.js",
+      "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
       "_index-C3g_gNjf.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
@@ -259,13 +401,13 @@
     ]
   },
   "src/graphics/solo_4_3.ts": {
-    "file": "assets/solo_4_3-Bpgpilqk.js",
+    "file": "assets/solo_4_3-CXL7_djn.js",
     "name": "solo_4_3",
     "src": "src/graphics/solo_4_3.ts",
     "isEntry": true,
     "imports": [
-      "_template-CWA71Ejb.js",
-      "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+      "_template-DAY7fJLC.js",
+      "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
       "_index-C3g_gNjf.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
@@ -273,13 +415,13 @@
     ]
   },
   "src/graphics/solo_GBA.ts": {
-    "file": "assets/solo_GBA-CZxIPMOH.js",
+    "file": "assets/solo_GBA-Dlih7chN.js",
     "name": "solo_GBA",
     "src": "src/graphics/solo_GBA.ts",
     "isEntry": true,
     "imports": [
-      "_template-CWA71Ejb.js",
-      "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+      "_template-DAY7fJLC.js",
+      "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
       "_index-C3g_gNjf.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
@@ -287,39 +429,40 @@
     ]
   },
   "src/graphics/solo_ds.ts": {
-    "file": "assets/solo_ds-Cq22CE0M.js",
+    "file": "assets/solo_ds-DHNnfXwz.js",
     "name": "solo_ds",
     "src": "src/graphics/solo_ds.ts",
     "isEntry": true,
     "imports": [
       "_index.es-CfscKHVB.js",
       "_index-C3g_gNjf.js",
-      "_ActiveRunPage.vue_vue_type_style_index_0_lang-DlJkuJrn.js",
+      "_ActiveRunPage.vue_vue_type_style_index_0_lang-fda-DenH.js",
       "_IncentiveComponent-DCV_dpgm.js",
       "_defaults-Bw6pt-Rt.js",
       "_vue-inline-svg.esm-BqCziEzx.js"
     ]
   },
   "src/graphics/splash.ts": {
-    "file": "assets/splash-CxpSyBy2.js",
+    "file": "assets/splash-D3NE3f3Z.js",
     "name": "splash",
     "src": "src/graphics/splash.ts",
     "isEntry": true,
     "imports": [
-      "_template-CWA71Ejb.js",
+      "_template-DAY7fJLC.js",
       "_vue-inline-svg.esm-BqCziEzx.js",
       "_index-C3g_gNjf.js"
     ],
     "css": [
-      "assets/splash-l0A7tQjj.css"
+      "assets/splash-3U1YdulA.css"
     ],
     "assets": [
-      "assets/setup-y_LV7vsq.svg",
+      "assets/logo_2025-DK4M8EH1.png",
       "assets/Karnivore-DS1QiLWx.woff2",
       "assets/Karnivore-Bold-DII76D3g.woff2",
       "assets/KarnivoreBlack-EIUXNt2G.woff2",
       "assets/KarnivoreDigit-QTnh7KO-.woff2",
-      "assets/KarnivoreLite-PnTG27nK.woff2"
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-CMVGoLc1.png"
     ]
   }
 }
