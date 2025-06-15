@@ -170,17 +170,17 @@ function remainingRuns() {
       <LicenseComponent :run="activeRun?.data" />
       <!-- <GameInfoPanel :active-run="activeRun.data" ratio="setup" :players="1" /> -->
 
-      <div id="carousel-container" class="font-[Fusion]">
+      <div id="carousel-container" class="font-[Fusion] overflow-hidden">
         <!-- <p class="header">Coming up...</p> -->
         <div
           id="up-next-carousel"
           class="h-full flex flex-row-reverse gap-2 p-2"
         >
-          <TransitionGroup name="slide">
+          <TransitionGroup name="slide-h">
             <span
               v-for="run in remainingRuns()?.slice(0, 3)"
               :key="run.id"
-              class="up-next-game p-2 rounded-md grid gap-2"
+              class="up-next-game p-2 rounded-md grid gap-2 w-4/12"
             >
               <div
                 id="player-name-container"

@@ -38,21 +38,21 @@
   animation: 1s cubic-bezier(0.25, 1, 0.3, 1) wipe-leave-active both;
 }
 
-/* .slide-enter-active,
-.slide-leave-active,
-.slide-move {
-  transition: all 1.5s cubic-bezier(.25, 1, .5, 1);
-  transition-delay: .5s;
+.slide-h-enter-active,
+.slide-h-leave-active,
+.slide-h-move {
+  transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition-delay: 0.5s;
 }
-.slide-leave-active {
+.slide-h-leave-active {
   position: absolute;
 }
 
-.slide-leave-to {
-  transform: translateY(250px);
+.slide-h-leave-to {
+  transform: translateY(-250px);
   transition: all 1s ease;
 }
-.slide-enter-from {
+.slide-h-enter-from {
   transition: all 1.5s ease;
-  transition-delay: .5s;
-} */
+  transition-delay: 0.5s;
+}
