@@ -23,8 +23,10 @@ function showByTime(s: number) {
 const activePlayer = computed(() => players.value[showByTime(seconds.value)]);
 const activePlayerImage = computed(
   () =>
-    new URL(`../assets/runners/${activePlayer.value.name}.png`, import.meta.url)
-      .href
+    new URL(
+      `../assets/runners/${activePlayer.value.social.twitch}.png`,
+      import.meta.url
+    ).href
 );
 
 const fit = () => {
