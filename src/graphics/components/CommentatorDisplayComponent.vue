@@ -3,8 +3,8 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import { Commentators } from "@licenseathon-vue/types/schemas";
 import { mdiMicrophone } from "@mdi/js";
 import { useReplicant } from "nodecg-vue-composable";
-import { fitText } from "../util/composables";
 import { computed, onMounted, watch } from "vue";
+import FitText from "./FitText.vue";
 
 const props = defineProps<{
   ratio: string;
@@ -21,12 +21,10 @@ const nonEmptyNames = computed(
   () => commentators.data?.names.filter((n) => n.length > 0) ?? []
 );
 
-const fit = () => {
-  fitText(["#commentator-1", "#commentator-2"], {
-    multiLine: true,
-    minSize: 18,
-    maxSize: 24,
-  });
+const fitTextOptions = {
+  multiLine: true,
+  minSize: 18,
+  maxSize: 24,
 };
 
 function hideAndShowPanels(names: string[]) {
@@ -46,12 +44,10 @@ function hideAndShowPanels(names: string[]) {
 
 watch(nonEmptyNames, (names) => {
   hideAndShowPanels(names);
-  fit();
 });
 
 onMounted(() => {
   hideAndShowPanels(nonEmptyNames.value);
-  setTimeout(fit, 1000);
 });
 </script>
 
@@ -71,9 +67,11 @@ onMounted(() => {
         id="mic-icon-1"
         :size="18"
       />
-      <p id="commentator-1" class="inline-block whitespace-nowrap">
-        {{ nonEmptyNames[0] }}
-      </p>
+      <FitText :options="fitTextOptions">
+        <p id="commentator-1" class="inline-block whitespace-nowrap">
+          {{ nonEmptyNames[0] }}
+        </p>
+      </FitText>
     </div>
 
     <div
@@ -88,9 +86,11 @@ onMounted(() => {
         id="mic-icon-2"
         :size="18"
       />
-      <p id="commentator-2" class="inline-block whitespace-nowrap">
-        {{ nonEmptyNames[1] }}
-      </p>
+      <FitText :options="fitTextOptions">
+        <p id="commentator-2" class="inline-block whitespace-nowrap">
+          {{ nonEmptyNames[1] }}
+        </p>
+      </FitText>
     </div>
   </div>
 </template>
