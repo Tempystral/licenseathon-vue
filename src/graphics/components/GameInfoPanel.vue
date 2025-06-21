@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useReplicant } from "nodecg-vue-composable";
 import { RunDataActiveRun } from "speedcontrol-util/types";
-import { onMounted, watch } from "vue";
-import { fitText } from "../util/composables";
+import { computed, onMounted, watch } from "vue";
 import { defaultRunData } from "../util/defaults";
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiCalendar, mdiCalendarMonth, mdiGamepadVariant } from "@mdi/js";
+import FitText from "./FitText.vue";
 
 const props = defineProps<{
   activeRun: RunDataActiveRun;
@@ -21,19 +21,11 @@ const runDataActiveRun = useReplicant<RunDataActiveRun>(
 
 // Fit text
 // const options = { multiLine: true, minSize: 14, maxSize: 24 };
-const fit = () => {
-  let options = {};
-  if (props.players === 1) {
-    options = { multiLine: true, minSize: 14, maxSize: 24 };
-  }
-  if (props.players > 1) {
-    options = { multiLine: true, minSize: 11, maxSize: 18 };
-  }
-  fitText(["#game-name", "#game-category"], options);
-  fitText("#game-platform", { multiLine: true, minSize: 14, maxSize: 18 });
-};
-onMounted(fit);
-watch(() => runDataActiveRun?.data, fit);
+const fitTextOptions = computed(() =>
+  props.players === 1
+    ? { multiLine: true, minSize: 14, maxSize: 24 }
+    : { multiLine: true, minSize: 11, maxSize: 18 }
+);
 </script>
 
 <template>
@@ -44,10 +36,14 @@ watch(() => runDataActiveRun?.data, fit);
     :id="activeRun.id"
   >
     <div class="game-name-container info-container">
-      <p id="game-name" class="fit mt-1">{{ activeRun?.game }}</p>
+      <FitText :options="fitTextOptions">
+        <p id="game-name" class="mt-1">{{ activeRun?.game }}</p>
+      </FitText>
     </div>
     <div class="game-category-container info-container">
-      <p id="game-category" class="fit mt-1">{{ activeRun?.category }}</p>
+      <FitText :options="fitTextOptions">
+        <p id="game-category" class="mt-1">{{ activeRun?.category }}</p>
+      </FitText>
     </div>
 
     <div class="game-estimate-container info-container">

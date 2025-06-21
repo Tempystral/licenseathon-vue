@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { fitText } from "@licenseathon-vue/graphics/util/composables";
 import { computed, onMounted, ref, watch } from "vue";
 
 const { textSize = "xl", ...props } = defineProps<{

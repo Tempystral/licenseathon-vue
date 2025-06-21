@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { RunDataPlayer } from "speedcontrol-util/types";
-import { computed, onMounted, watch } from "vue";
-import { fitText } from "../util/composables";
-import getSeconds from "../util/updatetime";
-import { mdiGamepad, mdiTwitch } from "@mdi/js";
 import SvgIcon from "@jamescoyle/vue-icon";
+import { mdiGamepad, mdiTwitch } from "@mdi/js";
+import { RunDataPlayer } from "speedcontrol-util/types";
+import { computed } from "vue";
+import getSeconds from "../util/updatetime";
+import FitText from "./FitText.vue";
 
 const props = defineProps<{
   player: RunDataPlayer;
@@ -15,17 +15,12 @@ const props = defineProps<{
 const pronouns = computed(() => props.player.pronouns?.split(","));
 const seconds = getSeconds();
 
-// Fit text
-const options = computed(() => ({ multiLine: true, minSize: 14, maxSize: 30 }));
-const fit = () => {
-  fitText(["#player-name", "#player-social"], options.value);
-  fitText(["#player-pronouns"], { multiLine: true, minSize: 18, maxSize: 24 });
+const nameOptions = {
+  multiLine: true,
+  minSize: 20,
+  maxSize: 30,
 };
-
-onMounted(() => {
-  fit();
-});
-watch(() => props.player, fit);
+const pronounsOptions = { multiLine: true, minSize: 18, maxSize: 24 };
 </script>
 
 <template>
@@ -34,34 +29,40 @@ watch(() => props.player, fit);
     :class="['player-container', `layout-${ratio}`, `player-${position}`]"
     :data-player="`${player.id}`"
   >
-    <Transition name="wipe" :onEnter="fit">
+    <Transition name="wipe">
       <div class="player-name-container absolute w-full" v-if="seconds < 30">
-        <p id="player-name" class="inline-block whitespace-nowrap max-w-10/12">
-          <SvgIcon
-            type="mdi"
-            :path="mdiGamepad"
-            class="inline align-middle"
-            :size="28"
-          />
+        <SvgIcon
+          type="mdi"
+          :path="mdiGamepad"
+          class="inline align-baseline me-2"
+          :size="28"
+        />
+        <FitText :options="nameOptions" class="max-w-10/12">
+          <p>{{ player.name }}</p>
+        </FitText>
+        <!-- <p id="player-name" class="inline-block whitespace-nowrap max-w-10/12">
           {{ player.name }}
-        </p>
+        </p> -->
       </div>
       <div
         class="player-social-container absolute w-full"
         v-else-if="seconds >= 30"
       >
-        <p
+        <SvgIcon
+          type="mdi"
+          :path="mdiTwitch"
+          class="inline align-baseline me-2"
+          :size="28"
+        />
+        <FitText :options="nameOptions" class="max-w-10/12">
+          <p>{{ player.social.twitch }}</p>
+        </FitText>
+        <!-- <p
           id="player-social"
           class="inline-block whitespace-nowrap max-w-10/12"
         >
-          <SvgIcon
-            type="mdi"
-            :path="mdiTwitch"
-            class="inline align-middle"
-            :size="28"
-          />
           {{ player.social.twitch }}
-        </p>
+        </p> -->
       </div>
     </Transition>
   </div>
@@ -80,7 +81,9 @@ watch(() => props.player, fit);
         id="player-pronouns"
         v-if="player.pronouns && player.pronouns?.length > 0"
       >
-        {{ player.pronouns }}
+        <FitText :options="pronounsOptions">
+          {{ player.pronouns }}
+        </FitText>
       </span>
     </Transition>
   </div>

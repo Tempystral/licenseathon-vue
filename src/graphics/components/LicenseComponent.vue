@@ -2,10 +2,11 @@
 import { RunDataActiveRun } from "speedcontrol-util/types";
 import { computed, onMounted, ref, watch } from "vue";
 import InlineSvg from "vue-inline-svg";
-import { fitText, getPlayers } from "../util/composables";
 import getSeconds from "../util/updatetime";
 import { mdiCalendarMonth, mdiGamepadVariant } from "@mdi/js";
 import SvgIcon from "@jamescoyle/vue-icon";
+import { getPlayers } from "../util/composables";
+import FitText from "./FitText.vue";
 
 const props = defineProps<{
   run: RunDataActiveRun;
@@ -23,18 +24,17 @@ function showByTime(s: number) {
 const activePlayer = computed(() => players.value[showByTime(seconds.value)]);
 const activePlayerImage = computed(
   () =>
-    new URL(`../assets/runners/${activePlayer.value.name}.png`, import.meta.url)
-      .href
+    new URL(
+      `../assets/runners/${activePlayer.value.social.twitch}.png`,
+      import.meta.url
+    ).href
 );
 
-const fit = () => {
-  fitText(["#player-name", "#game-name", "#game-category"], {
-    multiLine: true,
-    minSize: 12,
-    maxSize: 24,
-  });
+const fitTextOptions = {
+  multiLine: true,
+  minSize: 12,
+  maxSize: 24,
 };
-onMounted(fit);
 watch(
   () => props.run,
   () => console.log(`Run: ${props.run?.game} | ${props.run?.id}`)
@@ -49,19 +49,25 @@ watch(
         v-if="activePlayer"
         :key="activePlayer.id"
       >
-        <p id="player-name" class="fit">{{ activePlayer.name }}</p>
+        <FitText :options="fitTextOptions">
+          <p id="player-name" class="">{{ activePlayer.name }}</p>
+        </FitText>
       </div>
     </Transition>
 
     <div class="game-container">
-      <Transition name="wipe" appear :onAfterLeave="fit">
+      <Transition name="wipe" appear>
         <div class="game-name-container info-container" :key="run?.id">
-          <p id="game-name" class="fit">{{ run?.game }}</p>
+          <FitText :options="fitTextOptions">
+            <p id="game-name" class="">{{ run?.game }}</p>
+          </FitText>
         </div>
       </Transition>
       <Transition name="wipe" appear>
         <div class="game-category-container info-container" :key="run?.id">
-          <p id="game-category" class="fit">{{ run?.category }}</p>
+          <FitText :options="fitTextOptions">
+            <p id="game-category" class="">{{ run?.category }}</p>
+          </FitText>
         </div>
       </Transition>
 

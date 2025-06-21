@@ -1,9 +1,9 @@
-import { default as vue } from '@vitejs/plugin-vue';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { defineConfig } from 'vite';
-import checker from 'vite-plugin-checker';
-import NodeCGPlugin from 'vite-plugin-nodecg';
+import { default as vue } from "@vitejs/plugin-vue";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { defineConfig } from "vite";
+import checker from "vite-plugin-checker";
+import NodeCGPlugin from "vite-plugin-nodecg";
 import tailwindcss from "@tailwindcss/vite";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -14,26 +14,27 @@ export default defineConfig({
     port: 5173,
   },
   build: {
-    sourcemap: true,
+    sourcemap: false,
   },
   plugins: [
     vue(),
     tailwindcss(),
-    checker({ vueTsc: { tsconfigPath: 'tsconfig.browser.json' } }),
-    NodeCGPlugin( {
+    checker({ vueTsc: { tsconfigPath: "tsconfig.browser.json" } }),
+    NodeCGPlugin({
       srcDir: "./src",
-      inputs: { 'graphics/*.{js,ts}': './src/graphics/template.html',
-                'dashboard/*.{js,ts}': './src/dashboard/template.html', }
-    } ),
+      inputs: {
+        "graphics/*.{js,ts}": "./src/graphics/template.html",
+        "dashboard/*.{js,ts}": "./src/dashboard/template.html",
+      },
+    }),
   ],
   optimizeDeps: {
-    include: ["~/git/nodecg-vue-composable"]
+    include: ["~/git/nodecg-vue-composable"],
   },
   resolve: {
     //preserveSymlinks: true,
     alias: {
       "@licenseathon-vue": `${__dirname}/src/`,
-    }
+    },
   },
-  
 });
