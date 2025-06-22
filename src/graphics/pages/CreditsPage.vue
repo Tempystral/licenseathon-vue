@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import data from "@licenseathon-vue/extension/credits.json";
-import { ref } from "vue";
+import { useReplicant } from "nodecg-vue-composable";
+import { onMounted, ref, watch } from "vue";
 import InlineSvg from "vue-inline-svg";
 
 const layoutPath = new URL("../assets/splash.svg", import.meta.url).href;
@@ -10,23 +11,29 @@ const logoPath = new URL("../assets/logo_2025.png", import.meta.url).href;
 const logoRef = ref<SVGElement | null>(null);
 
 const credits = ref(data);
-const started = ref(false);
+const started = useReplicant("creditsStart", "licenseathon-vue");
 
-function startAnimation() {
-  started.value = true;
-}
+const music = new Audio("../assets/toy-story-main-menu.ogg");
+
+onMounted(music.load);
+
+watch(
+  () => started.data,
+  (isPlaying) => {
+    if (isPlaying) {
+      nodecg.playSound("credits-music");
+    } else {
+      nodecg.stopAllSounds();
+    }
+  }
+);
 </script>
 
 <template>
   <div class="">
-    <InlineSvg
-      :src="layoutPath"
-      ref="layoutRef"
-      id="layout"
-      @click="startAnimation"
-    />
+    <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
     <div class="absolute h-[980px] w-full overflow-clip">
-      <section class="credits" :class="{ scrolling: started }">
+      <section class="credits" :class="{ scrolling: started.data }">
         <div id="logo-container">
           <img :src="logoPath" ref="logoRef" id="logo" />
         </div>
