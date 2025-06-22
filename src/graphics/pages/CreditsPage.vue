@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import data from "@licenseathon-vue/extension/credits.json";
-import { ref } from "vue";
+import { useReplicant } from "nodecg-vue-composable";
+import { onMounted, ref, watch } from "vue";
 import InlineSvg from "vue-inline-svg";
 
 const layoutPath = new URL("../assets/splash.svg", import.meta.url).href;
@@ -10,23 +11,29 @@ const logoPath = new URL("../assets/logo_2025.png", import.meta.url).href;
 const logoRef = ref<SVGElement | null>(null);
 
 const credits = ref(data);
-const started = ref(false);
+const started = useReplicant("creditsStart", "licenseathon-vue");
 
-function startAnimation() {
-  started.value = true;
-}
+const music = new Audio("../assets/toy-story-main-menu.ogg");
+
+onMounted(music.load);
+
+watch(
+  () => started.data,
+  (isPlaying) => {
+    if (isPlaying) {
+      nodecg.playSound("credits-music");
+    } else {
+      nodecg.stopAllSounds();
+    }
+  }
+);
 </script>
 
 <template>
   <div class="">
-    <InlineSvg
-      :src="layoutPath"
-      ref="layoutRef"
-      id="layout"
-      @click="startAnimation"
-    />
+    <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
     <div class="absolute h-[980px] w-full overflow-clip">
-      <section class="credits" :class="{ scrolling: started }">
+      <section class="credits text-3xl" :class="{ scrolling: started.data }">
         <div id="logo-container">
           <img :src="logoPath" ref="logoRef" id="logo" />
         </div>
@@ -98,26 +105,30 @@ body {
 
   flex-basis: 100rem;
   margin: 2rem 0;
-  font-size: 1.85rem;
   line-height: 1.2;
   padding: 1rem;
 
   transform: translate3d(0, 0, 0);
 
+  dt {
+    font-size: 2.5rem;
+    font-family: Fusion;
+    font-variant-caps: all-small-caps;
+    margin-top: 1.7rem;
+  }
+
+  dd {
+    margin-top: 0.6rem;
+  }
+
+  dl {
+    margin-bottom: 2rem;
+  }
+
   &-single {
-    display: grid;
-    grid-template-columns: 1;
-    gap: 0 2rem;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-
-    dt {
-      font-variant-caps: all-small-caps;
-      margin-top: 1.7rem;
-    }
-
-    dd {
-      margin-top: 0.6rem;
-    }
   }
 
   &-double {
@@ -127,14 +138,10 @@ body {
 
     dt {
       text-align: right;
-      font-variant-caps: all-small-caps;
-      margin-top: 1.7rem;
     }
 
     dd {
       text-align: left;
-      grid-column: 2 / 3;
-      margin-top: 0.6rem;
     }
 
     dt + dd {

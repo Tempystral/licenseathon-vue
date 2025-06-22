@@ -180,50 +180,55 @@ function remainingRuns() {
             <span
               v-for="run in remainingRuns()?.slice(0, 3)"
               :key="run.id"
-              class="up-next-game p-2 rounded-md grid gap-2 w-4/12"
+              class="up-next-game p-2 rounded-md flex gap-2 w-4/12"
             >
-              <div
-                id="player-name-container"
-                class="setup-info-container col-start-1 col-span-4"
-              >
-                <span
-                  v-for="(player, index) of getPlayers(run)"
-                  id="next-player-name"
-                  class="fit"
-                  :key="player.id"
+              <div class="flex flex-col gap-2 flex-grow">
+                <div
+                  id="player-name-container"
+                  class="setup-info-container flex-grow"
                 >
-                  {{ player.name }}
-                  <template
-                    v-if="
-                      getPlayers(run).length > 1 &&
-                      getPlayers(run).length - index > 1
-                    "
+                  <span
+                    v-for="(player, index) of getPlayers(run)"
+                    id="next-player-name"
+                    class="fit"
+                    :key="player.id"
                   >
-                    &nbsp;|&nbsp;
-                  </template>
-                </span>
+                    {{ player.name }}
+                    <template
+                      v-if="
+                        getPlayers(run).length > 1 &&
+                        getPlayers(run).length - index > 1
+                      "
+                    >
+                      &nbsp;|&nbsp;
+                    </template>
+                  </span>
+                </div>
+
+                <div
+                  id="game-name-container"
+                  class="setup-info-container flex-grow"
+                  v-if="run?.game"
+                >
+                  <p id="next-game-name" class="fit">{{ run?.game }}</p>
+                </div>
               </div>
 
-              <div
-                id="game-name-container"
-                class="setup-info-container col-start-1 col-span-4 row-start-2"
-                v-if="run?.game"
-              >
-                <p id="next-game-name" class="fit">{{ run?.game }}</p>
-              </div>
-              <div
-                id="game-category-container"
-                class="setup-info-container row-start-1 row-span-1 col-start-5"
-                v-if="run?.category"
-              >
-                <p id="next-game-category" class="fit">{{ run?.category }}</p>
-              </div>
-              <div
-                id="game-estimate-container"
-                class="setup-info-container row-start-2 row-span-1 col-start-5"
-                v-if="run?.estimate"
-              >
-                <p id="next-game-estimate" class="fit">{{ run?.estimate }}</p>
+              <div class="flex flex-col gap-2 flex-grow">
+                <div
+                  id="game-category-container"
+                  class="setup-info-container flex-grow"
+                  v-if="run?.category"
+                >
+                  <p id="next-game-category" class="fit">{{ run?.category }}</p>
+                </div>
+                <div
+                  id="game-estimate-container"
+                  class="setup-info-container flex-grow"
+                  v-if="run?.estimate"
+                >
+                  <p id="next-game-estimate" class="fit">{{ run?.estimate }}</p>
+                </div>
               </div>
             </span>
           </TransitionGroup>
