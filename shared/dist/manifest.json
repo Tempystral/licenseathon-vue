@@ -183,9 +183,29 @@
     "file": "assets/logo_2025-DK4M8EH1.png",
     "src": "src/graphics/assets/logo_2025.png"
   },
-  "src/graphics/assets/runners/ad129.png": {
-    "file": "assets/ad129-CbS6VMTR.png",
-    "src": "src/graphics/assets/runners/ad129.png"
+  "src/graphics/assets/runners/Jamieboi1989.png": {
+    "file": "assets/Jamieboi1989-CCit7rEp.png",
+    "src": "src/graphics/assets/runners/Jamieboi1989.png"
+  },
+  "src/graphics/assets/runners/KenzG.png": {
+    "file": "assets/KenzG-uTSYZ4CL.png",
+    "src": "src/graphics/assets/runners/KenzG.png"
+  },
+  "src/graphics/assets/runners/Mageius1.png": {
+    "file": "assets/Mageius1-Dfuagd9u.png",
+    "src": "src/graphics/assets/runners/Mageius1.png"
+  },
+  "src/graphics/assets/runners/MidnightPlus01.png": {
+    "file": "assets/MidnightPlus01-B88jh7wv.png",
+    "src": "src/graphics/assets/runners/MidnightPlus01.png"
+  },
+  "src/graphics/assets/runners/ScoobysBooty.png": {
+    "file": "assets/ScoobysBooty-CnqoPsAo.png",
+    "src": "src/graphics/assets/runners/ScoobysBooty.png"
+  },
+  "src/graphics/assets/runners/ad129sr.png": {
+    "file": "assets/ad129sr-CbS6VMTR.png",
+    "src": "src/graphics/assets/runners/ad129sr.png"
   },
   "src/graphics/assets/runners/alexggroovewolf.png": {
     "file": "assets/alexggroovewolf-DM9LKZ7V.png",
@@ -195,9 +215,9 @@
     "file": "assets/buildnye-Q2x9QVPl.png",
     "src": "src/graphics/assets/runners/buildnye.png"
   },
-  "src/graphics/assets/runners/craigelbagel.png": {
-    "file": "assets/craigelbagel-atCJCdDe.png",
-    "src": "src/graphics/assets/runners/craigelbagel.png"
+  "src/graphics/assets/runners/craigelbagel001.png": {
+    "file": "assets/craigelbagel001-atCJCdDe.png",
+    "src": "src/graphics/assets/runners/craigelbagel001.png"
   },
   "src/graphics/assets/runners/gamex_64.png": {
     "file": "assets/gamex_64-DlgyqKUX.png",
@@ -207,17 +227,13 @@
     "file": "assets/hazelpietro-DoBZVBOF.png",
     "src": "src/graphics/assets/runners/hazelpietro.png"
   },
-  "src/graphics/assets/runners/infinitygene.png": {
-    "file": "assets/infinitygene-D6nT3AA2.png",
-    "src": "src/graphics/assets/runners/infinitygene.png"
+  "src/graphics/assets/runners/infinitygene_.png": {
+    "file": "assets/infinitygene_-D6nT3AA2.png",
+    "src": "src/graphics/assets/runners/infinitygene_.png"
   },
-  "src/graphics/assets/runners/izzyhope58.png": {
-    "file": "assets/izzyhope58-CWgL9WY-.png",
-    "src": "src/graphics/assets/runners/izzyhope58.png"
-  },
-  "src/graphics/assets/runners/jamieboi1989.png": {
-    "file": "assets/jamieboi1989-CCit7rEp.png",
-    "src": "src/graphics/assets/runners/jamieboi1989.png"
+  "src/graphics/assets/runners/izzyhopedolphin.png": {
+    "file": "assets/izzyhopedolphin-CWgL9WY-.png",
+    "src": "src/graphics/assets/runners/izzyhopedolphin.png"
   },
   "src/graphics/assets/runners/jawsomesauce.png": {
     "file": "assets/jawsomesauce-D6flplyM.png",
@@ -226,10 +242,6 @@
   "src/graphics/assets/runners/jeakerek.png": {
     "file": "assets/jeakerek--75a9BK5.png",
     "src": "src/graphics/assets/runners/jeakerek.png"
-  },
-  "src/graphics/assets/runners/kenzg.png": {
-    "file": "assets/kenzg-uTSYZ4CL.png",
-    "src": "src/graphics/assets/runners/kenzg.png"
   },
   "src/graphics/assets/runners/kjorteo.png": {
     "file": "assets/kjorteo-FrDUEV4m.png",
@@ -243,14 +255,6 @@
     "file": "assets/lrock617-BgTGcsSA.png",
     "src": "src/graphics/assets/runners/lrock617.png"
   },
-  "src/graphics/assets/runners/mageius.png": {
-    "file": "assets/mageius-Dfuagd9u.png",
-    "src": "src/graphics/assets/runners/mageius.png"
-  },
-  "src/graphics/assets/runners/midnightplusone.png": {
-    "file": "assets/midnightplusone-B88jh7wv.png",
-    "src": "src/graphics/assets/runners/midnightplusone.png"
-  },
   "src/graphics/assets/runners/moogle.png": {
     "file": "assets/moogle-GcuETMzC.png",
     "src": "src/graphics/assets/runners/moogle.png"
@@ -262,10 +266,6 @@
   "src/graphics/assets/runners/sam37_rtl.png": {
     "file": "assets/sam37_rtl-WeNS1gq7.png",
     "src": "src/graphics/assets/runners/sam37_rtl.png"
-  },
-  "src/graphics/assets/runners/scoobysbooty.png": {
-    "file": "assets/scoobysbooty-CnqoPsAo.png",
-    "src": "src/graphics/assets/runners/scoobysbooty.png"
   },
   "src/graphics/assets/runners/sekeri_rat.png": {
     "file": "assets/sekeri_rat-Cbr9L7S9.png",
@@ -369,7 +369,7 @@
     ]
   },
   "src/graphics/setup.ts": {
-    "file": "assets/setup-Do6skrsI.js",
+    "file": "assets/setup-BL6HIrgv.js",
     "name": "setup",
     "src": "src/graphics/setup.ts",
     "isEntry": true,
@@ -385,27 +385,27 @@
       "assets/setup-wC5362nb.css"
     ],
     "assets": [
-      "assets/ad129-CbS6VMTR.png",
+      "assets/Jamieboi1989-CCit7rEp.png",
+      "assets/KenzG-uTSYZ4CL.png",
+      "assets/Mageius1-Dfuagd9u.png",
+      "assets/MidnightPlus01-B88jh7wv.png",
+      "assets/ScoobysBooty-CnqoPsAo.png",
+      "assets/ad129sr-CbS6VMTR.png",
       "assets/alexggroovewolf-DM9LKZ7V.png",
       "assets/buildnye-Q2x9QVPl.png",
-      "assets/craigelbagel-atCJCdDe.png",
+      "assets/craigelbagel001-atCJCdDe.png",
       "assets/gamex_64-DlgyqKUX.png",
       "assets/hazelpietro-DoBZVBOF.png",
-      "assets/infinitygene-D6nT3AA2.png",
-      "assets/izzyhope58-CWgL9WY-.png",
-      "assets/jamieboi1989-CCit7rEp.png",
+      "assets/infinitygene_-D6nT3AA2.png",
+      "assets/izzyhopedolphin-CWgL9WY-.png",
       "assets/jawsomesauce-D6flplyM.png",
       "assets/jeakerek--75a9BK5.png",
-      "assets/kenzg-uTSYZ4CL.png",
       "assets/kjorteo-FrDUEV4m.png",
       "assets/linkameister-B6n7wnw6.png",
       "assets/lrock617-BgTGcsSA.png",
-      "assets/mageius-Dfuagd9u.png",
-      "assets/midnightplusone-B88jh7wv.png",
       "assets/moogle-GcuETMzC.png",
       "assets/nickrpgreen-PaN7SPcC.png",
       "assets/sam37_rtl-WeNS1gq7.png",
-      "assets/scoobysbooty-CnqoPsAo.png",
       "assets/sekeri_rat-Cbr9L7S9.png",
       "assets/spagettd-ob3qlwaT.png",
       "assets/spyran-Cj0UjHg9.png",
