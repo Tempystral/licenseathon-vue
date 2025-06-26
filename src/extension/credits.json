@@ -1,55 +1,83 @@
 {
-  "staff": [
-    "Tempystral",
-    "GamingGuy63",
-    "Magieus",
-    "TempestMask1000",
-    "Earllgray",
-    "HazelPietro",
-    "IzzyHope58",
-    "BTF_Flotsam",
-    "Ad129",
-    "DerrickGnC"
-  ],
-  "runners": [
-    "IzzyHope58",
-    "Sekeri",
-    "ad129",
-    "sam37_RTL",
-    "Craigelbagel",
-    "jawsomesauce",
-    "Celine Kalante Love & Friends",
-    "wintery_mix",
-    "LRock617",
-    "midnightplusone",
-    "buildnye",
-    "SuperSqank",
-    "HazelPietro",
-    "ScoobysBooty",
-    "Zachariasz455",
-    "Mageius",
-    "moogle",
-    "gamex_64",
-    "vjsmyth",
-    "KenzG",
-    "Spyran",
-    "LinkaMeister",
-    "jeakerek",
-    "spagettd",
-    "Alex G-Groove",
-    "Jamieboi1989",
-    "NickRPGreen",
-    "InfinityGene"
-  ],
-  "resources": {
-    "fonts": [
-      "Fusion",
-      "Karnivore by Apostrophic Labs"
-    ],
-    "assets": [
-      "Metalheart Icons Assets Pack by Cody Vondell",
-      "CSS CRT Effect by Alec Lownes",
-      "Las pinceladas en gradiente by Stephanie2212"
-    ]
-  }
+  "data": [
+    {
+      "name": "Staff",
+      "type": "text",
+      "delay": 10,
+      "data": [
+        "Tempystral",
+        "GamingGuy63",
+        "Magieus",
+        "TempestMask1000",
+        "Earllgray",
+        "HazelPietro",
+        "IzzyHope58",
+        "BTF_Flotsam",
+        "Ad129",
+        "DerrickGnC",
+        "Spyran"
+      ]
+    },
+    {
+      "name": "Runners",
+      "type": "text",
+      "delay": 20,
+      "data": [
+        "IzzyHope58",
+        "Sekeri",
+        "ad129",
+        "sam37_RTL",
+        "Craigelbagel",
+        "jawsomesauce",
+        "Celine Kalante Love & Friends",
+        "wintery_mix",
+        "LRock617",
+        "midnightplusone",
+        "buildnye",
+        "SuperSqank",
+        "HazelPietro",
+        "ScoobysBooty"
+      ]
+    },
+    {
+      "name": "Runners",
+      "type": "text",
+      "delay": 20,
+      "data": [
+        "Zachariasz455",
+        "Mageius",
+        "moogle",
+        "gamex_64",
+        "vjsmyth",
+        "KenzG",
+        "Spyran",
+        "LinkaMeister",
+        "jeakerek",
+        "spagettd",
+        "Alex G-Groove",
+        "Jamieboi1989",
+        "NickRPGreen",
+        "InfinityGene"
+      ]
+    },
+    {
+      "name": "Fonts Used",
+      "type": "text",
+      "delay": 10,
+      "data": [
+        "Fusion",
+        "Karnivore by Apostrophic Labs"
+      ]
+    },
+    {
+      "name": "Assets",
+      "type": "text",
+      "delay": 10,
+      "data": [
+        "Metalheart Icons Assets Pack by Cody Vondell",
+        "CSS CRT Effect by Alec Lownes",
+        "Las pinceladas en gradiente by Stephanie2212"
+      ]
+    }
+  ]
 }
