@@ -245,6 +245,7 @@ function remainingRuns() {
 
 body {
   background-image: url(../assets/background.png);
+  background-size: cover;
   overflow: hidden;
   margin: unset;
 }

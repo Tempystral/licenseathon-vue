@@ -77,6 +77,7 @@ watch(
 
 body {
   background-image: url("../assets/background.png");
+  background-size: cover;
   margin: unset;
   overflow: hidden;
 }
