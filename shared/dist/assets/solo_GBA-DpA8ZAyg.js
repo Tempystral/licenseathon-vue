@@ -1,1 +1,0 @@
-import{c as r}from"./template-CHEyjDUE.js";import{_ as m}from"./ActiveRunPage.vue_vue_type_style_index_0_lang-5jGsLWgq.js";import"./index-DBLaORj5.js";import"./IncentiveComponent-BMKX-ThQ.js";import"./defaults-DZftJhaD.js";import"./index-C2i_qP_o.js";import"./vue-inline-svg.esm-CrBIFRe_.js";r(m,{players:1,ratio:"3-2"});
