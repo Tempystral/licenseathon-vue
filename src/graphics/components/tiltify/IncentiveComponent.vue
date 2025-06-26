@@ -6,6 +6,7 @@ import {
   Polls,
   Target,
   Targets,
+  Total,
 } from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
 import PollComponent from "./PollComponent.vue";
 import TargetComponent from "./TargetComponent.vue";
@@ -20,8 +21,11 @@ const props = defineProps<{
 
 const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
 const activePolls = ref<Incentive[]>(getActivePolls());
+
 const targets = useReplicant<Targets>("targets", "nodecg-tiltify");
 const activeTargets = ref<Incentive[]>(getActiveTargets());
+
+const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
 
 type Incentive =
   | {
@@ -37,7 +41,7 @@ type Incentive =
       item: { text?: string; img?: string; orientation: "h" | "v"; id: string };
     };
 
-const messages: Incentive[] = [
+const messages = computed<Incentive[]>(() => [
   {
     type: "message",
     item: {
@@ -55,10 +59,18 @@ const messages: Incentive[] = [
       id: "donomsg",
     },
   },
-];
+  {
+    type: "message",
+    item: {
+      text: `$${campaignTotal.data?.value} raised so far for the Transgender Law Center!`,
+      orientation: "v",
+      id: "campaigntotal",
+    },
+  },
+]);
 
 const incentives = computed<Incentive[]>(() => [
-  ...messages,
+  ...messages.value,
   ...activePolls.value,
   ...activeTargets.value,
 ]);
@@ -107,7 +119,7 @@ const currentItem = computed(() => incentives.value[currentIndex.value]);
 const currentIndex = ref(0);
 
 onMounted(() => {
-  setInterval(nextItem, 8000);
+  setInterval(nextItem, 15000);
 });
 
 function nextItem() {
