@@ -15,8 +15,7 @@ useHead({ title: "Commentators" });
 
 const commentators = useReplicant<Commentators>(
   "commentators",
-  "licenseathon-vue",
-  { defaultValue: { names: ["", ""] } }
+  "licenseathon-vue"
 );
 
 const activeRun = useReplicant<RunDataActiveRun>(
