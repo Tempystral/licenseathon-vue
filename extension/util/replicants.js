@@ -8,5 +8,5 @@ const nodecg_1 = require("./nodecg");
  */
 // YOU CAN REMOVE THIS RULE WHEN YOU GET MULTIPLE REPLICANTS!
 const NAMESPACE = "licenseathon-vue";
-exports.commentatorsRep = (0, nodecg_1.get)().Replicant("commentators", NAMESPACE);
+exports.commentatorsRep = (0, nodecg_1.get)().Replicant("commentators", NAMESPACE, { defaultValue: { names: ["", ""] } });
 exports.creditsRep = (0, nodecg_1.get)().Replicant("creditsStart", NAMESPACE, { defaultValue: false });
