@@ -12,7 +12,8 @@ const NAMESPACE = "licenseathon-vue";
 
 export const commentatorsRep = nodecg().Replicant<Commentators>(
   "commentators",
-  NAMESPACE
+  NAMESPACE,
+  { defaultValue: { names: ["", ""] } }
 );
 
 export const creditsRep = nodecg().Replicant<boolean>(
