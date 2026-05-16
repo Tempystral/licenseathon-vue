@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { mdiGamepad } from "@mdi/js";
 import { useReplicant } from "nodecg-vue-composable";
 import { RunDataActiveRun, RunDataPlayer } from "speedcontrol-util/types";
 import { computed, ref } from "vue";
@@ -7,9 +8,10 @@ import CommentatorDisplayComponent from "../components/CommentatorDisplayCompone
 import GameInfoPanel from "../components/GameInfoPanel.vue";
 import RaceTimerComponent from "../components/RaceTimerComponent.vue";
 import RunnerInfoPanel from "../components/RunnerInfoPanel.vue";
+import TextBox2 from "../components/TextBox2.vue";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import TimerComponent from "../components/TimerComponent.vue";
 import { defaultRunData, defaultRunDataPlayer } from "../util/defaults";
-import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 
 /**
  * Layout is passed in as prop
@@ -24,14 +26,14 @@ const props = defineProps<{
 
 const layoutPath = new URL(
   `../assets/layout-${props.players}p-${props.ratio}.svg`,
-  import.meta.url
+  import.meta.url,
 ).href;
 const layoutRef = ref<SVGElement | null>(null);
 
 const runDataActiveRun = useReplicant<RunDataActiveRun>(
   "runDataActiveRun",
   "nodecg-speedcontrol",
-  { defaultValue: defaultRunData as RunDataActiveRun }
+  { defaultValue: defaultRunData as RunDataActiveRun },
 );
 
 // watch(() => runDataActiveRun?.changed, () => { fitText() });

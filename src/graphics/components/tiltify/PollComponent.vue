@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { Poll } from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
+import { Poll } from "../../../../../nodecg-tiltify/src/types/schemas";
 import ProgressBar from "./ProgressBar.vue";
 
 const { poll, textSize = "xl" } = defineProps<{

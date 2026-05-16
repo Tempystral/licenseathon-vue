@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @import "tailwindcss-primeui";
+
+
+
+@theme {
+  /* --color-*: initial; */
+  --color-lcns-light-blue: #92caff;
+  --color-lcns-blue: #5daeff;
+  --color-lcns-dark-blue: #305780;
+  --color-lcns-amber: #ffba4a;
+  --color-lcns-white: #f2f2f2;
+  --color-lcns-grey: #8f969f;
+  --color-lcns-black: #18191b;
+  --color-lcns-red: #ef5b5b;
+  --color-lcns-teal: #a9ebdd;
+  --color-lcns-purple: #440722;
+}

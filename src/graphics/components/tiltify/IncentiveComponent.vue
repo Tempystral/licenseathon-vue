@@ -7,11 +7,9 @@ import {
   Target,
   Targets,
   Total,
-} from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
+} from "../../../../../nodecg-tiltify/src/types/schemas";
 import PollComponent from "./PollComponent.vue";
 import TargetComponent from "./TargetComponent.vue";
-import { NodeCGAPIClient } from "node_modules/nodecg/out/client/api/api.client";
-import { Configschema } from "@licenseathon-vue/types/schemas";
 import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
 
 const props = defineProps<{

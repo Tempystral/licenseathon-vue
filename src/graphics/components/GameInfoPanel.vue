@@ -16,7 +16,7 @@ const props = defineProps<{
 const runDataActiveRun = useReplicant<RunDataActiveRun>(
   "runDataActiveRun",
   "nodecg-speedcontrol",
-  { defaultValue: defaultRunData as RunDataActiveRun }
+  { defaultValue: defaultRunData as RunDataActiveRun },
 );
 
 // Fit text
@@ -24,7 +24,7 @@ const runDataActiveRun = useReplicant<RunDataActiveRun>(
 const fitTextOptions = computed(() =>
   props.players === 1
     ? { multiLine: true, minSize: 14, maxSize: 24 }
-    : { multiLine: true, minSize: 11, maxSize: 18 }
+    : { multiLine: true, minSize: 11, maxSize: 18 },
 );
 </script>
 

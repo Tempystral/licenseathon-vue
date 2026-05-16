@@ -4,7 +4,7 @@ import { onMounted, ref, watch } from "vue";
 import {
   Target,
   Targets,
-} from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
+} from "../../../../../nodecg-tiltify/src/types/schemas";
 import ProgressBar from "./ProgressBar.vue";
 
 const { target, textSize = "xl" } = defineProps<{
