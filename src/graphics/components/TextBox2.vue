@@ -40,12 +40,23 @@ const themes: Theme = {
       separator: true,
     },
   },
+
   pronouns: {
     font: "font-[Fusion]",
     colors: {
       main: "bg-lcns-red text-lcns-black",
       accent: "bg-lcns-blue text-lcns-white",
       shadow: "bg-lcns-purple",
+      border: "border-lcns-black",
+    },
+  },
+
+  lcd: {
+    font: "font-[Fusion]",
+    colors: {
+      main: "bg-lcns-teal text-lcns-black inset-shadow-xs inset-shadow-black",
+      accent: "bg-lcns-amber text-lcns-black",
+      shadow: "shadow-none",
       border: "border-lcns-black",
     },
   },
