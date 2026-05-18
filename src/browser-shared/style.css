@@ -15,4 +15,8 @@
   --color-lcns-red: #ef5b5b;
   --color-lcns-teal: #a9ebdd;
   --color-lcns-purple: #440722;
+
+  /* Shadows */
+  --inset-shadow-xs: inset 0 0 4px var(--tw-inset-shadow-color, rgb(0 0 0 / 0.05));
+  
 }
