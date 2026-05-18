@@ -16,12 +16,15 @@ interface Theme {
     colors: {
       main: string;
       accent: string;
-      shadow: string;
       border: string;
     };
     ears?: {
       side: "left" | "right" | "both" | "none";
       separator: boolean;
+    };
+    shadow?: {
+      type: "inset" | "drop";
+      color: string;
     };
   };
 }
@@ -32,12 +35,15 @@ const themes: Theme = {
     colors: {
       main: "bg-lcns-blue text-lcns-black",
       accent: "bg-lcns-amber text-lcns-black",
-      shadow: "bg-lcns-dark-blue",
       border: "border-lcns-black",
     },
     ears: {
       side: "left",
       separator: true,
+    },
+    shadow: {
+      type: "drop",
+      color: "bg-lcns-dark-blue",
     },
   },
 
@@ -46,18 +52,24 @@ const themes: Theme = {
     colors: {
       main: "bg-lcns-red text-lcns-black",
       accent: "bg-lcns-blue text-lcns-white",
-      shadow: "bg-lcns-purple",
       border: "border-lcns-black",
+    },
+    shadow: {
+      type: "drop",
+      color: "bg-lcns-purple",
     },
   },
 
   lcd: {
     font: "font-[Fusion]",
     colors: {
-      main: "bg-lcns-teal text-lcns-black inset-shadow-xs inset-shadow-black",
+      main: "bg-lcns-teal text-lcns-black",
       accent: "bg-lcns-amber text-lcns-black",
-      shadow: "shadow-none",
       border: "border-lcns-black",
+    },
+    shadow: {
+      type: "inset",
+      color: "inset-shadow-xs inset-shadow-black",
     },
   },
 } as const;
@@ -71,6 +83,14 @@ function hasRight() {
   return (
     style.value.ears?.side === "right" || style.value.ears?.side === "both"
   );
+}
+
+function hasDropShadow() {
+  return style.value.shadow?.type === "drop";
+}
+
+function hasInsetShadow() {
+  return style.value.shadow?.type === "inset";
 }
 
 const maxWidth = computed(
@@ -89,12 +109,16 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 </script>
 
 <template>
-  <div :class="[style.font]">
-    <div class="h-full rounded-md" :class="style.colors.main">
+  <div
+    class="min-h-12 max-h-20 w-10/12"
+    :class="[style.font, hasDropShadow() ? 'pr-1' : '']"
+  >
+    <div class="relative h-full rounded-md" :class="style.colors.main">
       <div
+        v-if="style.shadow?.type === 'drop'"
         :id="'drop-shadow-' + v4()"
         class="absolute h-full w-full inset-1 rounded-lg"
-        :class="style.colors.shadow"
+        :class="style.shadow.color"
       ></div>
 
       <div
@@ -115,11 +139,12 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
       </div>
 
       <div
-        class="absolute h-full w-full"
+        class="relative h-full w-full"
         :class="[
           hasLeft() ? 'left-12' : 'rounded-l-md',
           hasRight() ? '' : 'rounded-r-md',
           style.colors.main,
+          style.shadow?.type === 'inset' ? style.shadow.color : '',
         ]"
         :style="[padding.x, maxWidth]"
       >
