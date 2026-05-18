@@ -2,7 +2,6 @@
 import { computed } from "vue";
 import FitText from "./FitText.vue";
 import SvgIcon from "@jamescoyle/vue-icon";
-import { v4 } from "uuid";
 
 const { xPad = 2, theme = "nameplate" } = defineProps<{
   xPad?: number;
@@ -69,7 +68,7 @@ const themes: Theme = {
     },
     shadow: {
       type: "inset",
-      color: "inset-shadow-xs inset-shadow-black",
+      color: "inset-shadow-xs inset-shadow-lcns-white",
     },
   },
 } as const;
@@ -93,6 +92,10 @@ function hasInsetShadow() {
   return style.value.shadow?.type === "inset";
 }
 
+function isLCD() {
+  return theme === "lcd";
+}
+
 const maxWidth = computed(
   () => `max-width: calc(100% - (var(--spacing) * ${calcEarsWidth()}))`,
 );
@@ -109,18 +112,24 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 </script>
 
 <template>
+  <!-- Container -->
   <div
-    class="min-h-12 max-h-20 w-10/12"
-    :class="[style.font, hasDropShadow() ? 'pr-1' : '']"
+    class="min-h-12 max-h-20 grow"
+    :class="[style.font, hasDropShadow() ? 'pr-1' : '', ,]"
   >
-    <div class="relative h-full rounded-md" :class="style.colors.main">
+    <!-- Border -->
+    <div
+      class="relative h-full"
+      :class="isLCD() ? 'bg-gray-600 p-1 rounded-md' : ''"
+    >
+      <!-- Shadow -->
       <div
         v-if="style.shadow?.type === 'drop'"
-        :id="'drop-shadow-' + v4()"
         class="absolute h-full w-full inset-1 rounded-lg"
         :class="style.shadow.color"
       ></div>
 
+      <!-- Left ear -->
       <div
         v-if="hasLeft()"
         class="absolute h-full w-12 rounded-l-md"
@@ -138,6 +147,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
         </div>
       </div>
 
+      <!-- Center panel -->
       <div
         class="relative h-full w-full"
         :class="[
@@ -157,6 +167,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
         </div>
       </div>
 
+      <!-- Right ear -->
       <div
         v-if="hasRight()"
         class="absolute h-full w-12 rounded-r-md right-0"
