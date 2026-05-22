@@ -5,7 +5,7 @@ import { computed, onMounted, watch } from "vue";
 import { defaultRunData } from "../util/defaults";
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiCalendar, mdiCalendarMonth, mdiGamepadVariant } from "@mdi/js";
-import FitText from "./FitText.vue";
+import FitText from "./text/FitText.vue";
 
 const props = defineProps<{
   activeRun: RunDataActiveRun;

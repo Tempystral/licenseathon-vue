@@ -12,7 +12,7 @@ const {
   align?: "start" | "end";
 }>();
 
-const knobPath = new URL("../assets/knob.svg", import.meta.url).href;
+const knobPath = new URL("../../assets/knob.svg", import.meta.url).href;
 const knob = ref<SVGElement | null>(null);
 
 const isVertical = computed(() => position === "top" || position === "bottom");
@@ -38,11 +38,11 @@ const alignment = {
     >
       <div class="flex flex-col h-full items-center">
         <span>{{ text }}</span>
-        <div v-if="!isVertical" class="grid grid-cols-2 grow h-full">
+        <div v-if="!isVertical" class="grid grid-cols-2 items-end h-full">
           <div
             class="m-2.5 bg-red-600 border-2 border-black/20 rounded-md aspect-square"
           ></div>
-          <InlineSvg :src="knobPath" ref="knob" class="h-full w-min-full" />
+          <InlineSvg :src="knobPath" ref="knob" class="h-10" />
         </div>
       </div>
     </div>

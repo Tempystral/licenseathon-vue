@@ -4,7 +4,7 @@ import { mdiGamepad, mdiTwitch } from "@mdi/js";
 import { RunDataPlayer } from "speedcontrol-util/types";
 import { computed } from "vue";
 import getSeconds from "../util/updatetime";
-import FitText from "./FitText.vue";
+import FitText from "./text/FitText.vue";
 
 const props = defineProps<{
   player: RunDataPlayer;

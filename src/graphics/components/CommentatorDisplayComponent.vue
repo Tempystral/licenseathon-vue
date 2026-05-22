@@ -4,7 +4,7 @@ import { Commentators } from "@licenseathon-vue/types/schemas";
 import { mdiMicrophone } from "@mdi/js";
 import { useReplicant } from "nodecg-vue-composable";
 import { computed, onMounted, watch } from "vue";
-import FitText from "./FitText.vue";
+import FitText from "./text/FitText.vue";
 
 const props = defineProps<{
   ratio: string;
@@ -14,11 +14,11 @@ const props = defineProps<{
 const commentators = useReplicant<Commentators>(
   "commentators",
   "licenseathon-vue",
-  { defaultValue: { names: ["", ""] } }
+  { defaultValue: { names: ["", ""] } },
 );
 
 const nonEmptyNames = computed(
-  () => commentators.data?.names.filter((n) => n.length > 0) ?? []
+  () => commentators.data?.names.filter((n) => n.length > 0) ?? [],
 );
 
 const fitTextOptions = {
