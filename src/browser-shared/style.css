@@ -19,4 +19,51 @@
   /* Shadows */
   --inset-shadow-xs: inset 0 0 4px var(--tw-inset-shadow-color, rgb(0 0 0 / 0.05));
   
+  --inner-corner-sm: var(--radius-sm);
+  --inner-corner-md: var(--radius-md);
+  --inner-corner-lg: var(--radius-lg);
+  --inner-corner-xl: var(--radius-xl);
+
+}
+
+@utility inner-corner-* {
+  --r: --value(--inner-corner-*, --default(var(--radius-md)));
+  --rm: calc(-1 * var(--r));
+
+  &.inner-corner-bl {
+   clip-path: shape(
+      from var(--r) 100%,
+      arc by var(--rm) var(--rm) of var(--r) cw,
+      vline to 100%,
+      close
+    );
+  }
+
+  &.inner-corner-tl {
+   clip-path: shape(
+      from 0% var(--r),
+      arc by  var(--r) var(--rm) of var(--r) cw,
+      hline to 0%,
+      close
+    );
+  }
+
+  &.inner-corner-tr {
+   clip-path: shape(
+      from calc(100% - var(--r)) 0%,
+      arc by var(--r) var(--r) of var(--r) cw,
+      vline to 0%,
+      close
+    );
+  }
+
+  &.inner-corner-br {
+   clip-path: shape(
+      from 100% calc(100% - var(--r)),
+      arc by var(--rm) var(--r) of var(--r) cw,
+      hline to 100%,
+      close
+    );
+  }
+
 }

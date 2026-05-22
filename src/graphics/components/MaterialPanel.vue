@@ -21,7 +21,8 @@ const themes = {
 
 <style lang="scss">
 /* Merge padding of sequential panels */
-.material-panel + .material-panel {
+.material-panel + .material-panel,
+.material-panel + div + .material-panel {
   margin-top: calc(var(--spacing) * -3);
 }
 </style>

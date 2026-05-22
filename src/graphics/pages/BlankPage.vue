@@ -55,7 +55,7 @@ const timerTestData = [
       Donkey Kong Country Returns: Tropical Freeze
     </TextBox>
 
-    <div class="absolute top-40 left-200 w-150">
+    <div class="absolute top-40 left-200 w-150 flex flex-wrap">
       <MaterialPanel theme="amber" class="w-fit">
         <LCDPanel class="w-fit" :items="timerTestData">
           <template #item="{ contents, label, icon }">
@@ -75,7 +75,10 @@ const timerTestData = [
           </template>
         </LCDPanel>
       </MaterialPanel>
-      <MaterialPanel theme="amber">
+      <!-- <div
+        class="grow min-w-3 bg-lcns-amber inner-corner-xl inner-corner-bl mb-3"
+      ></div> -->
+      <MaterialPanel theme="amber" class="grow">
         <!-- <div class="bg-lcns-white rounded-bl-xl grow -mt-3 -mr-3">a</div> Corner element concept -->
         <InsetContainer theme="amber" :align="'right'">
           <TextLabel text="PLATFORM" position="top" align="start">
@@ -98,4 +101,15 @@ const timerTestData = [
   </div>
 </template>
 
-<style></style>
+<style>
+.corner-scoop {
+  --r: 1rem;
+  --voffset: calc(var(--spacing) * 3);
+  clip-path: shape(
+    from 0% calc(100% - var(--r) - var(--voffset)),
+    arc by var(--r) var(--r) of var(--r) ccw,
+    hline to 0%,
+    close
+  );
+}
+</style>
