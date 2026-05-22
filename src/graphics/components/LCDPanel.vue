@@ -21,7 +21,7 @@ interface ItemProps {
     </div>
 
     <div
-      class="p-2 gap-4 justify-evenly w-full grid grid-flow-col auto-cols-max auto-rows-min text-xs text-gray-600"
+      class="p-2 gap-4 justify-evenly grid grid-flow-col auto-cols-max auto-rows-min text-xs text-gray-600"
     >
       <div v-for="({ label }, i) in items" :key="i" class="">
         <slot name="label" v-bind="{ label }" />
