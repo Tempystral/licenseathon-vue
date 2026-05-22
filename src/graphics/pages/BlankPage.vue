@@ -75,9 +75,9 @@ const timerTestData = [
           </template>
         </LCDPanel>
       </MaterialPanel>
-      <!-- <div
-        class="grow min-w-3 bg-lcns-amber inner-corner-xl inner-corner-bl mb-3"
-      ></div> -->
+      <div
+        class="grow min-w-3 bg-lcns-amber inner-corner-xl corner-bl mb-3"
+      ></div>
       <MaterialPanel theme="amber" class="grow">
         <!-- <div class="bg-lcns-white rounded-bl-xl grow -mt-3 -mr-3">a</div> Corner element concept -->
         <InsetContainer theme="amber" :align="'right'">
