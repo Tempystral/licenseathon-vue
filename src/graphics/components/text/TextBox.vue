@@ -114,7 +114,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 <template>
   <!-- Container -->
   <div
-    class="min-h-12 max-h-20 grow"
+    class="min-h-12 max-h-20"
     :class="[style.font, hasDropShadow() ? 'pr-1' : '', ,]"
   >
     <!-- Border -->

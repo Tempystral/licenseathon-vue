@@ -29,8 +29,11 @@ const alignment = {
 </script>
 <template>
   <label
-    class="font-[Karnivore] text-gray-600 text-xs flex"
-    :class="[isVertical ? 'flex-col gap-1' : 'flex-row gap-2', getAlignment()]"
+    class="font-[Karnivore] text-gray-600 text-xs gap-1"
+    :class="[
+      isVertical ? 'flex flex-col' : 'grid grid-flow-col grid-cols-[6rem]',
+      getAlignment(),
+    ]"
   >
     <div
       v-if="position === 'top' || position === 'left'"
@@ -48,6 +51,7 @@ const alignment = {
     </div>
 
     <slot />
+
     <span
       v-if="position === 'bottom' || position === 'right'"
       :class="[isVertical ? 'mt-1' : 'ml-2 -mt-1']"
@@ -57,4 +61,8 @@ const alignment = {
     </span>
   </label>
 </template>
-<style></style>
+<style lang="scss">
+label > div {
+  height: 100%;
+}
+</style>
