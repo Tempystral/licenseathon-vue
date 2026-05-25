@@ -12,19 +12,11 @@ interface ItemProps {
 <template>
   <div class="font-[Karnivore]">
     <div
-      class="relative p-2 gap-4 grid grid-flow-col auto-cols-max auto-rows-min rounded bg-lcns-purple text-lcns-teal inset-shadow-xs inset-shadow-black"
+      class="relative p-2 mb-4 gap-4 grid grid-flow-col auto-cols-max auto-rows-min rounded bg-lcns-purple text-lcns-teal inset-shadow-xs inset-shadow-black"
     >
       <div id="crt" class="absolute w-full h-full before:rounded-lg"></div>
       <div v-for="(item, i) in items" :key="i">
         <slot name="item" v-bind="item" />
-      </div>
-    </div>
-
-    <div
-      class="p-2 gap-4 justify-evenly grid grid-flow-col auto-cols-max auto-rows-min text-xs text-gray-600"
-    >
-      <div v-for="({ label }, i) in items" :key="i" class="">
-        <slot name="label" v-bind="{ label }" />
       </div>
     </div>
   </div>
