@@ -6,11 +6,21 @@ const {
   text,
   align = "middle",
   position = "top",
+  size = "xs",
 } = defineProps<{
   text: string;
   position?: "top" | "bottom" | "left" | "right";
   align?: "start" | "end";
+  size?: keyof typeof labelSize;
 }>();
+
+const labelSize = {
+  xs: "text-xs",
+  sm: "text-sm",
+  md: "text-md",
+  lg: "text-lg",
+  xl: "text-xl",
+};
 
 const knobPath = new URL("../../assets/knob.svg", import.meta.url).href;
 const knob = ref<SVGElement | null>(null);
@@ -28,14 +38,17 @@ const alignment = {
 };
 </script>
 <template>
-  <label
-    class="font-[Karnivore] text-gray-600 text-xs gap-1"
+  <figure
+    class="font-[Karnivore] text-gray-600"
     :class="[
-      isVertical ? 'flex flex-col' : 'grid grid-flow-col grid-cols-[6rem]',
+      isVertical
+        ? 'flex flex-col'
+        : 'grid grid-flow-col grid-cols-[6rem] gap-1',
       getAlignment(),
+      labelSize[size],
     ]"
   >
-    <div
+    <figcaption
       v-if="position === 'top' || position === 'left'"
       :class="[isVertical ? '' : 'h-full w-24']"
     >
@@ -48,21 +61,21 @@ const alignment = {
           <InlineSvg :src="knobPath" ref="knob" class="h-10" />
         </div>
       </div>
-    </div>
+    </figcaption>
 
     <slot />
 
-    <span
+    <figcaption
       v-if="position === 'bottom' || position === 'right'"
       :class="[isVertical ? 'mt-1' : 'ml-2 -mt-1']"
     >
       {{ text }}
       <InlineSvg v-if="!isVertical" :src="knobPath" ref="knob" class="h-8" />
-    </span>
-  </label>
+    </figcaption>
+  </figure>
 </template>
 <style lang="scss">
-label > div {
+figure > div {
   height: 100%;
 }
 </style>
