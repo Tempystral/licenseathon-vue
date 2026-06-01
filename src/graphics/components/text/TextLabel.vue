@@ -31,6 +31,14 @@ function getAlignment() {
   // If the layout is horizontal, always start-align
   return !isVertical.value ? alignment["start"] : alignment[align];
 }
+
+const spacing = {
+  top: "mb-1",
+  bottom: "mt-1",
+  left: "",
+  right: "",
+};
+
 const alignment = {
   start: "items-start",
   end: "items-end-safe",
@@ -48,10 +56,9 @@ const alignment = {
       labelSize[size],
     ]"
   >
-    <figcaption
-      v-if="position === 'top' || position === 'left'"
-      :class="[isVertical ? '' : 'h-full w-24']"
-    >
+    <slot v-if="position === 'bottom' || position === 'right'" />
+
+    <figcaption :class="[isVertical ? '' : 'h-full w-24', spacing[position]]">
       <div class="flex flex-col h-full items-center">
         <span>{{ text }}</span>
         <div v-if="!isVertical" class="grid grid-cols-2 items-end h-full">
@@ -63,15 +70,7 @@ const alignment = {
       </div>
     </figcaption>
 
-    <slot />
-
-    <figcaption
-      v-if="position === 'bottom' || position === 'right'"
-      :class="[isVertical ? 'mt-1' : 'ml-2 -mt-1']"
-    >
-      {{ text }}
-      <InlineSvg v-if="!isVertical" :src="knobPath" ref="knob" class="h-8" />
-    </figcaption>
+    <slot v-if="position === 'top' || position === 'left'" />
   </figure>
 </template>
 <style lang="scss">

@@ -35,97 +35,82 @@ const timerTestData = [
 
 <template>
   <div class="bg-lcns-white absolute w-full h-full">
-    <TextBox
-      theme="nameplate"
-      :icon="mdiGamepad"
-      class="absolute top-10 left-10 h-15 w-120"
+    <div
+      class="absolute top-10 left-10 w-100 h-100 grid grid-cols-12 grid-rows-12"
     >
-      Donkey Kong Country Returns: Tropical Freeze
-    </TextBox>
-    <TextBox
-      theme="pronouns"
-      :icon="mdiGamepad"
-      class="absolute top-30 left-10 h-12 w-80"
-    >
-      They/Them
-    </TextBox>
+      <MaterialPanel
+        theme="blue"
+        class="row-start-11 row-span-2 col-start-4 col-span-9 justify-center"
+      >
+        <!-- <TextLabel text="PRONOUNS" position="bottom" align="start" class=""> -->
+        <TextBox theme="pronouns" class="w-full h-12"> They/Them </TextBox>
+        <!-- </TextLabel> -->
+      </MaterialPanel>
+      <div class="bg-lcns-blue inner-corner-xl corner-tr col-start-3"></div>
+      <MaterialPanel
+        theme="blue"
+        class="row-start-1 row-span-11 col-start-1 col-span-12"
+      >
+        <div class="w-full h-full flex flex-col-reverse gap-1 pb-2">
+          <TextLabel
+            text="RUNNER"
+            position="bottom"
+            align="start"
+            class="text-lcns-white basis-18"
+          >
+            <TextBox theme="nameplate" class="w-full" :icon="mdiGamepad">
+              Donkey
+            </TextBox>
+          </TextLabel>
+          <InsetContainer class="grow"> </InsetContainer>
+        </div>
+      </MaterialPanel>
+    </div>
 
-    <TextBox
-      theme="lcd"
-      :icon="mdiGamepad"
-      class="absolute top-50 left-10 h-13 w-120"
-    >
-      Donkey Kong Country Returns: Tropical Freeze
-    </TextBox>
-
-    <TimerComponent
-      :players="1"
-      ratio="16-9"
-      class="top-100 left-10 text-black"
-    ></TimerComponent>
-
-    <div class="absolute top-40 left-200 w-150 flex flex-wrap">
+    <div class="absolute bottom-5 left-5 w-156 flex flex-wrap">
       <MaterialPanel theme="amber" :connects="['bl']" class="w-fit">
-        <LCDPanel class="w-fit" :items="timerTestData">
-          <template #item="{ contents, label, icon }">
-            <div
-              class="min-w-20 h-full flex flex-col items-center justify-between"
+        <LCDPanel2 class="">
+          <LCDItem label="TIMER">
+            <TimerComponent :players="1" ratio="16-9" class="text-6xl" />
+          </LCDItem>
+          <LCDItem label="PLATFORM">
+            <TextLabel
+              text="GAMECUBE"
+              position="bottom"
+              size="md"
+              class="text-lcns-teal"
             >
-              <div v-if="icon" class="grow">
-                <SvgIcon type="mdi" :path="icon" :size="40" class="h-full" />
-              </div>
-              <div :class="label === 'TIMER' ? 'text-7xl' : 'text-md -mb-1'">
-                {{ contents }}
-              </div>
-              <div class="absolute -bottom-4 text-lcns-label text-xs">
-                {{ label }}
-              </div>
-            </div>
-          </template>
-        </LCDPanel>
+              <SvgIcon type="mdi" :path="mdiGamepadVariant" :size="40" />
+            </TextLabel>
+          </LCDItem>
+          <LCDItem label="YEAR">
+            <TextLabel
+              text="2001"
+              position="bottom"
+              size="md"
+              class="text-lcns-teal"
+            >
+              <SvgIcon type="mdi" :path="mdiCalendarMonth" :size="40" />
+            </TextLabel>
+          </LCDItem>
+        </LCDPanel2>
       </MaterialPanel>
       <div class="grow bg-lcns-amber inner-corner-xl corner-bl mb-3"></div>
       <MaterialPanel theme="amber" class="grow">
         <!-- <div class="bg-lcns-white rounded-bl-xl grow -mt-3 -mr-3">a</div> Corner element concept -->
         <InsetContainer theme="amber" :align="'right'">
-          <TextLabel text="PLATFORM" position="left" class="w-full h-15">
+          <TextLabel text="GAME TITLE" position="left" class="w-full h-15">
             <TextBox theme="lcd">
               Donkey Kong Country Returns: Tropical Freeze
             </TextBox>
           </TextLabel>
 
-          <TextLabel text="GAME TITLE" position="left" class="w-full h-15">
+          <TextLabel text="CATEGORY" position="left" class="w-full h-15">
             <TextBox theme="lcd"> DOOM (2016) </TextBox>
           </TextLabel>
         </InsetContainer>
       </MaterialPanel>
     </div>
-
-    <LCDPanel2 class="w-fit absolute top-10 left-203">
-      <LCDItem label="TIMER">
-        <TimerComponent :players="1" ratio="16-9" class="text-7xl" />
-      </LCDItem>
-      <LCDItem label="PLATFORM">
-        <TextLabel
-          text="GAMECUBE"
-          position="bottom"
-          size="md"
-          class="text-lcns-teal"
-        >
-          <SvgIcon type="mdi" :path="mdiGamepadVariant" :size="40" />
-        </TextLabel>
-      </LCDItem>
-      <LCDItem label="YEAR">
-        <TextLabel
-          text="2001"
-          position="bottom"
-          size="md"
-          class="text-lcns-teal"
-        >
-          <SvgIcon type="mdi" :path="mdiCalendarMonth" :size="40" />
-        </TextLabel>
-      </LCDItem>
-    </LCDPanel2>
 
     <!-- Adjust the InsetContainer so it's ONLY the inset which manages its own margin/padding away from the edges
      of its parent. The parent will just be a material panel which you can slap the inset container and stuff onto -->

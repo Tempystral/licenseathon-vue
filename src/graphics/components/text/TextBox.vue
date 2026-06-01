@@ -32,7 +32,7 @@ const themes: Theme = {
   nameplate: {
     font: "font-[Fusion]",
     colors: {
-      main: "bg-lcns-blue text-lcns-black",
+      main: "bg-lcns-light-blue text-lcns-black",
       accent: "bg-lcns-amber text-lcns-black",
       border: "border-lcns-black",
     },
@@ -114,7 +114,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 <template>
   <!-- Container -->
   <div
-    class="min-h-12 max-h-20"
+    class="min-h-8 max-h-20"
     :class="[style.font, hasDropShadow() ? 'pr-1' : '', ,]"
   >
     <!-- Border -->

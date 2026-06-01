@@ -14,15 +14,16 @@ const themes = {
 };
 </script>
 <template>
-  <div class="material-panel p-3 rounded-lg" :class="themes[theme]">
+  <div class="material-panel p-2 rounded-lg" :class="themes[theme]">
     <slot />
   </div>
 </template>
 
 <style lang="scss">
 /* Merge padding of sequential panels */
-.material-panel + .material-panel,
+/* Maybe make this relate to a grid */
+/* .material-panel + .material-panel,
 .material-panel + div + .material-panel {
   margin-top: calc(var(--spacing) * -3);
-}
+} */
 </style>
