@@ -71,6 +71,19 @@ const themes: Theme = {
       color: "inset-shadow-xs inset-shadow-lcns-white",
     },
   },
+
+  lcd2: {
+    font: "font-[Karnivore_Lite]",
+    colors: {
+      main: "bg-lcns-teal text-lcns-black",
+      accent: "bg-lcns-amber text-lcns-black",
+      border: "border-lcns-black",
+    },
+    shadow: {
+      type: "inset",
+      color: "inset-shadow-xs inset-shadow-black",
+    },
+  },
 } as const;
 
 const style = computed(() => themes[theme]);
