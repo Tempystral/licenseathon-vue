@@ -42,7 +42,7 @@ import InsetContainer from "../InsetContainer.vue";
       </LCDPanel>
     </MaterialPanel>
 
-    <MaterialPanel theme="amber" class="grow">
+    <MaterialPanel theme="amber" class="grow max-w-full">
       <!-- <div class="bg-lcns-white rounded-bl-xl grow -mt-3 -mr-3">a</div> Corner element concept -->
       <InsetContainer theme="amber" :align="'right'">
         <TextLabel text="GAME TITLE" position="left" class="w-full h-15">
