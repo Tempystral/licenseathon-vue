@@ -12,7 +12,6 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import LCDPanel from "../components/panels/LCDPanel.vue";
 import MaterialPanel from "../components/panels/MaterialPanel.vue";
 import TimerComponent from "../components/TimerComponent.vue";
-import LCDPanel2 from "../components/panels/LCDPanel2.vue";
 import LCDItem from "../components/panels/LCDItem.vue";
 
 const timerTestData = [
@@ -69,7 +68,7 @@ const timerTestData = [
 
     <div class="absolute bottom-5 left-5 w-156 flex flex-wrap">
       <MaterialPanel theme="amber" :connects="['bl']" class="w-fit">
-        <LCDPanel2 class="">
+        <LCDPanel class="">
           <LCDItem label="TIMER">
             <TimerComponent :players="1" ratio="16-9" class="text-6xl" />
           </LCDItem>
@@ -93,7 +92,7 @@ const timerTestData = [
               <SvgIcon type="mdi" :path="mdiCalendarMonth" :size="40" />
             </TextLabel>
           </LCDItem>
-        </LCDPanel2>
+        </LCDPanel>
       </MaterialPanel>
       <div class="grow bg-lcns-amber inner-corner-xl corner-bl mb-3"></div>
       <MaterialPanel theme="amber" class="grow">

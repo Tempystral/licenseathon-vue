@@ -4,7 +4,7 @@ const props = defineProps<{
 }>();
 </script>
 <template>
-  <div class="lcd-item min-w-20 h-full flex flex-col items-center justify-end">
+  <div class="lcd-item h-full flex flex-col items-center justify-end">
     <slot />
     <label class="absolute -bottom-4 text-lcns-label text-xs">
       {{ label }}
