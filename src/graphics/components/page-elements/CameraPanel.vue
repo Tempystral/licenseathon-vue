@@ -7,37 +7,32 @@ import InsetContainer from "../InsetContainer.vue";
 </script>
 <template>
   <div>
+    <MaterialPanel theme="blue" class="rounded-bl-none" style="grid-area: main">
+      <div class="h-full flex flex-col items-end gap-1">
+        <InsetContainer class="aspect-video" />
+        <TextLabel
+          text="RUNNER"
+          position="bottom"
+          align="start"
+          class="text-lcns-white w-full basis-18 -mb-4"
+        >
+          <TextBox theme="nameplate" class="w-full" :icon="mdiGamepad">
+            Donkey Kong Country Returns: Tropical Freeze
+          </TextBox>
+        </TextLabel>
+      </div>
+    </MaterialPanel>
+    <!-- Pronoun area -->
     <div theme="lightblue" id="camera-panel" class="grid auto-cols-auto w-full">
       <MaterialPanel
         theme="blue"
-        class="rounded-bl-none"
-        style="grid-area: main"
-      >
-        <div class="w-full h-full flex flex-col items-end gap-1 pb-2">
-          <InsetContainer class="aspect-video" />
-          <TextLabel
-            text="RUNNER"
-            position="bottom"
-            align="start"
-            class="text-lcns-white w-full basis-18"
-          >
-            <TextBox theme="nameplate" class="w-full" :icon="mdiGamepad">
-              Donkey
-            </TextBox>
-          </TextLabel>
-        </div>
-      </MaterialPanel>
-      <!-- Pronoun area -->
-
-      <MaterialPanel
-        theme="blue"
-        class="rounded-t-none"
+        class="rounded-t-none -z-10"
         style="grid-area: bttm"
       >
         <TextLabel
           text="PRONOUNS"
           align="end"
-          class="text-lcns-white h-16 -mt-6"
+          class="text-lcns-white h-16 -mt-2"
         >
           <TextBox theme="pronouns" class="w-full"> They/Them </TextBox>
         </TextLabel>
@@ -51,9 +46,6 @@ import InsetContainer from "../InsetContainer.vue";
 </template>
 <style lang="scss">
 #camera-panel {
-  grid-template-areas:
-    "main main main main"
-    "main main main main"
-    "bttm crnr crnr ....";
+  grid-template-areas: "bttm crnr crnr ....";
 }
 </style>
