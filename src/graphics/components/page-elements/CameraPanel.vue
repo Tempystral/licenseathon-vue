@@ -9,7 +9,7 @@ import InsetContainer from "../InsetContainer.vue";
   <div>
     <MaterialPanel theme="blue" class="rounded-bl-none" style="grid-area: main">
       <div class="h-full flex flex-col items-end gap-1">
-        <InsetContainer class="aspect-video" />
+        <InsetContainer class="aspect-video chroma-key" />
         <TextLabel
           text="RUNNER"
           position="bottom"

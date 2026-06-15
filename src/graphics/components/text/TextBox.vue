@@ -46,6 +46,23 @@ const themes: Theme = {
     },
   },
 
+  commentator: {
+    font: "font-[Fusion]",
+    colors: {
+      main: "bg-lcns-blue text-lcns-black",
+      accent: "bg-lcns-black text-lcns-white",
+      border: "border-lcns-white",
+    },
+    ears: {
+      side: "left",
+      separator: true,
+    },
+    shadow: {
+      type: "drop",
+      color: "bg-lcns-purple",
+    },
+  },
+
   pronouns: {
     font: "font-[Fusion]",
     colors: {
@@ -127,7 +144,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 <template>
   <!-- Container -->
   <div
-    class="min-h-8 max-h-20"
+    class="min-h-8 max-h-20 min-w-0"
     :class="[style.font, hasDropShadow() ? 'pr-1' : '', ,]"
   >
     <!-- Border -->
@@ -171,7 +188,9 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
         ]"
         :style="[padding.x, maxWidth]"
       >
-        <div class="flex flex-col items-center justify-center h-full">
+        <div
+          class="flex flex-col items-center justify-center h-full overflow-clip"
+        >
           <FitText :options="fitTextOptions">
             <template #content>
               <slot />
