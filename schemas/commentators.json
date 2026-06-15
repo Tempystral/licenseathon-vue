@@ -6,7 +6,17 @@
     "names": {
       "type": "array",
       "items": {
-        "type": "string"
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "pronouns": {
+            "type": "string"
+          }
+        },
+        "required": [
+    "name"
+  ]
       }
     }
   },

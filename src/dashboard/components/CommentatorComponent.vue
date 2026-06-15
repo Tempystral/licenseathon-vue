@@ -8,20 +8,24 @@ import Button from "primevue/button";
 import InputText from "primevue/inputtext";
 import { RunDataActiveRun } from "speedcontrol-util/types";
 import { watch } from "vue";
-import { defaultRunData } from "../../graphics/util/defaults";
+import {
+  defaultCommentators,
+  defaultRunData,
+} from "../../graphics/util/defaults";
 
 // Set the title of this page.
 useHead({ title: "Commentators" });
 
 const commentators = useReplicant<Commentators>(
   "commentators",
-  "licenseathon-vue"
+  "licenseathon-vue",
+  { defaultValue: defaultCommentators },
 );
 
 const activeRun = useReplicant<RunDataActiveRun>(
   "runDataActiveRun",
   "nodecg-speedcontrol",
-  { defaultValue: defaultRunData }
+  { defaultValue: defaultRunData },
 );
 
 watch(
@@ -29,27 +33,37 @@ watch(
   () => {
     commentators.loadDefault();
     commentators.save();
-  }
+  },
 );
 </script>
 
 <template>
-  <div v-if="commentators.data" class="flex flex-col gap-2">
-    <div class="flex items-center gap-2">
-      <SvgIcon type="mdi" :path="mdiAccount" class="inline align-bottom" />
+  <div v-if="commentators.data" class="flex flex-col gap-2 max-w-full">
+    <div
+      class="grid auto-rows-auto gap-2"
+      style="grid-template-columns: repeat(3, minmax(0, auto))"
+    >
+      <SvgIcon type="mdi" :path="mdiAccount" class="mt-1" />
       <InputText
         size="small"
         placeholder="Commentator 1 Name"
-        v-model="commentators.data.names[0]"
+        v-model="commentators.data.names[0].name"
       />
-    </div>
-
-    <div class="flex items-center gap-2">
-      <SvgIcon type="mdi" :path="mdiAccount" class="inline align-bottom" />
+      <InputText
+        size="small"
+        placeholder="Pronouns (optional)"
+        v-model="commentators.data.names[0].pronouns"
+      />
+      <SvgIcon type="mdi" :path="mdiAccount" class="mt-1" />
       <InputText
         size="small"
         placeholder="Commentator 2 Name"
-        v-model="commentators.data.names[1]"
+        v-model="commentators.data.names[1].name"
+      />
+      <InputText
+        size="small"
+        placeholder="Pronouns (optional)"
+        v-model="commentators.data.names[1].pronouns"
       />
     </div>
 
