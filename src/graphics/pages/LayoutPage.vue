@@ -8,6 +8,7 @@ import InsetContainer from "../components/InsetContainer.vue";
 import TextBox from "../components/text/TextBox.vue";
 import { mdiMicrophone } from "@mdi/js";
 import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 
 const knobPath = new URL("../assets/knob.svg", import.meta.url).href;
 const knob = ref<SVGElement | null>(null);
@@ -34,9 +35,7 @@ const knob = ref<SVGElement | null>(null);
     </template>
 
     <template #footer>
-      <MaterialPanel class="h-full" theme="red">
-        <InsetContainer class="h-full"></InsetContainer>
-      </MaterialPanel>
+      <IncentiveComponent />
     </template>
   </LayoutComponent>
 </template>
