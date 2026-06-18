@@ -1,4 +1,4 @@
 import { create } from "@licenseathon-vue/browser-shared/template";
-import ActiveRunPage from "./pages/ActiveRunPage.vue";
+import RacePage from "./pages/RacePage.vue";
 
-const app = create(ActiveRunPage, { players: 2, ratio: "4-3" });
+const app = create(RacePage, { numPlayers: 2, ratio: [4, 3] });

@@ -13,11 +13,11 @@ const NAMESPACE = "licenseathon-vue";
 export const commentatorsRep = nodecg().Replicant<Commentators>(
   "commentators",
   NAMESPACE,
-  { defaultValue: { names: ["", ""] } }
+  { defaultValue: { names: [] } },
 );
 
 export const creditsRep = nodecg().Replicant<boolean>(
   "creditsStart",
   NAMESPACE,
-  { defaultValue: false }
+  { defaultValue: false },
 );

@@ -1,19 +1,53 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import { getHeight, getWidth } from "../util/composables";
 
-const { mainWidth: width, aspectRatio = [16, 9] } = defineProps<{
-  mainWidth: number;
-  aspectRatio: [number, number];
-}>();
+type Properties =
+  | {
+      width: number;
+      height?: never;
+      aspectRatio: [number, number];
+      numPlayers: number;
+    }
+  | {
+      width?: never;
+      height: number;
+      aspectRatio: [number, number];
+      numPlayers: number;
+    };
 
-const height = computed(() => (width * aspectRatio[1]) / aspectRatio[0]);
+const {
+  aspectRatio = [16, 9],
+  numPlayers,
+  ...props
+} = defineProps<Properties>();
+
+const width = ref(props.width ?? getWidth(props.height, aspectRatio));
+const height = ref(props.height ?? getHeight(props.width, aspectRatio));
 
 const gridStyles = computed(
   () => `
-  grid-template-columns: calc(100% - 8px - ${width}rem) ${width}rem;
-  grid-template-rows: ${height.value}rem calc(100% - 8px - ${height.value}rem)
+  grid-template-columns: calc(100% - ${0.5 * numPlayers}rem - ${width.value}rem) 1fr 1fr;
+  grid-template-rows: 1fr 1fr calc(100% - ${0.5 * numPlayers}rem - ${height.value}rem);
+  grid-template-areas: ${layouts[numPlayers]}
   `,
 );
+
+const layouts = [
+  "",
+  // 1
+  `"left main main"
+   "left main main"
+   "left foot foot"`,
+  // 2
+  `"main main main"
+   "main main main"
+   "foot foot foot"`,
+  // 3
+  `"main main main"
+   "main main main"
+   "foot foot foot"`,
+];
 </script>
 
 <template>
@@ -42,9 +76,9 @@ const gridStyles = computed(
   /* grid-template-areas:
     "left main"
     "foot foot"; */
-  grid-template-areas:
+  /* grid-template-areas:
     "left main"
-    "left foot";
+    "left foot"; */
 }
 
 /* #left {

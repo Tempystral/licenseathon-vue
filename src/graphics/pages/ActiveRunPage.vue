@@ -4,7 +4,7 @@ import { useReplicant } from "nodecg-vue-composable";
 import { RunDataActiveRun, RunDataPlayer } from "speedcontrol-util/types";
 import { computed, ref } from "vue";
 import InlineSvg from "vue-inline-svg";
-import CommentatorDisplayComponent from "../components/CommentatorDisplayComponent.vue";
+
 import GameInfoPanel from "../components/GameInfoPanel.vue";
 import RaceTimerComponent from "../components/RaceTimerComponent.vue";
 import RunnerInfoPanel from "../components/RunnerInfoPanel.vue";
@@ -12,6 +12,7 @@ import TextBox2 from "../components/TextBox2.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import TimerComponent from "../components/TimerComponent.vue";
 import { defaultRunData, defaultRunDataPlayer } from "../util/defaults";
+import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
 
 /**
  * Layout is passed in as prop
