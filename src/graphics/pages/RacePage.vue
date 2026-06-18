@@ -44,7 +44,7 @@ const knob = ref<SVGElement | null>(null);
       >
         <GameInfo />
 
-        <div class="h-full flex flex-col">
+        <div class="h-full flex flex-col gap-2">
           <div class="grow grid grid-cols-2 gap-4">
             <div class="flex flex-col">
               <TextLabel
@@ -69,7 +69,10 @@ const knob = ref<SVGElement | null>(null);
               <TextBox class="w-8/12 h-8" theme="pronouns">dsfsdf</TextBox>
             </div>
           </div>
-          <!-- <CommentatorDisplayComponent /> -->
+          <CommentatorDisplayComponent orientation="horizontal" />
+          <div class="flex justify-center">
+            <img src="../assets/logo_2026.png" class="w-9/12" />
+          </div>
         </div>
 
         <IncentiveComponent />

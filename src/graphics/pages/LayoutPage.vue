@@ -23,16 +23,12 @@ const knob = ref<SVGElement | null>(null);
   <!-- 4:3 - Width 80 -->
   <!-- 16:9 - Width ?? -->
   <!-- Race - Width 60 -->
-  <LayoutComponent
-    :mainWidth="80"
-    :aspect-ratio="ratio"
-    :num-players="numPlayers"
-  >
+  <LayoutComponent :width="80" :aspect-ratio="ratio" :num-players="numPlayers">
     <template #left>
       <div class="flex flex-col gap-3 h-full max-w-full">
         <CameraPanel class="shrink" />
 
-        <CommentatorDisplayComponent />
+        <CommentatorDisplayComponent orientation="vertical" />
         <div class="grow"></div>
         <GameInfo class="shrink" />
       </div>

@@ -9,6 +9,10 @@ import TextBox from "../text/TextBox.vue";
 import TextLabel from "../text/TextLabel.vue";
 import { defaultCommentators } from "@licenseathon-vue/graphics/util/defaults.js";
 
+const { orientation } = defineProps<{
+  orientation: "horizontal" | "vertical";
+}>();
+
 const commentatorsRep = useReplicant<Commentators>(
   "commentators",
   "licenseathon-vue",
@@ -34,12 +38,17 @@ function getPronouns(num: number) {
 </script>
 
 <template>
-  <div class="grid gap-2 auto-cols-fr auto-rows-fr -mt-4">
+  <div
+    class="grid gap-2 auto-cols-fr auto-rows-fr"
+    :class="
+      orientation === 'horizontal' ? 'w-full grid-cols-2' : 'w-8/12 -mt-4'
+    "
+  >
     <TextLabel
       v-if="commentators.length >= 1"
       :text="getPronouns(0)"
-      class="h-16 w-8/12 text-lcns-white"
-      position="top"
+      class="h-16 w-full text-lcns-white"
+      :position="orientation === 'horizontal' ? 'bottom' : 'top'"
       align="end"
     >
       <TextBox class="w-full" theme="commentator" :icon="mdiMicrophone">
@@ -49,9 +58,9 @@ function getPronouns(num: number) {
     <TextLabel
       v-if="commentators.length >= 2"
       :text="getPronouns(1)"
-      class="h-16 w-8/12 text-lcns-white"
+      class="h-16 w-full text-lcns-white"
       position="bottom"
-      align="end"
+      :align="orientation === 'horizontal' ? 'start' : 'end'"
     >
       <TextBox class="w-full" theme="commentator" :icon="mdiMicrophone">
         {{ getName(1) }}

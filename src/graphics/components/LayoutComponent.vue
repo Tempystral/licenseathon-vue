@@ -25,8 +25,12 @@ const {
 const width = ref(props.width ?? getWidth(props.height, aspectRatio));
 const height = ref(props.height ?? getHeight(props.width, aspectRatio));
 
-const gridStyles = computed(
-  () => `
+const gridStyles = computed(() =>
+  numPlayers === 3 // Ugly hack for three players
+    ? `grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr calc(100% - ${0.5 * numPlayers}rem - ${height.value}rem);
+  grid-template-areas: ${layouts[numPlayers]}`
+    : `
   grid-template-columns: calc(100% - ${0.5 * numPlayers}rem - ${width.value}rem) 1fr 1fr;
   grid-template-rows: 1fr 1fr calc(100% - ${0.5 * numPlayers}rem - ${height.value}rem);
   grid-template-areas: ${layouts[numPlayers]}
@@ -44,9 +48,9 @@ const layouts = [
    "main main main"
    "foot foot foot"`,
   // 3
-  `"main main main"
-   "main main main"
-   "foot foot foot"`,
+  `"left foot main"
+   "left foot main"
+   "left foot main"`,
 ];
 </script>
 

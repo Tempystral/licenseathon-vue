@@ -9,13 +9,14 @@ import TextLabel from "../components/text/TextLabel.vue";
 import TextBox from "../components/text/TextBox.vue";
 import ScreenPanel from "../components/panels/ScreenPanel.vue";
 import { getWidth } from "../util/composables.js";
+import { mdiAccount } from "@mdi/js";
 
 const props = defineProps<{
   numPlayers: number;
   ratio: [number, number];
 }>();
 
-const height = 29.5;
+const height = 33;
 const width = getWidth(height, props.ratio);
 </script>
 
@@ -28,10 +29,27 @@ const width = getWidth(height, props.ratio);
     :aspect-ratio="[ratio[0], ratio[1] + 1]"
     :num-players="numPlayers"
   >
-    <template #main>
-      <div class="relative h-full flex gap-2 justify-between items-center">
+    <template #left>
+      <div
+        class="relative h-full flex flex-col gap-2 justify-between items-center"
+      >
         <ScreenPanel
-          v-for="i in Array(numPlayers).keys()"
+          :style="`width: ${width}em; max-height: ${height}em`"
+          class=""
+        />
+        <div class="flex items-center">
+          <img src="../assets/logo_2026.png" class="h-9/12" />
+        </div>
+        <GameInfo class="basis-[30%]" />
+      </div>
+    </template>
+
+    <template #main>
+      <div
+        class="relative h-full flex flex-col gap-2 justify-between items-center"
+      >
+        <ScreenPanel
+          v-for="i in Array(numPlayers - 1).keys()"
           :key="i"
           :style="`width: ${width}em; height: ${height}em`"
         />
@@ -39,41 +57,47 @@ const width = getWidth(height, props.ratio);
     </template>
 
     <template #footer>
-      <div
-        class="grid grid-flow-col gap-2 h-full max-w-full"
-        style="grid-template-columns: repeat(3, minmax(0, 1fr))"
-      >
-        <GameInfo />
-
-        <div class="h-full flex flex-col">
-          <div class="grow grid grid-cols-2 gap-4">
-            <div class="flex flex-col">
-              <TextLabel
-                text="RUNNER 1"
-                position="bottom"
-                align="end"
-                class="w-full h-16 -mb-2 text-lcns-white"
-              >
-                <TextBox class="w-full">dsfsdf</TextBox>
-              </TextLabel>
-              <TextBox class="w-8/12 h-8" theme="pronouns">dsfsdf</TextBox>
-            </div>
-            <div class="flex flex-col items-end">
-              <TextLabel
-                text="RUNNER 2"
-                position="bottom"
-                align="start"
-                class="w-full h-16 -mb-2 text-lcns-white"
-              >
-                <TextBox class="w-full">dsfsdf</TextBox>
-              </TextLabel>
-              <TextBox class="w-8/12 h-8" theme="pronouns">dsfsdf</TextBox>
-            </div>
+      <div class="flex flex-col gap-8 h-full max-w-full items-end">
+        <div
+          class="w-full flex flex-col justify-center gap-16"
+          :style="`flex-basis: ${height}em`"
+        >
+          <div class="w-8/12 flex flex-col">
+            <TextLabel
+              text="RUNNER 1"
+              position="bottom"
+              align="end"
+              class="w-full h-16 -mb-2 text-lcns-white"
+            >
+              <TextBox :icon="mdiAccount" class="w-full">dsfsdf</TextBox>
+            </TextLabel>
+            <TextBox class="w-8/12" theme="pronouns">dsfsdf</TextBox>
           </div>
-          <!-- <CommentatorDisplayComponent /> -->
-        </div>
 
-        <IncentiveComponent />
+          <div class="w-8/12 flex flex-col items-end self-end">
+            <TextLabel
+              text="RUNNER 2"
+              position="bottom"
+              align="start"
+              class="w-full h-16 -mb-2 text-lcns-white"
+            >
+              <TextBox :icon="mdiAccount" class="w-full">dsfsdf</TextBox>
+            </TextLabel>
+            <TextBox class="w-8/12" theme="pronouns">dsfsdf</TextBox>
+          </div>
+        </div>
+        <div class="grow w-8/12 flex flex-col items-end">
+          <TextLabel
+            text="RUNNER 3"
+            position="bottom"
+            align="start"
+            class="w-full h-16 -mb-2 text-lcns-white"
+          >
+            <TextBox :icon="mdiAccount" class="w-full">dsfsdf</TextBox>
+          </TextLabel>
+          <TextBox class="w-8/12" theme="pronouns">dsfsdf</TextBox>
+        </div>
+        <IncentiveComponent class="shrink basis-[30%]" />
       </div>
     </template>
   </LayoutComponent>

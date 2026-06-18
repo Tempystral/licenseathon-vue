@@ -189,6 +189,7 @@ const runners = computed(() => {
         :position="runners.indexOf(runner) + 1"
       />
       <CommentatorDisplayComponent
+        orientation="vertical"
         :ratio="props.ratio"
         :players="props.players"
       />
