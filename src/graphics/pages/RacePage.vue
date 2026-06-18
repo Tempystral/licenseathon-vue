@@ -16,25 +16,14 @@ import { useReplicant } from "nodecg-vue-composable";
 import { defaultRunData, defaultRunDataPlayer } from "../util/defaults.js";
 import { mdiAccount } from "@mdi/js";
 import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
+import { withRunData } from "../util/composables.js";
 
 const props = defineProps<{
   numPlayers: number;
   ratio: [number, number];
 }>();
 
-const runDataActiveRun = useReplicant<RunDataActiveRun>(
-  "runDataActiveRun",
-  "nodecg-speedcontrol",
-  { defaultValue: defaultRunData as RunDataActiveRun },
-);
-
-const runners = computed(() => {
-  // The following line is ok because the map() only gets called if each null-coalescing operator is passed
-  const players = runDataActiveRun?.data?.teams.map((team) => team.players[0]);
-  // console.info(`Player is ${player?.name}`);
-  if (!players) return [defaultRunDataPlayer as RunDataPlayer];
-  return players;
-});
+const { runners } = withRunData();
 
 const widths = [0, 0, 61, 41];
 const width = computed(() => widths[props.numPlayers]);

@@ -1,29 +1,26 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import LayoutComponent from "../components/LayoutComponent.vue";
-import CameraPanel from "../components/page-elements/CameraPanel.vue";
-import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
-import GameInfo from "../components/page-elements/GameInfo.vue";
-import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
-import TextLabel from "../components/text/TextLabel.vue";
-import TextBox from "../components/text/TextBox.vue";
-import ScreenPanel from "../components/panels/ScreenPanel.vue";
-import { getWidth } from "../util/composables.js";
 import { mdiAccount } from "@mdi/js";
+import LayoutComponent from "../components/LayoutComponent.vue";
+import GameInfo from "../components/page-elements/GameInfo.vue";
+import ScreenPanel from "../components/panels/ScreenPanel.vue";
+import TextBox from "../components/text/TextBox.vue";
+import TextLabel from "../components/text/TextLabel.vue";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { getWidth, withRunData } from "../util/composables.js";
+import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
 
 const props = defineProps<{
   numPlayers: number;
   ratio: [number, number];
 }>();
 
+const { runners } = withRunData();
+
 const height = 33;
 const width = getWidth(height, props.ratio);
 </script>
 
 <template>
-  <!-- 4:3 - Width 80 -->
-  <!-- 16:9 - Width ?? -->
-  <!-- Race - Width 60 -->
   <LayoutComponent
     :width
     :aspect-ratio="[ratio[0], ratio[1] + 1]"
@@ -34,8 +31,10 @@ const width = getWidth(height, props.ratio);
         class="relative h-full flex flex-col gap-2 justify-between items-center"
       >
         <ScreenPanel
+          :player="1"
+          :id="runners[0].teamID"
+          position="br"
           :style="`width: ${width}em; max-height: ${height}em`"
-          class=""
         />
         <div class="flex items-center">
           <img src="../assets/logo_2026.png" class="h-9/12" />
@@ -49,8 +48,11 @@ const width = getWidth(height, props.ratio);
         class="relative h-full flex flex-col gap-2 justify-between items-center"
       >
         <ScreenPanel
-          v-for="i in Array(numPlayers - 1).keys()"
-          :key="i"
+          v-for="(runner, i) in runners.slice(1)"
+          :key="runner.id"
+          :player="i"
+          :id="runner.teamID"
+          :position="i === 2 ? 'bl' : 'tl'"
           :style="`width: ${width}em; height: ${height}em`"
         />
       </div>
@@ -62,40 +64,30 @@ const width = getWidth(height, props.ratio);
           class="w-full flex flex-col justify-center gap-16"
           :style="`flex-basis: ${height}em`"
         >
-          <div class="w-8/12 flex flex-col">
-            <TextLabel
-              text="RUNNER 1"
-              position="bottom"
-              align="end"
-              class="w-full h-16 -mb-2 text-lcns-white"
-            >
-              <TextBox :icon="mdiAccount" class="w-full">dsfsdf</TextBox>
-            </TextLabel>
-            <TextBox class="w-8/12" theme="pronouns">dsfsdf</TextBox>
-          </div>
+          <RacePlayerInfoPanel
+            v-if="runners[0]"
+            :runner="runners[0]"
+            :index="0"
+            :key="runners[0].id"
+            class="w-8/12"
+          />
 
-          <div class="w-8/12 flex flex-col items-end self-end">
-            <TextLabel
-              text="RUNNER 2"
-              position="bottom"
-              align="start"
-              class="w-full h-16 -mb-2 text-lcns-white"
-            >
-              <TextBox :icon="mdiAccount" class="w-full">dsfsdf</TextBox>
-            </TextLabel>
-            <TextBox class="w-8/12" theme="pronouns">dsfsdf</TextBox>
-          </div>
+          <RacePlayerInfoPanel
+            v-if="runners[1]"
+            :runner="runners[1]"
+            :index="1"
+            :key="runners[1].id"
+            class="w-8/12 self-end"
+          />
         </div>
-        <div class="grow w-8/12 flex flex-col items-end">
-          <TextLabel
-            text="RUNNER 3"
-            position="bottom"
-            align="start"
-            class="w-full h-16 -mb-2 text-lcns-white"
-          >
-            <TextBox :icon="mdiAccount" class="w-full">dsfsdf</TextBox>
-          </TextLabel>
-          <TextBox class="w-8/12" theme="pronouns">dsfsdf</TextBox>
+        <div class="grow w-full flex flex-col items-end">
+          <RacePlayerInfoPanel
+            v-if="runners[2]"
+            :runner="runners[2]"
+            :index="2"
+            :key="runners[2].id"
+            class="w-8/12"
+          />
         </div>
         <IncentiveComponent class="shrink basis-[30%]" />
       </div>
