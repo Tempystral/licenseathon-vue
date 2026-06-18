@@ -41,7 +41,7 @@ const messages = computed<Incentive[]>(() => [
     type: "message",
     item: {
       id: "tlclogo",
-      orientation: "h",
+      orientation: "v",
       text: "In support of: ",
       img: tlcLogo,
     },
@@ -114,7 +114,7 @@ const currentItem = computed(() => incentives.value[currentIndex.value]);
 const currentIndex = ref(0);
 
 onMounted(() => {
-  setInterval(nextItem, 15000);
+  setInterval(nextItem, 150000);
 });
 
 function nextItem() {
@@ -129,44 +129,46 @@ function nextItem() {
 </script>
 
 <template>
-  <MaterialPanel class="h-full relative">
+  <MaterialPanel class="w-full h-full relative">
     <InsetContainer
       v-if="incentives.length > 0"
-      class="relative max-h-full max-w-full h-full flex flex-col overflow-x-hidden overflow-y-clip z-10"
+      class="relative h-full overflow-x-hidden overflow-y-clip z-10"
     >
-      <Transition name="slide">
-        <div
-          v-if="currentItem"
-          class="w-full h-full"
-          :key="currentItem.item.id"
-        >
+      <div class="w-full h-full inline-block relative">
+        <Transition name="slide">
           <PollComponent
-            class="font-[Fusion]"
+            class="font-[Fusion] absolute"
             v-if="currentItem.type === 'poll'"
             :poll="currentItem.item"
           />
           <TargetComponent
-            class="font-[Fusion]"
+            class="font-[Fusion] absolute"
             v-else-if="currentItem.type === 'target'"
             :target="currentItem.item"
           />
           <div
             v-else-if="currentItem.type === 'message'"
-            class="w-full h-full font-sans flex items-center justify-center text-4xl gap-2"
+            :key="currentItem.item.id"
+            class="h-full w-full font-[Karnivore] flex flex-wrap items-center justify-center text-4xl gap-2 absolute"
             :class="
               currentItem.item.orientation === 'v' ? 'flex-col' : 'flex-row'
             "
           >
-            <span class="">{{ currentItem.item.text }}</span>
+            <span class="text-center">
+              {{ currentItem.item.text }}
+            </span>
             <div
               v-if="currentItem.item.img"
-              class="min-w-0 max-w-8/12 h-full bg-white/80 rounded-xl"
+              class="min-w-0 max-w-full h-8/12 grow"
             >
-              <img :src="currentItem.item.img" class="h-full" />
+              <img
+                :src="currentItem.item.img"
+                class="h-full bg-white/80 rounded-xl"
+              />
             </div>
           </div>
-        </div>
-      </Transition>
+        </Transition>
+      </div>
     </InsetContainer>
   </MaterialPanel>
 </template>
