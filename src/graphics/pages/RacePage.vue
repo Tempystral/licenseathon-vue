@@ -8,18 +8,36 @@ import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import TextLabel from "../components/text/TextLabel.vue";
 import TextBox from "../components/text/TextBox.vue";
 import ScreenPanel from "../components/panels/ScreenPanel.vue";
+import {
+  RunDataActiveRun,
+  RunDataPlayer,
+} from "speedcontrol-util/types/index.js";
+import { useReplicant } from "nodecg-vue-composable";
+import { defaultRunData, defaultRunDataPlayer } from "../util/defaults.js";
+import { mdiAccount } from "@mdi/js";
+import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
 
 const props = defineProps<{
   numPlayers: number;
   ratio: [number, number];
 }>();
 
+const runDataActiveRun = useReplicant<RunDataActiveRun>(
+  "runDataActiveRun",
+  "nodecg-speedcontrol",
+  { defaultValue: defaultRunData as RunDataActiveRun },
+);
+
+const runners = computed(() => {
+  // The following line is ok because the map() only gets called if each null-coalescing operator is passed
+  const players = runDataActiveRun?.data?.teams.map((team) => team.players[0]);
+  // console.info(`Player is ${player?.name}`);
+  if (!players) return [defaultRunDataPlayer as RunDataPlayer];
+  return players;
+});
+
 const widths = [0, 0, 61, 41];
-
 const width = computed(() => widths[props.numPlayers]);
-
-const knobPath = new URL("../assets/knob.svg", import.meta.url).href;
-const knob = ref<SVGElement | null>(null);
 </script>
 
 <template>
@@ -30,9 +48,12 @@ const knob = ref<SVGElement | null>(null);
     <template #main>
       <div class="relative h-full flex gap-2 justify-between">
         <ScreenPanel
-          v-for="i in Array(numPlayers).keys()"
-          :key="i"
+          v-for="(player, i) in runners"
+          :key="player.id"
           :style="`width: ${width - 4 * 0.5}em`"
+          :id="player.teamID"
+          :player="i"
+          :position="i % 2 == 0 ? 'br' : 'bl'"
         />
       </div>
     </template>
@@ -46,28 +67,12 @@ const knob = ref<SVGElement | null>(null);
 
         <div class="h-full flex flex-col gap-2">
           <div class="grow grid grid-cols-2 gap-4">
-            <div class="flex flex-col">
-              <TextLabel
-                text="RUNNER 1"
-                position="bottom"
-                align="end"
-                class="w-full h-16 -mb-2 text-lcns-white"
-              >
-                <TextBox class="w-full">dsfsdf</TextBox>
-              </TextLabel>
-              <TextBox class="w-8/12 h-8" theme="pronouns">dsfsdf</TextBox>
-            </div>
-            <div class="flex flex-col items-end">
-              <TextLabel
-                text="RUNNER 2"
-                position="bottom"
-                align="start"
-                class="w-full h-16 -mb-2 text-lcns-white"
-              >
-                <TextBox class="w-full">dsfsdf</TextBox>
-              </TextLabel>
-              <TextBox class="w-8/12 h-8" theme="pronouns">dsfsdf</TextBox>
-            </div>
+            <RacePlayerInfoPanel
+              v-for="(runner, i) in runners"
+              :runner
+              :index="i"
+              :key="runner.id"
+            />
           </div>
           <CommentatorDisplayComponent orientation="horizontal" />
           <div class="flex justify-center">
