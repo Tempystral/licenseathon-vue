@@ -28,13 +28,11 @@ export function withRunData() {
 
   const runners = computed(() => {
     // The following line is ok because the map() only gets called if each null-coalescing operator is passed
-    const players = runDataActiveRun?.data?.teams.map(
-      (team) => team.players[0],
-    );
+    const players = runDataActiveRun.data?.teams.map((team) => team.players[0]);
     // console.info(`Player is ${player?.name}`);
     if (!players) return [defaultRunDataPlayer as RunDataPlayer];
     return players;
   });
 
-  return { runners };
+  return { runners, runData: runDataActiveRun.data };
 }

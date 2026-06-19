@@ -17,6 +17,7 @@ import { defaultRunData, defaultRunDataPlayer } from "../util/defaults.js";
 import { mdiAccount } from "@mdi/js";
 import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
 import { withRunData } from "../util/composables.js";
+import LogoContainer from "../components/page-elements/LogoContainer.vue";
 
 const props = defineProps<{
   numPlayers: number;
@@ -37,7 +38,7 @@ const width = computed(() => widths[props.numPlayers]);
     <template #main>
       <div class="relative h-full flex gap-2 justify-between">
         <ScreenPanel
-          v-for="(player, i) in runners"
+          v-for="(player, i) in runners.slice(0, 2)"
           :key="player.id"
           :style="`width: ${width - 4 * 0.5}em`"
           :id="player.teamID"
@@ -57,16 +58,14 @@ const width = computed(() => widths[props.numPlayers]);
         <div class="h-full flex flex-col gap-2">
           <div class="grow grid grid-cols-2 gap-4">
             <RacePlayerInfoPanel
-              v-for="(runner, i) in runners"
+              v-for="(runner, i) in runners.slice(0, 2)"
               :runner
               :index="i"
               :key="runner.id"
             />
           </div>
           <CommentatorDisplayComponent orientation="horizontal" />
-          <div class="flex justify-center">
-            <img src="../assets/logo_2026.png" class="w-9/12" />
-          </div>
+          <LogoContainer />
         </div>
 
         <IncentiveComponent />

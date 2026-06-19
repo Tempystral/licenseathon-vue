@@ -8,6 +8,7 @@ import TextLabel from "../components/text/TextLabel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import { getWidth, withRunData } from "../util/composables.js";
 import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
+import LogoContainer from "../components/page-elements/LogoContainer.vue";
 
 const props = defineProps<{
   numPlayers: number;
@@ -36,9 +37,7 @@ const width = getWidth(height, props.ratio);
           position="br"
           :style="`width: ${width}em; max-height: ${height}em`"
         />
-        <div class="flex items-center">
-          <img src="../assets/logo_2026.png" class="h-9/12" />
-        </div>
+        <LogoContainer />
         <GameInfo class="basis-[30%]" />
       </div>
     </template>

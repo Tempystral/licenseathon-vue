@@ -1,18 +1,17 @@
 <script lang="ts" setup>
-import { mdiGamepad } from "@mdi/js";
 import { useReplicant } from "nodecg-vue-composable";
 import { RunDataActiveRun, RunDataPlayer } from "speedcontrol-util/types";
 import { computed, ref } from "vue";
 import InlineSvg from "vue-inline-svg";
 
 import GameInfoPanel from "../components/GameInfoPanel.vue";
+import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
 import RaceTimerComponent from "../components/RaceTimerComponent.vue";
 import RunnerInfoPanel from "../components/RunnerInfoPanel.vue";
-import TextBox2 from "../components/TextBox2.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import TimerComponent from "../components/TimerComponent.vue";
 import { defaultRunData, defaultRunDataPlayer } from "../util/defaults";
-import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
+import { withRunData } from "../util/composables.js";
 
 /**
  * Layout is passed in as prop
@@ -31,21 +30,7 @@ const layoutPath = new URL(
 ).href;
 const layoutRef = ref<SVGElement | null>(null);
 
-const runDataActiveRun = useReplicant<RunDataActiveRun>(
-  "runDataActiveRun",
-  "nodecg-speedcontrol",
-  { defaultValue: defaultRunData as RunDataActiveRun },
-);
-
-// watch(() => runDataActiveRun?.changed, () => { fitText() });
-
-const runners = computed(() => {
-  // The following line is ok because the map() only gets called if each null-coalescing operator is passed
-  const players = runDataActiveRun?.data?.teams.map((team) => team.players[0]);
-  // console.info(`Player is ${player?.name}`);
-  if (!players) return [defaultRunDataPlayer as RunDataPlayer];
-  return players;
-});
+const { runners, runData } = withRunData();
 </script>
 
 <template>
@@ -194,7 +179,7 @@ const runners = computed(() => {
         :players="props.players"
       />
       <GameInfoPanel
-        :active-run="runDataActiveRun?.data"
+        :active-run="runData"
         :ratio="props.ratio"
         :players="props.players"
       />

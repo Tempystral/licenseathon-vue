@@ -13,6 +13,7 @@ import TargetComponent from "./TargetComponent.vue";
 import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
 import MaterialPanel from "../panels/MaterialPanel.vue";
 import InsetContainer from "../InsetContainer.vue";
+import MessageComponent from "./MessageComponent.vue";
 
 const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
 const activePolls = ref<Incentive[]>(getActivePolls());
@@ -146,27 +147,12 @@ function nextItem() {
             v-else-if="currentItem.type === 'target'"
             :target="currentItem.item"
           />
-          <div
+          <MessageComponent
+            class="font-[Karnivore] absolute"
             v-else-if="currentItem.type === 'message'"
             :key="currentItem.item.id"
-            class="h-full w-full font-[Karnivore] flex flex-wrap items-center justify-center text-4xl gap-2 absolute"
-            :class="
-              currentItem.item.orientation === 'v' ? 'flex-col' : 'flex-row'
-            "
-          >
-            <span class="text-center">
-              {{ currentItem.item.text }}
-            </span>
-            <div
-              v-if="currentItem.item.img"
-              class="min-w-0 max-w-full h-8/12 grow"
-            >
-              <img
-                :src="currentItem.item.img"
-                class="h-full bg-white/80 rounded-xl"
-              />
-            </div>
-          </div>
+            :message="currentItem.item"
+          />
         </Transition>
       </div>
     </InsetContainer>

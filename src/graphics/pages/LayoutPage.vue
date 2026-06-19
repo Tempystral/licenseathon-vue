@@ -9,26 +9,26 @@ import TextBox from "../components/text/TextBox.vue";
 import { mdiMicrophone } from "@mdi/js";
 import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import LogoContainer from "../components/page-elements/LogoContainer.vue";
+import { withRunData } from "../util/composables.js";
 
 const props = defineProps<{
   numPlayers: number;
   ratio: [number, number];
 }>();
 
-const knobPath = new URL("../assets/knob.svg", import.meta.url).href;
-const knob = ref<SVGElement | null>(null);
+const { runData, runners } = withRunData();
 </script>
 
 <template>
-  <!-- 4:3 - Width 80 -->
-  <!-- 16:9 - Width ?? -->
-  <!-- Race - Width 60 -->
   <LayoutComponent :width="80" :aspect-ratio="ratio" :num-players="numPlayers">
     <template #left>
       <div class="flex flex-col gap-3 h-full max-w-full">
-        <CameraPanel class="shrink" />
+        <CameraPanel class="shrink" :runner="runners[0]" />
 
         <CommentatorDisplayComponent orientation="vertical" />
+        <div class="grow"></div>
+        <LogoContainer />
         <div class="grow"></div>
         <GameInfo class="shrink" />
       </div>
