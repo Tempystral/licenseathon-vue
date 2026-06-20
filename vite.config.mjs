@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
 import NodeCGPlugin from "vite-plugin-nodecg";
 import tailwindcss from "@tailwindcss/vite";
+import vueDevTools from "vite-plugin-vue-devtools";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -18,6 +19,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueDevTools({ launchEditor: "code" }),
     tailwindcss(),
     checker({ vueTsc: { tsconfigPath: "tsconfig.browser.json" } }),
     NodeCGPlugin({

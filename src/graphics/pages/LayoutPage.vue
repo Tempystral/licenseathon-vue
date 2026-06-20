@@ -24,7 +24,7 @@ const { runData, runners } = withRunData();
   <LayoutComponent :width="80" :aspect-ratio="ratio" :num-players="numPlayers">
     <template #left>
       <div class="flex flex-col gap-3 h-full max-w-full">
-        <CameraPanel class="shrink" :runner="runners[0]" />
+        <CameraPanel v-if="runners[0]" class="shrink" :runner="runners[0]" />
 
         <CommentatorDisplayComponent orientation="vertical" />
         <div class="grow"></div>

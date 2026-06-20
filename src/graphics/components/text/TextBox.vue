@@ -144,7 +144,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 <template>
   <!-- Container -->
   <div
-    class="min-h-8 max-h-20 min-w-0"
+    class="relative min-h-8 max-h-20 min-w-0"
     :class="[style.font, hasDropShadow() ? 'pr-1' : '', ,]"
   >
     <!-- Border -->
@@ -188,7 +188,9 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
         ]"
         :style="[padding.x, maxWidth]"
       >
+        <slot name="rotation" v-if="$slots.rotation" />
         <div
+          v-else
           class="flex flex-col items-center justify-center h-full overflow-clip"
         >
           <FitText :options="fitTextOptions">

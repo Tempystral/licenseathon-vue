@@ -159,7 +159,7 @@ function nextItem() {
   </MaterialPanel>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@licenseathon-vue/sass/style.scss";
 @use "@licenseathon-vue/sass/color" as theme;
 
