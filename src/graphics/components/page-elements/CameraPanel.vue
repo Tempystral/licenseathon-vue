@@ -1,30 +1,70 @@
 <script setup lang="ts">
-import { mdiGamepad } from "@mdi/js";
+import { mdiAccount, mdiGamepad } from "@mdi/js";
+import { RunDataPlayer } from "speedcontrol-util/types/index.js";
+import { onMounted, ref } from "vue";
+import InsetContainer from "../InsetContainer.vue";
 import MaterialPanel from "../panels/MaterialPanel.vue";
+import FitText from "../text/FitText.vue";
 import TextBox from "../text/TextBox.vue";
 import TextLabel from "../text/TextLabel.vue";
-import InsetContainer from "../InsetContainer.vue";
-import { RunDataPlayer } from "speedcontrol-util/types/index.js";
+import TransitionList from "../text/TransitionList.vue";
 
 const props = defineProps<{
   runner: RunDataPlayer;
 }>();
+
+const showingSocials = ref(false);
+function changeDisplay() {
+  if (props.runner.pronouns) {
+    showingSocials.value = !showingSocials.value;
+  } else {
+    showingSocials.value = false;
+  }
+}
+onMounted(() => setInterval(changeDisplay, 30_000));
+
+const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 </script>
 <template>
   <div>
     <MaterialPanel theme="blue" class="rounded-bl-none" style="grid-area: main">
       <div class="h-full flex flex-col items-end gap-1">
         <InsetContainer class="aspect-video chroma-key" />
-        <TextLabel
-          text="RUNNER"
-          position="bottom"
-          align="start"
-          class="text-lcns-white w-full basis-18 -mb-4"
-        >
-          <TextBox theme="nameplate" class="w-full" :icon="mdiGamepad">
-            {{ runner.name }}
-          </TextBox>
-        </TextLabel>
+        <div class="w-full basis-18 -mb-4 relative">
+          <TextLabel
+            text="RUNNER"
+            position="bottom"
+            align="start"
+            class="relative text-lcns-white w-full h-full basis-18"
+          >
+            <TextBox
+              theme="nameplate"
+              class="w-full h-full absolute top-0 left-0"
+              :icon="showingSocials ? mdiAccount : mdiGamepad"
+            >
+              <template #rotation>
+                <TransitionList
+                  :items="[
+                    { text: runner.name, condition: !showingSocials },
+                    { text: runner.social.twitch, condition: showingSocials },
+                  ]"
+                >
+                  <template #item="{ text, condition }">
+                    <div
+                      v-if="condition"
+                      :key="runner.id + runner.name"
+                      class="absolute w-full h-full flex items-center justify-center"
+                    >
+                      <FitText :options="fitTextOptions">
+                        {{ text }}
+                      </FitText>
+                    </div>
+                  </template>
+                </TransitionList>
+              </template>
+            </TextBox>
+          </TextLabel>
+        </div>
       </div>
     </MaterialPanel>
     <!-- Pronoun area -->
@@ -54,5 +94,17 @@ const props = defineProps<{
 <style lang="scss">
 #camera-panel {
   grid-template-areas: "bttm bttm bttm crnr crnr ....";
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-leave-to {
+  opacity: 0%;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 750ms ease-out;
 }
 </style>
