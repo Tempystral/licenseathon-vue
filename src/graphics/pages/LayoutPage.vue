@@ -8,7 +8,7 @@ import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import { withRunData } from "../composables/runData.js";
 
 const props = defineProps<{
-  numPlayers: number;
+  players: number;
   ratio: [number, number];
 }>();
 
@@ -16,7 +16,7 @@ const { runData, runners } = withRunData();
 </script>
 
 <template>
-  <LayoutComponent :width="80" :aspect-ratio="ratio" :num-players="numPlayers">
+  <LayoutComponent :width="80" :aspect-ratio="ratio" :num-players="players">
     <template #left>
       <div class="flex flex-col gap-3 h-full max-w-full">
         <CameraPanel v-if="runners[0]" class="shrink" :runner="runners[0]" />

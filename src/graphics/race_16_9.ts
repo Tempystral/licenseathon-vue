@@ -1,17 +1,5 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTwitch } from '@fortawesome/free-brands-svg-icons';
-import { faGamepad, faMicrophone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { createHead } from '@vueuse/head';
-import { createApp } from 'vue';
-import ActiveRunPage from './pages/ActiveRunPage.vue';
+import { create } from "@licenseathon-vue/browser-shared/template";
+import RacePage from "./pages/RacePage.vue";
+import { ASPECT_4_3 } from "./util/constants.js";
 
-library.add(faMicrophone);
-library.add(faTwitch);
-library.add(faGamepad);
-
-const app = createApp(ActiveRunPage, { players: 2, ratio: '16-9' });
-const head = createHead();
-app.use(head);
-app.component('font-awesome-icon', FontAwesomeIcon);
-app.mount('#app');
+const app = create(RacePage, { numPlayers: 2, ratio: ASPECT_4_3 });
