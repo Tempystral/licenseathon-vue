@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import LayoutComponent from "../components/LayoutComponent.vue";
 import CameraPanel from "../components/page-elements/CameraPanel.vue";
-import GameInfo from "../components/page-elements/GameInfo.vue";
-import MaterialPanel from "../components/panels/MaterialPanel.vue";
-import InsetContainer from "../components/InsetContainer.vue";
-import TextBox from "../components/text/TextBox.vue";
-import { mdiMicrophone } from "@mdi/js";
 import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
-import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import GameInfo from "../components/page-elements/GameInfo.vue";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
-import { withRunData } from "../util/composables.js";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { withRunData } from "../composables/runData.js";
 
 const props = defineProps<{
   numPlayers: number;

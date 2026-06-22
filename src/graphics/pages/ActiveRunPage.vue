@@ -11,7 +11,7 @@ import RunnerInfoPanel from "../components/RunnerInfoPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import TimerComponent from "../components/TimerComponent.vue";
 import { defaultRunData, defaultRunDataPlayer } from "../util/defaults";
-import { withRunData } from "../util/composables.js";
+import { withRunData } from "../composables/runData.js";
 
 /**
  * Layout is passed in as prop

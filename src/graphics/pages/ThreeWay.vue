@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { mdiAccount } from "@mdi/js";
 import LayoutComponent from "../components/LayoutComponent.vue";
 import GameInfo from "../components/page-elements/GameInfo.vue";
 import ScreenPanel from "../components/panels/ScreenPanel.vue";
-import TextBox from "../components/text/TextBox.vue";
-import TextLabel from "../components/text/TextLabel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
-import { getWidth, withRunData } from "../util/composables.js";
+
+import LogoContainer from "../components/page-elements/LogoContainer.vue";
 import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
 import { withRunData } from "../composables/runData.js";
-import LogoContainer from "../components/page-elements/LogoContainer.vue";
+import { getWidth } from "../util/helpers.js";
 
 const props = defineProps<{
   numPlayers: number;

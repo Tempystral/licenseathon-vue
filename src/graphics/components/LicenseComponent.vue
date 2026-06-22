@@ -5,7 +5,7 @@ import InlineSvg from "vue-inline-svg";
 import getSeconds from "../util/updatetime";
 import { mdiCalendarMonth, mdiGamepadVariant } from "@mdi/js";
 import SvgIcon from "@jamescoyle/vue-icon";
-import { getPlayers } from "../util/composables";
+import { getPlayers } from "../util/helpers";
 import FitText from "./text/FitText.vue";
 
 const props = defineProps<{

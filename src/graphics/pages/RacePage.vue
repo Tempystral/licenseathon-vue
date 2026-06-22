@@ -1,30 +1,20 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import LayoutComponent from "../components/LayoutComponent.vue";
-import CameraPanel from "../components/page-elements/CameraPanel.vue";
 import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
 import GameInfo from "../components/page-elements/GameInfo.vue";
-import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
-import TextLabel from "../components/text/TextLabel.vue";
-import TextBox from "../components/text/TextBox.vue";
-import ScreenPanel from "../components/panels/ScreenPanel.vue";
-import {
-  RunDataActiveRun,
-  RunDataPlayer,
-} from "speedcontrol-util/types/index.js";
-import { useReplicant } from "nodecg-vue-composable";
-import { defaultRunData, defaultRunDataPlayer } from "../util/defaults.js";
-import { mdiAccount } from "@mdi/js";
-import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
-import { withRunData } from "../util/composables.js";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
+import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
+import ScreenPanel from "../components/panels/ScreenPanel.vue";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { withRunData } from "../composables/runData.js";
 
 const props = defineProps<{
   numPlayers: number;
   ratio: [number, number];
 }>();
 
-const { runners } = withRunData();
+const { runners, runData } = withRunData();
 
 const widths = [0, 0, 61, 41];
 const width = computed(() => widths[props.numPlayers]);

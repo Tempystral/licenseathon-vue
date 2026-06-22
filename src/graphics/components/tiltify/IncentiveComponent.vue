@@ -1,41 +1,24 @@
 <script setup lang="ts">
-import { useReplicant } from "nodecg-vue-composable";
-import { computed, onMounted, ref, Transition, watch } from "vue";
 import {
-  Poll,
-  Polls,
-  Target,
-  Targets,
-  Total,
-} from "../../../../../nodecg-tiltify/src/types/schemas";
+  Incentive,
+  withIncentives,
+  withTiltifyPolls,
+  withTiltifyTargets,
+} from "@licenseathon-vue/graphics/composables/tiltify";
+import { useReplicant } from "nodecg-vue-composable";
+import { computed, Transition } from "vue";
+import { Total } from "../../../../../nodecg-tiltify/src/types/schemas";
+import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
+import InsetContainer from "../InsetContainer.vue";
+import MaterialPanel from "../panels/MaterialPanel.vue";
+import MessageComponent from "./MessageComponent.vue";
 import PollComponent from "./PollComponent.vue";
 import TargetComponent from "./TargetComponent.vue";
-import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
-import MaterialPanel from "../panels/MaterialPanel.vue";
-import InsetContainer from "../InsetContainer.vue";
-import MessageComponent from "./MessageComponent.vue";
 
-const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
-const activePolls = ref<Incentive[]>(getActivePolls());
-
-const targets = useReplicant<Targets>("targets", "nodecg-tiltify");
-const activeTargets = ref<Incentive[]>(getActiveTargets());
+const { polls } = withTiltifyPolls();
+const { targets } = withTiltifyTargets();
 
 const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
-
-type Incentive =
-  | {
-      type: "poll";
-      item: Poll;
-    }
-  | {
-      type: "target";
-      item: Target;
-    }
-  | {
-      type: "message";
-      item: { text?: string; img?: string; orientation: "h" | "v"; id: string };
-    };
 
 const messages = computed<Incentive[]>(() => [
   {
@@ -65,93 +48,32 @@ const messages = computed<Incentive[]>(() => [
   },
 ]);
 
-const incentives = computed<Incentive[]>(() => [
-  ...messages.value,
-  ...activePolls.value,
-  ...activeTargets.value,
-]);
-
-function getActivePolls(): Incentive[] {
-  return (
-    polls.data
-      ?.filter((p) => p.active)
-      .map((p) => ({
-        type: "poll",
-        item: p,
-      })) ?? []
-  );
-}
-
-function getActiveTargets(): Incentive[] {
-  return (
-    targets.data
-      ?.filter((t) => t.active)
-      .map((t) => ({
-        type: "target",
-        item: t,
-      })) ?? []
-  );
-}
-
-watch(
-  () => polls.data,
-  (newVal) => {
-    if (newVal) {
-      activePolls.value = getActivePolls();
-    }
-  },
-);
-
-watch(
-  () => targets.data,
-  (newVal) => {
-    if (newVal) {
-      activeTargets.value = getActiveTargets();
-    }
-  },
-);
-
-const currentItem = computed(() => incentives.value[currentIndex.value]);
-const currentIndex = ref(0);
-
-onMounted(() => {
-  setInterval(nextItem, 150000);
-});
-
-function nextItem() {
-  if (incentives.value.length > 0) {
-    if (currentIndex.value + 1 >= incentives.value.length) {
-      currentIndex.value = 0;
-    } else {
-      currentIndex.value++;
-    }
-  }
-}
+const { incentive, hasIncentives } = withIncentives(messages, polls, targets);
 </script>
 
 <template>
   <MaterialPanel class="w-full h-full relative">
     <InsetContainer
-      v-if="incentives.length > 0"
+      v-if="hasIncentives()"
       class="relative h-full overflow-x-hidden overflow-y-clip z-10"
     >
       <div class="w-full h-full inline-block relative">
         <Transition name="slide">
           <PollComponent
             class="font-[Fusion] absolute"
-            v-if="currentItem.type === 'poll'"
-            :poll="currentItem.item"
+            v-if="incentive.type === 'poll'"
+            :poll="incentive.item"
           />
           <TargetComponent
             class="font-[Fusion] absolute"
-            v-else-if="currentItem.type === 'target'"
-            :target="currentItem.item"
+            v-else-if="incentive.type === 'target'"
+            :target="incentive.item"
           />
           <MessageComponent
             class="font-[Karnivore] absolute"
-            v-else-if="currentItem.type === 'message'"
-            :key="currentItem.item.id"
-            :message="currentItem.item"
+            v-else-if="incentive.type === 'message'"
+            :key="incentive.item.id"
+            :message="incentive.item"
           />
         </Transition>
       </div>

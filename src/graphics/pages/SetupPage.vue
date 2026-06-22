@@ -4,7 +4,7 @@ import { RunDataActiveRun, RunDataArray } from "speedcontrol-util/types";
 import { ref } from "vue";
 import InlineSvg from "vue-inline-svg";
 import LicenseComponent from "../components/LicenseComponent.vue";
-import { getPlayers } from "../util/composables";
+import { getPlayers } from "../util/helpers.js";
 import { defaultRunData } from "../util/defaults";
 import GameInfoPanel from "../components/GameInfoPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
@@ -22,18 +22,18 @@ const layoutRef = ref<SVGElement | null>(null);
 const activeRun = useReplicant<RunDataActiveRun>(
   "runDataActiveRun",
   "nodecg-speedcontrol",
-  { defaultValue: defaultRunData as RunDataActiveRun }
+  { defaultValue: defaultRunData as RunDataActiveRun },
 );
 
 const allRuns = useReplicant<RunDataArray>(
   "runDataArray",
   "nodecg-speedcontrol",
-  { defaultValue: [] as RunDataArray }
+  { defaultValue: [] as RunDataArray },
 );
 
 function remainingRuns() {
   return allRuns?.data?.slice(
-    allRuns.data.findIndex((r) => r.id === activeRun.data?.id) + 1
+    allRuns.data.findIndex((r) => r.id === activeRun.data?.id) + 1,
   );
 }
 </script>

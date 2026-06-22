@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { getHeight, getWidth } from "../util/composables";
+import { getHeight, getWidth } from "../util/helpers";
 
 type Properties =
   | {
