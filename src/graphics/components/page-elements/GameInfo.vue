@@ -10,6 +10,11 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import EstimateDisplay from "./EstimateDisplay.vue";
 import TextBox from "../text/TextBox.vue";
 import InsetContainer from "../InsetContainer.vue";
+import { RunDataActiveRun } from "speedcontrol-util/types/index.js";
+
+const props = defineProps<{
+  runData: RunDataActiveRun;
+}>();
 </script>
 <template>
   <div class="flex flex-wrap">
@@ -21,7 +26,8 @@ import InsetContainer from "../InsetContainer.vue";
         </LCDItem>
         <LCDItem label="PLATFORM" class="w-28">
           <TextLabel
-            text="PC-ENGINE"
+            v-if="runData?.system"
+            :text="runData.system"
             position="bottom"
             size="md"
             class="text-lcns-teal"
@@ -31,7 +37,8 @@ import InsetContainer from "../InsetContainer.vue";
         </LCDItem>
         <LCDItem label="YEAR" class="w-12">
           <TextLabel
-            text="2001"
+            v-if="runData?.release"
+            :text="runData.release"
             position="bottom"
             size="md"
             class="text-lcns-teal"
@@ -47,11 +54,13 @@ import InsetContainer from "../InsetContainer.vue";
       <InsetContainer theme="amber" :align="'right'">
         <TextLabel text="GAME TITLE" position="left" class="w-full h-15">
           <TextBox theme="lcd">
-            Donkey Kong Country Returns: Tropical Freeze
+            {{ runData?.game }}
           </TextBox>
         </TextLabel>
         <TextLabel text="CATEGORY" position="left" class="w-full h-15">
-          <TextBox theme="lcd"> DOOM (2016) </TextBox>
+          <TextBox theme="lcd">
+            {{ runData?.category }}
+          </TextBox>
         </TextLabel>
       </InsetContainer>
     </MaterialPanel>

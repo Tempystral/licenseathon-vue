@@ -30,7 +30,7 @@ const { runData, runners } = withRunData();
         <div class="grow"></div>
         <LogoContainer />
         <div class="grow"></div>
-        <GameInfo class="shrink" />
+        <GameInfo :runData class="shrink" />
       </div>
     </template>
 

@@ -31,9 +31,6 @@ const width = computed(() => widths[props.numPlayers]);
 </script>
 
 <template>
-  <!-- 4:3 - Width 80 -->
-  <!-- 16:9 - Width ?? -->
-  <!-- Race - Width 60 -->
   <LayoutComponent :width :aspect-ratio="ratio" :num-players="numPlayers">
     <template #main>
       <div class="relative h-full flex gap-2 justify-between">
@@ -53,7 +50,7 @@ const width = computed(() => widths[props.numPlayers]);
         class="grid grid-flow-col gap-2 h-full max-w-full"
         style="grid-template-columns: repeat(3, minmax(0, 1fr))"
       >
-        <GameInfo />
+        <GameInfo :runData />
 
         <div class="h-full flex flex-col gap-2">
           <div class="grow grid grid-cols-2 gap-4">

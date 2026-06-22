@@ -8,6 +8,7 @@ import TextLabel from "../components/text/TextLabel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import { getWidth, withRunData } from "../util/composables.js";
 import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
+import { withRunData } from "../composables/runData.js";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
 
 const props = defineProps<{
@@ -15,7 +16,7 @@ const props = defineProps<{
   ratio: [number, number];
 }>();
 
-const { runners } = withRunData();
+const { runners, runData } = withRunData();
 
 const height = 33;
 const width = getWidth(height, props.ratio);
@@ -38,7 +39,7 @@ const width = getWidth(height, props.ratio);
           :style="`width: ${width}em; max-height: ${height}em`"
         />
         <LogoContainer />
-        <GameInfo class="basis-[30%]" />
+        <GameInfo :runData class="basis-[30%]" />
       </div>
     </template>
 
