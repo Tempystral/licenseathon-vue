@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import InlineSvg from "vue-inline-svg";
-import TextLabel from "../text/TextLabel.vue";
 import TextBox from "../text/TextBox.vue";
+import TextLabel from "../text/TextLabel.vue";
 
-const { side = "right" } = defineProps<{ side: "left" | "right" }>();
+const { side = "right" } = defineProps<{ side: "left" | "right" | "center" }>();
 
 const knobPath = new URL("../../assets/knob.svg", import.meta.url).href;
 const knob = ref<SVGElement | null>(null);
@@ -12,6 +12,7 @@ const knob = ref<SVGElement | null>(null);
 const styles = {
   right: "rounded-bl-xl rounded-tr-3xl",
   left: "rounded-br-xl rounded-tl-3xl before:right-0",
+  center: "rounded-t-3xl rounded-b-none max-w-80",
 };
 </script>
 <template>

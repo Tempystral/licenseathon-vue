@@ -4,9 +4,12 @@ import GameInfo from "../components/page-elements/GameInfo.vue";
 import ScreenPanel from "../components/panels/ScreenPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 
+import EstimateDisplay from "../components/page-elements/EstimateDisplay.vue";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
 import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
+import TimerPanel from "../components/page-elements/TimerPanel.vue";
 import { withRunData } from "../composables/runData.js";
+import { Layout } from "../util/constants.js";
 import { getWidth } from "../util/helpers.js";
 
 const props = defineProps<{
@@ -25,6 +28,7 @@ const width = getWidth(height, props.ratio);
     :width
     :aspect-ratio="[ratio[0], ratio[1] + 1]"
     :num-players="numPlayers"
+    :layout="Layout.LAYOUT_3P"
   >
     <template #left>
       <div
@@ -37,7 +41,11 @@ const width = getWidth(height, props.ratio);
           :style="`width: ${width}em; max-height: ${height}em`"
         />
         <LogoContainer />
-        <GameInfo :runData class="basis-[30%]" />
+        <div id="game-info-panel" class="flex flex-wrap basis-[30%]">
+          <EstimateDisplay side="left" />
+          <TimerPanel :runData />
+          <GameInfo :runData class="shrink" />
+        </div>
       </div>
     </template>
 

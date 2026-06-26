@@ -2,12 +2,12 @@
 import { useReplicant } from "nodecg-vue-composable";
 import { RunDataActiveRun, RunDataArray } from "speedcontrol-util/types";
 import { ref } from "vue";
-import InlineSvg from "vue-inline-svg";
-import LicenseComponent from "../components/LicenseComponent.vue";
-import { getPlayers } from "../util/helpers.js";
+import InsetContainer from "../components/InsetContainer.vue";
+import MaterialPanel from "../components/panels/MaterialPanel.vue";
+import FitText from "../components/text/FitText.vue";
+import TextBox from "../components/text/TextBox.vue";
 import { defaultRunData } from "../util/defaults";
-import GameInfoPanel from "../components/GameInfoPanel.vue";
-import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { getPlayers } from "../util/helpers.js";
 
 const layoutPath = new URL("../assets/setup.svg", import.meta.url).href;
 const layoutRef = ref<SVGElement | null>(null);
@@ -36,6 +36,8 @@ function remainingRuns() {
     allRuns.data.findIndex((r) => r.id === activeRun.data?.id) + 1,
   );
 }
+
+const options = { multiLine: true, minSize: 14, maxSize: 24 };
 </script>
 
 <template>
@@ -158,83 +160,76 @@ function remainingRuns() {
         </filter>
       </defs>
     </svg>
-    <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
+    <!-- <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" /> -->
 
-    <div id="logo-container" class="absolute h-fit w-fit flex items-center">
-      <img src="../assets/logo_2025.png" />
-    </div>
+    <!-- <IncentiveComponent ratio="setup" /> -->
 
-    <IncentiveComponent ratio="setup" />
-
-    <div class="layout-container">
-      <LicenseComponent :run="activeRun?.data" />
-      <!-- <GameInfoPanel :active-run="activeRun.data" ratio="setup" :players="1" /> -->
-
-      <div id="carousel-container" class="font-[Fusion] overflow-hidden">
-        <!-- <p class="header">Coming up...</p> -->
-        <div
-          id="up-next-carousel"
-          class="h-full flex flex-row-reverse gap-2 p-2"
-        >
+    <div
+      class="absolute w-full h-full grid"
+      style="
+        grid-template-columns: minmax(60%, 2fr) 1fr 8rem;
+        grid-template-rows: 1fr 4fr 2fr 8rem;
+      "
+    >
+      <div
+        id="logo-container"
+        class="absolute h-fit w-fit flex items-center col-start-2 col-span-1"
+      >
+        <img src="../assets/logo_2025.png" />
+      </div>
+      <MaterialPanel theme="red" class="row-start-3 row-span-1 font-[Fusion]">
+        <InsetContainer theme="red" class="h-full flex-row justify-between">
           <TransitionGroup name="slide-h">
-            <span
+            <MaterialPanel
+              theme="white"
               v-for="run in remainingRuns()?.slice(0, 3)"
               :key="run.id"
-              class="up-next-game p-2 rounded-md flex gap-2 w-4/12"
+              class="flex flex-col gap-2 h-full text-lcns-black"
+              style="width: calc((100% / 3) - 0.75rem)"
             >
-              <div class="flex flex-col gap-2 flex-grow">
-                <div
-                  id="player-name-container"
-                  class="setup-info-container flex-grow"
+              <TextBox theme="pronouns" class="grow">
+                <span
+                  v-for="(player, index) of getPlayers(run)"
+                  class="fit"
+                  :key="player.id"
                 >
-                  <span
-                    v-for="(player, index) of getPlayers(run)"
-                    id="next-player-name"
-                    class="fit"
-                    :key="player.id"
+                  <FitText :options>{{ player.name }}</FitText>
+                  <template
+                    v-if="
+                      getPlayers(run).length > 1 &&
+                      getPlayers(run).length - index > 1
+                    "
                   >
-                    {{ player.name }}
-                    <template
-                      v-if="
-                        getPlayers(run).length > 1 &&
-                        getPlayers(run).length - index > 1
-                      "
-                    >
-                      &nbsp;|&nbsp;
-                    </template>
-                  </span>
-                </div>
+                    &nbsp;|&nbsp;
+                  </template>
+                </span>
+              </TextBox>
 
-                <div
-                  id="game-name-container"
-                  class="setup-info-container flex-grow"
-                  v-if="run?.game"
-                >
-                  <p id="next-game-name" class="fit">{{ run?.game }}</p>
-                </div>
-              </div>
-
-              <div class="flex flex-col gap-2 flex-grow">
-                <div
-                  id="game-category-container"
-                  class="setup-info-container flex-grow"
-                  v-if="run?.category"
-                >
-                  <p id="next-game-category" class="fit">{{ run?.category }}</p>
-                </div>
-                <div
-                  id="game-estimate-container"
-                  class="setup-info-container flex-grow"
-                  v-if="run?.estimate"
-                >
-                  <p id="next-game-estimate" class="fit">{{ run?.estimate }}</p>
-                </div>
-              </div>
-            </span>
+              <TextBox theme="pronouns" class="grow">
+                {{ run.game }}
+              </TextBox>
+              <TextBox theme="pronouns" class="grow">
+                {{ run.category }}
+              </TextBox>
+              <TextBox theme="pronouns" class="grow">
+                {{ run.estimate }}
+              </TextBox>
+            </MaterialPanel>
           </TransitionGroup>
-        </div>
-      </div>
+        </InsetContainer>
+      </MaterialPanel>
     </div>
+
+    <!-- <div class="layout-container">
+      <LicenseComponent :run="activeRun?.data" />
+
+      <div id="carousel-container" class="font-[Fusion] overflow-hidden">
+        <div
+          id="up-next-carousel"
+          class="h-full flex flex-row-reverse gap-2 p-2 overflow-hidden"
+        ></div>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -278,52 +273,5 @@ svg {
   position: absolute;
   bottom: 0;
   left: 0;
-}
-
-#logo-container {
-  left: 1120px;
-  width: 625px;
-  height: 310px;
-}
-
-#carousel-container {
-  position: absolute;
-  bottom: 141px;
-  left: 20px;
-  height: 150px;
-  width: 994px;
-}
-
-.layout-container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  clip-path: polygon(0% 0%, 0% 95%, 62% 95%, 100% 0%);
-
-  .up-next-game {
-    background: theme.$lcns-red;
-    box-shadow: 0 0 4px 0 black;
-
-    &:first-of-type {
-      background: theme.$lcns-black;
-    }
-
-    #player-name-container {
-      color: theme.$lcns-amber;
-      background: theme.$lcns-dark-blue;
-    }
-
-    .setup-info-container {
-      background-color: theme.$lcns-white;
-      color: theme.$lcns-dark-blue;
-      font-size: 0.9em;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-inline: 0.25em;
-      border-radius: 0.5em;
-    }
-  }
 }
 </style>
