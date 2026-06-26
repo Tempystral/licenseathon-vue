@@ -9,7 +9,7 @@ import { useReplicant } from "nodecg-vue-composable";
 import { computed, Transition } from "vue";
 import { Total } from "../../../../../nodecg-tiltify/src/types/schemas";
 import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
-import InsetContainer from "../InsetContainer.vue";
+import InsetContainer from "../panels/InsetContainer.vue";
 import MaterialPanel from "../panels/MaterialPanel.vue";
 import MessageComponent from "./MessageComponent.vue";
 import PollComponent from "./PollComponent.vue";
@@ -84,27 +84,5 @@ const { incentive, hasIncentives } = withIncentives(messages, polls, targets);
 <style lang="scss">
 @use "@licenseathon-vue/sass/style.scss";
 @use "@licenseathon-vue/sass/color" as theme;
-
-.slide-enter-from {
-  transform: translateY(120%);
-}
-.slide-enter-to {
-  transform: translateY(0);
-}
-
-.slide-enter-active {
-  position: absolute;
-}
-
-.slide-leave {
-  transform: translateY(0);
-}
-.slide-leave-to {
-  transform: translateY(-120%);
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 750ms ease-in-out;
-}
+@use "@licenseathon-vue/sass/transition";
 </style>

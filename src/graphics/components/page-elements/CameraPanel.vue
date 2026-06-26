@@ -2,7 +2,7 @@
 import { mdiAccount, mdiGamepad } from "@mdi/js";
 import { RunDataPlayer } from "speedcontrol-util/types/index.js";
 import { onMounted, ref } from "vue";
-import InsetContainer from "../InsetContainer.vue";
+import InsetContainer from "../panels/InsetContainer.vue";
 import MaterialPanel from "../panels/MaterialPanel.vue";
 import FitText from "../text/FitText.vue";
 import TextBox from "../text/TextBox.vue";
@@ -29,7 +29,9 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
   <div>
     <MaterialPanel theme="blue" class="rounded-bl-none" style="grid-area: main">
       <div class="h-full flex flex-col items-end gap-1">
-        <InsetContainer class="aspect-video chroma-key" />
+        <InsetContainer class="aspect-video chroma-key">
+          <slot name="image" />
+        </InsetContainer>
         <div class="w-full basis-18 -mb-4 relative">
           <TextLabel
             text="RUNNER"

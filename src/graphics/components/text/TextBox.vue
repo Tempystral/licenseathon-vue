@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import SvgIcon from "@jamescoyle/vue-icon";
 import { computed } from "vue";
 import FitText from "./FitText.vue";
-import SvgIcon from "@jamescoyle/vue-icon";
 
 const { xPad = 2, theme = "nameplate" } = defineProps<{
   xPad?: number;
@@ -101,6 +101,15 @@ const themes: Theme = {
       color: "inset-shadow-xs inset-shadow-black",
     },
   },
+
+  invisible: {
+    colors: {
+      main: "bg-transparent text-lcns-black",
+      accent: "bg-transparent",
+      border: "",
+    },
+    font: "font-[Fusion]",
+  },
 } as const;
 
 const style = computed(() => themes[theme]);
@@ -173,6 +182,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
           v-if="icon"
           class="flex flex-col items-center justify-center h-full"
         >
+          <!-- This could be optional and if it's not included, use a slot instead -->
           <SvgIcon type="mdi" :path="icon" class="" :size="32" />
         </div>
       </div>

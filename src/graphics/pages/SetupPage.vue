@@ -1,12 +1,16 @@
 <script lang="ts" setup>
 import { useReplicant } from "nodecg-vue-composable";
-import { RunDataActiveRun, RunDataArray } from "speedcontrol-util/types";
+import { RunDataArray } from "speedcontrol-util/types";
 import { ref } from "vue";
-import InsetContainer from "../components/InsetContainer.vue";
+import InlineSvg from "vue-inline-svg";
+import CameraPanel from "../components/page-elements/CameraPanel.vue";
+import LogoContainer from "../components/page-elements/LogoContainer.vue";
 import MaterialPanel from "../components/panels/MaterialPanel.vue";
 import FitText from "../components/text/FitText.vue";
 import TextBox from "../components/text/TextBox.vue";
-import { defaultRunData } from "../util/defaults";
+import TextLabel from "../components/text/TextLabel.vue";
+import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { withRunData } from "../composables/runData.js";
 import { getPlayers } from "../util/helpers.js";
 
 const layoutPath = new URL("../assets/setup.svg", import.meta.url).href;
@@ -19,11 +23,7 @@ const layoutRef = ref<SVGElement | null>(null);
  * runDataArray
  */
 
-const activeRun = useReplicant<RunDataActiveRun>(
-  "runDataActiveRun",
-  "nodecg-speedcontrol",
-  { defaultValue: defaultRunData as RunDataActiveRun },
-);
+const { runData, runners } = withRunData();
 
 const allRuns = useReplicant<RunDataArray>(
   "runDataArray",
@@ -33,7 +33,7 @@ const allRuns = useReplicant<RunDataArray>(
 
 function remainingRuns() {
   return allRuns?.data?.slice(
-    allRuns.data.findIndex((r) => r.id === activeRun.data?.id) + 1,
+    allRuns.data.findIndex((r) => r.id === runData.value?.id) + 1,
   );
 }
 
@@ -160,64 +160,155 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
         </filter>
       </defs>
     </svg>
-    <!-- <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" /> -->
+    <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
 
     <!-- <IncentiveComponent ratio="setup" /> -->
 
     <div
-      class="absolute w-full h-full grid"
+      id="main-grid"
+      class="absolute w-full h-full grid gap-3 -z-10"
       style="
-        grid-template-columns: minmax(60%, 2fr) 1fr 8rem;
-        grid-template-rows: 1fr 4fr 2fr 8rem;
+        grid-template-columns: 2rem auto 34rem 34rem 16rem;
+        grid-template-rows: 4rem 1fr 2fr 1fr 8rem;
       "
     >
       <div
-        id="logo-container"
-        class="absolute h-fit w-fit flex items-center col-start-2 col-span-1"
+        class="grid grid-cols-subgrid font-[Karnivore] text-3xl"
+        style="grid-area: top"
       >
-        <img src="../assets/logo_2025.png" />
+        <p></p>
+        <p class="flex justify-center items-end">UP NEXT</p>
+        <p class="flex justify-center items-end">UPCOMING</p>
       </div>
-      <MaterialPanel theme="red" class="row-start-3 row-span-1 font-[Fusion]">
-        <InsetContainer theme="red" class="h-full flex-row justify-between">
-          <TransitionGroup name="slide-h">
-            <MaterialPanel
-              theme="white"
-              v-for="run in remainingRuns()?.slice(0, 3)"
-              :key="run.id"
-              class="flex flex-col gap-2 h-full text-lcns-black"
-              style="width: calc((100% / 3) - 0.75rem)"
-            >
-              <TextBox theme="pronouns" class="grow">
-                <span
-                  v-for="(player, index) of getPlayers(run)"
-                  class="fit"
-                  :key="player.id"
-                >
-                  <FitText :options>{{ player.name }}</FitText>
-                  <template
-                    v-if="
-                      getPlayers(run).length > 1 &&
-                      getPlayers(run).length - index > 1
-                    "
-                  >
-                    &nbsp;|&nbsp;
-                  </template>
-                </span>
-              </TextBox>
 
-              <TextBox theme="pronouns" class="grow">
-                {{ run.game }}
-              </TextBox>
-              <TextBox theme="pronouns" class="grow">
-                {{ run.category }}
-              </TextBox>
-              <TextBox theme="pronouns" class="grow">
-                {{ run.estimate }}
-              </TextBox>
-            </MaterialPanel>
+      <div
+        theme="amber"
+        class="font-[Fusion]"
+        style="
+          grid-area: rite;
+          clip-path: polygon(0 0, 0 100%, 60% 100%, 100% 70%, 100% 0);
+        "
+      >
+        <div
+          class="relative w-full h-full overflow-hidden grid grid-rows-4 gap-2 p-0"
+        >
+          <TransitionGroup name="slide-h">
+            <div
+              class="relative w-full grid grid-cols-[3fr_1fr] grid-rows-3"
+              v-for="run in remainingRuns()?.slice(0, 4)"
+              :key="run.id"
+            >
+              <MaterialPanel
+                theme="white"
+                class="flex flex-col gap-2 justify-between w-full text-lcns-black row-span-3"
+              >
+                <TextLabel
+                  v-if="getPlayers(run).length > 0"
+                  class="h-20"
+                  text="RUNNER"
+                  align="start"
+                >
+                  <TextBox theme="pronouns" class="w-full">
+                    <template #rotation>
+                      <span
+                        v-for="(player, index) of getPlayers(run)"
+                        class="absolute h-full flex items-center justify-center"
+                        style="width: calc(100% - 1rem)"
+                        :key="player.id"
+                      >
+                        <FitText :options>{{ player.name }}</FitText>
+                        <span
+                          v-if="
+                            getPlayers(run).length > 1 &&
+                            getPlayers(run).length - index > 1
+                          "
+                        >
+                          &nbsp;|&nbsp;
+                        </span>
+                      </span>
+                    </template>
+                  </TextBox>
+                </TextLabel>
+
+                <TextLabel
+                  v-if="run.game"
+                  class="h-18"
+                  text="GAME NAME"
+                  align="start"
+                >
+                  <TextBox theme="invisible" class="w-full">
+                    {{ run.game }}
+                  </TextBox>
+                </TextLabel>
+                <TextLabel
+                  v-if="run.category"
+                  class="h-18"
+                  text="CATEGORY"
+                  align="start"
+                >
+                  <TextBox theme="invisible" class="w-full">
+                    {{ run.category }}
+                  </TextBox>
+                </TextLabel>
+              </MaterialPanel>
+              <MaterialPanel v-if="run.estimate" theme="white" class="-ml-3">
+                <TextLabel class="h-18" text="ESTIMATE" align="end">
+                  <TextBox theme="invisible" class="w-full">
+                    {{ run.estimate }}
+                  </TextBox>
+                </TextLabel>
+              </MaterialPanel>
+              <div class="inner-corner-xl corner-tl bg-lcns-white"></div>
+            </div>
           </TransitionGroup>
-        </InsetContainer>
-      </MaterialPanel>
+        </div>
+      </div>
+
+      <CameraPanel :runner="runners[0]" style="grid-area: mid">
+        <template #image>
+          <div
+            theme="white"
+            class="w-full h-full flex flex-col gap-4 justify-center"
+          >
+            <TextLabel
+              v-if="runData?.game"
+              class="h-18 text-lcns-white"
+              text="GAME NAME"
+              align="start"
+            >
+              <TextBox theme="lcd2" class="w-full">
+                {{ runData.game }}
+              </TextBox>
+            </TextLabel>
+            <TextLabel
+              v-if="runData?.category"
+              class="h-18 text-lcns-white"
+              text="CATEGORY"
+              align="start"
+            >
+              <TextBox theme="lcd2" class="w-full">
+                {{ runData.category }}
+              </TextBox>
+            </TextLabel>
+            <TextLabel
+              class="h-18 text-lcns-white"
+              text="ESTIMATE"
+              align="start"
+            >
+              <TextBox theme="lcd2" class="w-full">
+                {{ runData?.estimate }}
+              </TextBox>
+            </TextLabel>
+          </div>
+        </template>
+      </CameraPanel>
+
+      <IncentiveComponent style="grid-area: ictv" />
+
+      <LogoContainer
+        class="my-4 col-start-3 col-span-1"
+        style="grid-area: logo"
+      />
     </div>
 
     <!-- <div class="layout-container">
@@ -243,6 +334,15 @@ body {
   background-size: cover;
   overflow: hidden;
   margin: unset;
+}
+
+#main-grid {
+  grid-template-areas:
+    ". top  top  top  ."
+    ". ictv mid  rite ."
+    ". logo logo rite ."
+    ". logo logo rite ."
+    ". bttm bttm bttm .";
 }
 
 svg {

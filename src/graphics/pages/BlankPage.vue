@@ -1,18 +1,13 @@
 <script setup lang="ts">
-import {
-  mdiCalendar,
-  mdiCalendarMonth,
-  mdiGamepad,
-  mdiGamepadVariant,
-} from "@mdi/js";
-import InsetContainer from "../components/InsetContainer.vue";
-import TextBox from "../components/text/TextBox.vue";
-import TextLabel from "../components/text/TextLabel.vue";
 import SvgIcon from "@jamescoyle/vue-icon";
+import { mdiCalendarMonth, mdiGamepad, mdiGamepadVariant } from "@mdi/js";
+import InsetContainer from "../components/panels/InsetContainer.vue";
+import LCDItem from "../components/panels/LCDItem.vue";
 import LCDPanel from "../components/panels/LCDPanel.vue";
 import MaterialPanel from "../components/panels/MaterialPanel.vue";
+import TextBox from "../components/text/TextBox.vue";
+import TextLabel from "../components/text/TextLabel.vue";
 import TimerComponent from "../components/TimerComponent.vue";
-import LCDItem from "../components/panels/LCDItem.vue";
 
 const timerTestData = [
   {

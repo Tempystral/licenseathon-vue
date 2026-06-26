@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RunDataActiveRun } from "speedcontrol-util/types/index.js";
-import InsetContainer from "../InsetContainer.vue";
+import InsetContainer from "../panels/InsetContainer.vue";
 import MaterialPanel from "../panels/MaterialPanel.vue";
 import TextBox from "../text/TextBox.vue";
 import TextLabel from "../text/TextLabel.vue";
