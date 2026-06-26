@@ -15,7 +15,7 @@ const props = defineProps<{
 
 const showingSocials = ref(false);
 function changeDisplay() {
-  if (props.runner.pronouns) {
+  if (props.runner.social?.twitch) {
     showingSocials.value = !showingSocials.value;
   } else {
     showingSocials.value = false;
@@ -48,7 +48,7 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
                 <TransitionList
                   :items="[
                     { text: runner.name, condition: !showingSocials },
-                    { text: runner.social.twitch, condition: showingSocials },
+                    { text: runner.social?.twitch, condition: showingSocials },
                   ]"
                 >
                   <template #item="{ text, condition }">

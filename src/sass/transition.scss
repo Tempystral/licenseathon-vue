@@ -50,6 +50,7 @@
 
 .slide-h-leave-active {
   position: absolute;
+  max-height: calc(100% / 4 - 0.25rem);
 }
 
 .slide-h-leave-to {

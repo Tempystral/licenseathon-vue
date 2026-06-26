@@ -264,15 +264,15 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
         </div>
       </div>
 
-      <CameraPanel :runner="runners[0]" style="grid-area: mid">
+      <CameraPanel :runner="runners[0] ?? ''" style="grid-area: mid">
         <template #image>
           <div
             theme="white"
-            class="w-full h-full flex flex-col gap-4 justify-center"
+            class="w-full h-full flex flex-col gap-4 justify-around"
           >
             <TextLabel
               v-if="runData?.game"
-              class="h-18 text-lcns-white"
+              class="h-20 text-lcns-white"
               text="GAME NAME"
               align="start"
             >
@@ -282,7 +282,7 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
             </TextLabel>
             <TextLabel
               v-if="runData?.category"
-              class="h-18 text-lcns-white"
+              class="h-20 text-lcns-white"
               text="CATEGORY"
               align="start"
             >
@@ -291,7 +291,7 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
               </TextBox>
             </TextLabel>
             <TextLabel
-              class="h-18 text-lcns-white"
+              class="h-20 text-lcns-white"
               text="ESTIMATE"
               align="start"
             >
