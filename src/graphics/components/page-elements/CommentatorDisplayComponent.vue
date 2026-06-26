@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import SvgIcon from "@jamescoyle/vue-icon";
+import { defaultCommentators } from "@licenseathon-vue/graphics/util/defaults.js";
 import { Commentators } from "@licenseathon-vue/types/schemas";
 import { mdiMicrophone } from "@mdi/js";
 import { useReplicant } from "nodecg-vue-composable";
-import { computed, onMounted, watch } from "vue";
-import FitText from "../text/FitText.vue";
+import { computed } from "vue";
 import TextBox from "../text/TextBox.vue";
 import TextLabel from "../text/TextLabel.vue";
-import { defaultCommentators } from "@licenseathon-vue/graphics/util/defaults.js";
 
 const { orientation } = defineProps<{
   orientation: "horizontal" | "vertical";
@@ -39,10 +37,8 @@ function getPronouns(num: number) {
 
 <template>
   <div
-    class="grid gap-2 auto-cols-fr auto-rows-fr"
-    :class="
-      orientation === 'horizontal' ? 'w-full grid-cols-2' : 'w-8/12 -mt-4'
-    "
+    class="grid gap-2 auto-cols-fr auto-rows-max"
+    :class="orientation === 'horizontal' ? 'w-full grid-cols-2' : '-mt-4'"
   >
     <TextLabel
       v-if="commentators.length >= 1"
