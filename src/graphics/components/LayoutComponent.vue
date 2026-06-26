@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { Layout } from "../util/constants";
 import { getHeight, getWidth } from "../util/helpers";
 
 type Properties =
@@ -8,50 +9,81 @@ type Properties =
       height?: never;
       aspectRatio: [number, number];
       numPlayers: number;
+      layout: Layout;
     }
   | {
       width?: never;
       height: number;
       aspectRatio: [number, number];
       numPlayers: number;
+      layout: Layout;
     };
 
 const {
   aspectRatio = [16, 9],
   numPlayers,
+  layout,
   ...props
 } = defineProps<Properties>();
 
 const width = ref(props.width ?? getWidth(props.height, aspectRatio));
 const height = ref(props.height ?? getHeight(props.width, aspectRatio));
 
-const gridStyles = computed(() =>
-  numPlayers === 3 // Ugly hack for three players
-    ? `grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr calc(100% - ${0.5 * numPlayers}rem - ${height.value}rem);
-  grid-template-areas: ${layouts[numPlayers]}`
-    : `
-  grid-template-columns: calc(100% - ${0.5 * numPlayers}rem - ${width.value}rem) 1fr 1fr;
-  grid-template-rows: 1fr 1fr calc(100% - ${0.5 * numPlayers}rem - ${height.value}rem);
-  grid-template-areas: ${layouts[numPlayers]}
-  `,
+const emptyWidth = computed(
+  () => `calc(100% - ${0.5 * numPlayers + width.value}rem)`,
+);
+const emptyHeight = computed(
+  () => `calc(100% - ${0.5 * numPlayers + height.value}rem)`,
 );
 
-const layouts = [
-  "",
-  // 1
-  `"left main main"
-   "left main main"
-   "left foot foot"`,
-  // 2
-  `"main main main"
-   "main main main"
-   "foot foot foot"`,
-  // 3
-  `"left foot main"
-   "left foot main"
-   "left foot main"`,
-];
+const gridStyles = computed(() => buildGrid(layouts[layout]));
+
+function buildGrid(layout: (typeof layouts)[Layout]) {
+  return `
+  grid-template-areas: ${layout.grid};
+  grid-template-columns: ${layout.cols.replace(/empty/gi, emptyWidth.value)};
+  grid-template-rows: ${layout.rows.replace(/empty/gi, emptyHeight.value)};
+  `;
+}
+
+const layouts = {
+  layout_4_3: {
+    grid: `
+  "left main main"
+  "left main main"
+  "left foot foot"`,
+    rows: "1fr 1fr empty",
+    cols: "empty 1fr 1fr",
+  },
+
+  layout_16_9: {
+    grid: `
+  "left top  top"
+  "left main main"
+  "left main main"
+  "foot foot foot"`,
+    rows: "2rem 1fr 1fr calc(empty - 2.5rem)",
+    cols: "empty 1fr 1fr",
+  },
+
+  layout_race: {
+    grid: `
+  "main main main"
+  "main main main"
+  "foot foot foot"`,
+    rows: "1fr 1fr empty",
+    cols: "empty 1fr 1fr",
+  },
+
+  layout_3_way: {
+    grid: `
+  "left foot main"
+  "left foot main"
+  "left foot main"`,
+    rows: "1fr 1fr empty",
+    cols: "1fr 1fr 1fr",
+  },
+};
 </script>
 
 <template>
@@ -73,35 +105,4 @@ const layouts = [
 <style lang="scss">
 @use "@licenseathon-vue/sass/style.scss";
 @use "@licenseathon-vue/sass/color" as theme;
-
-.layout {
-  /* grid-template-columns: 1fr auto;
-  grid-template-rows: auto 1fr; */
-  /* grid-template-areas:
-    "left main"
-    "foot foot"; */
-  /* grid-template-areas:
-    "left main"
-    "left foot"; */
-}
-
-/* #left {
-  background: pink;
-}
-
-#main {
-  background: grey;
-}
-
-#right {
-  background: green;
-}
-
-#header {
-  background: blue;
-}
-
-#footer {
-  background: orange;
-} */
 </style>
