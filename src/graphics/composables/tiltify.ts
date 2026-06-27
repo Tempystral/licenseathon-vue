@@ -96,7 +96,7 @@ export function withIncentives(...incentives: Ref<Incentive[]>[]) {
   }
 
   onMounted(() => {
-    setInterval(nextItem, 150000);
+    setInterval(nextItem, 20000);
   });
 
   return {
