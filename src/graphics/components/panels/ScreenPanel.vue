@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defaultTimer } from "@licenseathon-vue/graphics/util/defaults";
 import { useReplicant } from "nodecg-vue-composable";
-import { Timer } from "speedcontrol-util/types";
+import { Timer } from "speedcontrol-util/types/speedcontrol";
 import { computed } from "vue";
 
 const props = defineProps<{

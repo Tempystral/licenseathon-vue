@@ -21,13 +21,13 @@ export default defineConfig({
     //vueDevTools({ launchEditor: "code" }),
     tailwindcss(),
     checker({ vueTsc: { tsconfigPath: "tsconfig.browser.json" } }),
-    NodeCGPlugin({
+    NodeCGPlugin(/* {
       srcDir: "./src",
       inputs: {
         "graphics/*.{js,ts}": "./src/graphics/template.html",
         "dashboard/*.{js,ts}": "./src/dashboard/template.html",
       },
-    }),
+    } */),
   ],
   optimizeDeps: {
     include: ["~/git/nodecg-vue-composable"],

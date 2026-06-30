@@ -110,16 +110,16 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "src/dashboard/**/*.ts",
-    "src/dashboard/**/*.vue",
-    "src/graphics/**/*.ts",
-    "src/graphics/**/*.vue",
-    "src/browser-shared/**/*.ts",
-    "src/types/**/*.d.ts",
-    "node_modules/@nodecg/types/types/augment-window.d.ts",
-    "node_modules/speedcontrol-util/types/index.d.ts",
-    "node_modules/vue-inline-svg/**/*/index.d.ts",
-    "node_modules/@fortawesome/**/*/index.d.ts",
+    "./src/dashboard/**/*.ts",
+    "./src/dashboard/**/*.vue",
+    "./src/graphics/**/*.ts",
+    "./src/graphics/**/*.vue",
+    "./src/browser-shared/**/*.ts",
+    "./src/types/**/*.d.ts",
+    "./node_modules/@nodecg/types/types/augment-window.d.ts",
+    "./node_modules/speedcontrol-util/types/index.d.ts",
+    "./node_modules/vue-inline-svg/**/*/index.d.ts",
+    "./node_modules/@fortawesome/**/*/index.d.ts",
     "/home/azurite/nodecg/bundles/nodecg-tiltify/src/types/**/*.d.ts"
   ],
 }
