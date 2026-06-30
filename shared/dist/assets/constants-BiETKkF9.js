@@ -1,1 +1,0 @@
-var e=[16,9],t=[4,3],n=[3,2],r=function(e){return e.LAYOUT_SD=`layout_4_3`,e.LAYOUT_HD=`layout_16_9`,e.LAYOUT_2P=`layout_race`,e.LAYOUT_3P=`layout_3_way`,e}({});export{r as i,n,t as r,e as t};
