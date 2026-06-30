@@ -39,4 +39,8 @@ const positions = {
 <style lang="scss">
 @use "@licenseathon-vue/sass/style.scss";
 @use "@licenseathon-vue/sass/color" as theme;
+
+.chroma-key {
+  background: magenta !important;
+}
 </style>

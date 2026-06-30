@@ -1,0 +1,461 @@
+{
+  "_ActiveRunPage-DUeBECQH.js": {
+    "file": "assets/ActiveRunPage-DUeBECQH.js",
+    "name": "ActiveRunPage",
+    "imports": [
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js",
+      "_TimerPanel-NStQhvfD.js",
+      "_CameraPanel-CbTMFhQ8.js",
+      "_CommentatorDisplayComponent-DCCvmzEq.js"
+    ],
+    "css": [
+      "assets/race_3_way-BktpW-JD.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "_CameraPanel-CbTMFhQ8.js": {
+    "file": "assets/CameraPanel-CbTMFhQ8.js",
+    "name": "CameraPanel",
+    "imports": [
+      "_svg-icon-DDbGCR5t.js",
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js"
+    ],
+    "css": [
+      "assets/CameraPanel-DQS1tDDr.css"
+    ]
+  },
+  "_CameraPanel-DQS1tDDr.css": {
+    "file": "assets/CameraPanel-DQS1tDDr.css",
+    "src": "_CameraPanel-DQS1tDDr.css"
+  },
+  "_CommentatorDisplayComponent-CsZmpvrm.css": {
+    "file": "assets/CommentatorDisplayComponent-CsZmpvrm.css",
+    "src": "_CommentatorDisplayComponent-CsZmpvrm.css"
+  },
+  "_CommentatorDisplayComponent-DCCvmzEq.js": {
+    "file": "assets/CommentatorDisplayComponent-DCCvmzEq.js",
+    "name": "CommentatorDisplayComponent",
+    "imports": [
+      "_svg-icon-DDbGCR5t.js",
+      "_dist-By07R01v.js",
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js"
+    ],
+    "css": [
+      "assets/CommentatorDisplayComponent-CsZmpvrm.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2"
+    ]
+  },
+  "_RacePage-CiTmAQ1H.js": {
+    "file": "assets/RacePage-CiTmAQ1H.js",
+    "name": "RacePage",
+    "imports": [
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js",
+      "_TimerPanel-NStQhvfD.js",
+      "_CommentatorDisplayComponent-DCCvmzEq.js",
+      "_ScreenPanel-Cle7V8a1.js",
+      "_constants-BiETKkF9.js"
+    ],
+    "css": [
+      "assets/race_3_way-BktpW-JD.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "_ScreenPanel-Cle7V8a1.js": {
+    "file": "assets/ScreenPanel-Cle7V8a1.js",
+    "name": "ScreenPanel",
+    "imports": [
+      "_svg-icon-DDbGCR5t.js",
+      "_dist-By07R01v.js",
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js"
+    ],
+    "css": [
+      "assets/CommentatorDisplayComponent-CsZmpvrm.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2"
+    ]
+  },
+  "_TLC_primaryNOTAG-BJqJUlDy.js": {
+    "file": "assets/TLC_primaryNOTAG-BJqJUlDy.js",
+    "name": "TLC_primaryNOTAG",
+    "assets": [
+      "assets/TLC_primaryNOTAG-Cti1RBft.svg"
+    ]
+  },
+  "_TimerPanel-C_vvmhMI.css": {
+    "file": "assets/TimerPanel-C_vvmhMI.css",
+    "src": "_TimerPanel-C_vvmhMI.css"
+  },
+  "_TimerPanel-NStQhvfD.js": {
+    "file": "assets/TimerPanel-NStQhvfD.js",
+    "name": "TimerPanel",
+    "imports": [
+      "_svg-icon-DDbGCR5t.js",
+      "_dist-By07R01v.js",
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js",
+      "_vue-inline-svg.esm-DpdmZ4GO.js"
+    ],
+    "css": [
+      "assets/TimerPanel-C_vvmhMI.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2"
+    ]
+  },
+  "_button-CQSxQENq.js": {
+    "file": "assets/button-CQSxQENq.js",
+    "name": "button",
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_dist-DL5PpXRg.js"
+    ]
+  },
+  "_constants-BiETKkF9.js": {
+    "file": "assets/constants-BiETKkF9.js",
+    "name": "constants"
+  },
+  "_dist-By07R01v.js": {
+    "file": "assets/dist-By07R01v.js",
+    "name": "dist",
+    "imports": [
+      "_dist-DL5PpXRg.js"
+    ]
+  },
+  "_dist-DL5PpXRg.js": {
+    "file": "assets/dist-DL5PpXRg.js",
+    "name": "dist"
+  },
+  "_runData-DKJ5CuLa.css": {
+    "file": "assets/runData-DKJ5CuLa.css",
+    "src": "_runData-DKJ5CuLa.css"
+  },
+  "_runData-DiXZX_9a.js": {
+    "file": "assets/runData-DiXZX_9a.js",
+    "name": "runData",
+    "imports": [
+      "_svg-icon-DDbGCR5t.js",
+      "_dist-By07R01v.js",
+      "_dist-DL5PpXRg.js",
+      "_vue-inline-svg.esm-DpdmZ4GO.js",
+      "_TLC_primaryNOTAG-BJqJUlDy.js"
+    ],
+    "css": [
+      "assets/runData-DKJ5CuLa.css"
+    ],
+    "assets": [
+      "assets/logo_2026-Cp7u7rZN.png",
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2"
+    ]
+  },
+  "_svg-icon-BdCm6MLa.css": {
+    "file": "assets/svg-icon-BdCm6MLa.css",
+    "src": "_svg-icon-BdCm6MLa.css"
+  },
+  "_svg-icon-DDbGCR5t.js": {
+    "file": "assets/svg-icon-DDbGCR5t.js",
+    "name": "svg-icon",
+    "imports": [
+      "_dist-DL5PpXRg.js"
+    ],
+    "css": [
+      "assets/svg-icon-BdCm6MLa.css"
+    ]
+  },
+  "_template-CeY4gyNH.css": {
+    "file": "assets/template-CeY4gyNH.css",
+    "src": "_template-CeY4gyNH.css"
+  },
+  "_template-DNPvtI-N.js": {
+    "file": "assets/template-DNPvtI-N.js",
+    "name": "template",
+    "imports": [
+      "_dist-DL5PpXRg.js"
+    ],
+    "css": [
+      "assets/template-CeY4gyNH.css"
+    ]
+  },
+  "_vue-inline-svg.esm-DpdmZ4GO.js": {
+    "file": "assets/vue-inline-svg.esm-DpdmZ4GO.js",
+    "name": "vue-inline-svg.esm",
+    "imports": [
+      "_dist-DL5PpXRg.js"
+    ]
+  },
+  "src/dashboard/commentatorPanel.ts": {
+    "file": "assets/commentatorPanel-BZKw2ifK.js",
+    "name": "commentatorPanel",
+    "src": "src/dashboard/commentatorPanel.ts",
+    "isEntry": true,
+    "imports": [
+      "_svg-icon-DDbGCR5t.js",
+      "_dist-By07R01v.js",
+      "_template-DNPvtI-N.js",
+      "_button-CQSxQENq.js",
+      "_dist-DL5PpXRg.js"
+    ]
+  },
+  "src/dashboard/creditsPanel.ts": {
+    "file": "assets/creditsPanel-DePsolW-.js",
+    "name": "creditsPanel",
+    "src": "src/dashboard/creditsPanel.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-By07R01v.js",
+      "_template-DNPvtI-N.js",
+      "_button-CQSxQENq.js",
+      "_dist-DL5PpXRg.js"
+    ]
+  },
+  "src/graphics/assets/TLC_primaryNOTAG.svg": {
+    "file": "assets/TLC_primaryNOTAG-Cti1RBft.svg",
+    "src": "src/graphics/assets/TLC_primaryNOTAG.svg"
+  },
+  "src/graphics/assets/background.png": {
+    "file": "assets/background-2_kOoUL2.png",
+    "src": "src/graphics/assets/background.png"
+  },
+  "src/graphics/assets/fonts/Fusion.woff2": {
+    "file": "assets/Fusion-DM-HRgC-.woff2",
+    "src": "src/graphics/assets/fonts/Fusion.woff2"
+  },
+  "src/graphics/assets/fonts/Karnivore-Bold.woff2": {
+    "file": "assets/Karnivore-Bold-DII76D3g.woff2",
+    "src": "src/graphics/assets/fonts/Karnivore-Bold.woff2"
+  },
+  "src/graphics/assets/fonts/Karnivore.woff2": {
+    "file": "assets/Karnivore-DS1QiLWx.woff2",
+    "src": "src/graphics/assets/fonts/Karnivore.woff2"
+  },
+  "src/graphics/assets/fonts/KarnivoreBlack.woff2": {
+    "file": "assets/KarnivoreBlack-EIUXNt2G.woff2",
+    "src": "src/graphics/assets/fonts/KarnivoreBlack.woff2"
+  },
+  "src/graphics/assets/fonts/KarnivoreDigit.woff2": {
+    "file": "assets/KarnivoreDigit-QTnh7KO-.woff2",
+    "src": "src/graphics/assets/fonts/KarnivoreDigit.woff2"
+  },
+  "src/graphics/assets/fonts/KarnivoreLite.woff2": {
+    "file": "assets/KarnivoreLite-PnTG27nK.woff2",
+    "src": "src/graphics/assets/fonts/KarnivoreLite.woff2"
+  },
+  "src/graphics/assets/logo_2025.png": {
+    "file": "assets/logo_2025-DK4M8EH1.png",
+    "src": "src/graphics/assets/logo_2025.png"
+  },
+  "src/graphics/assets/logo_2026.png": {
+    "file": "assets/logo_2026-Cp7u7rZN.png",
+    "src": "src/graphics/assets/logo_2026.png"
+  },
+  "src/graphics/credits.ts": {
+    "file": "assets/credits-OfDkG7Nh.js",
+    "name": "credits",
+    "src": "src/graphics/credits.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-By07R01v.js",
+      "_template-DNPvtI-N.js",
+      "_dist-DL5PpXRg.js",
+      "_vue-inline-svg.esm-DpdmZ4GO.js",
+      "_TLC_primaryNOTAG-BJqJUlDy.js"
+    ],
+    "css": [
+      "assets/credits-KlC09RVC.css"
+    ],
+    "assets": [
+      "assets/logo_2025-DK4M8EH1.png",
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "src/graphics/race_16_9.ts": {
+    "file": "assets/race_16_9-BMAy50lq.js",
+    "name": "race_16_9",
+    "src": "src/graphics/race_16_9.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_RacePage-CiTmAQ1H.js",
+      "_constants-BiETKkF9.js"
+    ]
+  },
+  "src/graphics/race_3_way.ts": {
+    "file": "assets/race_3_way-CQeavW2H.js",
+    "name": "race_3_way",
+    "src": "src/graphics/race_3_way.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js",
+      "_TimerPanel-NStQhvfD.js",
+      "_ScreenPanel-Cle7V8a1.js",
+      "_constants-BiETKkF9.js"
+    ],
+    "css": [
+      "assets/race_3_way-BktpW-JD.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "src/graphics/race_4_3.ts": {
+    "file": "assets/race_4_3-CETC_sSV.js",
+    "name": "race_4_3",
+    "src": "src/graphics/race_4_3.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_RacePage-CiTmAQ1H.js",
+      "_constants-BiETKkF9.js"
+    ]
+  },
+  "src/graphics/setup.ts": {
+    "file": "assets/setup-CT0_aHO5.js",
+    "name": "setup",
+    "src": "src/graphics/setup.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-By07R01v.js",
+      "_template-DNPvtI-N.js",
+      "_dist-DL5PpXRg.js",
+      "_runData-DiXZX_9a.js",
+      "_vue-inline-svg.esm-DpdmZ4GO.js",
+      "_CameraPanel-CbTMFhQ8.js"
+    ],
+    "css": [
+      "assets/setup-BWiiMChe.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "src/graphics/solo_16_9.ts": {
+    "file": "assets/solo_16_9-Ch9gp_32.js",
+    "name": "solo_16_9",
+    "src": "src/graphics/solo_16_9.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_ActiveRunPage-DUeBECQH.js",
+      "_constants-BiETKkF9.js"
+    ]
+  },
+  "src/graphics/solo_4_3.ts": {
+    "file": "assets/solo_4_3-eSc64c1c.js",
+    "name": "solo_4_3",
+    "src": "src/graphics/solo_4_3.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_ActiveRunPage-DUeBECQH.js",
+      "_constants-BiETKkF9.js"
+    ]
+  },
+  "src/graphics/solo_GBA.ts": {
+    "file": "assets/solo_GBA-BEojhIs7.js",
+    "name": "solo_GBA",
+    "src": "src/graphics/solo_GBA.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_ActiveRunPage-DUeBECQH.js",
+      "_constants-BiETKkF9.js"
+    ]
+  },
+  "src/graphics/solo_ds.ts": {
+    "file": "assets/solo_ds-B51N3Tft.js",
+    "name": "solo_ds",
+    "src": "src/graphics/solo_ds.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-DL5PpXRg.js",
+      "_ActiveRunPage-DUeBECQH.js"
+    ]
+  },
+  "src/graphics/splash.ts": {
+    "file": "assets/splash-C5vKZKOG.js",
+    "name": "splash",
+    "src": "src/graphics/splash.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-DNPvtI-N.js",
+      "_dist-DL5PpXRg.js",
+      "_vue-inline-svg.esm-DpdmZ4GO.js"
+    ],
+    "css": [
+      "assets/splash-gvKBfzGn.css"
+    ],
+    "assets": [
+      "assets/logo_2025-DK4M8EH1.png",
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  }
+}

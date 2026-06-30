@@ -1,0 +1,1 @@
+var e=`/bundles/licenseathon-vue/shared/dist/assets/TLC_primaryNOTAG-Cti1RBft.svg`;export{e as t};
