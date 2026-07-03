@@ -6,6 +6,7 @@ import EstimateDisplay from "../components/page-elements/EstimateDisplay.vue";
 import GameInfo from "../components/page-elements/GameInfo.vue";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
 import TimerPanel from "../components/page-elements/TimerPanel.vue";
+import ScreenPanel from "../components/panels/ScreenPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import { withRunData } from "../composables/runData.js";
 import { Layout } from "../util/constants.js";
@@ -45,9 +46,11 @@ const { runData, runners } = withRunData();
 
     <template #main>
       <div class="relative h-full">
-        <div
-          class="chroma-key h-full border-4 border-lcns-white rounded-2xl"
-        ></div>
+        <ScreenPanel
+          :id="runners[0].teamID"
+          :player="0"
+          position="bl"
+        />
       </div>
     </template>
 
