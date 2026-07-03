@@ -15,9 +15,7 @@ const props = defineProps<{ options: optionsInterface }>();
 const contentID = ref("fitty-" + v4());
 
 onMounted(() => {
-  nextTick(() => {
-    fitty("#" + contentID.value, props.options);
-  });
+  fitty("#" + contentID.value, props.options);
 });
 </script>
 <template>

@@ -5,8 +5,8 @@ import InlineSvg from "vue-inline-svg";
 import getSeconds from "../util/updatetime";
 import { mdiCalendarMonth, mdiGamepadVariant } from "@mdi/js";
 import SvgIcon from "@jamescoyle/vue-icon";
-import { getPlayers } from "../util/composables";
-import FitText from "./FitText.vue";
+import { getPlayers } from "../util/helpers";
+import FitText from "./text/FitText.vue";
 
 const props = defineProps<{
   run: RunDataActiveRun;
@@ -26,8 +26,8 @@ const activePlayerImage = computed(
   () =>
     new URL(
       `../assets/runners/${activePlayer.value.social.twitch}.png`,
-      import.meta.url
-    ).href
+      import.meta.url,
+    ).href,
 );
 
 const fitTextOptions = {
@@ -37,7 +37,7 @@ const fitTextOptions = {
 };
 watch(
   () => props.run,
-  () => console.log(`Run: ${props.run?.game} | ${props.run?.id}`)
+  () => console.log(`Run: ${props.run?.game} | ${props.run?.id}`),
 );
 </script>
 
@@ -211,7 +211,8 @@ watch(
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
     linear-gradient(
       90deg,
       rgba(255, 0, 0, 0.06),
@@ -219,7 +220,9 @@ watch(
       rgba(0, 0, 255, 0.06)
     );
   z-index: 2;
-  background-size: 100% 2px, 3px 100%;
+  background-size:
+    100% 2px,
+    3px 100%;
   pointer-events: none;
 }
 </style>

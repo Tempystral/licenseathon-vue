@@ -38,21 +38,48 @@
   animation: 1s cubic-bezier(0.25, 1, 0.3, 1) wipe-leave-active both;
 }
 
+.slide-h-leave-active {
+  transition: all 0.5s ease-in;
+}
+
 .slide-h-enter-active,
-.slide-h-leave-active,
 .slide-h-move {
   transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-  transition-delay: 0.5s;
+  transition-delay: 0.6s;
 }
+
 .slide-h-leave-active {
   position: absolute;
+  max-height: calc(100% / 4 - 0.25rem);
 }
 
 .slide-h-leave-to {
-  transform: translateY(-250px);
-  transition: all 1s ease;
+  transform: translateX(-100%);
 }
 .slide-h-enter-from {
-  transition: all 1.5s ease;
-  transition-delay: 0.5s;
+  transform: translateY(100%);
+}
+
+/* slide */
+.slide-enter-from {
+  transform: translateY(120%);
+}
+.slide-enter-to {
+  transform: translateY(0);
+}
+
+.slide-enter-active {
+  position: absolute;
+}
+
+.slide-leave {
+  transform: translateY(0);
+}
+.slide-leave-to {
+  transform: translateY(-120%);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 750ms ease-in-out;
 }

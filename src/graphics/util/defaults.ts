@@ -43,3 +43,7 @@ export const defaultTeamFinishTime = {
   milliseconds: 0,
   timestamp: 0,
 };
+
+export const defaultCommentators = {
+  names: [{ name: "" }, { name: "" }],
+};

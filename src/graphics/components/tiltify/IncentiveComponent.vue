@@ -1,52 +1,31 @@
 <script setup lang="ts">
-import { useReplicant } from "nodecg-vue-composable";
-import { computed, onMounted, ref, Transition, watch } from "vue";
 import {
-  Poll,
-  Polls,
-  Target,
-  Targets,
-  Total,
-} from "../../../../../../nodecg/bundles/nodecg-tiltify/src/types/schemas";
+  Incentive,
+  withIncentives,
+  withTiltifyPolls,
+  withTiltifyTargets,
+} from "@licenseathon-vue/graphics/composables/tiltify";
+import { useReplicant } from "nodecg-vue-composable";
+import { computed, Transition } from "vue";
+import { Total } from "../../../../../nodecg-tiltify/src/types/schemas";
+import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
+import InsetContainer from "../panels/InsetContainer.vue";
+import MaterialPanel from "../panels/MaterialPanel.vue";
+import MessageComponent from "./MessageComponent.vue";
 import PollComponent from "./PollComponent.vue";
 import TargetComponent from "./TargetComponent.vue";
-import { NodeCGAPIClient } from "node_modules/nodecg/out/client/api/api.client";
-import { Configschema } from "@licenseathon-vue/types/schemas";
-import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
 
-const props = defineProps<{
-  ratio: string;
-  color?: string;
-}>();
-
-const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
-const activePolls = ref<Incentive[]>(getActivePolls());
-
-const targets = useReplicant<Targets>("targets", "nodecg-tiltify");
-const activeTargets = ref<Incentive[]>(getActiveTargets());
+const { polls } = withTiltifyPolls();
+const { targets } = withTiltifyTargets();
 
 const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
-
-type Incentive =
-  | {
-      type: "poll";
-      item: Poll;
-    }
-  | {
-      type: "target";
-      item: Target;
-    }
-  | {
-      type: "message";
-      item: { text?: string; img?: string; orientation: "h" | "v"; id: string };
-    };
 
 const messages = computed<Incentive[]>(() => [
   {
     type: "message",
     item: {
       id: "tlclogo",
-      orientation: "h",
+      orientation: "v",
       text: "In support of: ",
       img: tlcLogo,
     },
@@ -69,174 +48,41 @@ const messages = computed<Incentive[]>(() => [
   },
 ]);
 
-const incentives = computed<Incentive[]>(() => [
-  ...messages.value,
-  ...activePolls.value,
-  ...activeTargets.value,
-]);
-
-function getActivePolls(): Incentive[] {
-  return (
-    polls.data
-      ?.filter((p) => p.active)
-      .map((p) => ({
-        type: "poll",
-        item: p,
-      })) ?? []
-  );
-}
-
-function getActiveTargets(): Incentive[] {
-  return (
-    targets.data
-      ?.filter((t) => t.active)
-      .map((t) => ({
-        type: "target",
-        item: t,
-      })) ?? []
-  );
-}
-
-watch(
-  () => polls.data,
-  (newVal) => {
-    if (newVal) {
-      activePolls.value = getActivePolls();
-    }
-  }
-);
-
-watch(
-  () => targets.data,
-  (newVal) => {
-    if (newVal) {
-      activeTargets.value = getActiveTargets();
-    }
-  }
-);
-
-const currentItem = computed(() => incentives.value[currentIndex.value]);
-const currentIndex = ref(0);
-
-onMounted(() => {
-  setInterval(nextItem, 15000);
-});
-
-function nextItem() {
-  if (incentives.value.length > 0) {
-    if (currentIndex.value + 1 >= incentives.value.length) {
-      currentIndex.value = 0;
-    } else {
-      currentIndex.value++;
-    }
-  }
-}
+const { incentive, hasIncentives } = withIncentives(messages, polls, targets);
 </script>
 
 <template>
-  <div
-    id="incentive-container"
-    :class="`layout-${ratio} absolute rounded-xl inline-block`"
-  >
-    <div
-      v-if="incentives.length > 0"
-      class="h-full w-full max-w-full max-h-full flex flex-col relative overflow-x-hidden overflow-y-clip z-10"
+  <MaterialPanel class="w-full h-full relative">
+    <InsetContainer
+      v-if="hasIncentives()"
+      class="relative h-full overflow-x-hidden overflow-y-clip z-10"
     >
-      <Transition name="slide">
-        <div
-          v-if="currentItem"
-          class="h-full w-full"
-          :key="currentItem.item.id"
-        >
+      <div class="w-full h-full inline-block relative">
+        <Transition name="slide">
           <PollComponent
-            class="font-[Fusion]"
-            v-if="currentItem.type === 'poll'"
-            :textSize="ratio === '4-3' ? 'xl' : '2xl'"
-            :poll="currentItem.item"
+            class="font-[Fusion] absolute"
+            v-if="incentive.type === 'poll'"
+            :poll="incentive.item"
           />
           <TargetComponent
-            class="font-[Fusion]"
-            v-else-if="currentItem.type === 'target'"
-            :target="currentItem.item"
+            class="font-[Fusion] absolute"
+            v-else-if="incentive.type === 'target'"
+            :target="incentive.item"
           />
-          <div
-            v-else-if="currentItem.type === 'message'"
-            class="font-sans flex basis-1 h-full items-center justify-center text-4xl gap-2 p-4"
-            :class="
-              currentItem.item.orientation === 'v' ? 'flex-col' : 'flex-row'
-            "
-          >
-            <p class="">{{ currentItem.item.text }}</p>
-            <img
-              v-if="currentItem.item.img"
-              :src="currentItem.item.img"
-              class="bg-white/80 rounded-xl min-w-0 max-w-8/12 min-h-0 max-h-full"
-            />
-          </div>
-        </div>
-      </Transition>
-    </div>
-  </div>
+          <MessageComponent
+            class="font-[Karnivore] absolute"
+            v-else-if="incentive.type === 'message'"
+            :key="incentive.item.id"
+            :message="incentive.item"
+          />
+        </Transition>
+      </div>
+    </InsetContainer>
+  </MaterialPanel>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use "@licenseathon-vue/sass/style.scss";
 @use "@licenseathon-vue/sass/color" as theme;
-
-#incentive-container {
-  background: theme.$lcns-dark-blue;
-  border: 0.5em solid theme.$lcns-blue;
-  box-shadow: inset 0 0 4px 0 black;
-
-  &.layout-4-3 {
-    top: 960px;
-    left: 662px;
-    width: 1123px;
-    height: 115px;
-  }
-  &.layout-3-2 {
-    top: 855px;
-    left: 662px;
-    width: 1000px;
-    height: 220px;
-  }
-  &.layout-16-9 {
-    top: 845px;
-    left: 647px;
-    width: 735px;
-    height: 230px;
-    padding-block: 2em;
-  }
-
-  &.layout-setup {
-    top: 70px;
-    left: 10px;
-    width: 1090px;
-    height: 180px;
-    padding-block: 1em;
-  }
-}
-
-.slide-enter-from {
-  transform: translateY(110%);
-}
-.slide-enter-to {
-  transform: translateY(0);
-}
-
-.slide-enter-active {
-  position: absolute;
-}
-
-.slide-leave {
-  transform: translateY(0);
-}
-.slide-leave-to {
-  transform: translateY(-110%);
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 750ms ease-in-out;
-}
+@use "@licenseathon-vue/sass/transition";
 </style>

@@ -1,2 +1,78 @@
 @import "tailwindcss";
 @import "tailwindcss-primeui";
+
+
+
+@theme {
+  /* --color-*: initial; */
+  --color-lcns-light-blue: #92caff;
+  --color-lcns-blue: #5daeff;
+  --color-lcns-dark-blue: #305780;
+  --color-lcns-amber: #ffba4a;
+  --color-lcns-white: #f2f2f2;
+  --color-lcns-grey: #8f969f;
+  --color-lcns-black: #18191b;
+  --color-lcns-red: #ef5b5b;
+  --color-lcns-teal: #a9ebdd;
+  --color-lcns-purple: #440722;
+  --color-lcns-label: var(--color-gray-600);
+
+  /* Shadows */
+  --inset-shadow-xs: inset 0 0 4px var(--tw-inset-shadow-color, rgb(0 0 0 / 0.05));
+  
+  --inner-corner-sm: var(--radius-sm);
+  --inner-corner-md: var(--radius-md);
+  --inner-corner-lg: var(--radius-lg);
+  --inner-corner-xl: var(--radius-xl);
+
+  --aspect-retro: 4/3
+}
+
+@utility inner-corner-* {
+  --r: --value(--inner-corner-*, --default(var(--radius-md)));
+  --rm: calc(-1 * var(--r));
+
+  /* Defaults */
+  --tl-start: 0% 0%;
+  --tl-instruction: vline to 100%;
+  --tr-start: 0%;
+  --tr-instruction: hline to 0%;
+  --br-start: 100%;
+  --br-instruction: vline to 0%;
+  --bl-start: 100%;
+  --bl-instruction: hline to 100%;
+
+  &.corner-tl, &.corner-t, &.corner-l {
+    --tl-start: 0% var(--r);
+    --tl-instruction: arc by  var(--r) var(--rm) of var(--r) cw, hline to 0%, vline to 100%;
+  }
+  &.corner-bl, &.corner-b, &.corner-l {
+    --bl-start: var(--r);
+    --bl-instruction: hline to var(--bl-start), arc by var(--rm) var(--rm) of var(--r) cw, vline to 100%, hline to 100%;
+  }
+  &.corner-br, &.corner-b, &.corner-r {
+    --br-start: calc(100% - var(--r));
+    --br-instruction: vline to var(--br-start), arc by var(--rm) var(--r) of var(--r) cw, hline to 100%, vline to 0%;
+  }
+  &.corner-tr, &.corner-t, &.corner-r {
+    --tr-start: calc(100% - var(--r));
+    --tr-instruction: hline to var(--tr-start), arc by var(--r) var(--r) of var(--r) cw, vline to 0%, hline to 0%;
+  }
+
+  /* Because of how clip-path works, we want to clip only the corners.
+  That means sketching a corner, then doubling back to the next one to
+  preserve the negative space between them. After it's all done, we need
+  to retrace our steps along the edge to again preserve the negative space. */
+  clip-path: shape(
+      from var(--tl-start),
+      var(--tl-instruction),
+      var(--bl-instruction),
+      var(--br-instruction),
+      var(--tr-instruction),
+      hline to 100%,
+      vline to 100%,
+      hline to 0%,
+      vline to 0%,
+      close
+    );
+}
