@@ -1,0 +1,419 @@
+{
+  "_ActiveRunPage-D422Xqc_.js": {
+    "file": "assets/ActiveRunPage-D422Xqc_.js",
+    "name": "ActiveRunPage",
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_runData-C5J9UwDs.js",
+      "_constants-Df-rnsHd.js",
+      "_CommentatorDisplayComponent-Dv4p8Yp7.js",
+      "_CameraPanel-BYV7sfRf.js"
+    ],
+    "css": [
+      "assets/race_3_way-BktpW-JD.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "_CameraPanel-BYV7sfRf.js": {
+    "file": "assets/CameraPanel-BYV7sfRf.js",
+    "name": "CameraPanel",
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_runData-C5J9UwDs.js",
+      "_svg-icon-Cc4VR3aL.js"
+    ],
+    "css": [
+      "assets/CameraPanel-DQS1tDDr.css"
+    ]
+  },
+  "_CameraPanel-DQS1tDDr.css": {
+    "file": "assets/CameraPanel-DQS1tDDr.css",
+    "src": "_CameraPanel-DQS1tDDr.css"
+  },
+  "_CommentatorDisplayComponent-CsZmpvrm.css": {
+    "file": "assets/CommentatorDisplayComponent-CsZmpvrm.css",
+    "src": "_CommentatorDisplayComponent-CsZmpvrm.css"
+  },
+  "_CommentatorDisplayComponent-Dv4p8Yp7.js": {
+    "file": "assets/CommentatorDisplayComponent-Dv4p8Yp7.js",
+    "name": "CommentatorDisplayComponent",
+    "imports": [
+      "_dist-ygVgrIi9.js",
+      "_template--LhIKEcH.js",
+      "_runData-C5J9UwDs.js",
+      "_svg-icon-Cc4VR3aL.js"
+    ],
+    "css": [
+      "assets/CommentatorDisplayComponent-CsZmpvrm.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2"
+    ]
+  },
+  "_RacePage-CI5AhYOr.js": {
+    "file": "assets/RacePage-CI5AhYOr.js",
+    "name": "RacePage",
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_runData-C5J9UwDs.js",
+      "_constants-Df-rnsHd.js",
+      "_CommentatorDisplayComponent-Dv4p8Yp7.js",
+      "_RacePlayerInfoPanel-DKZntTc5.js"
+    ],
+    "css": [
+      "assets/race_3_way-BktpW-JD.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "_RacePlayerInfoPanel-DKZntTc5.js": {
+    "file": "assets/RacePlayerInfoPanel-DKZntTc5.js",
+    "name": "RacePlayerInfoPanel",
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_runData-C5J9UwDs.js",
+      "_svg-icon-Cc4VR3aL.js"
+    ]
+  },
+  "_TLC_primaryNOTAG-DXaKI2Bo.js": {
+    "file": "assets/TLC_primaryNOTAG-DXaKI2Bo.js",
+    "name": "TLC_primaryNOTAG",
+    "assets": [
+      "assets/TLC_primaryNOTAG-Cti1RBft.svg"
+    ]
+  },
+  "_button-BAkRyL-R.js": {
+    "file": "assets/button-BAkRyL-R.js",
+    "name": "button",
+    "imports": [
+      "_template--LhIKEcH.js"
+    ]
+  },
+  "_constants-CyFbEeiJ.css": {
+    "file": "assets/constants-CyFbEeiJ.css",
+    "src": "_constants-CyFbEeiJ.css"
+  },
+  "_constants-Df-rnsHd.js": {
+    "file": "assets/constants-Df-rnsHd.js",
+    "name": "constants",
+    "imports": [
+      "_dist-ygVgrIi9.js",
+      "_template--LhIKEcH.js",
+      "_vue-inline-svg.esm-D3Aew_rV.js",
+      "_runData-C5J9UwDs.js",
+      "_svg-icon-Cc4VR3aL.js"
+    ],
+    "css": [
+      "assets/constants-CyFbEeiJ.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2"
+    ]
+  },
+  "_dist-ygVgrIi9.js": {
+    "file": "assets/dist-ygVgrIi9.js",
+    "name": "dist",
+    "imports": [
+      "_template--LhIKEcH.js"
+    ]
+  },
+  "_runData-C5J9UwDs.js": {
+    "file": "assets/runData-C5J9UwDs.js",
+    "name": "runData",
+    "imports": [
+      "_dist-ygVgrIi9.js",
+      "_template--LhIKEcH.js",
+      "_vue-inline-svg.esm-D3Aew_rV.js",
+      "_TLC_primaryNOTAG-DXaKI2Bo.js",
+      "_svg-icon-Cc4VR3aL.js"
+    ],
+    "css": [
+      "assets/runData-DKJ5CuLa.css"
+    ],
+    "assets": [
+      "assets/logo_2026-Cp7u7rZN.png",
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2"
+    ]
+  },
+  "_runData-DKJ5CuLa.css": {
+    "file": "assets/runData-DKJ5CuLa.css",
+    "src": "_runData-DKJ5CuLa.css"
+  },
+  "_svg-icon-BdCm6MLa.css": {
+    "file": "assets/svg-icon-BdCm6MLa.css",
+    "src": "_svg-icon-BdCm6MLa.css"
+  },
+  "_svg-icon-Cc4VR3aL.js": {
+    "file": "assets/svg-icon-Cc4VR3aL.js",
+    "name": "svg-icon",
+    "imports": [
+      "_template--LhIKEcH.js"
+    ],
+    "css": [
+      "assets/svg-icon-BdCm6MLa.css"
+    ]
+  },
+  "_template--LhIKEcH.js": {
+    "file": "assets/template--LhIKEcH.js",
+    "name": "template",
+    "css": [
+      "assets/template-C6wyKNDP.css"
+    ]
+  },
+  "_template-C6wyKNDP.css": {
+    "file": "assets/template-C6wyKNDP.css",
+    "src": "_template-C6wyKNDP.css"
+  },
+  "_vue-inline-svg.esm-D3Aew_rV.js": {
+    "file": "assets/vue-inline-svg.esm-D3Aew_rV.js",
+    "name": "vue-inline-svg.esm",
+    "imports": [
+      "_template--LhIKEcH.js"
+    ]
+  },
+  "src/dashboard/commentatorPanel.ts": {
+    "file": "assets/commentatorPanel-DldJalVE.js",
+    "name": "commentatorPanel",
+    "src": "src/dashboard/commentatorPanel.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-ygVgrIi9.js",
+      "_template--LhIKEcH.js",
+      "_button-BAkRyL-R.js",
+      "_svg-icon-Cc4VR3aL.js"
+    ]
+  },
+  "src/dashboard/creditsPanel.ts": {
+    "file": "assets/creditsPanel-CQEgC3EJ.js",
+    "name": "creditsPanel",
+    "src": "src/dashboard/creditsPanel.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-ygVgrIi9.js",
+      "_template--LhIKEcH.js",
+      "_button-BAkRyL-R.js"
+    ]
+  },
+  "src/graphics/assets/TLC_primaryNOTAG.svg": {
+    "file": "assets/TLC_primaryNOTAG-Cti1RBft.svg",
+    "src": "src/graphics/assets/TLC_primaryNOTAG.svg"
+  },
+  "src/graphics/assets/background.png": {
+    "file": "assets/background-2_kOoUL2.png",
+    "src": "src/graphics/assets/background.png"
+  },
+  "src/graphics/assets/fonts/Fusion.woff2": {
+    "file": "assets/Fusion-DM-HRgC-.woff2",
+    "src": "src/graphics/assets/fonts/Fusion.woff2"
+  },
+  "src/graphics/assets/fonts/Karnivore-Bold.woff2": {
+    "file": "assets/Karnivore-Bold-DII76D3g.woff2",
+    "src": "src/graphics/assets/fonts/Karnivore-Bold.woff2"
+  },
+  "src/graphics/assets/fonts/Karnivore.woff2": {
+    "file": "assets/Karnivore-DS1QiLWx.woff2",
+    "src": "src/graphics/assets/fonts/Karnivore.woff2"
+  },
+  "src/graphics/assets/fonts/KarnivoreBlack.woff2": {
+    "file": "assets/KarnivoreBlack-EIUXNt2G.woff2",
+    "src": "src/graphics/assets/fonts/KarnivoreBlack.woff2"
+  },
+  "src/graphics/assets/fonts/KarnivoreDigit.woff2": {
+    "file": "assets/KarnivoreDigit-QTnh7KO-.woff2",
+    "src": "src/graphics/assets/fonts/KarnivoreDigit.woff2"
+  },
+  "src/graphics/assets/fonts/KarnivoreLite.woff2": {
+    "file": "assets/KarnivoreLite-PnTG27nK.woff2",
+    "src": "src/graphics/assets/fonts/KarnivoreLite.woff2"
+  },
+  "src/graphics/assets/logo_2025.png": {
+    "file": "assets/logo_2025-DK4M8EH1.png",
+    "src": "src/graphics/assets/logo_2025.png"
+  },
+  "src/graphics/assets/logo_2026.png": {
+    "file": "assets/logo_2026-Cp7u7rZN.png",
+    "src": "src/graphics/assets/logo_2026.png"
+  },
+  "src/graphics/credits.ts": {
+    "file": "assets/credits-rqToUH2L.js",
+    "name": "credits",
+    "src": "src/graphics/credits.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-ygVgrIi9.js",
+      "_template--LhIKEcH.js",
+      "_vue-inline-svg.esm-D3Aew_rV.js",
+      "_TLC_primaryNOTAG-DXaKI2Bo.js"
+    ],
+    "css": [
+      "assets/credits-KlC09RVC.css"
+    ],
+    "assets": [
+      "assets/logo_2025-DK4M8EH1.png",
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "src/graphics/race_16_9.ts": {
+    "file": "assets/race_16_9-BPTLCR2j.js",
+    "name": "race_16_9",
+    "src": "src/graphics/race_16_9.ts",
+    "isEntry": true,
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_constants-Df-rnsHd.js",
+      "_RacePage-CI5AhYOr.js"
+    ]
+  },
+  "src/graphics/race_3_way.ts": {
+    "file": "assets/race_3_way-C_pu2ZSe.js",
+    "name": "race_3_way",
+    "src": "src/graphics/race_3_way.ts",
+    "isEntry": true,
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_runData-C5J9UwDs.js",
+      "_constants-Df-rnsHd.js",
+      "_RacePlayerInfoPanel-DKZntTc5.js"
+    ],
+    "css": [
+      "assets/race_3_way-BktpW-JD.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "src/graphics/race_4_3.ts": {
+    "file": "assets/race_4_3-BPTLCR2j.js",
+    "name": "race_4_3",
+    "src": "src/graphics/race_4_3.ts",
+    "isEntry": true,
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_constants-Df-rnsHd.js",
+      "_RacePage-CI5AhYOr.js"
+    ]
+  },
+  "src/graphics/setup.ts": {
+    "file": "assets/setup-Dvr2UzGl.js",
+    "name": "setup",
+    "src": "src/graphics/setup.ts",
+    "isEntry": true,
+    "imports": [
+      "_dist-ygVgrIi9.js",
+      "_template--LhIKEcH.js",
+      "_vue-inline-svg.esm-D3Aew_rV.js",
+      "_runData-C5J9UwDs.js",
+      "_CameraPanel-BYV7sfRf.js"
+    ],
+    "css": [
+      "assets/setup-BWiiMChe.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  },
+  "src/graphics/solo_16_9.ts": {
+    "file": "assets/solo_16_9-COzXpOM5.js",
+    "name": "solo_16_9",
+    "src": "src/graphics/solo_16_9.ts",
+    "isEntry": true,
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_constants-Df-rnsHd.js",
+      "_ActiveRunPage-D422Xqc_.js"
+    ]
+  },
+  "src/graphics/solo_4_3.ts": {
+    "file": "assets/solo_4_3-N-2bCAPe.js",
+    "name": "solo_4_3",
+    "src": "src/graphics/solo_4_3.ts",
+    "isEntry": true,
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_constants-Df-rnsHd.js",
+      "_ActiveRunPage-D422Xqc_.js"
+    ]
+  },
+  "src/graphics/solo_GBA.ts": {
+    "file": "assets/solo_GBA-BN7qWCDr.js",
+    "name": "solo_GBA",
+    "src": "src/graphics/solo_GBA.ts",
+    "isEntry": true,
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_constants-Df-rnsHd.js",
+      "_ActiveRunPage-D422Xqc_.js"
+    ]
+  },
+  "src/graphics/splash.ts": {
+    "file": "assets/splash-BGeeraRV.js",
+    "name": "splash",
+    "src": "src/graphics/splash.ts",
+    "isEntry": true,
+    "imports": [
+      "_template--LhIKEcH.js",
+      "_vue-inline-svg.esm-D3Aew_rV.js"
+    ],
+    "css": [
+      "assets/splash-gvKBfzGn.css"
+    ],
+    "assets": [
+      "assets/logo_2025-DK4M8EH1.png",
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
+    ]
+  }
+}
