@@ -47,6 +47,7 @@ const { runData, runners } = withRunData();
     <template #main>
       <div class="relative h-full">
         <ScreenPanel
+          v-if="runners[0]"
           :id="runners[0].teamID"
           :player="0"
           position="bl"
