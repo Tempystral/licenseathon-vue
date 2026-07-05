@@ -1,0 +1,1 @@
+import{t as e}from"./template--LhIKEcH.js";import{r as t}from"./constants-BgkL_cm1.js";import{t as n}from"./RacePage-B_wBpkXU.js";e(n,{numPlayers:2,ratio:t});

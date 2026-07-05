@@ -1,13 +1,13 @@
 {
-  "_ActiveRunPage-D422Xqc_.js": {
-    "file": "assets/ActiveRunPage-D422Xqc_.js",
+  "_ActiveRunPage-3_IDJW_2.js": {
+    "file": "assets/ActiveRunPage-3_IDJW_2.js",
     "name": "ActiveRunPage",
     "imports": [
       "_template--LhIKEcH.js",
-      "_runData-C5J9UwDs.js",
-      "_constants-Df-rnsHd.js",
-      "_CommentatorDisplayComponent-Dv4p8Yp7.js",
-      "_CameraPanel-BYV7sfRf.js"
+      "_runData-CklHtcT8.js",
+      "_constants-BgkL_cm1.js",
+      "_CommentatorDisplayComponent-BIHqXWUP.js",
+      "_CameraPanel-BAI_w-iV.js"
     ],
     "css": [
       "assets/race_3_way-BktpW-JD.css"
@@ -22,12 +22,12 @@
       "assets/background-2_kOoUL2.png"
     ]
   },
-  "_CameraPanel-BYV7sfRf.js": {
-    "file": "assets/CameraPanel-BYV7sfRf.js",
+  "_CameraPanel-BAI_w-iV.js": {
+    "file": "assets/CameraPanel-BAI_w-iV.js",
     "name": "CameraPanel",
     "imports": [
       "_template--LhIKEcH.js",
-      "_runData-C5J9UwDs.js",
+      "_runData-CklHtcT8.js",
       "_svg-icon-Cc4VR3aL.js"
     ],
     "css": [
@@ -38,17 +38,13 @@
     "file": "assets/CameraPanel-DQS1tDDr.css",
     "src": "_CameraPanel-DQS1tDDr.css"
   },
-  "_CommentatorDisplayComponent-CsZmpvrm.css": {
-    "file": "assets/CommentatorDisplayComponent-CsZmpvrm.css",
-    "src": "_CommentatorDisplayComponent-CsZmpvrm.css"
-  },
-  "_CommentatorDisplayComponent-Dv4p8Yp7.js": {
-    "file": "assets/CommentatorDisplayComponent-Dv4p8Yp7.js",
+  "_CommentatorDisplayComponent-BIHqXWUP.js": {
+    "file": "assets/CommentatorDisplayComponent-BIHqXWUP.js",
     "name": "CommentatorDisplayComponent",
     "imports": [
       "_dist-ygVgrIi9.js",
       "_template--LhIKEcH.js",
-      "_runData-C5J9UwDs.js",
+      "_runData-CklHtcT8.js",
       "_svg-icon-Cc4VR3aL.js"
     ],
     "css": [
@@ -63,15 +59,19 @@
       "assets/KarnivoreLite-PnTG27nK.woff2"
     ]
   },
-  "_RacePage-CI5AhYOr.js": {
-    "file": "assets/RacePage-CI5AhYOr.js",
+  "_CommentatorDisplayComponent-CsZmpvrm.css": {
+    "file": "assets/CommentatorDisplayComponent-CsZmpvrm.css",
+    "src": "_CommentatorDisplayComponent-CsZmpvrm.css"
+  },
+  "_RacePage-B_wBpkXU.js": {
+    "file": "assets/RacePage-B_wBpkXU.js",
     "name": "RacePage",
     "imports": [
       "_template--LhIKEcH.js",
-      "_runData-C5J9UwDs.js",
-      "_constants-Df-rnsHd.js",
-      "_CommentatorDisplayComponent-Dv4p8Yp7.js",
-      "_RacePlayerInfoPanel-DKZntTc5.js"
+      "_runData-CklHtcT8.js",
+      "_constants-BgkL_cm1.js",
+      "_CommentatorDisplayComponent-BIHqXWUP.js",
+      "_RacePlayerInfoPanel-Pwcxtglu.js"
     ],
     "css": [
       "assets/race_3_way-BktpW-JD.css"
@@ -86,12 +86,12 @@
       "assets/background-2_kOoUL2.png"
     ]
   },
-  "_RacePlayerInfoPanel-DKZntTc5.js": {
-    "file": "assets/RacePlayerInfoPanel-DKZntTc5.js",
+  "_RacePlayerInfoPanel-Pwcxtglu.js": {
+    "file": "assets/RacePlayerInfoPanel-Pwcxtglu.js",
     "name": "RacePlayerInfoPanel",
     "imports": [
       "_template--LhIKEcH.js",
-      "_runData-C5J9UwDs.js",
+      "_runData-CklHtcT8.js",
       "_svg-icon-Cc4VR3aL.js"
     ]
   },
@@ -109,18 +109,14 @@
       "_template--LhIKEcH.js"
     ]
   },
-  "_constants-CyFbEeiJ.css": {
-    "file": "assets/constants-CyFbEeiJ.css",
-    "src": "_constants-CyFbEeiJ.css"
-  },
-  "_constants-Df-rnsHd.js": {
-    "file": "assets/constants-Df-rnsHd.js",
+  "_constants-BgkL_cm1.js": {
+    "file": "assets/constants-BgkL_cm1.js",
     "name": "constants",
     "imports": [
       "_dist-ygVgrIi9.js",
       "_template--LhIKEcH.js",
       "_vue-inline-svg.esm-D3Aew_rV.js",
-      "_runData-C5J9UwDs.js",
+      "_runData-CklHtcT8.js",
       "_svg-icon-Cc4VR3aL.js"
     ],
     "css": [
@@ -135,6 +131,10 @@
       "assets/KarnivoreLite-PnTG27nK.woff2"
     ]
   },
+  "_constants-CyFbEeiJ.css": {
+    "file": "assets/constants-CyFbEeiJ.css",
+    "src": "_constants-CyFbEeiJ.css"
+  },
   "_dist-ygVgrIi9.js": {
     "file": "assets/dist-ygVgrIi9.js",
     "name": "dist",
@@ -142,8 +142,8 @@
       "_template--LhIKEcH.js"
     ]
   },
-  "_runData-C5J9UwDs.js": {
-    "file": "assets/runData-C5J9UwDs.js",
+  "_runData-CklHtcT8.js": {
+    "file": "assets/runData-CklHtcT8.js",
     "name": "runData",
     "imports": [
       "_dist-ygVgrIi9.js",
@@ -290,26 +290,26 @@
     ]
   },
   "src/graphics/race_16_9.ts": {
-    "file": "assets/race_16_9-BPTLCR2j.js",
+    "file": "assets/race_16_9-DO_TjQwh.js",
     "name": "race_16_9",
     "src": "src/graphics/race_16_9.ts",
     "isEntry": true,
     "imports": [
       "_template--LhIKEcH.js",
-      "_constants-Df-rnsHd.js",
-      "_RacePage-CI5AhYOr.js"
+      "_constants-BgkL_cm1.js",
+      "_RacePage-B_wBpkXU.js"
     ]
   },
   "src/graphics/race_3_way.ts": {
-    "file": "assets/race_3_way-C_pu2ZSe.js",
+    "file": "assets/race_3_way-CH0pIhom.js",
     "name": "race_3_way",
     "src": "src/graphics/race_3_way.ts",
     "isEntry": true,
     "imports": [
       "_template--LhIKEcH.js",
-      "_runData-C5J9UwDs.js",
-      "_constants-Df-rnsHd.js",
-      "_RacePlayerInfoPanel-DKZntTc5.js"
+      "_runData-CklHtcT8.js",
+      "_constants-BgkL_cm1.js",
+      "_RacePlayerInfoPanel-Pwcxtglu.js"
     ],
     "css": [
       "assets/race_3_way-BktpW-JD.css"
@@ -325,18 +325,18 @@
     ]
   },
   "src/graphics/race_4_3.ts": {
-    "file": "assets/race_4_3-BPTLCR2j.js",
+    "file": "assets/race_4_3-DO_TjQwh.js",
     "name": "race_4_3",
     "src": "src/graphics/race_4_3.ts",
     "isEntry": true,
     "imports": [
       "_template--LhIKEcH.js",
-      "_constants-Df-rnsHd.js",
-      "_RacePage-CI5AhYOr.js"
+      "_constants-BgkL_cm1.js",
+      "_RacePage-B_wBpkXU.js"
     ]
   },
   "src/graphics/setup.ts": {
-    "file": "assets/setup-Dvr2UzGl.js",
+    "file": "assets/setup-xbO3hFHm.js",
     "name": "setup",
     "src": "src/graphics/setup.ts",
     "isEntry": true,
@@ -344,8 +344,8 @@
       "_dist-ygVgrIi9.js",
       "_template--LhIKEcH.js",
       "_vue-inline-svg.esm-D3Aew_rV.js",
-      "_runData-C5J9UwDs.js",
-      "_CameraPanel-BYV7sfRf.js"
+      "_runData-CklHtcT8.js",
+      "_CameraPanel-BAI_w-iV.js"
     ],
     "css": [
       "assets/setup-BWiiMChe.css"
@@ -361,36 +361,36 @@
     ]
   },
   "src/graphics/solo_16_9.ts": {
-    "file": "assets/solo_16_9-COzXpOM5.js",
+    "file": "assets/solo_16_9-CSuRfSJi.js",
     "name": "solo_16_9",
     "src": "src/graphics/solo_16_9.ts",
     "isEntry": true,
     "imports": [
       "_template--LhIKEcH.js",
-      "_constants-Df-rnsHd.js",
-      "_ActiveRunPage-D422Xqc_.js"
+      "_constants-BgkL_cm1.js",
+      "_ActiveRunPage-3_IDJW_2.js"
     ]
   },
   "src/graphics/solo_4_3.ts": {
-    "file": "assets/solo_4_3-N-2bCAPe.js",
+    "file": "assets/solo_4_3-CaKA4OuW.js",
     "name": "solo_4_3",
     "src": "src/graphics/solo_4_3.ts",
     "isEntry": true,
     "imports": [
       "_template--LhIKEcH.js",
-      "_constants-Df-rnsHd.js",
-      "_ActiveRunPage-D422Xqc_.js"
+      "_constants-BgkL_cm1.js",
+      "_ActiveRunPage-3_IDJW_2.js"
     ]
   },
   "src/graphics/solo_GBA.ts": {
-    "file": "assets/solo_GBA-BN7qWCDr.js",
+    "file": "assets/solo_GBA-XEk3k0X-.js",
     "name": "solo_GBA",
     "src": "src/graphics/solo_GBA.ts",
     "isEntry": true,
     "imports": [
       "_template--LhIKEcH.js",
-      "_constants-Df-rnsHd.js",
-      "_ActiveRunPage-D422Xqc_.js"
+      "_constants-BgkL_cm1.js",
+      "_ActiveRunPage-3_IDJW_2.js"
     ]
   },
   "src/graphics/splash.ts": {
