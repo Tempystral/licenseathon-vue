@@ -14,7 +14,7 @@ const { target, textSize = "xl" } = defineProps<{
 </script>
 
 <template>
-  <div id="options" class="w-full h-full p-2 flex flex-col rounded-xl">
+  <div id="options" class="w-full h-full flex flex-col rounded-xl">
     <div class="w-full max-w-full" :key="target.id">
       <div :class="`text-${textSize} mb-1`">
         Incentive: <b>{{ target.name }}</b>

@@ -15,6 +15,10 @@ import MessageComponent from "./MessageComponent.vue";
 import PollComponent from "./PollComponent.vue";
 import TargetComponent from "./TargetComponent.vue";
 
+const { vertical = false } = defineProps<{
+  vertical?: boolean;
+}>();
+
 const { polls } = withTiltifyPolls();
 const { targets } = withTiltifyTargets();
 
@@ -25,7 +29,7 @@ const messages = computed<Incentive[]>(() => [
     type: "message",
     item: {
       id: "tlclogo",
-      orientation: "v",
+      orientation: "h",
       text: "In support of: ",
       img: tlcLogo,
     },
@@ -33,7 +37,7 @@ const messages = computed<Incentive[]>(() => [
   {
     type: "message",
     item: {
-      text: "Donate at: www.licenseathon.live/donate",
+      text: "Donate at: licenseathon.live/donate",
       orientation: "v",
       id: "donomsg",
     },
@@ -41,7 +45,7 @@ const messages = computed<Incentive[]>(() => [
   {
     type: "message",
     item: {
-      text: `$${campaignTotal.data?.value} raised so far for the Transgender Law Center!`,
+      text: `$${campaignTotal.data?.value} raised for the Transgender Law Center!`,
       orientation: "v",
       id: "campaigntotal",
     },
@@ -63,6 +67,7 @@ const { incentive, hasIncentives } = withIncentives(messages, polls, targets);
             class="font-[Fusion] absolute"
             v-if="incentive.type === 'poll'"
             :poll="incentive.item"
+            :orientation="vertical ? 'vertical' : 'horizontal'"
           />
           <TargetComponent
             class="font-[Fusion] absolute"

@@ -303,7 +303,7 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
         </template>
       </CameraPanel>
 
-      <IncentiveComponent style="grid-area: ictv" />
+      <IncentiveComponent style="grid-area: ictv" :vertical="true" />
 
       <LogoContainer
         class="my-4 col-start-3 col-span-1"
