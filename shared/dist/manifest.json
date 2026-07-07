@@ -1,6 +1,6 @@
 {
-  "_ActiveRunPage-DbMz_quQ.js": {
-    "file": "assets/ActiveRunPage-DbMz_quQ.js",
+  "_ActiveRunPage-Dau3JLBx.js": {
+    "file": "assets/ActiveRunPage-Dau3JLBx.js",
     "name": "ActiveRunPage",
     "imports": [
       "_template-BGcBiyur.js",
@@ -362,36 +362,36 @@
     ]
   },
   "src/graphics/solo_16_9.ts": {
-    "file": "assets/solo_16_9-gsCr7Jva.js",
+    "file": "assets/solo_16_9-CdCSDFxy.js",
     "name": "solo_16_9",
     "src": "src/graphics/solo_16_9.ts",
     "isEntry": true,
     "imports": [
       "_template-BGcBiyur.js",
       "_constants-zhq5BHHF.js",
-      "_ActiveRunPage-DbMz_quQ.js"
+      "_ActiveRunPage-Dau3JLBx.js"
     ]
   },
   "src/graphics/solo_4_3.ts": {
-    "file": "assets/solo_4_3-BA1UIzvT.js",
+    "file": "assets/solo_4_3-C72u69xH.js",
     "name": "solo_4_3",
     "src": "src/graphics/solo_4_3.ts",
     "isEntry": true,
     "imports": [
       "_template-BGcBiyur.js",
       "_constants-zhq5BHHF.js",
-      "_ActiveRunPage-DbMz_quQ.js"
+      "_ActiveRunPage-Dau3JLBx.js"
     ]
   },
   "src/graphics/solo_GBA.ts": {
-    "file": "assets/solo_GBA-BtJ1lCr2.js",
+    "file": "assets/solo_GBA-CHKQVjoa.js",
     "name": "solo_GBA",
     "src": "src/graphics/solo_GBA.ts",
     "isEntry": true,
     "imports": [
       "_template-BGcBiyur.js",
       "_constants-zhq5BHHF.js",
-      "_ActiveRunPage-DbMz_quQ.js"
+      "_ActiveRunPage-Dau3JLBx.js"
     ]
   },
   "src/graphics/splash.ts": {
