@@ -1,0 +1,1 @@
+import{t as e}from"./template-BWoWGBKq.js";import{r as t}from"./constants-3h85ARga.js";import{t as n}from"./RacePage-CYPHuubt.js";e(n,{numPlayers:2,ratio:t});

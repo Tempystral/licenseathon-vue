@@ -1,0 +1,1 @@
+import{t as e}from"./template-BWoWGBKq.js";import{i as t,n}from"./constants-3h85ARga.js";import{t as r}from"./ActiveRunPage-CJfJ01jy.js";e(r,{players:1,ratio:n,width:80,layout:t.LAYOUT_SD});

@@ -1,1 +1,0 @@
-import{t as e}from"./template--LhIKEcH.js";import{i as t,n}from"./constants-BgkL_cm1.js";import{t as r}from"./ActiveRunPage-3_IDJW_2.js";e(r,{players:1,ratio:n,width:80,layout:t.LAYOUT_SD});

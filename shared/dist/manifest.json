@@ -1,13 +1,13 @@
 {
-  "_ActiveRunPage-3_IDJW_2.js": {
-    "file": "assets/ActiveRunPage-3_IDJW_2.js",
+  "_ActiveRunPage-CJfJ01jy.js": {
+    "file": "assets/ActiveRunPage-CJfJ01jy.js",
     "name": "ActiveRunPage",
     "imports": [
-      "_template--LhIKEcH.js",
-      "_runData-CklHtcT8.js",
-      "_constants-BgkL_cm1.js",
-      "_CommentatorDisplayComponent-BIHqXWUP.js",
-      "_CameraPanel-BAI_w-iV.js"
+      "_template-BWoWGBKq.js",
+      "_runData-Bu8t66eO.js",
+      "_constants-3h85ARga.js",
+      "_CommentatorDisplayComponent-BXjUVXL2.js",
+      "_CameraPanel-BjOw3jd6.js"
     ],
     "css": [
       "assets/race_3_way-BktpW-JD.css"
@@ -22,13 +22,13 @@
       "assets/background-2_kOoUL2.png"
     ]
   },
-  "_CameraPanel-BAI_w-iV.js": {
-    "file": "assets/CameraPanel-BAI_w-iV.js",
+  "_CameraPanel-BjOw3jd6.js": {
+    "file": "assets/CameraPanel-BjOw3jd6.js",
     "name": "CameraPanel",
     "imports": [
-      "_template--LhIKEcH.js",
-      "_runData-CklHtcT8.js",
-      "_svg-icon-Cc4VR3aL.js"
+      "_template-BWoWGBKq.js",
+      "_runData-Bu8t66eO.js",
+      "_svg-icon-CmjVAG95.js"
     ],
     "css": [
       "assets/CameraPanel-DQS1tDDr.css"
@@ -38,14 +38,14 @@
     "file": "assets/CameraPanel-DQS1tDDr.css",
     "src": "_CameraPanel-DQS1tDDr.css"
   },
-  "_CommentatorDisplayComponent-BIHqXWUP.js": {
-    "file": "assets/CommentatorDisplayComponent-BIHqXWUP.js",
+  "_CommentatorDisplayComponent-BXjUVXL2.js": {
+    "file": "assets/CommentatorDisplayComponent-BXjUVXL2.js",
     "name": "CommentatorDisplayComponent",
     "imports": [
-      "_dist-ygVgrIi9.js",
-      "_template--LhIKEcH.js",
-      "_runData-CklHtcT8.js",
-      "_svg-icon-Cc4VR3aL.js"
+      "_dist-c_ElvSkT.js",
+      "_template-BWoWGBKq.js",
+      "_runData-Bu8t66eO.js",
+      "_svg-icon-CmjVAG95.js"
     ],
     "css": [
       "assets/CommentatorDisplayComponent-CsZmpvrm.css"
@@ -63,15 +63,15 @@
     "file": "assets/CommentatorDisplayComponent-CsZmpvrm.css",
     "src": "_CommentatorDisplayComponent-CsZmpvrm.css"
   },
-  "_RacePage-B_wBpkXU.js": {
-    "file": "assets/RacePage-B_wBpkXU.js",
+  "_RacePage-CYPHuubt.js": {
+    "file": "assets/RacePage-CYPHuubt.js",
     "name": "RacePage",
     "imports": [
-      "_template--LhIKEcH.js",
-      "_runData-CklHtcT8.js",
-      "_constants-BgkL_cm1.js",
-      "_CommentatorDisplayComponent-BIHqXWUP.js",
-      "_RacePlayerInfoPanel-Pwcxtglu.js"
+      "_template-BWoWGBKq.js",
+      "_runData-Bu8t66eO.js",
+      "_constants-3h85ARga.js",
+      "_CommentatorDisplayComponent-BXjUVXL2.js",
+      "_RacePlayerInfoPanel-_6j3Aa9h.js"
     ],
     "css": [
       "assets/race_3_way-BktpW-JD.css"
@@ -86,13 +86,13 @@
       "assets/background-2_kOoUL2.png"
     ]
   },
-  "_RacePlayerInfoPanel-Pwcxtglu.js": {
-    "file": "assets/RacePlayerInfoPanel-Pwcxtglu.js",
+  "_RacePlayerInfoPanel-_6j3Aa9h.js": {
+    "file": "assets/RacePlayerInfoPanel-_6j3Aa9h.js",
     "name": "RacePlayerInfoPanel",
     "imports": [
-      "_template--LhIKEcH.js",
-      "_runData-CklHtcT8.js",
-      "_svg-icon-Cc4VR3aL.js"
+      "_template-BWoWGBKq.js",
+      "_runData-Bu8t66eO.js",
+      "_svg-icon-CmjVAG95.js"
     ]
   },
   "_TLC_primaryNOTAG-DXaKI2Bo.js": {
@@ -102,22 +102,22 @@
       "assets/TLC_primaryNOTAG-Cti1RBft.svg"
     ]
   },
-  "_button-BAkRyL-R.js": {
-    "file": "assets/button-BAkRyL-R.js",
+  "_button-CXHyFrJX.js": {
+    "file": "assets/button-CXHyFrJX.js",
     "name": "button",
     "imports": [
-      "_template--LhIKEcH.js"
+      "_template-BWoWGBKq.js"
     ]
   },
-  "_constants-BgkL_cm1.js": {
-    "file": "assets/constants-BgkL_cm1.js",
+  "_constants-3h85ARga.js": {
+    "file": "assets/constants-3h85ARga.js",
     "name": "constants",
     "imports": [
-      "_dist-ygVgrIi9.js",
-      "_template--LhIKEcH.js",
-      "_vue-inline-svg.esm-D3Aew_rV.js",
-      "_runData-CklHtcT8.js",
-      "_svg-icon-Cc4VR3aL.js"
+      "_dist-c_ElvSkT.js",
+      "_template-BWoWGBKq.js",
+      "_vue-inline-svg.esm-BNND7Drk.js",
+      "_runData-Bu8t66eO.js",
+      "_svg-icon-CmjVAG95.js"
     ],
     "css": [
       "assets/constants-CyFbEeiJ.css"
@@ -135,22 +135,22 @@
     "file": "assets/constants-CyFbEeiJ.css",
     "src": "_constants-CyFbEeiJ.css"
   },
-  "_dist-ygVgrIi9.js": {
-    "file": "assets/dist-ygVgrIi9.js",
+  "_dist-c_ElvSkT.js": {
+    "file": "assets/dist-c_ElvSkT.js",
     "name": "dist",
     "imports": [
-      "_template--LhIKEcH.js"
+      "_template-BWoWGBKq.js"
     ]
   },
-  "_runData-CklHtcT8.js": {
-    "file": "assets/runData-CklHtcT8.js",
+  "_runData-Bu8t66eO.js": {
+    "file": "assets/runData-Bu8t66eO.js",
     "name": "runData",
     "imports": [
-      "_dist-ygVgrIi9.js",
-      "_template--LhIKEcH.js",
-      "_vue-inline-svg.esm-D3Aew_rV.js",
+      "_dist-c_ElvSkT.js",
+      "_template-BWoWGBKq.js",
+      "_vue-inline-svg.esm-BNND7Drk.js",
       "_TLC_primaryNOTAG-DXaKI2Bo.js",
-      "_svg-icon-Cc4VR3aL.js"
+      "_svg-icon-CmjVAG95.js"
     ],
     "css": [
       "assets/runData-DKJ5CuLa.css"
@@ -173,55 +173,55 @@
     "file": "assets/svg-icon-BdCm6MLa.css",
     "src": "_svg-icon-BdCm6MLa.css"
   },
-  "_svg-icon-Cc4VR3aL.js": {
-    "file": "assets/svg-icon-Cc4VR3aL.js",
+  "_svg-icon-CmjVAG95.js": {
+    "file": "assets/svg-icon-CmjVAG95.js",
     "name": "svg-icon",
     "imports": [
-      "_template--LhIKEcH.js"
+      "_template-BWoWGBKq.js"
     ],
     "css": [
       "assets/svg-icon-BdCm6MLa.css"
     ]
   },
-  "_template--LhIKEcH.js": {
-    "file": "assets/template--LhIKEcH.js",
+  "_template-BWoWGBKq.js": {
+    "file": "assets/template-BWoWGBKq.js",
     "name": "template",
     "css": [
-      "assets/template-C6wyKNDP.css"
+      "assets/template-BnXzGDTM.css"
     ]
   },
-  "_template-C6wyKNDP.css": {
-    "file": "assets/template-C6wyKNDP.css",
-    "src": "_template-C6wyKNDP.css"
+  "_template-BnXzGDTM.css": {
+    "file": "assets/template-BnXzGDTM.css",
+    "src": "_template-BnXzGDTM.css"
   },
-  "_vue-inline-svg.esm-D3Aew_rV.js": {
-    "file": "assets/vue-inline-svg.esm-D3Aew_rV.js",
+  "_vue-inline-svg.esm-BNND7Drk.js": {
+    "file": "assets/vue-inline-svg.esm-BNND7Drk.js",
     "name": "vue-inline-svg.esm",
     "imports": [
-      "_template--LhIKEcH.js"
+      "_template-BWoWGBKq.js"
     ]
   },
   "src/dashboard/commentatorPanel.ts": {
-    "file": "assets/commentatorPanel-DldJalVE.js",
+    "file": "assets/commentatorPanel-BpIeo3sl.js",
     "name": "commentatorPanel",
     "src": "src/dashboard/commentatorPanel.ts",
     "isEntry": true,
     "imports": [
-      "_dist-ygVgrIi9.js",
-      "_template--LhIKEcH.js",
-      "_button-BAkRyL-R.js",
-      "_svg-icon-Cc4VR3aL.js"
+      "_dist-c_ElvSkT.js",
+      "_template-BWoWGBKq.js",
+      "_button-CXHyFrJX.js",
+      "_svg-icon-CmjVAG95.js"
     ]
   },
   "src/dashboard/creditsPanel.ts": {
-    "file": "assets/creditsPanel-CQEgC3EJ.js",
+    "file": "assets/creditsPanel-C4qqun28.js",
     "name": "creditsPanel",
     "src": "src/dashboard/creditsPanel.ts",
     "isEntry": true,
     "imports": [
-      "_dist-ygVgrIi9.js",
-      "_template--LhIKEcH.js",
-      "_button-BAkRyL-R.js"
+      "_dist-c_ElvSkT.js",
+      "_template-BWoWGBKq.js",
+      "_button-CXHyFrJX.js"
     ]
   },
   "src/graphics/assets/TLC_primaryNOTAG.svg": {
@@ -265,14 +265,14 @@
     "src": "src/graphics/assets/logo_2026.png"
   },
   "src/graphics/credits.ts": {
-    "file": "assets/credits-rqToUH2L.js",
+    "file": "assets/credits-CJjTl3F_.js",
     "name": "credits",
     "src": "src/graphics/credits.ts",
     "isEntry": true,
     "imports": [
-      "_dist-ygVgrIi9.js",
-      "_template--LhIKEcH.js",
-      "_vue-inline-svg.esm-D3Aew_rV.js",
+      "_dist-c_ElvSkT.js",
+      "_template-BWoWGBKq.js",
+      "_vue-inline-svg.esm-BNND7Drk.js",
       "_TLC_primaryNOTAG-DXaKI2Bo.js"
     ],
     "css": [
@@ -290,26 +290,26 @@
     ]
   },
   "src/graphics/race_16_9.ts": {
-    "file": "assets/race_16_9-DO_TjQwh.js",
+    "file": "assets/race_16_9-zLSR1yI1.js",
     "name": "race_16_9",
     "src": "src/graphics/race_16_9.ts",
     "isEntry": true,
     "imports": [
-      "_template--LhIKEcH.js",
-      "_constants-BgkL_cm1.js",
-      "_RacePage-B_wBpkXU.js"
+      "_template-BWoWGBKq.js",
+      "_constants-3h85ARga.js",
+      "_RacePage-CYPHuubt.js"
     ]
   },
   "src/graphics/race_3_way.ts": {
-    "file": "assets/race_3_way-CH0pIhom.js",
+    "file": "assets/race_3_way-D8MmiDP5.js",
     "name": "race_3_way",
     "src": "src/graphics/race_3_way.ts",
     "isEntry": true,
     "imports": [
-      "_template--LhIKEcH.js",
-      "_runData-CklHtcT8.js",
-      "_constants-BgkL_cm1.js",
-      "_RacePlayerInfoPanel-Pwcxtglu.js"
+      "_template-BWoWGBKq.js",
+      "_runData-Bu8t66eO.js",
+      "_constants-3h85ARga.js",
+      "_RacePlayerInfoPanel-_6j3Aa9h.js"
     ],
     "css": [
       "assets/race_3_way-BktpW-JD.css"
@@ -325,27 +325,27 @@
     ]
   },
   "src/graphics/race_4_3.ts": {
-    "file": "assets/race_4_3-DO_TjQwh.js",
+    "file": "assets/race_4_3-zLSR1yI1.js",
     "name": "race_4_3",
     "src": "src/graphics/race_4_3.ts",
     "isEntry": true,
     "imports": [
-      "_template--LhIKEcH.js",
-      "_constants-BgkL_cm1.js",
-      "_RacePage-B_wBpkXU.js"
+      "_template-BWoWGBKq.js",
+      "_constants-3h85ARga.js",
+      "_RacePage-CYPHuubt.js"
     ]
   },
   "src/graphics/setup.ts": {
-    "file": "assets/setup-xbO3hFHm.js",
+    "file": "assets/setup-BTMWuYaG.js",
     "name": "setup",
     "src": "src/graphics/setup.ts",
     "isEntry": true,
     "imports": [
-      "_dist-ygVgrIi9.js",
-      "_template--LhIKEcH.js",
-      "_vue-inline-svg.esm-D3Aew_rV.js",
-      "_runData-CklHtcT8.js",
-      "_CameraPanel-BAI_w-iV.js"
+      "_dist-c_ElvSkT.js",
+      "_template-BWoWGBKq.js",
+      "_vue-inline-svg.esm-BNND7Drk.js",
+      "_runData-Bu8t66eO.js",
+      "_CameraPanel-BjOw3jd6.js"
     ],
     "css": [
       "assets/setup-BWiiMChe.css"
@@ -361,46 +361,46 @@
     ]
   },
   "src/graphics/solo_16_9.ts": {
-    "file": "assets/solo_16_9-CSuRfSJi.js",
+    "file": "assets/solo_16_9-D1FomoEn.js",
     "name": "solo_16_9",
     "src": "src/graphics/solo_16_9.ts",
     "isEntry": true,
     "imports": [
-      "_template--LhIKEcH.js",
-      "_constants-BgkL_cm1.js",
-      "_ActiveRunPage-3_IDJW_2.js"
+      "_template-BWoWGBKq.js",
+      "_constants-3h85ARga.js",
+      "_ActiveRunPage-CJfJ01jy.js"
     ]
   },
   "src/graphics/solo_4_3.ts": {
-    "file": "assets/solo_4_3-CaKA4OuW.js",
+    "file": "assets/solo_4_3-Dp7kOJ8E.js",
     "name": "solo_4_3",
     "src": "src/graphics/solo_4_3.ts",
     "isEntry": true,
     "imports": [
-      "_template--LhIKEcH.js",
-      "_constants-BgkL_cm1.js",
-      "_ActiveRunPage-3_IDJW_2.js"
+      "_template-BWoWGBKq.js",
+      "_constants-3h85ARga.js",
+      "_ActiveRunPage-CJfJ01jy.js"
     ]
   },
   "src/graphics/solo_GBA.ts": {
-    "file": "assets/solo_GBA-XEk3k0X-.js",
+    "file": "assets/solo_GBA-BBGtnn-o.js",
     "name": "solo_GBA",
     "src": "src/graphics/solo_GBA.ts",
     "isEntry": true,
     "imports": [
-      "_template--LhIKEcH.js",
-      "_constants-BgkL_cm1.js",
-      "_ActiveRunPage-3_IDJW_2.js"
+      "_template-BWoWGBKq.js",
+      "_constants-3h85ARga.js",
+      "_ActiveRunPage-CJfJ01jy.js"
     ]
   },
   "src/graphics/splash.ts": {
-    "file": "assets/splash-BGeeraRV.js",
+    "file": "assets/splash-BU70zVbz.js",
     "name": "splash",
     "src": "src/graphics/splash.ts",
     "isEntry": true,
     "imports": [
-      "_template--LhIKEcH.js",
-      "_vue-inline-svg.esm-D3Aew_rV.js"
+      "_template-BWoWGBKq.js",
+      "_vue-inline-svg.esm-BNND7Drk.js"
     ],
     "css": [
       "assets/splash-gvKBfzGn.css"
