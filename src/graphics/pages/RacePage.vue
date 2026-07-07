@@ -19,7 +19,7 @@ const props = defineProps<{
 
 const { runners, runData } = withRunData();
 
-const widths = [0, 0, 61, 41];
+const widths = [0, 0, 58, 41];
 const width = computed(() => widths[props.numPlayers]);
 </script>
 
@@ -35,8 +35,8 @@ const width = computed(() => widths[props.numPlayers]);
         <ScreenPanel
           v-for="(player, i) in runners.slice(0, 2)"
           :key="player.id"
-          :style="`width: ${width - 4 * 0.5}em`"
           :id="player.teamID"
+          :style="`width: ${width + 2 * 0.5}em;`"
           :player="i"
           :position="i % 2 == 0 ? 'br' : 'bl'"
         />
@@ -45,10 +45,10 @@ const width = computed(() => widths[props.numPlayers]);
 
     <template #footer>
       <div
-        class="grid grid-flow-col gap-2 h-full max-w-full"
+        class="grid grid-flow-col gap-2 h-full max-w-full items-end"
         style="grid-template-columns: repeat(3, minmax(0, 1fr))"
       >
-        <div id="game-info-panel" class="flex flex-wrap">
+        <div id="game-info-panel" class="flex flex-wrap h-10/12">
           <EstimateDisplay side="left" />
           <TimerPanel :runData />
           <GameInfo :runData class="shrink" />
@@ -67,7 +67,9 @@ const width = computed(() => widths[props.numPlayers]);
           <LogoContainer />
         </div>
 
-        <IncentiveComponent />
+        <div class="h-10/12">
+          <IncentiveComponent />
+        </div>
       </div>
     </template>
   </LayoutComponent>
