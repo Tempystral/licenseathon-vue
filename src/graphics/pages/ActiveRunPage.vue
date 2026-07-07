@@ -42,13 +42,14 @@ const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
             :side="layout === 'layout_4_3' ? 'left' : 'center'"
             class="ml-2"
           />
-          <div class="flex items-end -mb-2">
+          <div v-if="layout === 'layout_16_9'" class="flex items-end -mb-2">
             <TimerPanel :runData />
             <InlineSvg
               :src="cornerPath"
               class="fill-lcns-amber h-6 w-6 rotate-270"
             />
           </div>
+          <TimerPanel v-else :runData />
           <GameInfo :runData class="shrink" v-if="layout === 'layout_4_3'" />
         </div>
       </div>
