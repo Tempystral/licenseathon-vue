@@ -10,6 +10,7 @@ import ScreenPanel from "../components/panels/ScreenPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 import { withRunData } from "../composables/runData.js";
 import { Layout } from "../util/constants.js";
+import InlineSvg from "vue-inline-svg";
 
 const {
   width = 80,
@@ -24,6 +25,8 @@ const {
 }>();
 
 const { runData, runners } = withRunData();
+
+const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
 </script>
 
 <template>
@@ -37,8 +40,15 @@ const { runData, runners } = withRunData();
         <div id="game-info-panel" class="flex flex-wrap">
           <EstimateDisplay
             :side="layout === 'layout_4_3' ? 'left' : 'center'"
+            class="ml-2"
           />
-          <TimerPanel :runData />
+          <div class="flex items-end -mb-2">
+            <TimerPanel :runData />
+            <InlineSvg
+              :src="cornerPath"
+              class="fill-lcns-amber h-6 w-6 rotate-270"
+            />
+          </div>
           <GameInfo :runData class="shrink" v-if="layout === 'layout_4_3'" />
         </div>
       </div>

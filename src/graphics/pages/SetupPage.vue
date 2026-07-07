@@ -16,6 +16,8 @@ import { getPlayers } from "../util/helpers.js";
 const layoutPath = new URL("../assets/setup.svg", import.meta.url).href;
 const layoutRef = ref<SVGElement | null>(null);
 
+const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
+
 /**
  * Replicants required:
  * runDataActiveRun
@@ -258,7 +260,8 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
                   </TextBox>
                 </TextLabel>
               </MaterialPanel>
-              <div class="inner-corner-xl corner-tl bg-lcns-white"></div>
+              <InlineSvg :src="cornerPath" class="fill-lcns-white h-6 w-6" />
+              <!-- <div class="inner-corner-xl corner-tl bg-lcns-white"></div> -->
             </div>
           </TransitionGroup>
         </div>
