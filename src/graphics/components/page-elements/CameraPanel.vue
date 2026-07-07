@@ -26,7 +26,7 @@ onMounted(() => setInterval(changeDisplay, 30_000));
 const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
 </script>
 <template>
-  <div>
+  <div v-if="runner">
     <MaterialPanel theme="blue" class="rounded-bl-none" style="grid-area: main">
       <div class="h-full flex flex-col items-end gap-1">
         <InsetContainer class="aspect-video chroma-key">
