@@ -6,7 +6,7 @@ import InlineSvg from "vue-inline-svg";
 import CameraPanel from "../components/page-elements/CameraPanel.vue";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
 import MaterialPanel from "../components/panels/MaterialPanel.vue";
-import FitText from "../components/text/FitText.vue";
+import RotatingText from "../components/text/RotatingText.vue";
 import TextBox from "../components/text/TextBox.vue";
 import TextLabel from "../components/text/TextLabel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
@@ -38,8 +38,6 @@ function remainingRuns() {
     allRuns.data.findIndex((r) => r.id === runData.value?.id) + 1,
   );
 }
-
-const options = { multiLine: true, minSize: 14, maxSize: 24 };
 </script>
 
 <template>
@@ -212,22 +210,10 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
                 >
                   <TextBox theme="pronouns" class="w-full">
                     <template #rotation>
-                      <span
-                        v-for="(player, index) of getPlayers(run)"
-                        class="absolute h-full flex items-center justify-center"
-                        style="width: calc(100% - 1rem)"
-                        :key="player.id"
-                      >
-                        <FitText :options>{{ player.name }}</FitText>
-                        <span
-                          v-if="
-                            getPlayers(run).length > 1 &&
-                            getPlayers(run).length - index > 1
-                          "
-                        >
-                          &nbsp;|&nbsp;
-                        </span>
-                      </span>
+                      <RotatingText
+                        :items="getPlayers(run).map((pl) => pl.name)"
+                        :timeout="10000"
+                      />
                     </template>
                   </TextBox>
                 </TextLabel>
