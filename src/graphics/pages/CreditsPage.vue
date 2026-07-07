@@ -6,7 +6,7 @@ import { computed, onMounted, ref, watch } from "vue";
 import InlineSvg from "vue-inline-svg";
 
 import layoutPath from "../assets/splash.svg";
-import logoPath from "../assets/logo_2025.png";
+import logoPath from "../assets/logo_2026.png";
 import logo2Path from "../assets/TLC_primaryNOTAG.svg";
 
 /* const layoutPath = new URL("../assets/splash.svg", import.meta.url).href;
@@ -63,13 +63,13 @@ watch(
       nodecg.playSound("credits-music");
       currentTimeout.value = setTimeout(
         nextItem,
-        currentItem.value.delay * 1000
+        currentItem.value.delay * 1000,
       );
     } else {
       nodecg.stopAllSounds();
       currentIndex.value = 0;
     }
-  }
+  },
 );
 
 const currentIndex = ref(0);
