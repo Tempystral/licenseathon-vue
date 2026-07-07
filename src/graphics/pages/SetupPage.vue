@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useReplicant } from "nodecg-vue-composable";
 import { RunDataArray } from "speedcontrol-util/types";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import InlineSvg from "vue-inline-svg";
 import CameraPanel from "../components/page-elements/CameraPanel.vue";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
@@ -38,6 +38,21 @@ function remainingRuns() {
     allRuns.data.findIndex((r) => r.id === runData.value?.id) + 1,
   );
 }
+
+const selected = ref(0);
+function nextItem() {
+  if (runners.value.length > 0) {
+    if (selected.value + 1 >= runners.value.length) {
+      selected.value = 0;
+    } else {
+      selected.value++;
+    }
+  }
+}
+
+onMounted(() => {
+  setInterval(nextItem, 10_000);
+});
 </script>
 
 <template>
@@ -212,7 +227,7 @@ function remainingRuns() {
                     <template #rotation>
                       <RotatingText
                         :items="getPlayers(run).map((pl) => pl.name)"
-                        :timeout="10000"
+                        :timeout="10_000"
                       />
                     </template>
                   </TextBox>
@@ -253,7 +268,11 @@ function remainingRuns() {
         </div>
       </div>
 
-      <CameraPanel :runner="runners[0] ?? ''" style="grid-area: mid">
+      <CameraPanel
+        v-if="runners[selected]"
+        :runner="runners[selected]"
+        style="grid-area: mid"
+      >
         <template #image>
           <div
             theme="white"
