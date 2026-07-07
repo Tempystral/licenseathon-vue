@@ -5,7 +5,7 @@ import InlineSvg from "vue-inline-svg";
 const layoutPath = new URL("../assets/splash.svg", import.meta.url).href;
 const layoutRef = ref<SVGElement | null>(null);
 
-const logoPath = new URL("../assets/logo_2025.png", import.meta.url).href;
+const logoPath = new URL("../assets/logo_2026.png", import.meta.url).href;
 const logoRef = ref<SVGElement | null>(null);
 </script>
 
