@@ -1,0 +1,1 @@
+var e=`/bundles/licenseathon-vue/shared/dist/assets/logo_2026-Cp7u7rZN.png`,t=`/bundles/licenseathon-vue/shared/dist/assets/TLC_primaryNOTAG-Cti1RBft.svg`;export{e as n,t};
