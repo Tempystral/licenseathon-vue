@@ -34,7 +34,7 @@ const messages = computed<Incentive[]>(() => [
       img: tlcLogo,
     },
   },
-  {
+  /* {
     type: "message",
     item: {
       text: "Donate at: licenseathon.live/donate",
@@ -49,7 +49,7 @@ const messages = computed<Incentive[]>(() => [
       orientation: "v",
       id: "campaigntotal",
     },
-  },
+  }, */
 ]);
 
 const { incentive, hasIncentives } = withIncentives(messages, polls, targets);
