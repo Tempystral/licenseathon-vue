@@ -1,1 +1,0 @@
-import{t as e}from"./template-BGcBiyur.js";import{r as t}from"./constants-D72MxyVk.js";import{t as n}from"./RacePage-B0_KQ27r.js";e(n,{numPlayers:2,ratio:t});
