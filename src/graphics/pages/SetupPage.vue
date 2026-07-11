@@ -57,124 +57,6 @@ onMounted(() => {
 
 <template>
   <div>
-    <svg height="0" width="0">
-      <defs>
-        <filter
-          id="offset-inset-shadow"
-          color-interpolation-filters="sRGB"
-          filterUnits="objectBoundingBox"
-          primitiveUnits="userSpaceOnUse"
-        >
-          <feOffset dx="20" dy="0" in="SourceGraphic" result="offset" />
-          <feGaussianBlur
-            stdDeviation="20 20"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            in="offset"
-            edgeMode="none"
-            result="blur"
-          />
-          <feComposite
-            in="SourceGraphic"
-            in2="blur"
-            operator="out"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite"
-          />
-          <feFlood
-            flood-color="#000000"
-            flood-opacity="0.95"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="flood"
-          />
-          <feComposite
-            in="flood"
-            in2="composite"
-            operator="in"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite1"
-          />
-          <feComposite
-            in="composite1"
-            in2="SourceGraphic"
-            operator="over"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite2"
-          />
-        </filter>
-
-        <filter
-          id="inset-shadow"
-          color-interpolation-filters="sRGB"
-          filterUnits="objectBoundingBox"
-          primitiveUnits="userSpaceOnUse"
-        >
-          <feGaussianBlur
-            stdDeviation="20 20"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            in="offset"
-            edgeMode="none"
-            result="blur"
-          />
-          <feComposite
-            in="SourceGraphic"
-            in2="blur"
-            operator="out"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite"
-          />
-          <feFlood
-            flood-color="#000000"
-            flood-opacity="0.95"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="flood"
-          />
-          <feComposite
-            in="flood"
-            in2="composite"
-            operator="in"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite1"
-          />
-          <feComposite
-            in="composite1"
-            in2="SourceGraphic"
-            operator="over"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite2"
-          />
-        </filter>
-      </defs>
-    </svg>
     <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
 
     <!-- <IncentiveComponent ratio="setup" /> -->
@@ -191,9 +73,9 @@ onMounted(() => {
         class="grid grid-cols-subgrid font-[Karnivore] text-3xl"
         style="grid-area: top"
       >
-        <p></p>
+        <!-- <p></p>
         <p class="flex justify-center items-end">UP NEXT</p>
-        <p class="flex justify-center items-end">UPCOMING</p>
+        <p class="flex justify-center items-end">UPCOMING</p> -->
       </div>
 
       <div
@@ -205,6 +87,7 @@ onMounted(() => {
         "
       >
         <div
+          v-if="false"
           class="relative w-full h-full overflow-hidden grid grid-rows-4 gap-2 p-0"
         >
           <TransitionGroup name="slide-h">
@@ -299,12 +182,13 @@ onMounted(() => {
               </TextBox>
             </TextLabel>
             <TextLabel
+              v-if="runData?.estimate"
               class="h-20 text-lcns-white"
               text="ESTIMATE"
               align="start"
             >
               <TextBox theme="lcd2" class="w-full">
-                {{ runData?.estimate }}
+                {{ runData.estimate }}
               </TextBox>
             </TextLabel>
           </div>
@@ -318,17 +202,6 @@ onMounted(() => {
         style="grid-area: logo"
       />
     </div>
-
-    <!-- <div class="layout-container">
-      <LicenseComponent :run="activeRun?.data" />
-
-      <div id="carousel-container" class="font-[Fusion] overflow-hidden">
-        <div
-          id="up-next-carousel"
-          class="h-full flex flex-row-reverse gap-2 p-2 overflow-hidden"
-        ></div>
-      </div>
-    </div> -->
   </div>
 </template>
 
