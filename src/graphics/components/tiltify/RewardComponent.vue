@@ -30,26 +30,33 @@ function totalRewardClaims() {
   return donosForReward()
     .map((dono) => dono.amount.value)
     .reduce(
-      (acc, curr, i) => parseInt(acc as string) + parseInt(curr as string),
+      (acc, curr, i) => parseFloat(acc as string) + parseFloat(curr as string),
       0,
     );
 }
 
 const donations = computed(totalRewardClaims);
+
+const breakpoint = computed(
+  () =>
+    parseFloat(donations.value as string) %
+    parseFloat((reward.fair_market_value?.value ?? 1) as string),
+);
 </script>
 
 <template>
   <div id="options" class="w-full h-full flex flex-col rounded-xl">
     <div class="w-full max-w-full" :key="reward.id">
       <div :class="`text-${textSize} mb-1`">
-        Incentive: <b>{{ reward.name }} - ${{ reward.amount.value }}</b>
+        <b> {{ reward.name }}</b> - Triggers every
+        <b>${{ reward.fair_market_value?.value }}</b>
       </div>
       <hr class="mb-1" />
     </div>
     <div class="relative grow">
       <ProgressBar
-        :amount_raised="parseInt(reward.amount.value as string)"
-        :total="parseInt(reward.amount.value as string)"
+        :amount_raised="breakpoint"
+        :total="parseInt((reward.fair_market_value?.value ?? 0) as string)"
         position="in"
         text-size="3xl"
       >
