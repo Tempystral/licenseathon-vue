@@ -1,6 +1,6 @@
 import { useReplicant } from "nodecg-vue-composable";
 import { RunData } from "speedcontrol-util/types";
-import { computed, onMounted, Ref, ref, watch } from "vue";
+import { computed, onMounted, Ref, ref } from "vue";
 import {
   Milestone,
   Milestones,
@@ -29,7 +29,7 @@ export type Incentive =
 
 export function withTiltifyPolls() {
   const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
-  const activePolls = ref<Incentive[]>(getActivePolls());
+  const activePolls = computed<Incentive[]>(getActivePolls);
 
   function getActivePolls(): Incentive[] {
     return (
@@ -41,21 +41,12 @@ export function withTiltifyPolls() {
         })) ?? []
     );
   }
-
-  watch(
-    () => polls.data,
-    (newVal) => {
-      if (newVal) {
-        activePolls.value = getActivePolls();
-      }
-    },
-  );
   return { polls: activePolls };
 }
 
 export function withTiltifyMilestones() {
   const milestones = useReplicant<Milestones>("milestones", "nodecg-tiltify");
-  const activeMilestones = ref<Incentive[]>(getActiveMilestones());
+  const activeMilestones = computed<Incentive[]>(getActiveMilestones);
 
   function getActiveMilestones(): Incentive[] {
     return (
@@ -67,15 +58,6 @@ export function withTiltifyMilestones() {
         })) ?? []
     );
   }
-
-  watch(
-    () => milestones.data,
-    (newVal) => {
-      if (newVal) {
-        activeMilestones.value = getActiveMilestones();
-      }
-    },
-  );
 
   return { milestones: activeMilestones };
 }
