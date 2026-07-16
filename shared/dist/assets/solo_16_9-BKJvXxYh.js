@@ -1,1 +1,0 @@
-import{t as e}from"./template-BGcBiyur.js";import{i as t,t as n}from"./constants-D72MxyVk.js";import{t as r}from"./ActiveRunPage-C67bAQAY.js";e(r,{players:1,ratio:n,width:90,layout:t.LAYOUT_HD});
