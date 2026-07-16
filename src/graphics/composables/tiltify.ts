@@ -6,10 +6,13 @@ import {
   Milestones,
   Poll,
   Polls,
+  Reward,
+  Rewards,
 } from "../../../../nodecg-tiltify/src/types/schemas";
 
 type PollItem = { type: "poll"; item: Poll };
 type MilestoneItem = { type: "milestone"; item: Milestone };
+type RewardItem = { type: "reward"; item: Reward };
 type MessageItem = {
   type: "message";
   item: {
@@ -23,11 +26,12 @@ type UpcomingRunItem = { type: "upcoming"; item: RunData[] };
 
 export type Incentive =
   | PollItem
+  | RewardItem
   | MilestoneItem
   | MessageItem
   | UpcomingRunItem;
 
-export function withTiltifyPolls() {
+export function withPolls() {
   const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
   const activePolls = computed<Incentive[]>(getActivePolls);
 
@@ -44,7 +48,7 @@ export function withTiltifyPolls() {
   return { polls: activePolls };
 }
 
-export function withTiltifyMilestones() {
+export function withMilestones() {
   const milestones = useReplicant<Milestones>("milestones", "nodecg-tiltify");
   const activeMilestones = computed<Incentive[]>(getActiveMilestones);
 
@@ -60,6 +64,25 @@ export function withTiltifyMilestones() {
   }
 
   return { milestones: activeMilestones };
+}
+
+export function withRewards() {
+  const rewards = useReplicant<Rewards>("rewards", "nodecg-tiltify");
+
+  const activeRewards = computed<Incentive[]>(getActiveRewards);
+
+  function getActiveRewards(): Incentive[] {
+    return (
+      rewards.data
+        ?.filter((t) => t.active)
+        .map((t) => ({
+          type: "reward",
+          item: t,
+        })) ?? []
+    );
+  }
+
+  return { rewards: activeRewards };
 }
 
 export function withIncentives(...incentives: Ref<Incentive[]>[]) {

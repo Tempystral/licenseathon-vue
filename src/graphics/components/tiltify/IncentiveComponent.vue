@@ -2,8 +2,9 @@
 import {
   Incentive,
   withIncentives,
-  withTiltifyMilestones,
-  withTiltifyPolls,
+  withMilestones,
+  withPolls,
+  withRewards,
 } from "@licenseathon-vue/graphics/composables/tiltify";
 import { withUpcomingRunData } from "@licenseathon-vue/graphics/composables/upcomingRunData";
 import { useReplicant } from "nodecg-vue-composable";
@@ -15,14 +16,16 @@ import MaterialPanel from "../panels/MaterialPanel.vue";
 import MessageComponent from "./MessageComponent.vue";
 import MilestoneComponent from "./MilestoneComponent.vue";
 import PollComponent from "./PollComponent.vue";
+import RewardComponent from "./RewardComponent.vue";
 import UpcomingRunComponent from "./UpcomingRunComponent.vue";
 
 const { vertical = false } = defineProps<{
   vertical?: boolean;
 }>();
 
-const { polls } = withTiltifyPolls();
-const { milestones } = withTiltifyMilestones();
+const { polls } = withPolls();
+const { rewards } = withRewards();
+const { milestones } = withMilestones();
 const { upcoming } = withUpcomingRunData(2);
 
 const upcomingRuns = ref([
@@ -66,7 +69,8 @@ const messages = computed<Incentive[]>(() => [
 
 const { incentive, hasIncentives } = withIncentives(
   //messages,
-  polls,
+  // polls,
+  rewards,
   //milestones,
   //upcomingRuns,
 );
@@ -87,10 +91,16 @@ const { incentive, hasIncentives } = withIncentives(
             :key="'poll' + incentive.item.id"
             :orientation="vertical ? 'vertical' : 'horizontal'"
           />
+          <RewardComponent
+            class="font-[Fusion] absolute"
+            v-else-if="incentive.type === 'reward'"
+            :key="'reward' + incentive.item.id"
+            :reward="incentive.item"
+          />
           <MilestoneComponent
             class="font-[Fusion] absolute"
             v-else-if="incentive.type === 'milestone'"
-            :key="'target' + incentive.item.id"
+            :key="'milestone' + incentive.item.id"
             :milestone="incentive.item"
             :total="campaignTotal.data"
           />
