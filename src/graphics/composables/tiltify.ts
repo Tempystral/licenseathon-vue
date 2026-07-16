@@ -1,34 +1,39 @@
 import { useReplicant } from "nodecg-vue-composable";
-import { computed, onMounted, Ref, ref, watch } from "vue";
+import { RunData } from "speedcontrol-util/types";
+import { computed, onMounted, Ref, ref } from "vue";
 import {
+  Milestone,
+  Milestones,
   Poll,
   Polls,
-  Target,
-  Targets,
+  Reward,
+  Rewards,
 } from "../../../../nodecg-tiltify/src/types/schemas";
 
-export type Incentive =
-  | {
-      type: "poll";
-      item: Poll;
-    }
-  | {
-      type: "target";
-      item: Target;
-    }
-  | {
-      type: "message";
-      item: {
-        id: string;
-        text?: string;
-        img?: string;
-        orientation: "h" | "v";
-      };
-    };
+type PollItem = { type: "poll"; item: Poll };
+type MilestoneItem = { type: "milestone"; item: Milestone };
+type RewardItem = { type: "reward"; item: Reward };
+type MessageItem = {
+  type: "message";
+  item: {
+    id: string;
+    text?: string;
+    img?: string;
+    orientation: "h" | "v";
+  };
+};
+type UpcomingRunItem = { type: "upcoming"; item: RunData[] };
 
-export function withTiltifyPolls() {
+export type Incentive =
+  | PollItem
+  | RewardItem
+  | MilestoneItem
+  | MessageItem
+  | UpcomingRunItem;
+
+export function withPolls() {
   const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
-  const activePolls = ref<Incentive[]>(getActivePolls());
+  const activePolls = computed<Incentive[]>(getActivePolls);
 
   function getActivePolls(): Incentive[] {
     return (
@@ -40,43 +45,44 @@ export function withTiltifyPolls() {
         })) ?? []
     );
   }
-
-  watch(
-    () => polls.data,
-    (newVal) => {
-      if (newVal) {
-        activePolls.value = getActivePolls();
-      }
-    },
-  );
   return { polls: activePolls };
 }
 
-export function withTiltifyTargets() {
-  const targets = useReplicant<Targets>("targets", "nodecg-tiltify");
-  const activeTargets = ref<Incentive[]>(getActiveTargets());
+export function withMilestones() {
+  const milestones = useReplicant<Milestones>("milestones", "nodecg-tiltify");
+  const activeMilestones = computed<Incentive[]>(getActiveMilestones);
 
-  function getActiveTargets(): Incentive[] {
+  function getActiveMilestones(): Incentive[] {
     return (
-      targets.data
+      milestones.data
         ?.filter((t) => t.active)
         .map((t) => ({
-          type: "target",
+          type: "milestone",
           item: t,
         })) ?? []
     );
   }
 
-  watch(
-    () => targets.data,
-    (newVal) => {
-      if (newVal) {
-        activeTargets.value = getActiveTargets();
-      }
-    },
-  );
+  return { milestones: activeMilestones };
+}
 
-  return { targets: activeTargets };
+export function withRewards() {
+  const rewards = useReplicant<Rewards>("rewards", "nodecg-tiltify");
+
+  const activeRewards = computed<Incentive[]>(getActiveRewards);
+
+  function getActiveRewards(): Incentive[] {
+    return (
+      rewards.data
+        ?.filter((t) => t.active)
+        .map((t) => ({
+          type: "reward",
+          item: t,
+        })) ?? []
+    );
+  }
+
+  return { rewards: activeRewards };
 }
 
 export function withIncentives(...incentives: Ref<Incentive[]>[]) {
