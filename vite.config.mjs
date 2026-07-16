@@ -17,7 +17,7 @@ export default defineConfig({
     sourcemap: false,
   },
   plugins: [
-    vue({isProduction: false}),
+    vue(),
     //vueDevTools({ launchEditor: "code" }),
     tailwindcss(),
     checker({ vueTsc: { tsconfigPath: "tsconfig.browser.json" } }),
