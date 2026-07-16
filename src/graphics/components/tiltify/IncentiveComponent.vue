@@ -2,25 +2,37 @@
 import {
   Incentive,
   withIncentives,
+  withTiltifyMilestones,
   withTiltifyPolls,
-  withTiltifyTargets,
 } from "@licenseathon-vue/graphics/composables/tiltify";
+import { withUpcomingRunData } from "@licenseathon-vue/graphics/composables/upcomingRunData";
 import { useReplicant } from "nodecg-vue-composable";
-import { computed, Transition } from "vue";
+import { computed, ref, Transition } from "vue";
 import { Total } from "../../../../../nodecg-tiltify/src/types/schemas";
 import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
 import InsetContainer from "../panels/InsetContainer.vue";
 import MaterialPanel from "../panels/MaterialPanel.vue";
 import MessageComponent from "./MessageComponent.vue";
+import MilestoneComponent from "./MilestoneComponent.vue";
 import PollComponent from "./PollComponent.vue";
-import TargetComponent from "./TargetComponent.vue";
+import UpcomingRunComponent from "./UpcomingRunComponent.vue";
 
 const { vertical = false } = defineProps<{
   vertical?: boolean;
 }>();
 
 const { polls } = withTiltifyPolls();
-const { targets } = withTiltifyTargets();
+const { milestones } = withTiltifyMilestones();
+const { upcoming } = withUpcomingRunData(2);
+
+const upcomingRuns = ref([
+  {
+    type: "upcoming" as const,
+    item: upcoming,
+  },
+]); /* computed<Incentive[]>(() =>
+  upcoming.value.map((run) => ({ type: "upcoming", item: run })),
+); */
 
 const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
 
@@ -52,7 +64,12 @@ const messages = computed<Incentive[]>(() => [
   },
 ]);
 
-const { incentive, hasIncentives } = withIncentives(messages, polls, targets);
+const { incentive, hasIncentives } = withIncentives(
+  //messages,
+  polls,
+  //milestones,
+  //upcomingRuns,
+);
 </script>
 
 <template>
@@ -67,18 +84,27 @@ const { incentive, hasIncentives } = withIncentives(messages, polls, targets);
             class="font-[Fusion] absolute"
             v-if="incentive.type === 'poll'"
             :poll="incentive.item"
+            :key="'poll' + incentive.item.id"
             :orientation="vertical ? 'vertical' : 'horizontal'"
           />
-          <TargetComponent
+          <MilestoneComponent
             class="font-[Fusion] absolute"
-            v-else-if="incentive.type === 'target'"
-            :target="incentive.item"
+            v-else-if="incentive.type === 'milestone'"
+            :key="'target' + incentive.item.id"
+            :milestone="incentive.item"
+            :total="campaignTotal.data"
           />
           <MessageComponent
             class="font-[Karnivore] absolute"
             v-else-if="incentive.type === 'message'"
-            :key="incentive.item.id"
+            :key="'msg' + incentive.item.id"
             :message="incentive.item"
+          />
+          <UpcomingRunComponent
+            class="absolute font-[Fusion]"
+            v-else-if="incentive.type === 'upcoming'"
+            key="upcoming"
+            :runs="incentive.item"
           />
         </Transition>
       </div>

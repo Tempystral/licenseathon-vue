@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import { useReplicant } from "nodecg-vue-composable";
-import { onMounted, ref, watch } from "vue";
-import {
-  Target,
-  Targets,
-} from "../../../../../nodecg-tiltify/src/types/schemas";
+import { Target } from "../../../../../nodecg-tiltify/src/types/schemas";
 import ProgressBar from "./ProgressBar.vue";
 
 const { target, textSize = "xl" } = defineProps<{

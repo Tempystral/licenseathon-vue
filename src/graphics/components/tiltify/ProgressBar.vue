@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from "vue";
+import { computed } from "vue";
 
 const { textSize = "xl", ...props } = defineProps<{
   amount_raised: number;
@@ -13,7 +13,7 @@ const { textSize = "xl", ...props } = defineProps<{
 const barColor = computed(() => props.colour ?? "bg-amber-500");
 
 const percentRaised = computed(() =>
-  props.total === 0 ? 0 : (props.amount_raised / props.total) * 100
+  props.total === 0 ? 0 : (props.amount_raised / props.total) * 100,
 );
 </script>
 <template>
@@ -30,7 +30,7 @@ const percentRaised = computed(() =>
         >
           {{ name }}:
         </span>
-        <b id="target-value"> ${{ amount_raised }} </b>
+        <slot name="text" />
       </p>
     </div>
     <div

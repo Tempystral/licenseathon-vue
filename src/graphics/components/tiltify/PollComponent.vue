@@ -51,7 +51,11 @@ const colours = ["bg-blue-500", "bg-amber-400", "bg-red-400", "bg-green-500"];
           :colour="colours[i]"
           position="in"
           text-size="xl"
-        />
+        >
+          <template #text>
+            <b class="inline">${{ option.amount_raised.value }}</b>
+          </template>
+        </ProgressBar>
       </div>
     </div>
   </div>
