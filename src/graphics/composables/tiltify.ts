@@ -1,30 +1,31 @@
 import { useReplicant } from "nodecg-vue-composable";
+import { RunData } from "speedcontrol-util/types";
 import { computed, onMounted, Ref, ref, watch } from "vue";
 import {
+  Milestone,
+  Milestones,
   Poll,
   Polls,
-  Target,
-  Targets,
 } from "../../../../nodecg-tiltify/src/types/schemas";
 
+type PollItem = { type: "poll"; item: Poll };
+type MilestoneItem = { type: "milestone"; item: Milestone };
+type MessageItem = {
+  type: "message";
+  item: {
+    id: string;
+    text?: string;
+    img?: string;
+    orientation: "h" | "v";
+  };
+};
+type UpcomingRunItem = { type: "upcoming"; item: RunData[] };
+
 export type Incentive =
-  | {
-      type: "poll";
-      item: Poll;
-    }
-  | {
-      type: "target";
-      item: Target;
-    }
-  | {
-      type: "message";
-      item: {
-        id: string;
-        text?: string;
-        img?: string;
-        orientation: "h" | "v";
-      };
-    };
+  | PollItem
+  | MilestoneItem
+  | MessageItem
+  | UpcomingRunItem;
 
 export function withTiltifyPolls() {
   const polls = useReplicant<Polls>("polls", "nodecg-tiltify");
@@ -52,31 +53,31 @@ export function withTiltifyPolls() {
   return { polls: activePolls };
 }
 
-export function withTiltifyTargets() {
-  const targets = useReplicant<Targets>("targets", "nodecg-tiltify");
-  const activeTargets = ref<Incentive[]>(getActiveTargets());
+export function withTiltifyMilestones() {
+  const milestones = useReplicant<Milestones>("milestones", "nodecg-tiltify");
+  const activeMilestones = ref<Incentive[]>(getActiveMilestones());
 
-  function getActiveTargets(): Incentive[] {
+  function getActiveMilestones(): Incentive[] {
     return (
-      targets.data
+      milestones.data
         ?.filter((t) => t.active)
         .map((t) => ({
-          type: "target",
+          type: "milestone",
           item: t,
         })) ?? []
     );
   }
 
   watch(
-    () => targets.data,
+    () => milestones.data,
     (newVal) => {
       if (newVal) {
-        activeTargets.value = getActiveTargets();
+        activeMilestones.value = getActiveMilestones();
       }
     },
   );
 
-  return { targets: activeTargets };
+  return { milestones: activeMilestones };
 }
 
 export function withIncentives(...incentives: Ref<Incentive[]>[]) {
