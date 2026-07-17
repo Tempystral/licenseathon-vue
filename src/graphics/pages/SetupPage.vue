@@ -82,26 +82,25 @@ onMounted(() => {
       </div>
 
       <div
-        theme="amber"
-        class="font-[Fusion]"
         style="
           grid-area: rite;
           clip-path: polygon(0 0, 0 100%, 60% 100%, 100% 70%, 100% 0);
         "
       >
-        <div
-          class="relative w-full h-full overflow-hidden grid grid-rows-4 gap-2 p-0"
-        >
+        <div class="relative h-full overflow-hidden grid grid-rows-4 gap-2 p-0">
           <TransitionGroup name="slide-h">
             <div
-              class="relative w-full grid grid-cols-[3fr_1fr] grid-rows-3"
+              class="relative grid grid-cols-[3fr_1fr] grid-rows-3"
               v-for="run in remainingRuns()?.slice(0, 4)"
               :key="run.id"
             >
               <MaterialPanel
                 theme="white"
-                class="flex flex-col gap-2 justify-between w-full text-lcns-black row-span-3"
+                class="flex flex-col gap-2 justify-between min-w-0 w-full text-lcns-black row-span-3"
               >
+                <!-- I will never know why this min-w-0 trick works
+                 but I will forever thank the heroes over at css-tricks.com
+                 for their insight: https://css-tricks.com/preventing-a-grid-blowout/ -->
                 <TextLabel
                   v-if="getPlayers(run).length > 0"
                   class="h-20"
@@ -142,7 +141,7 @@ onMounted(() => {
               <MaterialPanel v-if="run.estimate" theme="white" class="-ml-3">
                 <TextLabel class="h-18" text="ESTIMATE" align="end">
                   <TextBox theme="invisible" class="w-full">
-                    {{ run.estimate }}
+                    {{ run.estimate.slice(1) }}
                   </TextBox>
                 </TextLabel>
               </MaterialPanel>
