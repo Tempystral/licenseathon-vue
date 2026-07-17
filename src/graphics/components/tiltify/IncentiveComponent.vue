@@ -8,7 +8,7 @@ import {
 } from "@licenseathon-vue/graphics/composables/tiltify";
 import { withUpcomingRunData } from "@licenseathon-vue/graphics/composables/upcomingRunData";
 import { useReplicant } from "nodecg-vue-composable";
-import { computed, ref, Transition } from "vue";
+import { computed, Transition } from "vue";
 import { Total } from "../../../../../nodecg-tiltify/src/types/schemas";
 import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
 import InsetContainer from "../panels/InsetContainer.vue";
@@ -26,16 +26,7 @@ const { vertical = false } = defineProps<{
 const { polls } = withPolls();
 const { rewards } = withRewards();
 const { milestones } = withMilestones();
-const { upcoming } = withUpcomingRunData(2);
-
-const upcomingRuns = ref([
-  {
-    type: "upcoming" as const,
-    item: upcoming,
-  },
-]); /* computed<Incentive[]>(() =>
-  upcoming.value.map((run) => ({ type: "upcoming", item: run })),
-); */
+const { upcoming } = withUpcomingRunData();
 
 const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
 
@@ -70,9 +61,9 @@ const messages = computed<Incentive[]>(() => [
 const { incentive, hasIncentives } = withIncentives(
   //messages,
   // polls,
-  rewards,
+  //rewards,
   //milestones,
-  //upcomingRuns,
+  upcoming,
 );
 </script>
 
@@ -114,7 +105,7 @@ const { incentive, hasIncentives } = withIncentives(
             class="absolute font-[Fusion]"
             v-else-if="incentive.type === 'upcoming'"
             key="upcoming"
-            :runs="incentive.item"
+            :run="incentive.item"
           />
         </Transition>
       </div>

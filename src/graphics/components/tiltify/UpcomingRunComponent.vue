@@ -2,12 +2,9 @@
 import { RunData } from "speedcontrol-util/types/index.js";
 import MaterialPanel from "../panels/MaterialPanel.vue";
 import FitText from "../text/FitText.vue";
-import { getPlayers } from "@licenseathon-vue/graphics/util/helpers.js";
-import SvgIcon from "@jamescoyle/vue-icon";
-import { mdiAccount, mdiGamepad } from "@mdi/js";
 
 const props = defineProps<{
-  runs: RunData[];
+  run: RunData;
 }>();
 
 function splitName(name?: string) {
@@ -52,7 +49,6 @@ const options = { multiLine: true, minSize: 11, maxSize: 18 };
         theme="white"
         class="h-full grow flex flex-wrap gap-2 justify-between items-center"
         :class="run.category?.includes('Bonus') ? 'bg-lcns-amber!' : ''"
-        v-for="run in runs"
         :key="run.id"
       >
         <!-- <div class="flex flex-wrap gap-1">

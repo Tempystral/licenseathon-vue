@@ -10,19 +10,21 @@ import {
   Rewards,
 } from "../../../../nodecg-tiltify/src/types/schemas";
 
-type PollItem = { type: "poll"; item: Poll };
-type MilestoneItem = { type: "milestone"; item: Milestone };
-type RewardItem = { type: "reward"; item: Reward };
-type MessageItem = {
-  type: "message";
-  item: {
+type IncentiveType<T extends string, U> = { type: T; item: U };
+
+type PollItem = IncentiveType<"poll", Poll>;
+type MilestoneItem = IncentiveType<"milestone", Milestone>;
+type RewardItem = IncentiveType<"reward", Reward>;
+type UpcomingRunItem = IncentiveType<"upcoming", RunData>;
+type MessageItem = IncentiveType<
+  "message",
+  {
     id: string;
     text?: string;
     img?: string;
     orientation: "h" | "v";
-  };
-};
-type UpcomingRunItem = { type: "upcoming"; item: RunData[] };
+  }
+>;
 
 export type Incentive =
   | PollItem
