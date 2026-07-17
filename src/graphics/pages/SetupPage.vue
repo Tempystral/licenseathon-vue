@@ -28,7 +28,7 @@ const messages = withCharityMessages();
 const polls = withPolls();
 const rewards = withRewards();
 const milestones = withMilestones();
-const incentives = ref([rewards, milestones]);
+const incentives = ref([messages, polls, rewards, milestones]);
 
 const { runData, runners } = withRunData();
 

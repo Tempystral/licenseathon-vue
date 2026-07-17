@@ -6,7 +6,6 @@ import {
   Donations,
   Reward,
 } from "../../../../../nodecg-tiltify/src/types/schemas";
-import ProgressBar from "./ProgressBar.vue";
 
 const { reward, textSize = "xl" } = defineProps<{
   textSize?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
@@ -48,13 +47,17 @@ const breakpoint = computed(
   <div id="options" class="w-full h-full flex flex-col rounded-xl">
     <div class="w-full max-w-full" :key="reward.id">
       <div :class="`text-${textSize} mb-1`">
-        <b> {{ reward.name }}</b> - Triggers every
-        <b>${{ reward.fair_market_value?.value }}</b>
+        <b>{{ reward.name }}</b> - ${{ reward.amount?.value }}
+        <p class="inline">
+          | Redeemed: {{ donosForReward().length }} (${{ donations }})
+        </p>
       </div>
       <hr class="mb-1" />
     </div>
-    <div class="relative grow">
-      <ProgressBar
+    <div class="relative grow bg-black/25 p-2 rounded text-2xl">
+      {{ reward.description }}
+
+      <!-- <ProgressBar
         :amount_raised="breakpoint"
         :total="parseInt((reward.fair_market_value?.value ?? 0) as string)"
         position="in"
@@ -63,7 +66,7 @@ const breakpoint = computed(
         <template #text>
           <b class="inline"> ${{ donations }}</b>
         </template>
-      </ProgressBar>
+      </ProgressBar> -->
     </div>
   </div>
 </template>
