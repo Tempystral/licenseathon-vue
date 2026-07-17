@@ -1,6 +1,6 @@
 import { useReplicant } from "nodecg-vue-composable";
 import { RunData } from "speedcontrol-util/types";
-import { computed, onMounted, Ref, ref } from "vue";
+import { computed, isRef, MaybeRef, onMounted, ref } from "vue";
 import {
   Milestone,
   Milestones,
@@ -47,7 +47,7 @@ export function withPolls() {
         })) ?? []
     );
   }
-  return { polls: activePolls };
+  return activePolls;
 }
 
 export function withMilestones() {
@@ -65,7 +65,7 @@ export function withMilestones() {
     );
   }
 
-  return { milestones: activeMilestones };
+  return activeMilestones;
 }
 
 export function withRewards() {
@@ -84,11 +84,13 @@ export function withRewards() {
     );
   }
 
-  return { rewards: activeRewards };
+  return activeRewards;
 }
 
-export function withIncentives(...incentives: Ref<Incentive[]>[]) {
-  const incentiveList = computed(() => incentives.flatMap((inc) => inc.value));
+export function withIncentives(incentives: MaybeRef<Incentive[]>[]) {
+  const incentiveList = computed(() =>
+    incentives.flatMap((inc) => (isRef(inc) ? inc.value : inc)),
+  );
 
   const selected = ref(0);
   const currentItem = computed(() => incentiveList.value[selected.value]);

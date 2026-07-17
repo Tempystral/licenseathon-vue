@@ -10,7 +10,13 @@ import RotatingText from "../components/text/RotatingText.vue";
 import TextBox from "../components/text/TextBox.vue";
 import TextLabel from "../components/text/TextLabel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { withCharityMessages } from "../composables/messages.js";
 import { withRunData } from "../composables/runData.js";
+import {
+  withMilestones,
+  withPolls,
+  withRewards,
+} from "../composables/tiltify.js";
 import { getPlayers } from "../util/helpers.js";
 
 const layoutPath = new URL("../assets/setup.svg", import.meta.url).href;
@@ -18,12 +24,11 @@ const layoutRef = ref<SVGElement | null>(null);
 
 const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
 
-/**
- * Replicants required:
- * runDataActiveRun
- * runDataActiveRunSurrounding (Maybe not, do we really care about the before part?)
- * runDataArray
- */
+const messages = withCharityMessages();
+const polls = withPolls();
+const rewards = withRewards();
+const milestones = withMilestones();
+const incentives = ref([rewards, milestones]);
 
 const { runData, runners } = withRunData();
 
@@ -57,127 +62,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <svg height="0" width="0">
-      <defs>
-        <filter
-          id="offset-inset-shadow"
-          color-interpolation-filters="sRGB"
-          filterUnits="objectBoundingBox"
-          primitiveUnits="userSpaceOnUse"
-        >
-          <feOffset dx="20" dy="0" in="SourceGraphic" result="offset" />
-          <feGaussianBlur
-            stdDeviation="20 20"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            in="offset"
-            edgeMode="none"
-            result="blur"
-          />
-          <feComposite
-            in="SourceGraphic"
-            in2="blur"
-            operator="out"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite"
-          />
-          <feFlood
-            flood-color="#000000"
-            flood-opacity="0.95"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="flood"
-          />
-          <feComposite
-            in="flood"
-            in2="composite"
-            operator="in"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite1"
-          />
-          <feComposite
-            in="composite1"
-            in2="SourceGraphic"
-            operator="over"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite2"
-          />
-        </filter>
-
-        <filter
-          id="inset-shadow"
-          color-interpolation-filters="sRGB"
-          filterUnits="objectBoundingBox"
-          primitiveUnits="userSpaceOnUse"
-        >
-          <feGaussianBlur
-            stdDeviation="20 20"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            in="offset"
-            edgeMode="none"
-            result="blur"
-          />
-          <feComposite
-            in="SourceGraphic"
-            in2="blur"
-            operator="out"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite"
-          />
-          <feFlood
-            flood-color="#000000"
-            flood-opacity="0.95"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="flood"
-          />
-          <feComposite
-            in="flood"
-            in2="composite"
-            operator="in"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite1"
-          />
-          <feComposite
-            in="composite1"
-            in2="SourceGraphic"
-            operator="over"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite2"
-          />
-        </filter>
-      </defs>
-    </svg>
     <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
-
-    <!-- <IncentiveComponent ratio="setup" /> -->
 
     <div
       id="main-grid"
@@ -311,7 +196,11 @@ onMounted(() => {
         </template>
       </CameraPanel>
 
-      <IncentiveComponent style="grid-area: ictv" :vertical="true" />
+      <IncentiveComponent
+        style="grid-area: ictv"
+        :vertical="true"
+        :incentives
+      />
 
       <LogoContainer
         class="my-4 col-start-3 col-span-1"

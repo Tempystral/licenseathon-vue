@@ -28,7 +28,5 @@ export function withUpcomingRunData() {
       : [];
   }
 
-  const upcoming = computed(getNextRun);
-
-  return { upcoming };
+  return computed(getNextRun);
 }

@@ -2,15 +2,10 @@
 import {
   Incentive,
   withIncentives,
-  withMilestones,
-  withPolls,
-  withRewards,
 } from "@licenseathon-vue/graphics/composables/tiltify";
-import { withUpcomingRunData } from "@licenseathon-vue/graphics/composables/upcomingRunData";
 import { useReplicant } from "nodecg-vue-composable";
-import { computed, Transition } from "vue";
-import { Total } from "../../../../../nodecg-tiltify/src/types/schemas";
-import tlcLogo from "../../assets/TLC_primaryNOTAG.svg";
+import { MaybeRef, Transition } from "vue";
+import { Total } from "../../../../../nodecg-tiltify/src/types/schemas/total.js";
 import InsetContainer from "../panels/InsetContainer.vue";
 import MaterialPanel from "../panels/MaterialPanel.vue";
 import MessageComponent from "./MessageComponent.vue";
@@ -19,52 +14,14 @@ import PollComponent from "./PollComponent.vue";
 import RewardComponent from "./RewardComponent.vue";
 import UpcomingRunComponent from "./UpcomingRunComponent.vue";
 
-const { vertical = false } = defineProps<{
+const { vertical = false, incentives = [] } = defineProps<{
   vertical?: boolean;
+  incentives?: MaybeRef<Incentive[]>[];
 }>();
-
-const { polls } = withPolls();
-const { rewards } = withRewards();
-const { milestones } = withMilestones();
-const { upcoming } = withUpcomingRunData();
 
 const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
 
-const messages = computed<Incentive[]>(() => [
-  {
-    type: "message",
-    item: {
-      id: "tlclogo",
-      orientation: "h",
-      text: "In support of: ",
-      img: tlcLogo,
-    },
-  },
-  {
-    type: "message",
-    item: {
-      text: "Donate at: licenseathon.live/donate",
-      orientation: "v",
-      id: "donomsg",
-    },
-  },
-  {
-    type: "message",
-    item: {
-      text: `$${campaignTotal.data?.value} raised for the Transgender Law Center!`,
-      orientation: "v",
-      id: "campaigntotal",
-    },
-  },
-]);
-
-const { incentive, hasIncentives } = withIncentives(
-  //messages,
-  // polls,
-  //rewards,
-  //milestones,
-  upcoming,
-);
+const { incentive, hasIncentives } = withIncentives(incentives);
 </script>
 
 <template>

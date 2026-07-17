@@ -4,11 +4,19 @@ import GameInfo from "../components/page-elements/GameInfo.vue";
 import ScreenPanel from "../components/panels/ScreenPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
 
+import { ref } from "vue";
 import EstimateDisplay from "../components/page-elements/EstimateDisplay.vue";
 import LogoContainer from "../components/page-elements/LogoContainer.vue";
 import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel.vue";
 import TimerPanel from "../components/page-elements/TimerPanel.vue";
+import { withCharityMessages } from "../composables/messages.js";
 import { withRunData } from "../composables/runData.js";
+import {
+  withMilestones,
+  withPolls,
+  withRewards,
+} from "../composables/tiltify.js";
+import { withUpcomingRunData } from "../composables/upcomingRunData.js";
 import { Layout } from "../util/constants.js";
 import { getWidth } from "../util/helpers.js";
 
@@ -18,6 +26,13 @@ const props = defineProps<{
 }>();
 
 const { runners, runData } = withRunData();
+
+const messages = withCharityMessages();
+const polls = withPolls();
+const rewards = withRewards();
+const milestones = withMilestones();
+const upNext = withUpcomingRunData();
+const incentives = ref([messages, polls, rewards, milestones, upNext]);
 
 const height = 33;
 const width = getWidth(height, props.ratio);
@@ -95,7 +110,7 @@ const width = getWidth(height, props.ratio);
             class="w-8/12"
           />
         </div>
-        <IncentiveComponent class="shrink basis-[30%]" />
+        <IncentiveComponent class="shrink basis-[30%]" :incentives />
       </div>
     </template>
   </LayoutComponent>
