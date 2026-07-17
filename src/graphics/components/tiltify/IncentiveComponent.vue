@@ -27,10 +27,9 @@ const { incentive, hasIncentives } = withIncentives(incentives);
 <template>
   <MaterialPanel class="w-full h-full relative">
     <InsetContainer
-      v-if="hasIncentives()"
       class="relative h-full overflow-x-hidden overflow-y-clip z-10"
     >
-      <div class="w-full h-full inline-block relative">
+      <div class="w-full h-full inline-block relative" v-if="hasIncentives()">
         <Transition name="slide">
           <PollComponent
             class="font-[Fusion] absolute"
