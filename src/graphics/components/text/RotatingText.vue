@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import TransitionList from "./TransitionList.vue";
 import FitText from "./FitText.vue";
+import TransitionList from "./TransitionList.vue";
 
 const { items, timeout = 20000 } = defineProps<{
   items: string[];
@@ -9,7 +9,7 @@ const { items, timeout = 20000 } = defineProps<{
 }>();
 
 const textElements = computed(() =>
-  items.map((el, i) => ({ text: el, condition: i === selected.value })),
+  items.map((el, i) => ({ item: el, condition: i === selected.value })),
 );
 
 const selected = ref(0);
@@ -31,14 +31,14 @@ const options = { multiLine: true, minSize: 14, maxSize: 24 };
 </script>
 <template>
   <TransitionList :items="textElements">
-    <template #item="{ text, condition }">
+    <template #item="{ item, condition }">
       <div
         v-if="condition"
-        :key="text"
+        :key="item"
         class="absolute w-full h-full flex items-center justify-center"
       >
         <FitText :options>
-          {{ text }}
+          {{ item }}
         </FitText>
       </div>
     </template>
