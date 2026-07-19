@@ -1,1 +1,0 @@
-import{t as e}from"./template-BRhm-cE1.js";import{r as t}from"./constants-CHXwtfhD.js";import{t as n}from"./RacePage-BCF0Kxtk.js";e(n,{numPlayers:2,ratio:t});

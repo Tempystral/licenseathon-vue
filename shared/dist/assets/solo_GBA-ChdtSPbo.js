@@ -1,0 +1,1 @@
+import{t as e}from"./template-BRhm-cE1.js";import{i as t,n}from"./constants-OaWEhdDa.js";import{t as r}from"./ActiveRunPage-PztGWR6y.js";e(r,{players:1,ratio:n,width:80,layout:t.LAYOUT_SD});
