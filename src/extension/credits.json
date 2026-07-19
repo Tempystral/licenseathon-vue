@@ -22,6 +22,7 @@
       "name": "Staff",
       "delay": 10,
       "text": {
+        "style": "bg-black/25 rounded-xl p-4",
         "content": [
           "Tempystral",
           "GamingGuy63",
@@ -40,6 +41,7 @@
       "name": "Runners",
       "delay": 20,
       "text": {
+        "style": "bg-black/25 rounded-xl p-4",
         "content": [
           "Juesto",
           "Zachariasz455",
@@ -68,6 +70,7 @@
       "name": "Runners",
       "delay": 20,
       "text": {
+        "style": "bg-black/25 rounded-xl p-4",
         "content": [
           "BenjaminPRO",
           "luke_runs",
@@ -95,6 +98,7 @@
       "name": "Assets Used",
       "delay": 5,
       "text": {
+        "style": "bg-black/25 rounded-xl p-4",
         "content": [
           "Metalheart Icons Assets Pack by Cody Vondell",
           "CSS CRT Effect by Alec Lownes",

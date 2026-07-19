@@ -47,17 +47,20 @@ function replaceRef(input: string) {
             :key="item.name"
             class="h-full w-full absolute flex flex-col items-center justify-center text-center"
           >
-            <dl v-if="item.text" :class="[item.text.style]">
-              <dt class="text-5xl mb-2 font-[Fusion]">
+            <dl v-if="item.text">
+              <dt class="text-5xl mb-4 font-[Fusion]">
                 {{ replaceRef(item.name) }}
               </dt>
               <div
-                :class="item.text.content.length > 15 ? 'grid grid-cols-2' : ''"
+                :class="[
+                  item.text.style,
+                  item.text.content.length > 15 ? 'grid grid-cols-2' : '',
+                ]"
               >
                 <dd
                   v-for="element in item.text.content"
                   :key="element"
-                  class="text-3xl font-sans pb-1"
+                  class="text-4xl font-sans pb-1"
                 >
                   {{ replaceRef(element) }}
                 </dd>
