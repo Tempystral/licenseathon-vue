@@ -4,7 +4,7 @@
       "name": "logo 1",
       "delay": 5,
       "image": {
-        "path": "../assets/logo_2026.png"
+        "path": "logo_2026"
       }
     },
     {
@@ -14,7 +14,7 @@
         "content": []
       },
       "image": {
-        "path": "../assets/TLC_primaryNOTAG.svg",
+        "path": "TLC_primaryNOTAG",
         "style": "bg-lcns-white p-4 rounded-2xl"
       }
     },
@@ -114,7 +114,7 @@
         "content": []
       },
       "image": {
-        "path": "../assets/TLC_primaryNOTAG.svg",
+        "path": "TLC_primaryNOTAG",
         "style": "bg-lcns-white p-4 rounded-2xl"
       },
       "delay": 15
