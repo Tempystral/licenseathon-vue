@@ -74,7 +74,20 @@
       {
         "name": "credits-music",
         "defaultVolume": 100,
-        "defaultFile": "sound/budokai-music-edited.mp3"
+        "defaultFile": "assets/sound/budokai-music-edited.mp3"
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "images",
+        "title": "Images",
+        "allowedTypes": [
+          "jpg",
+          "jpeg",
+          "gif",
+          "png",
+          "svg"
+        ]
       }
     ],
     "dashboardPanels": [

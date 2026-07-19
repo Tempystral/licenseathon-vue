@@ -5,26 +5,17 @@ import InlineSvg from "vue-inline-svg";
 import { Total } from "../../../../nodecg-tiltify/src/types/schemas";
 import layoutPath from "../assets/splash.svg";
 import TransitionList from "../components/text/TransitionList.vue";
+import { withAssets } from "../composables/assets";
 import { withCreditsData } from "../composables/creditsData";
 
 const { credits } = withCreditsData();
 const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
 
+const { getAsset } = withAssets("images");
+
 const refs = computed<Record<string, unknown>>(() => ({
   total: campaignTotal.data?.value,
 }));
-
-function getRef(name: keyof typeof refs.value) {
-  return refs.value[name];
-}
-
-function getUrl(path: string) {
-  return new URL(path, import.meta.url).href;
-}
-
-function unescape(input: string) {
-  return input.replaceAll("%", "");
-}
 
 function replaceRef(input: string) {
   const match = input.match(/\%\w+\%/gi)?.[0];
@@ -33,6 +24,14 @@ function replaceRef(input: string) {
   }
   const ref = getRef(unescape(match));
   return input.split(match).join(`${ref}`);
+}
+
+function getRef(name: keyof typeof refs.value) {
+  return refs.value[name];
+}
+
+function unescape(input: string) {
+  return input.replaceAll("%", "");
 }
 </script>
 
@@ -67,7 +66,11 @@ function replaceRef(input: string) {
               </div>
             </dl>
             <div v-if="item.image" class="w-8/12" :class="item.image?.style">
-              <img :src="getUrl(item.image.path)" ref="logoRef" id="logo" />
+              <img
+                :src="getAsset(item.image.path)?.url"
+                ref="logoRef"
+                id="logo"
+              />
             </div>
           </section>
         </template>
