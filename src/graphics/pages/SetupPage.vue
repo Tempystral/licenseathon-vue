@@ -10,7 +10,13 @@ import RotatingText from "../components/text/RotatingText.vue";
 import TextBox from "../components/text/TextBox.vue";
 import TextLabel from "../components/text/TextLabel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { withCharityMessages } from "../composables/messages.js";
 import { withRunData } from "../composables/runData.js";
+import {
+  withMilestones,
+  withPolls,
+  withRewards,
+} from "../composables/tiltify.js";
 import { getPlayers } from "../util/helpers.js";
 
 const layoutPath = new URL("../assets/setup.svg", import.meta.url).href;
@@ -18,12 +24,11 @@ const layoutRef = ref<SVGElement | null>(null);
 
 const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
 
-/**
- * Replicants required:
- * runDataActiveRun
- * runDataActiveRunSurrounding (Maybe not, do we really care about the before part?)
- * runDataArray
- */
+const messages = withCharityMessages();
+const polls = withPolls();
+const rewards = withRewards();
+const milestones = withMilestones();
+const incentives = ref([messages, polls, rewards, milestones]);
 
 const { runData, runners } = withRunData();
 
@@ -57,127 +62,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <svg height="0" width="0">
-      <defs>
-        <filter
-          id="offset-inset-shadow"
-          color-interpolation-filters="sRGB"
-          filterUnits="objectBoundingBox"
-          primitiveUnits="userSpaceOnUse"
-        >
-          <feOffset dx="20" dy="0" in="SourceGraphic" result="offset" />
-          <feGaussianBlur
-            stdDeviation="20 20"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            in="offset"
-            edgeMode="none"
-            result="blur"
-          />
-          <feComposite
-            in="SourceGraphic"
-            in2="blur"
-            operator="out"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite"
-          />
-          <feFlood
-            flood-color="#000000"
-            flood-opacity="0.95"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="flood"
-          />
-          <feComposite
-            in="flood"
-            in2="composite"
-            operator="in"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite1"
-          />
-          <feComposite
-            in="composite1"
-            in2="SourceGraphic"
-            operator="over"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite2"
-          />
-        </filter>
-
-        <filter
-          id="inset-shadow"
-          color-interpolation-filters="sRGB"
-          filterUnits="objectBoundingBox"
-          primitiveUnits="userSpaceOnUse"
-        >
-          <feGaussianBlur
-            stdDeviation="20 20"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            in="offset"
-            edgeMode="none"
-            result="blur"
-          />
-          <feComposite
-            in="SourceGraphic"
-            in2="blur"
-            operator="out"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite"
-          />
-          <feFlood
-            flood-color="#000000"
-            flood-opacity="0.95"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="flood"
-          />
-          <feComposite
-            in="flood"
-            in2="composite"
-            operator="in"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite1"
-          />
-          <feComposite
-            in="composite1"
-            in2="SourceGraphic"
-            operator="over"
-            x="0%"
-            y="0%"
-            width="100%"
-            height="100%"
-            result="composite2"
-          />
-        </filter>
-      </defs>
-    </svg>
     <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
-
-    <!-- <IncentiveComponent ratio="setup" /> -->
 
     <div
       id="main-grid"
@@ -197,26 +82,25 @@ onMounted(() => {
       </div>
 
       <div
-        theme="amber"
-        class="font-[Fusion]"
         style="
           grid-area: rite;
           clip-path: polygon(0 0, 0 100%, 60% 100%, 100% 70%, 100% 0);
         "
       >
-        <div
-          class="relative w-full h-full overflow-hidden grid grid-rows-4 gap-2 p-0"
-        >
+        <div class="relative h-full overflow-hidden grid grid-rows-4 gap-2 p-0">
           <TransitionGroup name="slide-h">
             <div
-              class="relative w-full grid grid-cols-[3fr_1fr] grid-rows-3"
+              class="relative grid grid-cols-[3fr_1fr] grid-rows-3"
               v-for="run in remainingRuns()?.slice(0, 4)"
               :key="run.id"
             >
               <MaterialPanel
                 theme="white"
-                class="flex flex-col gap-2 justify-between w-full text-lcns-black row-span-3"
+                class="flex flex-col gap-2 justify-between min-w-0 w-full text-lcns-black row-span-3"
               >
+                <!-- I will never know why this min-w-0 trick works
+                 but I will forever thank the heroes over at css-tricks.com
+                 for their insight: https://css-tricks.com/preventing-a-grid-blowout/ -->
                 <TextLabel
                   v-if="getPlayers(run).length > 0"
                   class="h-20"
@@ -257,7 +141,7 @@ onMounted(() => {
               <MaterialPanel v-if="run.estimate" theme="white" class="-ml-3">
                 <TextLabel class="h-18" text="ESTIMATE" align="end">
                   <TextBox theme="invisible" class="w-full">
-                    {{ run.estimate }}
+                    {{ run.estimate.slice(1) }}
                   </TextBox>
                 </TextLabel>
               </MaterialPanel>
@@ -311,7 +195,11 @@ onMounted(() => {
         </template>
       </CameraPanel>
 
-      <IncentiveComponent style="grid-area: ictv" :vertical="true" />
+      <IncentiveComponent
+        style="grid-area: ictv"
+        :vertical="true"
+        :incentives
+      />
 
       <LogoContainer
         class="my-4 col-start-3 col-span-1"

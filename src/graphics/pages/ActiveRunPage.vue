@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import InlineSvg from "vue-inline-svg";
 import LayoutComponent from "../components/LayoutComponent.vue";
 import CameraPanel from "../components/page-elements/CameraPanel.vue";
 import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
@@ -8,9 +10,15 @@ import LogoContainer from "../components/page-elements/LogoContainer.vue";
 import TimerPanel from "../components/page-elements/TimerPanel.vue";
 import ScreenPanel from "../components/panels/ScreenPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { withCharityMessages } from "../composables/messages.js";
 import { withRunData } from "../composables/runData.js";
+import {
+  withMilestones,
+  withPolls,
+  withRewards,
+} from "../composables/tiltify.js";
+import { withUpcomingRunData } from "../composables/upcomingRunData.js";
 import { Layout } from "../util/constants.js";
-import InlineSvg from "vue-inline-svg";
 
 const {
   width = 80,
@@ -25,6 +33,13 @@ const {
 }>();
 
 const { runData, runners } = withRunData();
+
+const messages = withCharityMessages();
+const polls = withPolls();
+const rewards = withRewards();
+const milestones = withMilestones();
+const upNext = withUpcomingRunData();
+const incentives = ref([messages, polls, rewards, milestones, upNext]);
 
 const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
 </script>
@@ -74,7 +89,7 @@ const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
           id="game-info-panel"
           class="basis-300 grow"
         />
-        <IncentiveComponent class="shrink" />
+        <IncentiveComponent class="shrink" :incentives />
         <LogoContainer v-if="layout === 'layout_16_9'" class="grow" />
       </div>
     </template>

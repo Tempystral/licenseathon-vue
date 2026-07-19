@@ -47,18 +47,21 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
               <template #rotation>
                 <TransitionList
                   :items="[
-                    { text: runner.name, condition: !showingSocials },
-                    { text: runner.social?.twitch, condition: showingSocials },
+                    { item: runner.name, condition: !showingSocials },
+                    {
+                      item: runner.social?.twitch ?? '',
+                      condition: showingSocials,
+                    },
                   ]"
                 >
-                  <template #item="{ text, condition }">
+                  <template #item="{ item, condition }">
                     <div
                       v-if="condition"
                       :key="runner.id + runner.name"
                       class="absolute w-full h-full flex items-center justify-center"
                     >
                       <FitText :options="fitTextOptions">
-                        {{ text }}
+                        {{ item }}
                       </FitText>
                     </div>
                   </template>

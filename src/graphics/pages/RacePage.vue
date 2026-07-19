@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import LayoutComponent from "../components/LayoutComponent.vue";
 import CommentatorDisplayComponent from "../components/page-elements/CommentatorDisplayComponent.vue";
 import EstimateDisplay from "../components/page-elements/EstimateDisplay.vue";
@@ -9,7 +9,14 @@ import RacePlayerInfoPanel from "../components/page-elements/RacePlayerInfoPanel
 import TimerPanel from "../components/page-elements/TimerPanel.vue";
 import ScreenPanel from "../components/panels/ScreenPanel.vue";
 import IncentiveComponent from "../components/tiltify/IncentiveComponent.vue";
+import { withCharityMessages } from "../composables/messages.js";
 import { withRunData } from "../composables/runData.js";
+import {
+  withMilestones,
+  withPolls,
+  withRewards,
+} from "../composables/tiltify.js";
+import { withUpcomingRunData } from "../composables/upcomingRunData.js";
 import { Layout } from "../util/constants.js";
 
 const props = defineProps<{
@@ -18,6 +25,13 @@ const props = defineProps<{
 }>();
 
 const { runners, runData } = withRunData();
+
+const messages = withCharityMessages();
+const polls = withPolls();
+const rewards = withRewards();
+const milestones = withMilestones();
+const upNext = withUpcomingRunData();
+const incentives = ref([messages, polls, rewards, milestones, upNext]);
 
 const widths = [0, 0, 58, 41];
 const width = computed(() => widths[props.numPlayers]);
@@ -68,7 +82,7 @@ const width = computed(() => widths[props.numPlayers]);
         </div>
 
         <div class="h-10/12">
-          <IncentiveComponent />
+          <IncentiveComponent :incentives />
         </div>
       </div>
     </template>

@@ -1,130 +1,77 @@
 <script lang="ts" setup>
-import creditsData from "@licenseathon-vue/extension/credits.json";
 import { useReplicant } from "nodecg-vue-composable";
-import { URL } from "url";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed } from "vue";
 import InlineSvg from "vue-inline-svg";
-
+import { Total } from "../../../../nodecg-tiltify/src/types/schemas";
 import layoutPath from "../assets/splash.svg";
-import logoPath from "../assets/logo_2026.png";
-import logo2Path from "../assets/TLC_primaryNOTAG.svg";
+import TransitionList from "../components/text/TransitionList.vue";
+import { withCreditsData } from "../composables/creditsData";
 
-/* const layoutPath = new URL("../assets/splash.svg", import.meta.url).href;
-const layoutRef = ref<SVGElement | null>(null);
+const { credits } = withCreditsData();
+const campaignTotal = useReplicant<Total>("total", "nodecg-tiltify");
 
-const logoPath = new URL("../assets/logo_2025.png", import.meta.url).href;
-const logoRef = ref<SVGElement | null>(null);
+const refs = computed<Record<string, unknown>>(() => ({
+  total: campaignTotal.data?.value,
+}));
 
-const logo2Path = new URL("../assets/TLC_primaryNOTAG.svg", import.meta.url)
-  .href; */
+function getRef(name: keyof typeof refs.value) {
+  return refs.value[name];
+}
 
-type Credits =
-  | {
-      type: "image";
-      name: string;
-      delay: number;
-      data: string;
-    }
-  | {
-      type: "text";
-      name: string;
-      delay: number;
-      data: string[];
-    };
+function getUrl(path: string) {
+  return new URL(path, import.meta.url).href;
+}
 
-const credits = computed<Credits[]>(() => [
-  {
-    name: "logo 1",
-    type: "image",
-    delay: 5,
-    data: logoPath,
-  },
-  {
-    name: "tlc logo",
-    type: "image",
-    delay: 5,
-    data: logo2Path,
-  },
-  ...(creditsData.data as Credits[]),
-  {
-    name: "See you next year!",
-    data: [],
-    delay: -1,
-    type: "text",
-  },
-]);
+function unescape(input: string) {
+  return input.replaceAll("%", "");
+}
 
-const started = useReplicant("creditsStart", "licenseathon-vue");
-
-watch(
-  () => started.data,
-  (isPlaying) => {
-    if (isPlaying) {
-      nodecg.playSound("credits-music");
-      currentTimeout.value = setTimeout(
-        nextItem,
-        currentItem.value.delay * 1000,
-      );
-    } else {
-      nodecg.stopAllSounds();
-      currentIndex.value = 0;
-    }
-  },
-);
-
-const currentIndex = ref(0);
-const currentItem = computed(() => credits.value[currentIndex.value]);
-const currentTimeout = ref<NodeJS.Timeout | undefined>();
-
-/* onMounted(() => {
-  setTimeout(nextItem, currentItem.value.delay * 1000);
-}); */
-
-watch(currentItem, (item) => {
-  if (started.data) {
-    currentTimeout.value = setTimeout(nextItem, item.delay * 1000);
-  } else {
-    if (currentTimeout.value) clearTimeout(currentTimeout.value);
+function replaceRef(input: string) {
+  const match = input.match(/\%\w+\%/gi)?.[0];
+  if (!match) {
+    return input;
   }
-});
-
-function nextItem() {
-  if (credits.value.length > 0) {
-    if (currentIndex.value + 1 >= credits.value.length) {
-      //currentIndex.value = 0;
-    } else {
-      currentIndex.value++;
-    }
-  }
+  const ref = getRef(unescape(match));
+  return input.split(match).join(`${ref}`);
 }
 </script>
 
 <template>
   <div class="">
     <InlineSvg :src="layoutPath" ref="layoutRef" id="layout" />
-    <div class="absolute h-[980px] w-8/12 overflow-clip">
-      <Transition name="fade">
-        <section
-          v-if="currentItem"
-          :key="currentItem.name"
-          class="flex h-8/12 w-full absolute top-0 left-0 items-center justify-center font-[Fusion] text-center"
-        >
-          <div
-            v-if="currentItem.type === 'image'"
-            :id="currentItem.name"
-            class="w-8/12"
+    <div class="absolute h-240 w-8/12 overflow-clip">
+      <TransitionList :animation="'fade'" :items="credits">
+        <template #item="{ item, condition }">
+          <section
+            v-if="condition"
+            :key="item.name"
+            class="h-full w-full absolute flex flex-col items-center justify-center text-center"
           >
-            <img :src="currentItem.data" ref="logoRef" id="logo" />
-          </div>
-
-          <dl v-if="currentItem.type === 'text'" :id="currentItem.name">
-            <dt class="text-5xl mb-2">{{ currentItem.name }}</dt>
-            <dd v-for="name in currentItem.data" :key="name" class="text-3xl">
-              {{ name }}
-            </dd>
-          </dl>
-        </section>
-      </Transition>
+            <dl v-if="item.text">
+              <dt class="text-5xl mb-4 font-[Fusion]">
+                {{ replaceRef(item.name) }}
+              </dt>
+              <div
+                :class="[
+                  item.text.style,
+                  item.text.content.length > 15 ? 'grid grid-cols-2' : '',
+                ]"
+              >
+                <dd
+                  v-for="element in item.text.content"
+                  :key="element"
+                  class="text-4xl font-sans pb-1"
+                >
+                  {{ replaceRef(element) }}
+                </dd>
+              </div>
+            </dl>
+            <div v-if="item.image" class="w-8/12" :class="item.image?.style">
+              <img :src="getUrl(item.image.path)" ref="logoRef" id="logo" />
+            </div>
+          </section>
+        </template>
+      </TransitionList>
     </div>
   </div>
 </template>

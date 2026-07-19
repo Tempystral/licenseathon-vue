@@ -1,22 +1,23 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends string | object">
 import { TransitionGroup } from "vue";
-import FitText from "./FitText.vue";
 
-const props = defineProps<{
+interface Item<T> {
+  item: T;
+  condition: boolean;
+}
+
+const { animation = "slide" } = defineProps<{
   animation?: string;
-  items: {
-    text?: string;
-    condition: boolean;
-  }[];
+  items: Item<T>[];
 }>();
 </script>
 <template>
   <div class="relative overflow-hidden h-full w-full">
-    <TransitionGroup name="slide">
+    <TransitionGroup :name="animation">
       <slot
         name="item"
         v-for="item in items"
-        :key="item.text"
+        :key="item.item"
         v-bind="item"
         class=""
       />
