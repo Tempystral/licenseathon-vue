@@ -201,9 +201,9 @@ const fitTextOptions = { multiLine: true, minSize: 14, maxSize: 24 };
         <slot name="rotation" v-if="$slots.rotation" />
         <div
           v-else
-          class="flex flex-col items-center justify-center h-full overflow-clip"
+          class="grid items-center justify-center h-full w-full overflow-clip"
         >
-          <FitText :options="fitTextOptions">
+          <FitText :options="fitTextOptions" class="min-w-0 max-w-full">
             <template #content>
               <slot />
             </template>
