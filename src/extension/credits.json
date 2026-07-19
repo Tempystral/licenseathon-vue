@@ -1,83 +1,126 @@
 {
   "data": [
     {
+      "name": "logo 1",
+      "delay": 5,
+      "image": {
+        "path": "../assets/logo_2026.png"
+      }
+    },
+    {
+      "name": "Supporting:",
+      "delay": 5,
+      "text": {
+        "content": []
+      },
+      "image": {
+        "path": "../assets/TLC_primaryNOTAG.svg",
+        "style": "bg-lcns-white p-4 rounded-2xl"
+      }
+    },
+    {
       "name": "Staff",
-      "type": "text",
       "delay": 10,
-      "data": [
-        "Tempystral",
-        "GamingGuy63",
-        "Magieus",
-        "TempestMask1000",
-        "Earllgray",
-        "HazelPietro",
-        "IzzyHope58",
-        "BTF_Flotsam",
-        "Ad129",
-        "DerrickGnC",
-        "Spyran"
-      ]
+      "text": {
+        "content": [
+          "Tempystral",
+          "GamingGuy63",
+          "Magieus",
+          "TempestMask1000",
+          "Earllgray",
+          "HazelPietro",
+          "IzzyHope58",
+          "BTF_Flotsam",
+          "Ad129",
+          "DerrickGnC"
+        ]
+      }
     },
     {
       "name": "Runners",
-      "type": "text",
       "delay": 20,
-      "data": [
-        "IzzyHope58",
-        "Sekeri",
-        "ad129",
-        "sam37_RTL",
-        "Craigelbagel",
-        "jawsomesauce",
-        "Celine Kalante Love & Friends",
-        "wintery_mix",
-        "LRock617",
-        "midnightplusone",
-        "buildnye",
-        "SuperSqank",
-        "HazelPietro",
-        "ScoobysBooty"
-      ]
+      "text": {
+        "content": [
+          "Juesto",
+          "Zachariasz455",
+          "crimSoN_TTR",
+          "IzzyHope58",
+          "Garlips",
+          "DBcade",
+          "SuperSqank",
+          "Bouzny",
+          "TempestMask1000",
+          "sandacz",
+          "janglestorm",
+          "6kirigiri9",
+          "BubbleBass",
+          "TheProfesser",
+          "ScoobysBooty",
+          "hellghast02",
+          "trysdyn",
+          "Michiz0",
+          "Bregermann",
+          "HazelPietro"
+        ]
+      }
     },
     {
       "name": "Runners",
-      "type": "text",
       "delay": 20,
-      "data": [
-        "Zachariasz455",
-        "Mageius",
-        "moogle",
-        "gamex_64",
-        "vjsmyth",
-        "KenzG",
-        "Spyran",
-        "LinkaMeister",
-        "jeakerek",
-        "spagettd",
-        "Alex G-Groove",
-        "Jamieboi1989",
-        "NickRPGreen",
-        "InfinityGene"
-      ]
+      "text": {
+        "content": [
+          "BenjaminPRO",
+          "luke_runs",
+          "KeidaKennedy",
+          "bamford",
+          "vjsmyth",
+          "spagettd",
+          "Mageius",
+          "xeelium",
+          "the_kovic",
+          "CainCalifornia",
+          "ItsBlueVR",
+          "axington123",
+          "Neetsel",
+          "sam37_RTL",
+          "mechalink",
+          "Spyran",
+          "orionytp",
+          "Coley",
+          "Clagnarok"
+        ]
+      }
     },
     {
-      "name": "Fonts Used",
-      "type": "text",
-      "delay": 10,
-      "data": [
-        "Fusion",
-        "Karnivore by Apostrophic Labs"
-      ]
+      "name": "Assets Used",
+      "delay": 5,
+      "text": {
+        "content": [
+          "Metalheart Icons Assets Pack by Cody Vondell",
+          "CSS CRT Effect by Alec Lownes",
+          "Las pinceladas en gradiente by Stephanie2212",
+          "Font: Fusion",
+          "Font: Karnivore by Apostrophic Labs"
+        ]
+      }
     },
     {
-      "name": "Assets",
-      "type": "text",
-      "delay": 10,
-      "data": [
-        "Metalheart Icons Assets Pack by Cody Vondell",
-        "CSS CRT Effect by Alec Lownes",
-        "Las pinceladas en gradiente by Stephanie2212"
-      ]
+      "name": "Together we've raised $%total% for",
+      "text": {
+        "content": []
+      },
+      "image": {
+        "path": "../assets/TLC_primaryNOTAG.svg",
+        "style": "bg-lcns-white p-4 rounded-2xl"
+      },
+      "delay": 15
+    },
+    {
+      "name": "Thank you all for a fantastic 2026",
+      "text": {
+        "content": ["See you next year!"]
+      },
+      "delay": -1
     }
   ]
 }
