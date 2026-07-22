@@ -1,1 +1,0 @@
-import{t as e}from"./template-CX0nIPlO.js";import{i as t,n}from"./constants-DNm88j6P.js";import{t as r}from"./ActiveRunPage-BQWxEh7Z.js";e(r,{players:1,ratio:n,width:80,layout:t.LAYOUT_SD});
