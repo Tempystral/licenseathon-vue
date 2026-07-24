@@ -6,5 +6,5 @@ const app = create(ActiveRunPage, {
   players: 1,
   ratio: ASPECT_3_2,
   width: 80,
-  layout: Layout.LAYOUT_SD,
+  layout: Layout.LAYOUT_GBA,
 });

@@ -4,6 +4,7 @@ export const ASPECT_3_2 = [3, 2];
 
 export enum Layout {
   LAYOUT_SD = "layout_4_3",
+  LAYOUT_GBA = "layout_3_2",
   LAYOUT_HD = "layout_16_9",
   LAYOUT_2P = "layout_race",
   LAYOUT_3P = "layout_3_way",

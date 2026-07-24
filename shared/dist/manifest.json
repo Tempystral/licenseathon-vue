@@ -1,12 +1,12 @@
 {
-  "_ActiveRunPage-BBHy3tQm.js": {
-    "file": "assets/ActiveRunPage-BBHy3tQm.js",
+  "_ActiveRunPage-CzXxkQkZ.js": {
+    "file": "assets/ActiveRunPage-CzXxkQkZ.js",
     "name": "ActiveRunPage",
     "imports": [
       "_template-CEW4Zpbr.js",
       "_vue-inline-svg.esm-Dyud--2D.js",
       "_runData-BSkaluda.js",
-      "_constants-ChLYQPPT.js",
+      "_constants-DjLt6LgT.js",
       "_CommentatorDisplayComponent-BfS-6Elv.js",
       "_CameraPanel-OMIiuNPJ.js"
     ],
@@ -65,13 +65,13 @@
     "file": "assets/CommentatorDisplayComponent-CsZmpvrm.css",
     "src": "_CommentatorDisplayComponent-CsZmpvrm.css"
   },
-  "_RacePage-DhM5z2jd.js": {
-    "file": "assets/RacePage-DhM5z2jd.js",
+  "_RacePage-V6x1VFHX.js": {
+    "file": "assets/RacePage-V6x1VFHX.js",
     "name": "RacePage",
     "imports": [
       "_template-CEW4Zpbr.js",
       "_runData-BSkaluda.js",
-      "_constants-ChLYQPPT.js",
+      "_constants-DjLt6LgT.js",
       "_CommentatorDisplayComponent-BfS-6Elv.js",
       "_RacePlayerInfoPanel-DI2PhjF4.js"
     ],
@@ -111,8 +111,12 @@
       "_template-CEW4Zpbr.js"
     ]
   },
-  "_constants-ChLYQPPT.js": {
-    "file": "assets/constants-ChLYQPPT.js",
+  "_constants-CyFbEeiJ.css": {
+    "file": "assets/constants-CyFbEeiJ.css",
+    "src": "_constants-CyFbEeiJ.css"
+  },
+  "_constants-DjLt6LgT.js": {
+    "file": "assets/constants-DjLt6LgT.js",
     "name": "constants",
     "imports": [
       "_dist-CVoL3ifj.js",
@@ -132,10 +136,6 @@
       "assets/KarnivoreDigit-QTnh7KO-.woff2",
       "assets/KarnivoreLite-PnTG27nK.woff2"
     ]
-  },
-  "_constants-CyFbEeiJ.css": {
-    "file": "assets/constants-CyFbEeiJ.css",
-    "src": "_constants-CyFbEeiJ.css"
   },
   "_dist-CVoL3ifj.js": {
     "file": "assets/dist-CVoL3ifj.js",
@@ -287,25 +287,25 @@
     ]
   },
   "src/graphics/race_16_9.ts": {
-    "file": "assets/race_16_9-Cff7zaX_.js",
+    "file": "assets/race_16_9-BV6FwGUZ.js",
     "name": "race_16_9",
     "src": "src/graphics/race_16_9.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
-      "_constants-ChLYQPPT.js",
-      "_RacePage-DhM5z2jd.js"
+      "_constants-DjLt6LgT.js",
+      "_RacePage-V6x1VFHX.js"
     ]
   },
   "src/graphics/race_3_way.ts": {
-    "file": "assets/race_3_way-0pyKqgMb.js",
+    "file": "assets/race_3_way-DMwCNEBE.js",
     "name": "race_3_way",
     "src": "src/graphics/race_3_way.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
       "_runData-BSkaluda.js",
-      "_constants-ChLYQPPT.js",
+      "_constants-DjLt6LgT.js",
       "_RacePlayerInfoPanel-DI2PhjF4.js"
     ],
     "css": [
@@ -322,14 +322,14 @@
     ]
   },
   "src/graphics/race_4_3.ts": {
-    "file": "assets/race_4_3-Cff7zaX_.js",
+    "file": "assets/race_4_3-BV6FwGUZ.js",
     "name": "race_4_3",
     "src": "src/graphics/race_4_3.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
-      "_constants-ChLYQPPT.js",
-      "_RacePage-DhM5z2jd.js"
+      "_constants-DjLt6LgT.js",
+      "_RacePage-V6x1VFHX.js"
     ]
   },
   "src/graphics/setup.ts": {
@@ -359,36 +359,36 @@
     ]
   },
   "src/graphics/solo_16_9.ts": {
-    "file": "assets/solo_16_9-D_A4b99I.js",
+    "file": "assets/solo_16_9-BJ9gE2IS.js",
     "name": "solo_16_9",
     "src": "src/graphics/solo_16_9.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
-      "_constants-ChLYQPPT.js",
-      "_ActiveRunPage-BBHy3tQm.js"
+      "_constants-DjLt6LgT.js",
+      "_ActiveRunPage-CzXxkQkZ.js"
     ]
   },
   "src/graphics/solo_4_3.ts": {
-    "file": "assets/solo_4_3-BzgWNuUH.js",
+    "file": "assets/solo_4_3-BrGw17wE.js",
     "name": "solo_4_3",
     "src": "src/graphics/solo_4_3.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
-      "_constants-ChLYQPPT.js",
-      "_ActiveRunPage-BBHy3tQm.js"
+      "_constants-DjLt6LgT.js",
+      "_ActiveRunPage-CzXxkQkZ.js"
     ]
   },
   "src/graphics/solo_GBA.ts": {
-    "file": "assets/solo_GBA-B_RseQNj.js",
+    "file": "assets/solo_GBA-Bl9s4wJq.js",
     "name": "solo_GBA",
     "src": "src/graphics/solo_GBA.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
-      "_constants-ChLYQPPT.js",
-      "_ActiveRunPage-BBHy3tQm.js"
+      "_constants-DjLt6LgT.js",
+      "_ActiveRunPage-CzXxkQkZ.js"
     ]
   },
   "src/graphics/splash.ts": {

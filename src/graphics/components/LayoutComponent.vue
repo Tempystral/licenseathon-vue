@@ -56,6 +56,15 @@ const layouts = {
     cols: "empty 1fr 1fr",
   },
 
+  layout_3_2: {
+    grid: `
+  "left main main"
+  "left main main"
+  "left foot foot"`,
+    rows: "1fr 1fr empty",
+    cols: "empty 1fr 1fr",
+  },
+
   layout_16_9: {
     grid: `
   "left top  top"

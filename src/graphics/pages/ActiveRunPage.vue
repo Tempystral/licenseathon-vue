@@ -50,7 +50,10 @@ const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
       <div class="flex flex-col gap-2 h-full max-w-full">
         <CameraPanel v-if="runners[0]" class="shrink" :runner="runners[0]" />
         <CommentatorDisplayComponent orientation="vertical" class="grow" />
-        <LogoContainer v-if="layout === 'layout_4_3'" class="shrink" />
+        <LogoContainer
+          v-if="layout === 'layout_4_3' || layout === 'layout_3_2'"
+          class="shrink"
+        />
         <div id="spacer" class="grow"></div>
         <div id="game-info-panel" class="flex flex-wrap">
           <EstimateDisplay
@@ -66,7 +69,11 @@ const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
             />
           </div>
           <TimerPanel v-else :runData />
-          <GameInfo :runData class="shrink" v-if="layout === 'layout_4_3'" />
+          <GameInfo
+            :runData
+            class="shrink"
+            v-if="layout === 'layout_4_3' || layout === 'layout_3_2'"
+          />
         </div>
       </div>
     </template>
