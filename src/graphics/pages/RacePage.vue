@@ -63,7 +63,7 @@ const width = computed(() => widths[props.numPlayers]);
         style="grid-template-columns: repeat(3, minmax(0, 1fr))"
       >
         <div id="game-info-panel" class="flex flex-wrap h-10/12">
-          <EstimateDisplay side="left" />
+          <EstimateDisplay :time="runData?.estimate" side="left" />
           <TimerPanel :runData />
           <GameInfo :runData class="shrink" />
         </div>

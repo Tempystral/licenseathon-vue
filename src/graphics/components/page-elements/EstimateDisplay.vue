@@ -4,7 +4,10 @@ import InlineSvg from "vue-inline-svg";
 import TextBox from "../text/TextBox.vue";
 import TextLabel from "../text/TextLabel.vue";
 
-const { side = "right" } = defineProps<{ side: "left" | "right" | "center" }>();
+const { side = "right", time } = defineProps<{
+  time: string | undefined;
+  side: "left" | "right" | "center";
+}>();
 
 const knobPath = new URL("../../assets/knob.svg", import.meta.url).href;
 const knob = ref<SVGElement | null>(null);
@@ -24,7 +27,7 @@ const styles = {
     <div class="relative p-2 h-full flex gap-2 items-end">
       <InlineSvg :src="knobPath" ref="knob" class="h-10" />
       <TextLabel text="ESTIMATE" position="top" align="start" class="grow">
-        <TextBox theme="lcd2" class="w-full"> 1:00:00 </TextBox>
+        <TextBox theme="lcd2" class="w-full"> {{ time }} </TextBox>
       </TextLabel>
     </div>
   </div>

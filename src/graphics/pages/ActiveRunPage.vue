@@ -54,6 +54,7 @@ const cornerPath = new URL("../assets/corner.svg", import.meta.url).href;
         <div id="spacer" class="grow"></div>
         <div id="game-info-panel" class="flex flex-wrap">
           <EstimateDisplay
+            :time="runData?.estimate"
             :side="layout === 'layout_4_3' ? 'left' : 'center'"
             class="ml-2"
           />

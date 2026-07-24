@@ -57,7 +57,7 @@ const width = getWidth(height, props.ratio);
         />
         <LogoContainer />
         <div id="game-info-panel" class="flex flex-wrap basis-[30%]">
-          <EstimateDisplay side="left" />
+          <EstimateDisplay :time="runData?.estimate" side="left" />
           <TimerPanel :runData />
           <GameInfo :runData class="shrink" />
         </div>
