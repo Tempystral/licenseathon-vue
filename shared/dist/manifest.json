@@ -1,6 +1,6 @@
 {
-  "_ActiveRunPage-CzXxkQkZ.js": {
-    "file": "assets/ActiveRunPage-CzXxkQkZ.js",
+  "_ActiveRunPage-CqtxIMsy.js": {
+    "file": "assets/ActiveRunPage-CqtxIMsy.js",
     "name": "ActiveRunPage",
     "imports": [
       "_template-CEW4Zpbr.js",
@@ -11,7 +11,7 @@
       "_CameraPanel-OMIiuNPJ.js"
     ],
     "css": [
-      "assets/race_3_way-BktpW-JD.css"
+      "assets/RacePage-BktpW-JD.css"
     ],
     "assets": [
       "assets/Fusion-DM-HRgC-.woff2",
@@ -65,8 +65,12 @@
     "file": "assets/CommentatorDisplayComponent-CsZmpvrm.css",
     "src": "_CommentatorDisplayComponent-CsZmpvrm.css"
   },
-  "_RacePage-V6x1VFHX.js": {
-    "file": "assets/RacePage-V6x1VFHX.js",
+  "_RacePage-BktpW-JD.css": {
+    "file": "assets/RacePage-BktpW-JD.css",
+    "src": "_RacePage-BktpW-JD.css"
+  },
+  "_RacePage-C2mqcT3Z.js": {
+    "file": "assets/RacePage-C2mqcT3Z.js",
     "name": "RacePage",
     "imports": [
       "_template-CEW4Zpbr.js",
@@ -76,7 +80,7 @@
       "_RacePlayerInfoPanel-DI2PhjF4.js"
     ],
     "css": [
-      "assets/race_3_way-BktpW-JD.css"
+      "assets/RacePage-BktpW-JD.css"
     ],
     "assets": [
       "assets/Fusion-DM-HRgC-.woff2",
@@ -95,6 +99,28 @@
       "_template-CEW4Zpbr.js",
       "_runData-BSkaluda.js",
       "_svg-icon-BQTG7xor.js"
+    ]
+  },
+  "_ThreeWay-BH-vo50w.js": {
+    "file": "assets/ThreeWay-BH-vo50w.js",
+    "name": "ThreeWay",
+    "imports": [
+      "_template-CEW4Zpbr.js",
+      "_runData-BSkaluda.js",
+      "_constants-DjLt6LgT.js",
+      "_RacePlayerInfoPanel-DI2PhjF4.js"
+    ],
+    "css": [
+      "assets/RacePage-BktpW-JD.css"
+    ],
+    "assets": [
+      "assets/Fusion-DM-HRgC-.woff2",
+      "assets/Karnivore-DS1QiLWx.woff2",
+      "assets/Karnivore-Bold-DII76D3g.woff2",
+      "assets/KarnivoreBlack-EIUXNt2G.woff2",
+      "assets/KarnivoreDigit-QTnh7KO-.woff2",
+      "assets/KarnivoreLite-PnTG27nK.woff2",
+      "assets/background-2_kOoUL2.png"
     ]
   },
   "_TransitionList-C4veyuby.js": {
@@ -287,49 +313,47 @@
     ]
   },
   "src/graphics/race_16_9.ts": {
-    "file": "assets/race_16_9-BV6FwGUZ.js",
+    "file": "assets/race_16_9-B9r9oTXM.js",
     "name": "race_16_9",
     "src": "src/graphics/race_16_9.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
       "_constants-DjLt6LgT.js",
-      "_RacePage-V6x1VFHX.js"
+      "_RacePage-C2mqcT3Z.js"
     ]
   },
   "src/graphics/race_3_way.ts": {
-    "file": "assets/race_3_way-DMwCNEBE.js",
+    "file": "assets/race_3_way-D1WEelVD.js",
     "name": "race_3_way",
     "src": "src/graphics/race_3_way.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
-      "_runData-BSkaluda.js",
       "_constants-DjLt6LgT.js",
-      "_RacePlayerInfoPanel-DI2PhjF4.js"
-    ],
-    "css": [
-      "assets/race_3_way-BktpW-JD.css"
-    ],
-    "assets": [
-      "assets/Fusion-DM-HRgC-.woff2",
-      "assets/Karnivore-DS1QiLWx.woff2",
-      "assets/Karnivore-Bold-DII76D3g.woff2",
-      "assets/KarnivoreBlack-EIUXNt2G.woff2",
-      "assets/KarnivoreDigit-QTnh7KO-.woff2",
-      "assets/KarnivoreLite-PnTG27nK.woff2",
-      "assets/background-2_kOoUL2.png"
+      "_ThreeWay-BH-vo50w.js"
     ]
   },
   "src/graphics/race_4_3.ts": {
-    "file": "assets/race_4_3-BV6FwGUZ.js",
+    "file": "assets/race_4_3-B9r9oTXM.js",
     "name": "race_4_3",
     "src": "src/graphics/race_4_3.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
       "_constants-DjLt6LgT.js",
-      "_RacePage-V6x1VFHX.js"
+      "_RacePage-C2mqcT3Z.js"
+    ]
+  },
+  "src/graphics/race_bingo.ts": {
+    "file": "assets/race_bingo-DSLoma78.js",
+    "name": "race_bingo",
+    "src": "src/graphics/race_bingo.ts",
+    "isEntry": true,
+    "imports": [
+      "_template-CEW4Zpbr.js",
+      "_constants-DjLt6LgT.js",
+      "_ThreeWay-BH-vo50w.js"
     ]
   },
   "src/graphics/setup.ts": {
@@ -359,36 +383,36 @@
     ]
   },
   "src/graphics/solo_16_9.ts": {
-    "file": "assets/solo_16_9-BJ9gE2IS.js",
+    "file": "assets/solo_16_9-BDutmM1-.js",
     "name": "solo_16_9",
     "src": "src/graphics/solo_16_9.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
       "_constants-DjLt6LgT.js",
-      "_ActiveRunPage-CzXxkQkZ.js"
+      "_ActiveRunPage-CqtxIMsy.js"
     ]
   },
   "src/graphics/solo_4_3.ts": {
-    "file": "assets/solo_4_3-BrGw17wE.js",
+    "file": "assets/solo_4_3-jBWWmdHD.js",
     "name": "solo_4_3",
     "src": "src/graphics/solo_4_3.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
       "_constants-DjLt6LgT.js",
-      "_ActiveRunPage-CzXxkQkZ.js"
+      "_ActiveRunPage-CqtxIMsy.js"
     ]
   },
   "src/graphics/solo_GBA.ts": {
-    "file": "assets/solo_GBA-Bl9s4wJq.js",
+    "file": "assets/solo_GBA-B8aKYGUN.js",
     "name": "solo_GBA",
     "src": "src/graphics/solo_GBA.ts",
     "isEntry": true,
     "imports": [
       "_template-CEW4Zpbr.js",
       "_constants-DjLt6LgT.js",
-      "_ActiveRunPage-CzXxkQkZ.js"
+      "_ActiveRunPage-CqtxIMsy.js"
     ]
   },
   "src/graphics/splash.ts": {

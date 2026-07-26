@@ -1,0 +1,1 @@
+import{t as e}from"./template-CEW4Zpbr.js";import{r as t}from"./constants-DjLt6LgT.js";import{t as n}from"./ThreeWay-BH-vo50w.js";e(n,{numPlayers:3,ratio:t,options:{bingo:!0}});

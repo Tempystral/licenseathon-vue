@@ -23,6 +23,7 @@ import { getWidth } from "../util/helpers.js";
 const props = defineProps<{
   numPlayers: number;
   ratio: [number, number];
+  options?: { bingo: boolean };
 }>();
 
 const { runners, runData } = withRunData();
@@ -82,7 +83,10 @@ const width = getWidth(height, props.ratio);
     <template #footer>
       <div class="flex flex-col gap-8 h-full max-w-full items-end">
         <div
-          class="w-full flex flex-col justify-center gap-16"
+          class="w-full flex flex-col"
+          :class="
+            options?.bingo ? 'gap-8 justify-start' : 'gap-16 justify-center'
+          "
           :style="`flex-basis: ${height}em`"
         >
           <RacePlayerInfoPanel
@@ -101,7 +105,10 @@ const width = getWidth(height, props.ratio);
             class="w-8/12 self-end"
           />
         </div>
-        <div class="grow w-full flex flex-col items-end">
+        <div
+          class="grow w-full flex flex-col items-end"
+          :class="options?.bingo ? 'justify-end' : ''"
+        >
           <RacePlayerInfoPanel
             v-if="runners[2]"
             :runner="runners[2]"
